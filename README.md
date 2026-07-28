@@ -4,14 +4,14 @@ Reproduction material for running [fabric-rlm](https://github.com/pawarbi/fabric
 against [AIDABench](https://github.com/MichaelYang-lyx/AIDABench)
 ([arXiv 2603.15636](https://arxiv.org/abs/2603.15636)).
 
-Everything here exists so the numbers can be checked rather than taken on trust:
-the runner, both graders, every trajectory, and the calibration that says how far
-our cheap grader can be trusted against the official one.
+This holds the runner, both graders, every trajectory, and the calibration
+measuring how far our cheap grader agrees with the official one, so anyone can
+check the numbers or repeat the runs.
 
 ![AIDABench accuracy vs cost per task](assets/aida-benchmark.png)
 
-Costs are estimated, not observed — see [Cost estimates](#cost-estimates) for the
-method and its biases. `assets/chart.html` regenerates the figure.
+Costs are estimated rather than observed. See [Cost estimates](#cost-estimates)
+for the method and its biases. `assets/chart.html` regenerates the figure.
 
 ---
 
@@ -59,8 +59,8 @@ above; only the paired comparison is meaningful.
 None beats M3. **DeepSeek V4 Flash matches it at 40% of the cost** with 6.4x the
 context window, which makes it the better default on price. V4 Pro costs 1.3x
 Flash for nominally fewer passes. Gemini 3.6 Flash is the only model that fits
-the harness differently — 9.2 turns against M3's 6.7 — and the only one that
-scored worse.
+the harness differently, taking 9.2 turns against M3's 6.7, and it is also the
+only one that scored worse.
 
 At n=60 with a measured 84% self-agreement between identical runs, these rule
 out large differences and nothing finer.
@@ -69,7 +69,7 @@ out large differences and nothing finer.
 
 Not run. The deliverable is a chart image graded on presentation rubrics, which
 needs a vision-capable judge and chart-construction guidance that fabric-rlm does
-not ship. Out of scope, not a result.
+not ship. It was out of scope rather than attempted and failed.
 
 ---
 
@@ -88,7 +88,7 @@ skill         excel_modify (file generation) / data_exploration (QA)
 context       first 5 rows of each input file, for orientation
 ```
 
-The input preview is deliberately leak-free. `eval_area` — the graded cell range —
+The input preview is deliberately leak-free. `eval_area`, the graded cell range,
 is a grading detail the model is never told; only 1 of 261 questions states its
 own range. Passing it in would hand over the answer location. The preview shows
 only what a person sees on opening the file.
@@ -98,7 +98,7 @@ only what a person sees on opening the file.
 Two graders, because they measure different things:
 
 **The official evaluator** (`scripts/aida_official_eval.py`) runs AIDABench's own
-`FileEvaluatorAgent` unmodified — Claude Sonnet 4.5 as an agent with up to 30
+`FileEvaluatorAgent` unmodified: Claude Sonnet 4.5 as an agent with up to 30
 rounds, executing Python to inspect both workbooks directly. This is the
 instrument that produced their published table. It costs roughly **$0.50/task**,
 so a full 251-task pass is about $125.
@@ -116,20 +116,20 @@ We ran the official evaluator on a **62-task random sample** and compared:
 
 **Agreement 75.8%, Cohen's kappa 0.506, net bias +1.6 points.**
 
-Read that carefully: the errors cancel in aggregate but not per task. Our judge
-is usable for a population estimate and **not** usable for deciding whether any
-individual task passed. Raw verdicts from both are in `calibration/`.
+The errors cancel in aggregate but not per task, so our judge is usable for a
+population estimate and not for deciding whether any individual task passed. Raw
+verdicts from both are in `calibration/`.
 
 A third grader, cell-exact comparison over `eval_area`, is recorded in the
-results but is **not comparable to anything AIDABench publishes** — their
+results but is not comparable to anything AIDABench publishes, because their
 evaluator ignores `eval_area` entirely. It exists here as a debugging instrument;
 the gap between it and the judges is what exposed most of the harness bugs listed
 below.
 
 ### QA grading
 
-AIDABench's `eval_QA.py`, unmodified — a single chat completion scoring 0 or 1
-against the reference answer.
+AIDABench's `eval_QA.py`, unmodified. It is a single chat completion scoring 0 or
+1 against the reference answer.
 
 Their configured grader, `qwq-32b`, is no longer served by OpenRouter, so a
 substitute was required. We ran two of different size to check the number is
@@ -141,8 +141,8 @@ about the run rather than the grader:
 | Gemma-4-31B (closest in class to their 32B qwq) | 66.2% |
 
 **Agreement 94.6%, kappa 0.881** on 223 shared tasks (McNemar p=0.146). We quote
-**63.6%** — the stricter grader, over the full task set. The honest band is
-63–66%.
+63.6%, which is the stricter grader over the full task set. The honest band is 63
+to 66%.
 
 ### Cost estimates
 
@@ -152,8 +152,8 @@ published OpenRouter rate on 2026-07-27:
 - file generation: 64,955 prompt + 2,820 completion tokens/task
 - QA: 35,175 prompt + 1,074 completion tokens/task
 
-This is a same-workload comparison, not observed spend — AIDABench published no
-cost figures. Three things bias it, all in the same direction:
+This is a same-workload comparison rather than observed spend, since AIDABench
+published no cost figures. Three things bias it, all in the same direction:
 
 - **Thinking models are undercharged.** They emit far more output than we do.
   Measured directly: Gemini 3.6 Flash used 5,879 completion tokens/task against
@@ -172,8 +172,8 @@ cost figures. Three things bias it, all in the same direction:
 - **Single seed.** Two identical M3 runs on the same 91 tasks agreed on only
   **84%** of them. Anything under ~10 points is inside run-to-run noise at these
   sample sizes.
-- **10 of 261 file-generation tasks excluded** as ungradable — `eval_area` names
-  a sheet absent from the reference for reasons no parser can resolve. Their
+- **10 of 261 file-generation tasks excluded** as ungradable, because `eval_area`
+  names a sheet absent from the reference for reasons no parser can resolve. Their
   numbers presumably cover the full split. Excluded ids are printed by the runner
   and listed in `results/`.
 - **235 of 251 file-generation tasks completed.** The rest were lost to harness
@@ -183,9 +183,9 @@ cost figures. Three things bias it, all in the same direction:
 
 ## Things that went wrong, and what they cost
 
-Recorded because a benchmark without its failures is a marketing document. Every
-one of these made fabric-rlm look worse than it is, and each was invisible until
-individual cells were inspected.
+These are recorded because leaving them out would make the numbers look more
+solid than they are. Every one made fabric-rlm score worse than it should have,
+and none was visible until individual cells were inspected.
 
 | what | effect |
 |---|---|
@@ -195,13 +195,13 @@ individual cells were inspected.
 | Numbers compared as strings | reference `"66.0"` vs produced `66` scored as a mismatch |
 | `reference_file` read as one filename | it is a newline-separated list; 13 tasks silently excluded |
 | Only openpyxl used for grading | 8% of outputs are csv/xls; failed on format alone |
-| Benchmark data under OneDrive | official evaluator's sandbox refuses that path — produced a **fake 18.4%** and cost $45 |
+| Benchmark data under OneDrive | official evaluator's sandbox refuses that path, producing a fake 18.4% at a cost of $45 |
 
 Two runs were also destroyed by concurrent writes to the same results file, and
-one died on a Windows console encoding error 103 tasks in. Traces survived every
-incident — one file per task, written once — which is why `rebuild_results.py`
-can reconstruct a run's results without re-running anything. That is the single
-design decision here worth copying.
+one died on a Windows console encoding error 103 tasks in. Traces survived every incident,
+being one file per task written once, which is why `rebuild_results.py` can
+reconstruct a run's results without re-running anything. If you build something
+similar, that is the part to copy.
 
 ---
 
@@ -225,9 +225,9 @@ python scripts/aida_official_eval.py --run my-run --sample 60  # official, ~$30
 python scripts/aida_qa_eval.py --run my-qa-run --grader google/gemma-4-31b-it
 ```
 
-`AIDA_EVAL_ROOT` must point at a path **outside OneDrive** — the official
-evaluator's sandbox refuses to read OneDrive directories and will fail every task
-it cannot open.
+`AIDA_EVAL_ROOT` must point at a path outside OneDrive. The official evaluator's
+sandbox refuses to read OneDrive directories and will fail every task it cannot
+open.
 
 ---
 
@@ -243,7 +243,7 @@ skills/       docx_documents.md, a custom skill used for Word inputs
 
 A trace holds the exact prompt, every code block the model ran, what the sandbox
 printed back, and per-turn token and timing counters. Generated workbooks are not
-included — 202 MB per run — but re-running any single task regenerates them.
+included, at 202 MB per run, but re-running any single task regenerates them.
 
 ## Licence and attribution
 
