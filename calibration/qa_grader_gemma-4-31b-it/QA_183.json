@@ -1,0 +1,17 @@
+{
+  "id": "QA_183",
+  "answer": "Total line-on quantity of range hoods (from 'Daily record sheet'): 1151 (across 40 rows).",
+  "model_response": "Total line-on quantity of range hoods (from 'Daily record sheet'): 1151 (across 40 rows).",
+  "reference": 1151,
+  "rubrics": null,
+  "question": "What is the total line-on quantity of range hoods?\n",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 19680,
+  "completion_tokens": 402,
+  "elapsed_seconds": 9.19,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果 1151 与参考答案完全一致。"
+}

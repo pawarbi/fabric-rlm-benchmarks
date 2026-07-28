@@ -1,0 +1,17 @@
+{
+  "id": "QA_85",
+  "answer": "Top 10 Companies by Occurrence Count:\nCompany_18: 11\nCompany_6: 6\nCompany_14: 4\nCompany_1: 3\nCompany_2: 3\nCompany_9: 3\nCompany_4: 2\nCompany_5: 2\nCompany_16: 2\nCompany_20: 2",
+  "model_response": "Top 10 Companies by Occurrence Count:\nCompany_18: 11\nCompany_6: 6\nCompany_14: 4\nCompany_1: 3\nCompany_2: 3\nCompany_9: 3\nCompany_4: 2\nCompany_5: 2\nCompany_16: 2\nCompany_20: 2",
+  "reference": "│ --- Company Code Occurrence Statistics ---                                                  │\n│ Company Code: Company_18, Occurrences: 11                                               │\n│ Company Code: Company_6, Occurrences: 6                                                 │\n│ Company Code: Company_14, Occurrences: 4                                                │\n│ Company Code: Company_1, Occurrences: 3                                                 │\n│ Company Code: Company_2, Occurrences: 3                                                 │\n│ Company Code: Company_9, Occurrences: 3                                                 │\n│ Company Code: Company_4, Occurrences: 2                                                 │\n│ Company Code: Company_5, Occurrences: 2                                                 │\n│ Company Code: Company_11, Occurrences: 2                                                │\n│ Company Code: Company_12, Occurrences: 2 ",
+  "rubrics": null,
+  "question": "Count the occurrences of each distinct company in the \"Company Name\" column (or the column whose semantics most closely matches \"Company Name\") in the table. Sort by occurrence count from highest to lowest, and output the top 10 companies and their occurrence counts. If the total number of companies is fewer than 10, output all of them. The output contains two fields: the first is \"Company Name\", and the second is \"Occurrence Count\".",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.91,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型答案在出现次数为2的公司中错误地输出了Company_16和Company_20，而参考答案中应为Company_11和Company_12。这属于统计数据的明显偏差，不符合统计类题目要求的严格对应标准。"
+}

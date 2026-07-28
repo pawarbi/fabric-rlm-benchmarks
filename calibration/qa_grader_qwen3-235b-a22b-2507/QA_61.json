@@ -1,0 +1,17 @@
+{
+  "id": "QA_61",
+  "answer": "78622246.44",
+  "model_response": "78622246.44",
+  "reference": 78622246.44,
+  "rubrics": "The answer must be completely accurate to be considered correct",
+  "question": "Calculate the total actual amount received for all products in this table. Include negative values in the calculation (negative numbers participate in the sum at their actual negative values). Output the result as a single numeric value rounded to 2 decimal places. Do not exclude any rows during the calculation — rows with null values, duplicate rows, and outlier rows all participate in the calculation (null values are treated as 0).",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 16717,
+  "completion_tokens": 333,
+  "elapsed_seconds": 8.7,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案完全一致，均为78622246.44，且题目要求计算所有产品的实际到账总额，包含负值、null值（视为0）和重复行，AI模型的计算结果符合要求。根据评分标准，统计类题目要求计算结果与参考答案基本一致，四舍五入后相同且数据严格对应即为正确，因此得分为1分。"
+}

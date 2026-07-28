@@ -1,0 +1,17 @@
+{
+  "id": "QA_132",
+  "answer": "Total product data records: 302",
+  "model_response": "Total product data records: 302",
+  "reference": "300 entries",
+  "rubrics": null,
+  "question": "How many product data records are there in total?",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 5774,
+  "completion_tokens": 18,
+  "elapsed_seconds": 2.12,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "根据参考答案，正确的记录总数应为300条，而AI模型的答案为302条，与参考答案存在明显差异。尽管数据相差较小，但统计类题目要求数据严格对应，因此判定为0分。"
+}

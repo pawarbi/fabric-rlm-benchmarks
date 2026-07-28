@@ -1,0 +1,17 @@
+{
+  "id": "QA_181",
+  "answer": "The Mid-size Van Market contains 9 vehicle models:\n1. Vehicle Type 013\n2. Vehicle Type 014\n3. Vehicle Type 015\n4. Vehicle Type 016\n5. Vehicle Type 017\n6. Vehicle Type 018\n7. Vehicle Type 019\n8. Vehicle Type 020\n9. Vehicle Type 021",
+  "model_response": "The Mid-size Van Market contains 9 vehicle models:\n1. Vehicle Type 013\n2. Vehicle Type 014\n3. Vehicle Type 015\n4. Vehicle Type 016\n5. Vehicle Type 017\n6. Vehicle Type 018\n7. Vehicle Type 019\n8. Vehicle Type 020\n9. Vehicle Type 021",
+  "reference": "Vehicle Model 013, Vehicle Model 014, Vehicle Model 015, Vehicle Model 016, Vehicle Model 017, Vehicle Model 018, Vehicle Model 019, Vehicle Model 020, Vehicle Model 021",
+  "rubrics": null,
+  "question": "What vehicle models are available in the Mid-size Van Market?",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 20237,
+  "completion_tokens": 394,
+  "elapsed_seconds": 7.69,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型列出的车型编号（013-021）与参考答案完全一致，完整覆盖了所有核心要点。"
+}

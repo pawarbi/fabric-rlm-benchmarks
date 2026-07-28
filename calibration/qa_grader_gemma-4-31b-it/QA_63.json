@@ -1,0 +1,17 @@
+{
+  "id": "QA_63",
+  "answer": "Mean CO2 emissions (per-second data, rounded to nearest whole number):\n- 2100 heads: 1070\n- 1800 heads: 2292\n- 1500 heads: 973\n- 1200 heads: 1892",
+  "model_response": "Mean CO2 emissions (per-second data, rounded to nearest whole number):\n- 2100 heads: 1070\n- 1800 heads: 2292\n- 1500 heads: 973\n- 1200 heads: 1892",
+  "reference": "2100 heads: 1070\n1800 heads: 2292\n1500 heads: 973\n1200 heads: 1892",
+  "rubrics": null,
+  "question": "This is data of 4 groups of CO2 emissions measured at 15-minute intervals. Using per-second data, calculate the mean values for \"2100 heads\", \"1800 heads\", \"1500 heads\", and \"1200 heads\", rounded to the nearest whole number.\n ",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 18634,
+  "completion_tokens": 765,
+  "elapsed_seconds": 10.32,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型给出的四个组别的平均值计算结果与参考答案完全一致。"
+}

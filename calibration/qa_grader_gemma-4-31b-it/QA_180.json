@@ -1,0 +1,17 @@
+{
+  "id": "QA_180",
+  "answer": "30",
+  "model_response": "30",
+  "reference": 30,
+  "rubrics": null,
+  "question": "Help me count the number of CO₂ welding machines in the Segmented Fabrication Department",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17173,
+  "completion_tokens": 950,
+  "elapsed_seconds": 14.38,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果与参考答案完全一致。"
+}

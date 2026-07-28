@@ -1,0 +1,17 @@
+{
+  "id": "QA_220",
+  "answer": "Note: The dataset only contains \"Starter Stage\" and \"Growth Stage\" surveys — no survey named \"Enlightenment\" exists. The Starter Stage is treated as the Enlightenment stage per the task wording (best available match).\n\n| Stage (per question)        | Campus    | # Students | Avg Total Questionnaire Score |\n|-----------------------------|-----------|-----------:|------------------------------:|\n| Enlightenment (Starter)     | Campus 2  |         23 |                        49.48  |\n| Growth                      | Campus 1  |          9 |                        49.00  |\n| Growth                      | Campus 3  |          4 |                        50.00  |\n\nTotals per stage (across campuses):\n- Enlightenment (Starter Stage): 23 students, average Total Questionnaire Score = 49.48\n- Growth Stage: 13 students total (Campus 1: 9 @ 49.00; Campus 3: 4 @ 50.00), combined average = 49.31\n",
+  "model_response": "Note: The dataset only contains \"Starter Stage\" and \"Growth Stage\" surveys — no survey named \"Enlightenment\" exists. The Starter Stage is treated as the Enlightenment stage per the task wording (best available match).\n\n| Stage (per question)        | Campus    | # Students | Avg Total Questionnaire Score |\n|-----------------------------|-----------|-----------:|------------------------------:|\n| Enlightenment (Starter)     | Campus 2  |         23 |                        49.48  |\n| Growth                      | Campus 1  |          9 |                        49.00  |\n| Growth                      | Campus 3  |          4 |                        50.00  |\n\nTotals per stage (across campuses):\n- Enlightenment (Starter Stage): 23 students, average Total Questionnaire Score = 49.48\n- Growth Stage: 13 students total (Campus 1: 9 @ 49.00; Campus 3: 4 @ 50.00), combined average = 49.31\n",
+  "reference": "| Stage | Campus | Number of Students | Average Questionnaire Score (Average Total Score) |\n| ---- | --- | ---: | ----------: |\n| Enlightenment Stage | Campus 2 | 24 | 49.5 |\n| Growth Stage | Campus 1 | 12 | 49 |\n| Growth Stage | Campus 3 | 4 | 50.00 |",
+  "rubrics": null,
+  "question": "Present in table form: the Campus, number of students, and average questionnaire score (based on the Total Questionnaire Score column) corresponding to the Enlightenment and Growth stages respectively",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 7080,
+  "completion_tokens": 224,
+  "elapsed_seconds": 5.59,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型将Starter Stage合理视为Enlightenment Stage，但在统计数据上与参考答案存在明显差异：Enlightenment Stage中Campus 2的学生数为23，而参考答案为24；Growth Stage中Campus 1的学生数为9，而参考答案为12。这些统计数字的差异属于实质性错误，不符合评分标准中对统计类题目要求的‘基本一致’，因此得分为0分。"
+}

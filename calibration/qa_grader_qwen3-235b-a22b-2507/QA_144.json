@@ -1,0 +1,17 @@
+{
+  "id": "QA_144",
+  "answer": "Recruitment Headcounts (sum of Recruitment Headcount column for the school):\n- School_2e04161b: 8 (across 6 positions)\n- School_90a8438c: 4 (across 4 positions)\n- School_db7c5a92: 4 (across 4 positions)\n- School_5ab47622: 6 (across 4 positions)",
+  "model_response": "Recruitment Headcounts (sum of Recruitment Headcount column for the school):\n- School_2e04161b: 8 (across 6 positions)\n- School_90a8438c: 4 (across 4 positions)\n- School_db7c5a92: 4 (across 4 positions)\n- School_5ab47622: 6 (across 4 positions)",
+  "reference": "In this recruitment, School_2e04161b plans to recruit 6 people, while School_90a8438c, School_db7c5a92, and School_5ab47622 each recruit 4 people",
+  "rubrics": null,
+  "question": "What are the respective Recruitment Headcounts for School_2e04161b, School_90a8438c, School_db7c5a92, and School_5ab47622?",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17974,
+  "completion_tokens": 484,
+  "elapsed_seconds": 7.49,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型答案中的School_2e04161b和School_5ab47622的招聘人数与参考答案不一致。参考答案指出School_2e04161b计划招聘6人，而AI模型回答为8人；School_5ab47622应为4人，AI模型回答为6人。尽管School_90a8438c和School_db7c5a92正确，但整体存在明显数据偏差，未基本一致，因此判定为0分。"
+}

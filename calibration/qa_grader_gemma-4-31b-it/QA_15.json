@@ -1,0 +1,17 @@
+{
+  "id": "QA_15",
+  "answer": "| Business Unit | Task Completion Rate |\n|---|---|\n| Aer Rou Division 3 | 96.81% |\n| Aipu Oumi Division 2 | 86.11% |\n| Aer Rou Division 9 | 81.82% |\n| Deer Tao Division 10 | 58.76% |\n| Kapa Kexi Division 7 | 54.43% |\n| Deer Rou Division 7 | 49.33% |\n| Beta Tao Division 2 | 44.44% |\n| Beta Niu Division 9 | 43.64% |\n| Aer Pai Division 1 | 41.67% |\n| Beta Kexi Division 7 | 16.98% |\n| Aer Rou Division 8 | 14.81% |\n| Aipulam Division 2 | 9.20% |\n| Gamma Tao Division 5 | 1.89% |\n| Yita Yu Division 7 | 0.00% |\n",
+  "model_response": "| Business Unit | Task Completion Rate |\n|---|---|\n| Aer Rou Division 3 | 96.81% |\n| Aipu Oumi Division 2 | 86.11% |\n| Aer Rou Division 9 | 81.82% |\n| Deer Tao Division 10 | 58.76% |\n| Kapa Kexi Division 7 | 54.43% |\n| Deer Rou Division 7 | 49.33% |\n| Beta Tao Division 2 | 44.44% |\n| Beta Niu Division 9 | 43.64% |\n| Aer Pai Division 1 | 41.67% |\n| Beta Kexi Division 7 | 16.98% |\n| Aer Rou Division 8 | 14.81% |\n| Aipulam Division 2 | 9.20% |\n| Gamma Tao Division 5 | 1.89% |\n| Yita Yu Division 7 | 0.00% |\n",
+  "reference": "   Business Unit  Task Completion Rate\n Alerrou Division 3 96.81%\n Apuomi Division 2 86.11%\n Alerrou Division 9 81.82%\n Deltao Division 10 58.76%\n Kapakxi Division 7 54.43%\n Delrou Division 7 49.33%\n Betaotao Division 2 44.44%\n Betaniu Division 9 43.64%\n Alpai Division 1 41.67%\n Betakxi Division 7 16.98%\n Alerrou Division 8 14.81%\n Apulam Division 2  9.20%\n Gamatao Division 5  1.89%\n Etayu Division 7  0.00%",
+  "rubrics": null,
+  "question": "Calculate the Task Completion Rate by Business Unit dimension (defined as: actual completed value ÷ target value × 100%), sort the results in descending order by completion rate, retain 2 decimal places and display in percentage format, and output a table containing the \"Business Unit\" and \"Task Completion Rate\" columns.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.93,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果（完成率数值）与参考答案完全一致，排序正确，且符合要求的表格格式和百分比显示方式。虽然业务部门名称存在轻微的拼写差异，但核心统计数据准确无误。"
+}

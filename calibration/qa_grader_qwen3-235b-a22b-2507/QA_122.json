@@ -1,0 +1,17 @@
+{
+  "id": "QA_122",
+  "answer": "Confidence from Traditional Chinese Medicine 073 -> Traditional Chinese Medicine 001 = 15/24 = 0.625 = 62.50%",
+  "model_response": "Confidence from Traditional Chinese Medicine 073 -> Traditional Chinese Medicine 001 = 15/24 = 0.625 = 62.50%",
+  "reference": 0.625,
+  "rubrics": null,
+  "question": "What is the confidence level from \"Traditional Chinese Medicine 073\" to \"Traditional Chinese Medicine 001\"?",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 24378,
+  "completion_tokens": 1045,
+  "elapsed_seconds": 12.97,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案计算结果为0.625，与参考答案完全一致，且计算过程正确，符合统计类题目打分标准中得1分的要求。"
+}

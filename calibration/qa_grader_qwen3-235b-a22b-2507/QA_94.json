@@ -1,0 +1,17 @@
+{
+  "id": "QA_94",
+  "answer": "1713.74",
+  "model_response": "1713.74",
+  "reference": "1713.74 Mb",
+  "rubrics": null,
+  "question": "What is the estimated genome size value reported in the report? Output the number only.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 3.27,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案为1713.74，与参考答案1713.74 Mb在数值上完全一致，单位Mb在问题中已隐含要求输出数值，因此仅输出数字即可。符合统计类题目评分标准，数值基本一致，故得1分。"
+}

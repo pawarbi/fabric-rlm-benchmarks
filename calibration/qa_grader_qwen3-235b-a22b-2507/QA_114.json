@@ -1,0 +1,17 @@
+{
+  "id": "QA_114",
+  "answer": "Indicator Name | Value\nRange | 7.00\nStandard Deviation | 3.51\nCoefficient of Variation | 0.75",
+  "model_response": "Indicator Name | Value\nRange | 7.00\nStandard Deviation | 3.51\nCoefficient of Variation | 0.75",
+  "reference": "Indicator Name Value\nRange 7.00\nStandard Deviation 2.87\nCoefficient of Variation 0.61",
+  "rubrics": null,
+  "question": "For the lottery numbers of the 326th draw in 2025 in the file Welfare Lottery 3D Difference(4).xlsx, use the data dispersion method to analyze the three positional digits (hundreds digit, tens digit, ones digit) of that draw and calculate the following statistical indicators: (1) Range (maximum value − minimum value, rounded to 2 decimal places); (2) Standard deviation (rounded to 2 decimal places); (3) Coefficient of variation (standard deviation / mean, rounded to 2 decimal places). Output these three dispersion indicators in a table containing two columns: \"Indicator Name\" and \"Value\".",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 2.32,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型答案中极差正确为7.00，但标准差为3.51，与参考答案的2.87存在明显差异，导致变异系数也错误（0.75 vs 0.61）。统计类题目要求计算结果基本一致，此处偏差显著，因此判定为0分。"
+}

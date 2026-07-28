@@ -1,0 +1,17 @@
+{
+  "id": "QA_5",
+  "answer": "Top 5 Shipper-Salesperson combinations by total shipping volume in Week 43:\n1. Shipper 22 | Salesperson 16: 1343\n2. Shipper 203 | Salesperson 101: 922\n3. Shipper 276 | Salesperson 44: 752\n4. Shipper 236 | Salesperson 9: 678\n5. Shipper 493 | Salesperson 9: 659",
+  "model_response": "Top 5 Shipper-Salesperson combinations by total shipping volume in Week 43:\n1. Shipper 22 | Salesperson 16: 1343\n2. Shipper 203 | Salesperson 101: 922\n3. Shipper 276 | Salesperson 44: 752\n4. Shipper 236 | Salesperson 9: 678\n5. Shipper 493 | Salesperson 9: 659",
+  "reference": "The combination with the highest total transport volume in Week 43 is:\nShipper: Shipper22\nSalesperson: Salesperson16\nWeek 43 Total Transport Volume: 1343\n\nTop 5 Results:\n| Rank | Shipper | Salesperson | Week 43 Total Transport Volume |\n| -: | ------ | ------ | ------: |\n| 1 | Shipper22 | Salesperson16 | 1343 |\n| 2 | Shipper203 | Salesperson101 | 922 |\n| 3 | Shipper276 | Salesperson44 | 752 |\n| 4 | Shipper236 | Salesperson9 | 678 |\n| 5 | Shipper493 | Salesperson9 | 659 |",
+  "rubrics": null,
+  "question": "Which combination of Shipper and Salesperson has the highest total shipping volume in Week 43? Give me the top 5 results.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 1.81,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案提供的Top 5结果在Shipper、Salesperson以及运输总量数值上完全一致，完整覆盖了所有核心要点。"
+}

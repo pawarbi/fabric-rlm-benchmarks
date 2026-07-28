@@ -1,0 +1,17 @@
+{
+  "id": "QA_119",
+  "answer": "Top 10 most frequently occurring medicines (from 1,138 total entries across 148 unique medicines):\n1. A Herb: 74\n2. AI Herb: 58\n3. G Medicinal Material: 48\n4. AS Herb: 42\n5. AL Herb: 33\n6. J Medicinal Material: 32\n7. B Herb: 30\n8. AG Herb: 29\n9. P Medicinal Material: 29\n10. Z Medicinal Material: 27",
+  "model_response": "Top 10 most frequently occurring medicines (from 1,138 total entries across 148 unique medicines):\n1. A Herb: 74\n2. AI Herb: 58\n3. G Medicinal Material: 48\n4. AS Herb: 42\n5. AL Herb: 33\n6. J Medicinal Material: 32\n7. B Herb: 30\n8. AG Herb: 29\n9. P Medicinal Material: 29\n10. Z Medicinal Material: 27",
+  "reference": "  1   A herb    74\n  2   AI herb    58\n  3  G herb    48\n  4   AS herb    42\n  5   AL herb    33\n  6  J herb    32\n  7   B herb   30\n  8   P herb    29\n  9   AG herb   29\n 10  Z herb    27",
+  "rubrics": null,
+  "question": "Identify the top 10 most frequently occurring medicines and their corresponding counts",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 24151,
+  "completion_tokens": 412,
+  "elapsed_seconds": 7.96,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案在药品名称和对应频次上完全一致，尽管部分名称表述略有不同（如'G herb' vs 'G Medicinal Material'），但根据上下文可判断为同一药品的不同表述方式，且频次数据完全匹配，四舍五入后一致。整体核心要点完整覆盖，逻辑相符，因此判定为1分。"
+}

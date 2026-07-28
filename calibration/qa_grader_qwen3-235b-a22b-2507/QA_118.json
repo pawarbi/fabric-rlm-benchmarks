@@ -1,0 +1,17 @@
+{
+  "id": "QA_118",
+  "answer": "Name | Date of Birth\nGuo Taoping | 1979-02-09\nSun Chaolan | 1981-09-30\nSun Junpeng | 1979-10-05\nGuo Leilan | 1987-03-10\nHu Nalong | 1980-05-24\nWang Leiyun | 1973-02-27\nHuang Xiahua | 1984-10-11\nLuo Yanfeng | 1974-10-18\nWu Jinghua | 1977-07-27",
+  "model_response": "Name | Date of Birth\nGuo Taoping | 1979-02-09\nSun Chaolan | 1981-09-30\nSun Junpeng | 1979-10-05\nGuo Leilan | 1987-03-10\nHu Nalong | 1980-05-24\nWang Leiyun | 1973-02-27\nHuang Xiahua | 1984-10-11\nLuo Yanfeng | 1974-10-18\nWu Jinghua | 1977-07-27",
+  "reference": "1. Name: Guo Taoping, Date of Birth: 1979-02-09\n2. Name: Sun Chaolan, Date of Birth: 1981-09-30\n3. Name: Sun Junpeng, Date of Birth: 1979-10-05\n4. Name: Guo Leilan, Date of Birth: 1987-03-10\n5. Name: Hu Nalong, Date of Birth: 1980-05-24\n6. Name: Wang Leiyun, Date of Birth: 1973-02-27\n7. Name: Huang Xiahua, Date of Birth: 1984-10-11\n8. Name: Luo Yanfeng, Date of Birth: 1974-10-18\n9. Name: Wu Jinghua, Date of Birth: 1977-07-27",
+  "rubrics": null,
+  "question": "Please filter out the blind date candidates whose Height is between 160 and 165, sort them by salary from high to low, keep only the Name and Date of Birth columns, and output in text format.",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 25699,
+  "completion_tokens": 701,
+  "elapsed_seconds": 9.9,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案正确筛选出Height在160到165之间的候选人，按Salary从高到低排序，并保留了Name和Date of Birth两列。输出的候选人名单与参考答案完全一致，顺序正确，信息完整，符合题目要求。"
+}

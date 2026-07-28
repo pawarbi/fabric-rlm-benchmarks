@@ -1,0 +1,73 @@
+<div id="wrap" style="width:940px;background:#ffffff;padding:26px 28px 16px;font-family:'Segoe UI',system-ui,sans-serif;">
+  <div style="font-size:18px;font-weight:600;color:#12171c;">AIDABench — accuracy vs cost per task</div>
+  <div style="font-size:13px;color:#5a646e;margin:2px 0 4px;">pass@1 against estimated cost, pricing identical token usage at each model's published rate</div>
+
+  <div style="font-size:14px;font-weight:600;color:#12171c;margin-top:16px;">File generation</div>
+  <div style="font-size:12px;color:#5a646e;margin:1px 0 4px;">Read one or more workbooks, write a new spreadsheet. 261 tasks, 41% span multiple input files.</div>
+  <div style="position:relative;height:290px;"><canvas id="a"></canvas></div>
+
+  <div style="font-size:14px;font-weight:600;color:#12171c;margin-top:20px;">Question answering</div>
+  <div style="font-size:12px;color:#5a646e;margin:1px 0 4px;">Compute statistics over workbooks, report the figures as text. 226 tasks, no file written.</div>
+  <div style="position:relative;height:290px;"><canvas id="b"></canvas></div>
+
+  <div style="display:flex;gap:22px;margin-top:12px;font-size:12px;color:#5a646e;">
+    <span><span style="display:inline-block;width:10px;height:10px;background:#2a78d6;transform:rotate(45deg);vertical-align:-1px;margin-right:6px;"></span>fabric-rlm + MiniMax M3</span>
+    <span><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#888780;vertical-align:-1px;margin-right:6px;"></span>AIDABench paper, table 1</span>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const FG=[["Sonnet 4.5",0.2372,49.43],["Gemini 3 Pro",0.1638,48.28],["Qwen3-Max thinking",0.0617,44.83],
+ ["DeepSeek-V3.2 thinking",0.0187,43.30],["fabric-rlm + M3",0.0229,42.20],["Kimi-K2 thinking",0.0460,41.00],
+ ["DeepSeek-V3.2",0.0187,40.61],["Qwen3-Max",0.0617,39.08],["Qwen3-235B",0.0074,36.02],
+ ["Kimi-K2 turbo",0.0460,27.59],["Qwen3-30B thinking",0.0128,22.22],["Qwen3-30B instruct",0.0038,21.46]];
+const QA=[["Sonnet 4.5",0.1216,68.58],["Qwen3-Max thinking",0.0316,66.81],["Kimi-K2 thinking",0.0238,66.37],
+ ["Gemini 3 Pro",0.0832,64.60],["fabric-rlm + M3",0.0118,63.60],["DeepSeek-V3.2 thinking",0.0099,62.39],
+ ["Qwen3-Max",0.0316,60.62],["DeepSeek-V3.2",0.0099,60.18],["Qwen3-235B",0.0038,53.98],
+ ["Qwen3-30B thinking",0.0062,52.65],["Kimi-K2 turbo",0.0238,46.90],["Qwen3-30B instruct",0.0020,35.40]];
+const hit=(a,b)=>!(a.r<b.l||b.r<a.l||a.b<b.t||b.b<a.t);
+function draw(id,D,xmax,ymin,ymax,step){
+ const O=D.findIndex(d=>d[0].indexOf('fabric-rlm')===0);
+ const lab={id:'l'+id,afterDatasetsDraw(c){const x=c.scales.x,y=c.scales.y,g=c.ctx,A=c.chartArea,put=[];
+  D.forEach(d=>{const px=x.getPixelForValue(d[1]),py=y.getPixelForValue(d[2]);
+   put.push({l:px-9,r:px+9,t:py-9,b:py+9});});
+  const order=[O].concat(D.map((_,i)=>i).filter(i=>i!==O));
+  order.forEach(i=>{const d=D[i],our=i===O;
+   g.font=(our?'600 ':'')+'11.5px "Segoe UI",system-ui,sans-serif';
+   const w=g.measureText(d[0]).width,h=14;
+   const px=x.getPixelForValue(d[1]),py=y.getPixelForValue(d[2]);
+   const C=[[12,0],[-12,0],[0,-15],[0,15],[12,-14],[12,14],[-12,-14],[-12,14],
+            [0,-28],[0,28],[12,-27],[-12,-27],[12,27],[-12,27],[24,0],[-24,0],
+            [0,-41],[0,41],[24,-14],[-24,-14],[24,14],[-24,14]];
+   let pk=null;
+   for(const [dx,dy] of C){
+    const lx=dx>0?px+dx:(dx<0?px+dx-w:px-w/2);
+    const bx={l:lx-3,r:lx+w+3,t:py+dy-h/2,b:py+dy+h/2};
+    if(bx.l<A.left-6||bx.r>A.right+6||bx.t<A.top-2||bx.b>A.bottom) continue;
+    if(put.some(p=>hit(bx,p))) continue;
+    pk={lx,ly:py+dy,bx};break;}
+   if(!pk) return; put.push(pk.bx);
+   g.fillStyle=our?'#2a78d6':'#63625d';g.textAlign='left';g.textBaseline='middle';
+   g.fillText(d[0],pk.lx,pk.ly);});}};
+ new Chart(document.getElementById(id),{type:'scatter',
+  data:{datasets:[{data:D.map(d=>({x:d[1],y:d[2]})),
+   pointRadius:D.map((d,i)=>i===O?8:5),
+   backgroundColor:D.map((d,i)=>i===O?'#2a78d6':'#888780'),
+   borderColor:'#ffffff',borderWidth:2,
+   pointStyle:D.map((d,i)=>i===O?'rectRot':'circle')}]},
+  options:{responsive:true,maintainAspectRatio:false,animation:false,
+   layout:{padding:{top:16,right:14,bottom:2,left:2}},
+   plugins:{legend:{display:false},tooltip:{enabled:false}},
+   scales:{x:{type:'linear',min:0,max:xmax,
+     title:{display:true,text:'cost per task (USD)',color:'#5a646e',font:{size:11}},
+     grid:{color:'#e9ebed'},border:{color:'#d8dde1'},
+     ticks:{color:'#7c848c',font:{size:10.5},maxTicksLimit:7,callback:v=>'$'+v.toFixed(2)}},
+    y:{min:ymin,max:ymax,title:{display:true,text:'pass@1 (%)',color:'#5a646e',font:{size:11}},
+     grid:{color:'#e9ebed'},border:{color:'#d8dde1'},
+     ticks:{color:'#7c848c',font:{size:10.5},stepSize:step}}}},
+  plugins:[lab]});}
+draw('a',FG,0.26,18,54,10);
+draw('b',QA,0.135,32,72,10);
+window.__ready=true;
+</script>

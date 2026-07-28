@@ -1,0 +1,17 @@
+{
+  "id": "QA_189",
+  "answer": "Authors with Number of Likes exceeding 30,000:\n- Users A: 47,182\n- Users B: 45,218\n- Users C: 36,195\n- Users D: 32,258\n\nTotal: 4 authors out of 40 rows in the dataset.",
+  "model_response": "Authors with Number of Likes exceeding 30,000:\n- Users A: 47,182\n- Users B: 45,218\n- Users C: 36,195\n- Users D: 32,258\n\nTotal: 4 authors out of 40 rows in the dataset.",
+  "reference": "Answer: A total of 4 authors have works with more than 30,000 likes\n1. User A - Work A received 47,182 likes (Rank 1)\n2. User B - Work B received 45,218 likes (Rank 2)\n3. User C - Work C received 36,195 likes (Rank 3)\n4. User D - Work D received 32,258 likes (Rank 4)",
+  "rubrics": null,
+  "question": "Which authors have a Number of Likes exceeding 30000",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 24967,
+  "completion_tokens": 340,
+  "elapsed_seconds": 10.29,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案正确列出了所有4位获得点赞数超过30,000的作者（User A、User B、User C、User D），并提供了各自的点赞数，与参考答案完全一致。同时，AI模型还额外说明了总共有4位作者，与参考答案中的‘4 authors’相符。尽管AI模型使用了‘Users A’等复数形式（应为‘User A’），但该表述不影响核心信息的准确性，属于表述风格问题，不构成核心要点缺失或计算错误。因此，答案完整覆盖参考答案的核心要点，逻辑一致，判定为1分。"
+}

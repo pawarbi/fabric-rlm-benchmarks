@@ -1,0 +1,17 @@
+{
+  "id": "QA_208",
+  "answer": "Maximum Order Amount: 3855.6 (Order ID 20308694, Company_6e23e6c8, Course_300adb10, dated 2023/10/22).",
+  "model_response": "Maximum Order Amount: 3855.6 (Order ID 20308694, Company_6e23e6c8, Course_300adb10, dated 2023/10/22).",
+  "reference": 3855.6,
+  "rubrics": null,
+  "question": "Maximum Order Amount",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17568,
+  "completion_tokens": 492,
+  "elapsed_seconds": 9.44,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果 3855.6 与参考答案完全一致，符合统计类题目的评分标准。"
+}

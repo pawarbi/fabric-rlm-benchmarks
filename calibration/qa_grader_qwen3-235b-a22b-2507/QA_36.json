@@ -1,0 +1,17 @@
+{
+  "id": "QA_36",
+  "answer": "Feeding-type classification of 1,572 fish (1,592 data rows minus 20 with no fish name) in '2024-2025 Heishui River Fish Data (Friday Evening).xlsx', sheet '2025' (classifications per species follow standard ichthyology):\n\n  Omnivorous  : 882 individuals, 128,102.34 g total body weight\n  Herbivorous : 334 individuals, 150,432.78 g total body weight\n  Carnivorous : 356 individuals,  49,387.81 g total body weight\n\n  TOTAL       : 1,572 individuals, 327,922.93 g",
+  "model_response": "Feeding-type classification of 1,572 fish (1,592 data rows minus 20 with no fish name) in '2024-2025 Heishui River Fish Data (Friday Evening).xlsx', sheet '2025' (classifications per species follow standard ichthyology):\n\n  Omnivorous  : 882 individuals, 128,102.34 g total body weight\n  Herbivorous : 334 individuals, 150,432.78 g total body weight\n  Carnivorous : 356 individuals,  49,387.81 g total body weight\n\n  TOTAL       : 1,572 individuals, 327,922.93 g",
+  "reference": "Dietary classification        Count (individuals)        Total weight (g) \nOmnivorous        1,136        105,680.34 \nHerbivorous        192        173,951.20 \nCarnivorous        244        48,291.39",
+  "rubrics": null,
+  "question": "How many individuals and what is the total weight for omnivorous, herbivorous, and carnivorous fish respectively?",
+  "n_inputs": 1,
+  "n_turns": 6,
+  "prompt_tokens": 17662,
+  "completion_tokens": 567,
+  "elapsed_seconds": 7.5,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "该AI模型的答案在统计结果上与参考答案存在明显差异。例如，Omnivorous类别的个体数参考答案为1,136，模型给出882；Herbivorous为192 vs 334；Carnivorous为244 vs 356；总个体数也不一致（1,572 vs 1,572，虽总数相同，但分类分布错误）。总重量方面，如Omnivorous为105,680.34g vs 128,102.34g，Herbivorous为173,951.20g vs 150,432.78g，也存在显著偏差。尽管模型进行了分析并提供了总计，但分类统计数据与参考答案不一致，因此判定为0分。"
+}

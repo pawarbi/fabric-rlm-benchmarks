@@ -1,0 +1,17 @@
+{
+  "id": "QA_52",
+  "answer": "Year | Max Indicator A (B2F)\n2019 | 3.00\n2020 | 3.41\n2021 | 4.36\n2022 | 3.66\n2023 | 4.47\n2024 | 3.73\n2025 | 3.25",
+  "model_response": "Year | Max Indicator A (B2F)\n2019 | 3.00\n2020 | 3.41\n2021 | 4.36\n2022 | 3.66\n2023 | 4.47\n2024 | 3.73\n2025 | 3.25",
+  "reference": "Year Maximum of Indicator A\n 2019 3\n 2020 3.41\n 2021 4.36\n 2022 3.66\n 2023 4.47\n 2024 3.73\n 2025 3.25",
+  "rubrics": "Is the data sorted by \"Year\"",
+  "question": "In the file \"Indicator A.xlsx\", filter all rows where the \"Grade\" column value is \"B2F\", then group by the \"Year\" column and calculate the maximum value of the \"Indicator A\" column for each year. The output should be a table with two columns: the first column is the year (sorted in ascending order), and the second column is the maximum value of Indicator A for that year (rounded to 2 decimal places). If the Indicator A column contains missing values for a given year, ignore the missing values when calculating the maximum; if a year has no valid data after filtering, that year should not appear in the result.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17021,
+  "completion_tokens": 396,
+  "elapsed_seconds": 6.25,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果与参考答案完全一致，且满足Year升序排列的要求，格式正确。"
+}

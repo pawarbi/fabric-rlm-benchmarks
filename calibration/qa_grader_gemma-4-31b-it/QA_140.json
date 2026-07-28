@@ -1,0 +1,17 @@
+{
+  "id": "QA_140",
+  "answer": "Total Purchase Cost by product category (across all styles/colors):\n- Advertising Canvas Bag (Promotional Canvas Bag, Styles A/B/C): 16,640.00\n- Neutral Sign Pen (Gel Pen - White/Black): 13,380.00\n- Activity Water Cup (Event Water Cup, Styles A/B): 8,510.00\n\nGRAND TOTAL (sum of all three categories): 38,530.00",
+  "model_response": "Total Purchase Cost by product category (across all styles/colors):\n- Advertising Canvas Bag (Promotional Canvas Bag, Styles A/B/C): 16,640.00\n- Neutral Sign Pen (Gel Pen - White/Black): 13,380.00\n- Activity Water Cup (Event Water Cup, Styles A/B): 8,510.00\n\nGRAND TOTAL (sum of all three categories): 38,530.00",
+  "reference": "The total Purchase Cost of \"Advertising Canvas Bag\" is 16640, the total Purchase Cost of \"Neutral Sign Pen\" is 13380, the total Purchase Cost of \"Activity Water Cup\" is 8510",
+  "rubrics": null,
+  "question": "Sum the total Purchase Cost for \"Advertising Canvas Bag\", \"Neutral Sign Pen\", and \"Activity Water Cup\", regardless of style and color",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17384,
+  "completion_tokens": 752,
+  "elapsed_seconds": 11.46,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型给出的三种产品的采购总成本分别与参考答案完全一致。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_203",
+  "answer": "Q1 (Duplicate names): Yes — there are 4 distinct name values that appear more than once in the 40-person roster: 'Y*' (2), 'Z*' (4), 'V*' (2), 'L*' (2). In total, 10 of the 40 rows share a name with at least one other person.\n\nQ2 (Four-character names): 0 — every anonymized name in the sheet is either 2 characters (19 people) or 3 characters (21 people). No one has a four-character name.",
+  "model_response": "Q1 (Duplicate names): Yes — there are 4 distinct name values that appear more than once in the 40-person roster: 'Y*' (2), 'Z*' (4), 'V*' (2), 'L*' (2). In total, 10 of the 40 rows share a name with at least one other person.\n\nQ2 (Four-character names): 0 — every anonymized name in the sheet is either 2 characters (19 people) or 3 characters (21 people). No one has a four-character name.",
+  "reference": "People with no duplicate names\nPeople without four-character names",
+  "rubrics": null,
+  "question": "Are there any people with duplicate names?\nHow many people have a four-character name",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 30134,
+  "completion_tokens": 804,
+  "elapsed_seconds": 17.25,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型在第一个问题（是否有重复名）的结论上与参考答案完全相反。参考答案指出没有重复名，而AI模型认为有重复名，存在显著偏差。"
+}

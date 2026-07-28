@@ -1,0 +1,17 @@
+{
+  "id": "QA_123",
+  "answer": "11 students have an average score above 80 across Chinese, Math, and English. They are: Hu*Xia (84.0), Liu*Bing (80.67), Chen*Wang (86.0), Hou*Yang (84.0), Bao*Gang (84.33), Chen*Qiang (83.33), Huang*Ping (91.33), Hu*Ming (81.0), Huang*Ping (80.67), Chen*Dong (83.0), Hu*Wen (86.33). Total students in the dataset: 17.",
+  "model_response": "11 students have an average score above 80 across Chinese, Math, and English. They are: Hu*Xia (84.0), Liu*Bing (80.67), Chen*Wang (86.0), Hou*Yang (84.0), Bao*Gang (84.33), Chen*Qiang (83.33), Huang*Ping (91.33), Hu*Ming (81.0), Huang*Ping (80.67), Chen*Dong (83.0), Hu*Wen (86.33). Total students in the dataset: 17.",
+  "reference": "11 people",
+  "rubrics": null,
+  "question": "Based on the provided data, calculate the number of students whose average score across Chinese, Math, and English is above 80",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 16963,
+  "completion_tokens": 878,
+  "elapsed_seconds": 9.45,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案计算结果为11名学生平均分高于80，与参考答案'11人'一致。虽然答案中列出的姓名和具体分数未在问题中要求，但最终统计数量正确，且数据四舍五入后与合理计算结果相符，因此判定为正确。"
+}

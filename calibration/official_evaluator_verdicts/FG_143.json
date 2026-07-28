@@ -1,0 +1,137 @@
+{
+  "id": "FG_143",
+  "question": "Merge the shareholder data from the two files \"Shareholders Statistics Table by Economic Association.docx\" and \"Active Shareholders Statistics Table by Enterprise.docx\", and generate a new Excel file named \"2025 Xijiao Shareholder List Summary Table.xlsx\". The new file should contain the following:\n1) Merge all shareholder records from both source files row-by-row into a single sheet, with the new column names: \"Unit Name\", \"Number of people\", \"Active\", \"Retired\";\n2) If a required column's data does not exist in a source file, those columns do not need to be filled in and should remain empty;\n3) Name the output file \"2025 Xijiao Shareholder List Summary Table.xlsx\"",
+  "input_file": "Active Shareholders Statistics Table by Enterprise.docx\nShareholders Statistics Table by Economic Association.docx",
+  "output_type": "Data Editing",
+  "output_file": "2025 Xijiao Shareholder List Summary Table.xlsx",
+  "eval_area": "A1:D29",
+  "reference_file": "C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\data\\file_generation_en\\reference\\FG_143\\2025 Xijiao Shareholder List Summary Table_res.xlsx",
+  "eval_history": [
+    {
+      "role": "system",
+      "content": "你是一个智能文件评估员（File Judge）。\n目标：根据“问题 + 参考文件”判断“预测文件”是否满足要求，并输出 JSON 结论。\n\n问题: Merge the shareholder data from the two files \"Shareholders Statistics Table by Economic Association.docx\" and \"Active Shareholders Statistics Table by Enterprise.docx\", and generate a new Excel file named \"2025 Xijiao Shareholder List Summary Table.xlsx\". The new file should contain the following:\n1) Merge all shareholder records from both source files row-by-row into a single sheet, with the new column names: \"Unit Name\", \"Number of people\", \"Active\", \"Retired\";\n2) If a required column's data does not exist in a source file, those columns do not need to be filled in and should remain empty;\n3) Name the output file \"2025 Xijiao Shareholder List Summary Table.xlsx\"\n\n文件:\n- 参考文件: \"C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\data\\file_generation_en\\reference\\FG_143\\2025 Xijiao Shareholder List Summary Table_res.xlsx\"\n- 预测文件: \"C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\runs\\aida-ctrl\\work\\FG_143\\2025 Xijiao Shareholder List Summary Table.xlsx\"\n\n【工具调用预算（必须遵守）】\n- 你最多只能调用 `execute_code` 20 次（绝对不允许超过 20 次)。\n- 每次调用前先在文本里写清楚“这一次要验证什么”，避免无目的重跑。\n- 一旦拿到足够证据，就必须立刻停止继续调用工具并输出最终 JSON。\n\n【总体策略：先粗后细，抽测优先，必要时才加深】\n你要按以下 3 阶段执行，且必须早停：\n阶段1（1-5次调用）：快速探测/建索引\n- 读取参考文件和预测文件的基础信息：文件类型、sheet 列表、每个 sheet 的行列数、列名集合、dtype 概览。\n- 如果题目有明确的表头/列顺序/输出格式/文件结构等要求，需要严格比对如不匹配直接给出 false 的证据并结束。否则可采用宽松比对：允许行/列顺序不同、允许多余列（不影响问题要求）、允许微小浮点误差（1e-6）、允许空值表示差异（NaN/None/\"\" 视为等价），并用抽样（头/中/尾/随机）验证内容一致性。\n- 同时在代码里生成“抽样行索引”（头/中/尾 + 随机）供后续复用，避免重复扫描。\n\n阶段2（5-10次调用）：抽测内容一致性（文件比较大时禁止全量逐行，少量时可以）\n- 对每个要比较的 sheet，做抽样对比：\n  * 头 N 行 + 尾 N 行 + 中间 N 行 + 随机 N 行（默认 N=30；若行数小则自动缩小或全量）。\n- 规范化后比较（忽略微小浮点误差、忽略行/列顺序）：\n  * 列：按列名对齐\n  * 行：用“行哈希”或“排序+对齐”做集合式对比（仅对样本）\n  * 数值：abs/rel tol=1e-6；日期转 ISO；字符串 strip；空值统一\n- 若样本差异显著，直接判 false 并结束；若样本一致，继续阶段3。\n\n阶段3（最多再用 1-5 次调用）：只做“问题相关”的关键校验\n- 从问题中只提取高收益约束来验证（不要做全面 NLP）：\n  例如：去重/保留第一条、排序、过滤条件、分组汇总、TopK、生成新表头/新列、特定值是否存在、统计值（总和/均值/计数）等。\n- 对能快速计算的约束做验证：\n  * 例如：行数*\n\n【禁止行为（非常重要）】\n- 禁止逐行全量比对大文件；除非文件很小（如 < 200 行）或问题明确要求全量一致。\n- 禁止为“验证更多细节”无限加工具调用，一定不能调用20次以上；\n- 禁止输出除最终 JSON 之外的内容（中间过程只在代码里临时计算，不要 print）。\n\n【输出格式（最终只输出一次）】\n以 JSON 输出最终判断：\n{\"is_correct\": true/false, \"reason\": \"简洁说明：比较了哪些sheet/抽样策略/关键差异证据或通过的关键检查\"}。\n\n现在开始。你可以调用 `execute_code`，但必须严格按阶段推进并遵守预算。\n"
+    },
+    {
+      "role": "user",
+      "content": "Please start the evaluation."
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "I'll evaluate the predicted file against the reference file according to the problem requirements. Let me proceed systematically through the stages.\n\n## Stage 1: Basic File Exploration (1-5 calls)\n\n**Call 1: Read basic information from both files**"
+        },
+        {
+          "type": "tool_use",
+          "id": "toolu_bdrk_017N5s9QKMgyPfXSrwtFWetY",
+          "name": "execute_code",
+          "input": {
+            "code": "\nimport pandas as pd\nimport numpy as np\nfrom pathlib import Path\n\n# File paths\nref_file = r\"C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\data\\file_generation_en\\reference\\FG_143\\2025 Xijiao Shareholder List Summary Table_res.xlsx\"\npred_file = r\"C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\runs\\aida-ctrl\\work\\FG_143\\2025 Xijiao Shareholder List Summary Table.xlsx\"\n\n# Check if files exist\nref_exists = Path(ref_file).exists()\npred_exists = Path(pred_file).exists()\n\nprint(f\"Reference file exists: {ref_exists}\")\nprint(f\"Predicted file exists: {pred_exists}\")\n\nif ref_exists and pred_exists:\n    # Read Excel files\n    ref_xl = pd.ExcelFile(ref_file)\n    pred_xl = pd.ExcelFile(pred_file)\n    \n    print(f\"\\nReference sheets: {ref_xl.sheet_names}\")\n    print(f\"Predicted sheets: {pred_xl.sheet_names}\")\n    \n    # Read first sheet from each\n    ref_df = pd.read_excel(ref_file, sheet_name=ref_xl.sheet_names[0])\n    pred_df = pd.read_excel(pred_file, sheet_name=pred_xl.sheet_names[0])\n    \n    print(f\"\\nReference shape: {ref_df.shape}\")\n    print(f\"Predicted shape: {pred_df.shape}\")\n    \n    print(f\"\\nReference columns: {list(ref_df.columns)}\")\n    print(f\"Predicted columns: {list(pred_df.columns)}\")\n    \n    print(f\"\\nReference dtypes:\\n{ref_df.dtypes}\")\n    print(f\"\\nPredicted dtypes:\\n{pred_df.dtypes}\")\n    \n    # Store basic info for later\n    result = {\n        'ref_shape': ref_df.shape,\n        'pred_shape': pred_df.shape,\n        'ref_cols': list(ref_df.columns),\n        'pred_cols': list(pred_df.columns),\n        'files_exist': True\n    }\n    print(f\"\\nBasic info stored: {result}\")\n"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_bdrk_017N5s9QKMgyPfXSrwtFWetY",
+          "content": "Executed Results:\nReference file exists: True\nPredicted file exists: True\n\nReference sheets: ['Sheet1']\nPredicted sheets: ['Sheet1']\n\nReference shape: (28, 4)\nPredicted shape: (28, 4)\n\nReference columns: ['Unit Name', 'Number of people', 'Active', 'Retired']\nPredicted columns: ['Unit Name', 'Number of people', 'Active', 'Retired']\n\nReference dtypes:\nUnit Name            object\nNumber of people      int64\nActive              float64\nRetired             float64\ndtype: object\n\nPredicted dtypes:\nUnit Name            object\nNumber of people      int64\nActive              float64\nRetired             float64\ndtype: object\n\nBasic info stored: {'ref_shape': (28, 4), 'pred_shape': (28, 4), 'ref_cols': ['Unit Name', 'Number of people', 'Active', 'Retired'], 'pred_cols': ['Unit Name', 'Number of people', 'Active', 'Retired'], 'files_exist': True}"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "Excellent! Both files have:\n- Same sheet structure (Sheet1)\n- Same shape (28 rows, 4 columns)\n- Same column names in same order: ['Unit Name', 'Number of people', 'Active', 'Retired']\n- Same data types\n\n**Call 2: Check column requirements and preview data**"
+        },
+        {
+          "type": "tool_use",
+          "id": "toolu_bdrk_01FnkVjBCbNBaoLhBpW6XnHk",
+          "name": "execute_code",
+          "input": {
+            "code": "\nimport pandas as pd\n\n# File paths\nref_file = r\"C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\data\\file_generation_en\\reference\\FG_143\\2025 Xijiao Shareholder List Summary Table_res.xlsx\"\npred_file = r\"C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\runs\\aida-ctrl\\work\\FG_143\\2025 Xijiao Shareholder List Summary Table.xlsx\"\n\n# Read data\nref_df = pd.read_excel(ref_file, sheet_name='Sheet1')\npred_df = pd.read_excel(pred_file, sheet_name='Sheet1')\n\n# Required columns per problem statement\nrequired_cols = ['Unit Name', 'Number of people', 'Active', 'Retired']\n\n# Check if all required columns are present\nref_has_required = all(col in ref_df.columns for col in required_cols)\npred_has_required = all(col in pred_df.columns for col in required_cols)\n\nprint(f\"Reference has all required columns: {ref_has_required}\")\nprint(f\"Predicted has all required columns: {pred_has_required}\")\n\n# Preview first 10 rows from both\nprint(\"\\n=== Reference first 10 rows ===\")\nprint(ref_df.head(10).to_string())\n\nprint(\"\\n=== Predicted first 10 rows ===\")\nprint(pred_df.head(10).to_string())\n\n# Preview last 5 rows\nprint(\"\\n=== Reference last 5 rows ===\")\nprint(ref_df.tail(5).to_string())\n\nprint(\"\\n=== Predicted last 5 rows ===\")\nprint(pred_df.tail(5).to_string())\n"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_bdrk_01FnkVjBCbNBaoLhBpW6XnHk",
+          "content": "Executed Results:\nReference has all required columns: True\nPredicted has all required columns: True\n\n=== Reference first 10 rows ===\n  Unit Name  Number of people  Active  Retired\n0    Unit 1               118     NaN      NaN\n1    Unit 2                69     NaN      NaN\n2    Unit 3                17     NaN      NaN\n3    Unit 4                44     NaN      NaN\n4    Unit 5               119     NaN      NaN\n5    Unit 6               137     NaN      NaN\n6    Unit 7                94     NaN      NaN\n7    Unit 8               107     NaN      NaN\n8    Unit 9                62     NaN      NaN\n9   Unit 10                49     NaN      NaN\n\n=== Predicted first 10 rows ===\n   Unit Name  Number of people  Active  Retired\n0  UnitUnit1               118     NaN      NaN\n1      Unit2                69     NaN      NaN\n2      Unit3                17     NaN      NaN\n3      Unit4                44     NaN      NaN\n4      Unit5               119     NaN      NaN\n5      Unit6               137     NaN      NaN\n6      Unit7                94     NaN      NaN\n7      Unit8               107     NaN      NaN\n8      Unit9                62     NaN      NaN\n9     Unit10                49     NaN      NaN\n\n=== Reference last 5 rows ===\n   Unit Name  Number of people  Active  Retired\n23   Unit 24                75    28.0     47.0\n24   Unit 25                34     4.0     30.0\n25   Unit 26                72     5.0     67.0\n26   Unit 27                23    16.0      7.0\n27   Unit 28                43    18.0     25.0\n\n=== Predicted last 5 rows ===\n   Unit Name  Number of people  Active  Retired\n23    Unit24                75    28.0     47.0\n24    Unit25                34     4.0     30.0\n25    Unit26                72     5.0     67.0\n26    Unit27                23    16.0      7.0\n27    Unit28                43    18.0     25.0"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Critical Issue Found!** There's a mismatch in the \"Unit Name\" column:\n- Reference: \"Unit 1\", \"Unit 2\", etc. (with space)\n- Predicted: \"UnitUnit1\", \"Unit2\", \"Unit3\", etc. (first one has \"UnitUnit1\", rest have no space)\n\nLet me verify this across all rows:\n\n**Call 3: Check all Unit Name values for discrepancies**"
+        },
+        {
+          "type": "tool_use",
+          "id": "toolu_bdrk_018B8FAiVZH6Q9ybfKXTP2xw",
+          "name": "execute_code",
+          "input": {
+            "code": "\nimport pandas as pd\n\n# File paths\nref_file = r\"C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\data\\file_generation_en\\reference\\FG_143\\2025 Xijiao Shareholder List Summary Table_res.xlsx\"\npred_file = r\"C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\runs\\aida-ctrl\\work\\FG_143\\2025 Xijiao Shareholder List Summary Table.xlsx\"\n\n# Read data\nref_df = pd.read_excel(ref_file, sheet_name='Sheet1')\npred_df = pd.read_excel(pred_file, sheet_name='Sheet1')\n\n# Compare Unit Names\nprint(\"=== Unit Name Comparison ===\")\nprint(\"\\nRow-by-row comparison:\")\nfor i in range(len(ref_df)):\n    ref_unit = ref_df.loc[i, 'Unit Name']\n    pred_unit = pred_df.loc[i, 'Unit Name']\n    match = \"✓\" if ref_unit == pred_unit else \"✗\"\n    if ref_unit != pred_unit:\n        print(f\"Row {i}: {match} REF='{ref_unit}' vs PRED='{pred_unit}'\")\n\n# Count mismatches\nmismatches = (ref_df['Unit Name'] != pred_df['Unit Name']).sum()\nprint(f\"\\nTotal mismatches in Unit Name: {mismatches} out of {len(ref_df)}\")\n\n# Show all unique differences\nif mismatches > 0:\n    print(\"\\n=== All Unit Name values ===\")\n    comparison_df = pd.DataFrame({\n        'Reference': ref_df['Unit Name'],\n        'Predicted': pred_df['Unit Name'],\n        'Match': ref_df['Unit Name'] == pred_df['Unit Name']\n    })\n    print(comparison_df.to_string())\n"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_bdrk_018B8FAiVZH6Q9ybfKXTP2xw",
+          "content": "Executed Results(Response too long; showing the first 1000 characters and the last 1000 characters.):\n=== Unit Name Comparison ===\n\nRow-by-row comparison:\nRow 0: âœ— REF='Unit 1' vs PRED='UnitUnit1'\nRow 1: âœ— REF='Unit 2' vs PRED='Unit2'\nRow 2: âœ— REF='Unit 3' vs PRED='Unit3'\nRow 3: âœ— REF='Unit 4' vs PRED='Unit4'\nRow 4: âœ— REF='Unit 5' vs PRED='Unit5'\nRow 5: âœ— REF='Unit 6' vs PRED='Unit6'\nRow 6: âœ— REF='Unit 7' vs PRED='Unit7'\nRow 7: âœ— REF='Unit 8' vs PRED='Unit8'\nRow 8: âœ— REF='Unit 9' vs PRED='Unit9'\nRow 9: âœ— REF='Unit 10' vs PRED='Unit10'\nRow 10: âœ— REF='Unit 11' vs PRED='Unit11'\nRow 11: âœ— REF='Unit 12' vs PRED='Unit12'\nRow 12: âœ— REF='Unit 13' vs PRED='Unit13'\nRow 13: âœ— REF='Unit 14' vs PRED='Unit14'\nRow 14: âœ— REF='Unit 15' vs PRED='Unit15'\nRow 15: âœ— REF='Unit 16' vs PRED='Unit16'\nRow 16: âœ— REF='Unit 17' vs PRED='Unit17'\nRow 17: âœ— REF='Unit 18' vs PRED='Unit18'\nRow 18: âœ— REF='Unit 19' vs PRED='Unit19'\nRow 19: âœ— REF='Unit 20' vs PRED='Unit20'\nRow 20: âœ— REF='Unit 21' vs PRED='Unit21'\nRow 21: âœ— REF='Unit 22' vs PRED='Unit22'\nRow 22: âœ— REF='Unit 23'...'Unit 28' vs PRED='Unit28'\n\nTotal mismatches in Unit Name: 28 out of 28\n\n=== All Unit Name values ===\n   Reference  Predicted  Match\n0     Unit 1  UnitUnit1  False\n1     Unit 2      Unit2  False\n2     Unit 3      Unit3  False\n3     Unit 4      Unit4  False\n4     Unit 5      Unit5  False\n5     Unit 6      Unit6  False\n6     Unit 7      Unit7  False\n7     Unit 8      Unit8  False\n8     Unit 9      Unit9  False\n9    Unit 10     Unit10  False\n10   Unit 11     Unit11  False\n11   Unit 12     Unit12  False\n12   Unit 13     Unit13  False\n13   Unit 14     Unit14  False\n14   Unit 15     Unit15  False\n15   Unit 16     Unit16  False\n16   Unit 17     Unit17  False\n17   Unit 18     Unit18  False\n18   Unit 19     Unit19  False\n19   Unit 20     Unit20  False\n20   Unit 21     Unit21  False\n21   Unit 22     Unit22  False\n22   Unit 23     Unit23  False\n23   Unit 24     Unit24  False\n24   Unit 25     Unit25  False\n25   Unit 26     Unit26  False\n26   Unit 27     Unit27  False\n27   Unit 28     Unit28  False"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Critical Finding: All 28 rows have Unit Name mismatches!**\n- Reference has space: \"Unit 1\", \"Unit 2\", ..., \"Unit 28\"\n- Predicted has no space (except first row has error \"UnitUnit1\"): \"UnitUnit1\", \"Unit2\", ..., \"Unit28\"\n\nLet me verify the numeric columns to complete the evaluation:\n\n**Call 4: Check numeric columns (Number of people, Active, Retired)**"
+        },
+        {
+          "type": "tool_use",
+          "id": "toolu_bdrk_01779MSs9EKDdbkQQdAk9FyK",
+          "name": "execute_code",
+          "input": {
+            "code": "\nimport pandas as pd\nimport numpy as np\n\n# File paths\nref_file = r\"C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\data\\file_generation_en\\reference\\FG_143\\2025 Xijiao Shareholder List Summary Table_res.xlsx\"\npred_file = r\"C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\runs\\aida-ctrl\\work\\FG_143\\2025 Xijiao Shareholder List Summary Table.xlsx\"\n\n# Read data\nref_df = pd.read_excel(ref_file, sheet_name='Sheet1')\npred_df = pd.read_excel(pred_file, sheet_name='Sheet1')\n\n# Check numeric columns\nnumeric_cols = ['Number of people', 'Active', 'Retired']\n\nprint(\"=== Numeric Column Comparison ===\")\nfor col in numeric_cols:\n    # Compare values (handling NaN)\n    ref_vals = ref_df[col]\n    pred_vals = pred_df[col]\n    \n    # Check if equal (considering NaN as equal)\n    are_equal = []\n    for i in range(len(ref_vals)):\n        r = ref_vals.iloc[i]\n        p = pred_vals.iloc[i]\n        if pd.isna(r) and pd.isna(p):\n            are_equal.append(True)\n        elif pd.isna(r) or pd.isna(p):\n            are_equal.append(False)\n        else:\n            are_equal.append(np.isclose(r, p, rtol=1e-6, atol=1e-6))\n    \n    all_match = all(are_equal)\n    num_mismatches = sum(not x for x in are_equal)\n    \n    print(f\"\\n{col}:\")\n    print(f\"  All match: {all_match}\")\n    print(f\"  Mismatches: {num_mismatches}\")\n    \n    if num_mismatches > 0:\n        print(f\"  Showing mismatches:\")\n        for i, match in enumerate(are_equal):\n            if not match:\n                print(f\"    Row {i}: REF={ref_vals.iloc[i]} vs PRED={pred_vals.iloc[i]}\")\n\n# Overall summary\nprint(\"\\n=== Overall Summary ===\")\nprint(f\"Shape matches: {ref_df.shape == pred_df.shape}\")\nprint(f\"Columns match: {list(ref_df.columns) == list(pred_df.columns)}\")\nprint(f\"Unit Name column matches: False (all 28 rows differ)\")\nprint(f\"Number of people matches: {all(are_equal)}\")  # From last iteration\n"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_bdrk_01779MSs9EKDdbkQQdAk9FyK",
+          "content": "Executed Results:\n=== Numeric Column Comparison ===\n\nNumber of people:\n  All match: True\n  Mismatches: 0\n\nActive:\n  All match: True\n  Mismatches: 0\n\nRetired:\n  All match: True\n  Mismatches: 0\n\n=== Overall Summary ===\nShape matches: True\nColumns match: True\nUnit Name column matches: False (all 28 rows differ)\nNumber of people matches: True"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Perfect! Now I have clear evidence:\n\n**Summary of findings:**\n1. ✓ File structure correct: Same sheets, same shape (28x4), same columns\n2. ✓ Column names correct: ['Unit Name', 'Number of people', 'Active', 'Retired']\n3. ✓ Numeric data matches perfectly: All values in 'Number of people', 'Active', 'Retired' are identical\n4. ✗ **Unit Name column has critical errors**: \n   - All 28 rows differ from reference\n   - Reference has space: \"Unit 1\", \"Unit 2\", etc.\n   - Predicted has no space: \"Unit2\", \"Unit3\", etc.\n   - First row has additional error: \"UnitUnit1\" instead of \"Unit 1\"\n\nThis is a clear data quality issue that makes the predicted file incorrect.\n\n{\"is_correct\": false, \"reason\": \"Unit Name column has critical data errors in all 28 rows. Reference uses format 'Unit 1', 'Unit 2', etc. (with space), but predicted file uses 'UnitUnit1' (row 0), 'Unit2', 'Unit3', etc. (no space). While columns, structure, and numeric data (Number of people, Active, Retired) are correct, the Unit Name values do not match the reference.\"}"
+    }
+  ],
+  "correctness": {
+    "score": 0.0,
+    "reason": "Unit Name column has critical data errors in all 28 rows. Reference uses format 'Unit 1', 'Unit 2', etc. (with space), but predicted file uses 'UnitUnit1' (row 0), 'Unit2', 'Unit3', etc. (no space). While columns, structure, and numeric data (Number of people, Active, Retired) are correct, the Unit Name values do not match the reference."
+  },
+  "eval_score": 0.0,
+  "eval_reason": "Unit Name column has critical data errors in all 28 rows. Reference uses format 'Unit 1', 'Unit 2', etc. (with space), but predicted file uses 'UnitUnit1' (row 0), 'Unit2', 'Unit3', etc. (no space). While columns, structure, and numeric data (Number of people, Active, Retired) are correct, the Unit Name values do not match the reference."
+}

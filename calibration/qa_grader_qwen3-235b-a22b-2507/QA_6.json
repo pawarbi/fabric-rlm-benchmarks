@@ -1,0 +1,17 @@
+{
+  "id": "QA_6",
+  "answer": "Top 8 most frequently occurring words and their counts:\n1. pressure - 99\n2. fryer - 98\n3. chicken - 28\n4. penny - 17\n5. henny - 16\n6. gas - 16\n7. electric - 11\n8. cooker - 9",
+  "model_response": "Top 8 most frequently occurring words and their counts:\n1. pressure - 99\n2. fryer - 98\n3. chicken - 28\n4. penny - 17\n5. henny - 16\n6. gas - 16\n7. electric - 11\n8. cooker - 9",
+  "reference": "1.pressure（99）\n2. fryer（98）\n3.chicken（28）\n4. penny（17）\n5. henny（16）\n6. gas（16）\n7.electric（11）\n8. cooker（9）",
+  "rubrics": "The 5th and 6th entries have the same frequency and their positions are interchangeable.",
+  "question": "Based on the keyword search data, identify the top 8 most frequently occurring words and provide their occurrence counts.",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 1.18,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案中的8个词及其出现次数与参考答案完全一致，且第5和第6项频次相同，位置可互换，符合答题点说明，因此判定为正确。"
+}

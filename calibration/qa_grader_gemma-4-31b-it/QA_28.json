@@ -1,0 +1,17 @@
+{
+  "id": "QA_28",
+  "answer": "Names present in file 1 but missing from file 2 (4 students):\n1. Student 1021\n2. Student 1120\n3. Student 1133\n4. Student 1241",
+  "model_response": "Names present in file 1 but missing from file 2 (4 students):\n1. Student 1021\n2. Student 1120\n3. Student 1133\n4. Student 1241",
+  "reference": "Student1120, Student1133, Student1021, Student1241\n ",
+  "rubrics": null,
+  "question": "Compare the names in 1 and 2, and identify who is present in 1 but missing from 2 (answer directly)",
+  "n_inputs": 2,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.9,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型识别出的四个学生姓名与参考答案完全一致，完整覆盖了所有核心要点。"
+}

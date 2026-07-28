@@ -1,0 +1,17 @@
+{
+  "id": "QA_55",
+  "answer": "Leads: 290018\nOrders: 61705",
+  "model_response": "Leads: 290018\nOrders: 61705",
+  "reference": "As of December 20 (inclusive), among records where the language type is \"Chinese\", the number of leads: 290,018, and the number of orders: 61,705.",
+  "rubrics": null,
+  "question": "Based on records up to and including December 20, where the language type is \"Chinese\", what are the total number of Leads and the total number of orders? Output format is text, containing two values: \"Leads: X\" and \"Orders: Y\".",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 19887,
+  "completion_tokens": 404,
+  "elapsed_seconds": 7.54,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的统计结果与参考答案完全一致，Leads为290018，Orders为61705，符合题目要求。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_64",
+  "answer": "Sales Volume growth for 'Main Push' (Featured) Operational Level in December 2025:\n\n- December 2025 Sales Volume: 12,944\n- November 2025 Sales Volume: 14,725\n- December 2024 Sales Volume: 17,241\n\nYear-over-Year (Dec 2025 vs Dec 2024): -24.92%\nMonth-over-Month (Dec 2025 vs Nov 2025): -12.10%\n\nNote: 'Main Push' (主推) corresponds to the 'Featured' Operational Level in the dataset, which is the highest-volume operational category.",
+  "model_response": "Sales Volume growth for 'Main Push' (Featured) Operational Level in December 2025:\n\n- December 2025 Sales Volume: 12,944\n- November 2025 Sales Volume: 14,725\n- December 2024 Sales Volume: 17,241\n\nYear-over-Year (Dec 2025 vs Dec 2024): -24.92%\nMonth-over-Month (Dec 2025 vs Nov 2025): -12.10%\n\nNote: 'Main Push' (主推) corresponds to the 'Featured' Operational Level in the dataset, which is the highest-volume operational category.",
+  "reference": "The Sales Volume for the \"Primary\" level: December 2025 is 14780, December 2024 is 25020, November 2025 is 19343.\nYear-over-year growth rate = (14780 - 25020) / 25020 = -40.93%\nMonth-over-month growth rate = (14780 - 19343) / 19343 = -23.59%",
+  "rubrics": null,
+  "question": "Calculate the year-over-year and month-over-month growth rates of Sales Volume for the \"Main Push\" Operational Level in December 2025. Use percentage signs, rounded to two decimal places.",
+  "n_inputs": 6,
+  "n_turns": 8,
+  "prompt_tokens": 81258,
+  "completion_tokens": 2431,
+  "elapsed_seconds": 29.47,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "该AI模型答案提供的Sales Volume数据与参考答案明显不符：模型中December 2025为12,944，而参考答案为14,780；December 2024为17,241，与参考答案25,020不符；November 2025为14,725，与参考答案19,343不符。由于这些基础数据错误，导致计算出的同比增长率（-24.92% vs -40.93%）和环比增长率（-12.10% vs -23.59%）均与参考答案存在显著差异。尽管模型尝试进行了计算并保留两位小数，但因数据源错误，最终结果不符合参考答案。因此判定为0分。"
+}

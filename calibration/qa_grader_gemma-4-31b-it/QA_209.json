@@ -1,0 +1,17 @@
+{
+  "id": "QA_209",
+  "answer": "The maximum value of a single item in Order Amount is 3855.6.",
+  "model_response": "The maximum value of a single item in Order Amount is 3855.6.",
+  "reference": 3855.6,
+  "rubrics": null,
+  "question": "The maximum value of a single item in Order Amount",
+  "n_inputs": 1,
+  "n_turns": 2,
+  "prompt_tokens": 11054,
+  "completion_tokens": 280,
+  "elapsed_seconds": 7.21,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果 3855.6 与参考答案完全一致。"
+}

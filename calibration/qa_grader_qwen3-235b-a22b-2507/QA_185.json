@@ -1,0 +1,17 @@
+{
+  "id": "QA_185",
+  "answer": "151110.1Draw159517.16",
+  "model_response": "151110.1Draw159517.16",
+  "reference": "151110.1 and 159517.16",
+  "rubrics": null,
+  "question": "Based on the Sheet2 data in the file Workbook.xlsx, find the two values in the \"Amount Excluding Tax\" column that sum to 310,627.26.\nOutput requirements:\nOutput the values in ascending order.\nDo not include any background introduction, calculation process, or punctuation.\nStrictly follow the output format: [value1]Draw[value2]",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 19931,
+  "completion_tokens": 262,
+  "elapsed_seconds": 6.87,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案一致，两个数值151110.1和159517.16相加等于310,627.26，且按升序排列，符合输出格式要求，无多余内容。"
+}

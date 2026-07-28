@@ -1,0 +1,17 @@
+{
+  "id": "QA_103",
+  "answer": "Average Total Score: 3.93\nHigh-performer proportion (4 ≤ Total Score ≤ 5): 58.48%\nLow-performer proportion (Total Score < 3): 1.78%\n(Based on 619 valid Total Score records out of 620 rows.)",
+  "model_response": "Average Total Score: 3.93\nHigh-performer proportion (4 ≤ Total Score ≤ 5): 58.48%\nLow-performer proportion (Total Score < 3): 1.78%\n(Based on 619 valid Total Score records out of 620 rows.)",
+  "reference": "Average Score: 3.93 High Performance Ratio: 58.48% Low Performance Ratio: 1.78%",
+  "rubrics": null,
+  "question": "Using the outsourcing assessment user data in 25Q3 outsourcing assessment user data.xlsx, calculate the average Total Score of all outsourced personnel (rounded to 2 decimal places); also calculate the proportion of high-performers and the proportion of low-performers (both rounded to 2 decimal places and expressed as percentages). Definitions: high-performer means Total Score ≥ 4 and ≤ 5; low-performer means Total Score < 3 (excluding 3). When computing proportions, the denominator is the count of all valid Total Score records (ignore rows where Total Score is missing). Output the result as text containing three values: average score, high-performer proportion, low-performer proportion.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 12508,
+  "completion_tokens": 643,
+  "elapsed_seconds": 9.39,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型计算的平均分、高绩效比例和低绩效比例均与参考答案完全一致。"
+}

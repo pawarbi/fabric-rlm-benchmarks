@@ -1,0 +1,17 @@
+{
+  "id": "QA_217",
+  "answer": "Total duration for sk200: 52 hours 30 minutes (3150 minutes) across 10 entries from 2024/8/6 to 2024/8/17.",
+  "model_response": "Total duration for sk200: 52 hours 30 minutes (3150 minutes) across 10 entries from 2024/8/6 to 2024/8/17.",
+  "reference": "52 hours 30 minutes",
+  "rubrics": null,
+  "question": "What is the total duration for sk200",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 33136,
+  "completion_tokens": 908,
+  "elapsed_seconds": 15.61,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案在计算结果上完全一致，明确指出总时长为52小时30分钟。虽然额外提供了等价的3150分钟和数据范围信息，但这不影响核心答案的准确性。根据评分标准，计算结果与参考答案基本一致即得1分。"
+}

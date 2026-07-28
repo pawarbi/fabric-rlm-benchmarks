@@ -1,0 +1,17 @@
+{
+  "id": "QA_14",
+  "answer": "| Business Unit | Completion Rate |\n|---|---|\n| DIV Division 9BED02 | 97.87% |\n| DIV Division CDD15F | 81.82% |\n| DIV Division C3ABA1 | 69.44% |\n| DIV Division 1F6BFC | 49.33% |\n| DIV Division 22AEAB | 45.57% |\n| DIV Division C2D65F | 44.44% |\n| DIV Division 25D750 | 43.64% |\n| DIV Division E49E85 | 40.82% |\n| DIV Division 75E978 | 39.18% |\n| DIV Division 988DF6 | 16.98% |\n| DIV Division BBAE98 | 14.81% |\n| DIV Division 08D6DE | 1.89% |\n| DIV Division F98256 | 0.00% |\n| DIV Division F263A7 | 0.00% |\n",
+  "model_response": "| Business Unit | Completion Rate |\n|---|---|\n| DIV Division 9BED02 | 97.87% |\n| DIV Division CDD15F | 81.82% |\n| DIV Division C3ABA1 | 69.44% |\n| DIV Division 1F6BFC | 49.33% |\n| DIV Division 22AEAB | 45.57% |\n| DIV Division C2D65F | 44.44% |\n| DIV Division 25D750 | 43.64% |\n| DIV Division E49E85 | 40.82% |\n| DIV Division 75E978 | 39.18% |\n| DIV Division 988DF6 | 16.98% |\n| DIV Division BBAE98 | 14.81% |\n| DIV Division 08D6DE | 1.89% |\n| DIV Division F98256 | 0.00% |\n| DIV Division F263A7 | 0.00% |\n",
+  "reference": "         Business Unit Completion Rate(%)\nDIV Business Unit 9BED02 97.87%\nDIV Business Unit CDD15F 81.82%\nDIV Business Unit C3ABA1 69.44%\nDIV Business Unit 1F6BFC 49.33%\nDIV Business Unit 22AEAB 45.57%\nDIV Business Unit C2D65F 44.44%\nDIV Business Unit 25D750 43.64%\nDIV Business Unit E49E85 40.82%\nDIV Business Unit 75E978 39.18%\nDIV Business Unit 988DF6 16.98%\nDIV Business Unit BBAE98 14.81%\nDIV Business Unit 08D6DE  1.89%\nDIV Business Unit F263A7  0.00%\nDIV Business Unit F98256  0.00%",
+  "rubrics": null,
+  "question": "Calculate the completion rate for each Business Unit (defined as: actual completion value ÷ target value × 100%), sort in descending order by completion rate, and output a table containing the Business Unit name and completion rate, with the completion rate rounded to 2 decimal places and including a percent sign.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.54,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果（完成率）与参考答案完全一致，排序正确，且符合保留两位小数及百分号的格式要求。虽然业务单元名称中的'Business Unit'被替换为了'Division'，但核心数据准确且逻辑正确。"
+}

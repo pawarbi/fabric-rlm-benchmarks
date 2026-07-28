@@ -1,0 +1,17 @@
+{
+  "id": "QA_124",
+  "answer": "Total Score statistics (n=231, rounded to 2 decimals):\n  Minimum: 35.0\n  Maximum: 175.0\n  Mean: 117.1\n  Standard Deviation: 31.03 (sample, n-1) / 30.97 (population, n)",
+  "model_response": "Total Score statistics (n=231, rounded to 2 decimals):\n  Minimum: 35.0\n  Maximum: 175.0\n  Mean: 117.1\n  Standard Deviation: 31.03 (sample, n-1) / 30.97 (population, n)",
+  "reference": "Min: 35.00\nMax: 175.00\nMean: 117.10\nStd Dev: 31.03",
+  "rubrics": "Only an exact numerical match is considered correct",
+  "question": "Calculate the minimum value, maximum value, mean, and standard deviation of the \"Total Score\" column in this questionnaire dataset. All values should be rounded to 2 decimal places.",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 25449,
+  "completion_tokens": 617,
+  "elapsed_seconds": 9.95,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "虽然AI模型计算的数值接近参考答案，但根据[答题点]要求'Only an exact numerical match is considered correct'，其输出未严格保留两位小数格式（如35.0应为35.00），且标准差提供了两个值（31.03和30.97），未给出唯一匹配结果，因此不符合精确匹配要求。"
+}

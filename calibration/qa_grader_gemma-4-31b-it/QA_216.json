@@ -1,0 +1,17 @@
+{
+  "id": "QA_216",
+  "answer": "Sum of duration for model 120 (machine): 2 hours 30 minutes (= 150 minutes = 2.5 hours), from the single entry on 2024/8/2 (Digging drainage ditch).",
+  "model_response": "Sum of duration for model 120 (machine): 2 hours 30 minutes (= 150 minutes = 2.5 hours), from the single entry on 2024/8/2 (Digging drainage ditch).",
+  "reference": "2 hours 30 minutes",
+  "rubrics": null,
+  "question": "What is the sum of the duration for model 120?\n",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 13500,
+  "completion_tokens": 339,
+  "elapsed_seconds": 7.98,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果与参考答案完全一致，得分为1分。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_81",
+  "answer": "Key persons of concern = 60-80 years old with disability grades 1-2 + elderly aged 80+.\nFor each area, counts and home-visit service coverage:\n\nTownship A:   Total=611,  Served=45,  Not yet served=566,  Served proportion=7.36%\nCommunity D:  Total=33,   Served=21,  Not yet served=12,   Served proportion=63.64%\nTownship B:   Total=245,  Served=13,  Not yet served=232,  Served proportion=5.31%\nTownship C:   Total=1366, Served=92,  Not yet served=1274, Served proportion=6.73%",
+  "model_response": "Key persons of concern = 60-80 years old with disability grades 1-2 + elderly aged 80+.\nFor each area, counts and home-visit service coverage:\n\nTownship A:   Total=611,  Served=45,  Not yet served=566,  Served proportion=7.36%\nCommunity D:  Total=33,   Served=21,  Not yet served=12,   Served proportion=63.64%\nTownship B:   Total=245,  Served=13,  Not yet served=232,  Served proportion=5.31%\nTownship C:   Total=1366, Served=92,  Not yet served=1274, Served proportion=6.73%",
+  "reference": "Township A has 566 remaining persons, with a completion rate of 7.36%.\nTownship B has 232 remaining persons, with a completion rate of 5.31%.\nTownship C has 1274 remaining persons, with a completion rate of 6.73%.\nTownship D has 12 remaining persons, with a completion rate of 63.64%.",
+  "rubrics": null,
+  "question": "Disabled persons aged 60-80 and elderly persons aged 80 and above are considered key persons of concern; some have already received home visit services. Count the number of key persons of concern in Township A, Community D, Township B, and Township C who have not yet received home visit services, and calculate the proportion (percentage, rounded to two decimal places) of those who have been served.",
+  "n_inputs": 5,
+  "n_turns": 7,
+  "prompt_tokens": 45485,
+  "completion_tokens": 1335,
+  "elapsed_seconds": 19.19,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案中各地区的未服务人数和服务比例与参考答案完全一致，计算准确，符合统计类题目1分标准。"
+}

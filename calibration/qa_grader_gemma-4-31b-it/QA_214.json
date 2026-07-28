@@ -1,0 +1,17 @@
+{
+  "id": "QA_214",
+  "answer": "How to Request Special Meals, Special Passenger Services / Special Meals, 2880\nHow to Book Unaccompanied Minor Service, Special Passenger Services / Unaccompanied Passengers, 2537\nTotal: 5417",
+  "model_response": "How to Request Special Meals, Special Passenger Services / Special Meals, 2880\nHow to Book Unaccompanied Minor Service, Special Passenger Services / Unaccompanied Passengers, 2537\nTotal: 5417",
+  "reference": "Standard Question,Type,Match Count\nHow to apply for special meals,Special Passenger Services/Special Meals,2880\nHow to book unaccompanied minor service,Special Passenger Services/Unaccompanied Passengers,2537\nTotal:5417",
+  "rubrics": null,
+  "question": "Based on the file \"FAQ_full-8.26.xlsx\", filter all rows where the \"Type\" column contains \"Special Passenger Services\".\nOutput requirements:\nList the \"Standard Question\", \"Type\", and \"Match Count\" of these rows.\nCalculate the sum of \"Match Count\" for all filtered rows.\nMust follow the format below and output in table format:\n[Standard Question], [Type], [Match Count]...\nTotal: [Total Match Count]",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 14196,
+  "completion_tokens": 392,
+  "elapsed_seconds": 7.7,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型提取的数据（2880, 2537）以及计算的总和（5417）与参考答案完全一致，完整覆盖了所有核心要点。"
+}

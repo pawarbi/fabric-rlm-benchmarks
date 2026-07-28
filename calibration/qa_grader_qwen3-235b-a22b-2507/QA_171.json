@@ -1,0 +1,17 @@
+{
+  "id": "QA_171",
+  "answer": "Final Exam Score Statistics:\n- Highest final exam score: 79.5\n- Lowest final exam score: 45.0\n- Number of students scoring 70-80: 2\n- Number of students scoring 60-70: 14\n- Number of students scoring below 60: 19\n- Number of students scoring above 80: 0\n\n(Total students counted: 35)",
+  "model_response": "Final Exam Score Statistics:\n- Highest final exam score: 79.5\n- Lowest final exam score: 45.0\n- Number of students scoring 70-80: 2\n- Number of students scoring 60-70: 14\n- Number of students scoring below 60: 19\n- Number of students scoring above 80: 0\n\n(Total students counted: 35)",
+  "reference": "1. Highest final exam score: 79.5\n2. Lowest final exam score: 45.0\n3. Number of students scoring 70-80: 2\n4. Number of students scoring 60-70: 14\n5. Number of students scoring below 60: 19\n6. Number of students scoring above 80 in final exam: 0",
+  "rubrics": null,
+  "question": "Statistics:\nHighest final exam score\nLowest final exam score\nNumber of students scoring 70-80\nNumber of students scoring 60-70\nNumber of students scoring below 60\nNumber of students scoring above 80 in final exam",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17565,
+  "completion_tokens": 1072,
+  "elapsed_seconds": 16.77,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案在所有统计项目上与参考答案完全一致：最高分79.5、最低分45.0、70-80分段2人、60-70分段14人、低于60分19人、高于80分0人。所有数值均准确匹配，且未出现数据偏差或逻辑错误，符合统计类题目打分标准中‘计算结果与参考答案基本一致’的要求，因此得分为1分。"
+}

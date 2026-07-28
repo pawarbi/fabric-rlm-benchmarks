@@ -1,0 +1,17 @@
+{
+  "id": "QA_57",
+  "answer": "Company Total Performance: 63163049.37",
+  "model_response": "Company Total Performance: 63163049.37",
+  "reference": "Total Company Performance: 126326098.74",
+  "rubrics": "The answer is correct only if the numerical value is completely accurate",
+  "question": "Calculate the company's Total Performance (sum the \"Total Performance\" values across all months that have \"Total Performance\" data), output the result rounded to 2 decimal places in the format \"Company Total Performance: XXX.XX\".",
+  "n_inputs": 2,
+  "n_turns": 4,
+  "prompt_tokens": 28088,
+  "completion_tokens": 772,
+  "elapsed_seconds": 13.83,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型计算出的Total Performance数值（63163049.37）与参考答案（126326098.74）不一致，不符合答题点中要求的数值完全准确的标准。"
+}

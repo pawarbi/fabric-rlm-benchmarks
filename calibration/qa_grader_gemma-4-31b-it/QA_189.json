@@ -1,0 +1,17 @@
+{
+  "id": "QA_189",
+  "answer": "Authors with Number of Likes exceeding 30,000:\n- Users A: 47,182\n- Users B: 45,218\n- Users C: 36,195\n- Users D: 32,258\n\nTotal: 4 authors out of 40 rows in the dataset.",
+  "model_response": "Authors with Number of Likes exceeding 30,000:\n- Users A: 47,182\n- Users B: 45,218\n- Users C: 36,195\n- Users D: 32,258\n\nTotal: 4 authors out of 40 rows in the dataset.",
+  "reference": "Answer: A total of 4 authors have works with more than 30,000 likes\n1. User A - Work A received 47,182 likes (Rank 1)\n2. User B - Work B received 45,218 likes (Rank 2)\n3. User C - Work C received 36,195 likes (Rank 3)\n4. User D - Work D received 32,258 likes (Rank 4)",
+  "rubrics": null,
+  "question": "Which authors have a Number of Likes exceeding 30000",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 24967,
+  "completion_tokens": 340,
+  "elapsed_seconds": 10.29,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案准确列出了所有点赞数超过30,000的作者及其具体数值，且总人数与参考答案完全一致，覆盖了所有核心要点。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_136",
+  "answer": "Gram-negative bacteria (G-): 22 (78.57%); Gram-positive bacteria (G+): 7 (25.00%); Fungus: 6 (21.43%)",
+  "model_response": "Gram-negative bacteria (G-): 22 (78.57%); Gram-positive bacteria (G+): 7 (25.00%); Fungus: 6 (21.43%)",
+  "reference": "The overall infection rate of Gram-negative bacteria (G-) is 22 (78.57%), the overall infection rate of Gram-positive bacteria (G+) is 7 (25.00%), and the overall infection rate of fungi is 6 (21.43%)",
+  "rubrics": "Output the detection results for 3 categories of microorganisms in the format \"count (detection frequency %)\" (e.g., 14 (93.33%))\n",
+  "question": "Detection frequency of a major microorganism category = total number of detected cases in that category / total number of cases. Total detected cases in a category means: if a patient has one or more Gram-negative bacteria detected, that counts as 1 detected case for the Gram-negative bacteria category. Based on the data in file 02 High_Dose_Group——28_Cases.xlsx, calculate and output the detection results for each major microorganism category in the format \"number of cases (detection frequency %)\" (e.g., 14 (93.33%)).",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 18446,
+  "completion_tokens": 591,
+  "elapsed_seconds": 8.25,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案正确计算并输出了三个微生物类别的检测结果，各项数据与参考答案完全一致，且输出格式符合要求，核心要点完整覆盖。"
+}

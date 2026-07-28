@@ -1,0 +1,17 @@
+{
+  "id": "QA_11",
+  "answer": "Top 20 Shippers by Total Quantity (aggregated from Week 44 Orders + Week 45 Orders):\n\nRank  Shipper           20s    40s    Total\n1     Shipper_0145      2308   0      2308\n2     Shipper_0105      792    976    1768\n3     Shipper_0098      1669   5      1674\n4     Shipper_0084      1482   0      1482\n5     Shipper_0090      0      1373   1373\n6     Shipper_0243      0      1232   1232\n7     Shipper_0121      1142   0      1142\n8     Shipper_0142      1012   49     1061\n9     Shipper_0180      902    66     968\n10    Shipper_0136      905    0      905\n11    Shipper_0171      0      900    900\n12    Shipper_0140      617    262    879\n13    Shipper_0149      877    0      877\n14    Shipper_0123      475    346    821\n15    Shipper_0043      800    0      800\n16    Shipper_0318      795    0      795\n17    Shipper_0143      173    610    783\n18    Shipper_0089      762    5      767\n19    Shipper_0177      712    0      712\n20    Shipper_0231      19     669    688",
+  "model_response": "Top 20 Shippers by Total Quantity (aggregated from Week 44 Orders + Week 45 Orders):\n\nRank  Shipper           20s    40s    Total\n1     Shipper_0145      2308   0      2308\n2     Shipper_0105      792    976    1768\n3     Shipper_0098      1669   5      1674\n4     Shipper_0084      1482   0      1482\n5     Shipper_0090      0      1373   1373\n6     Shipper_0243      0      1232   1232\n7     Shipper_0121      1142   0      1142\n8     Shipper_0142      1012   49     1061\n9     Shipper_0180      902    66     968\n10    Shipper_0136      905    0      905\n11    Shipper_0171      0      900    900\n12    Shipper_0140      617    262    879\n13    Shipper_0149      877    0      877\n14    Shipper_0123      475    346    821\n15    Shipper_0043      800    0      800\n16    Shipper_0318      795    0      795\n17    Shipper_0143      173    610    783\n18    Shipper_0089      762    5      767\n19    Shipper_0177      712    0      712\n20    Shipper_0231      19     669    688",
+  "reference": "     Shipper  20s  40s  Total Container Quantity\nShipper_0145 2308    0 2308\nShipper_0105  792  976 1768\nShipper_0098 1669    5 1674\nShipper_0084 1482    0 1482\nShipper_0090    0 1373 1373\nShipper_0243    0 1232 1232\nShipper_0121 1142    0 1142\nShipper_0142 1012   49 1061\nShipper_0180  902   66  968\nShipper_0136  905    0  905\nShipper_0171    0  900  900\nShipper_0140  617  262  879\nShipper_0149  877    0  877\nShipper_0123  475  346  821\nShipper_0043  800    0  800\nShipper_0318  795    0  795\nShipper_0143  173  610  783\nShipper_0089  762    5  767\nShipper_0177  712    0  712\nShipper_0231   19  669  688",
+  "rubrics": null,
+  "question": "Perform statistics on 20s and 40s for different \"Shipper\" entries. Output the top 20 shippers by Shipper name, quantity of 20s, quantity of 40s, total quantity, sorted in descending order by total quantity.",
+  "n_inputs": 3,
+  "n_turns": 5,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 24.58,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案在统计结果上完全一致，所有Shipper的20s、40s和Total值均匹配，且按总数量降序排列，输出了前20个Shipper。尽管AI模型答案中增加了'Rank'列和额外说明（如'aggregated from Week 44 Orders + Week 45 Orders'），但这些不影响核心统计结果的正确性。数据四舍五入后也完全一致，符合打分标准中的1分要求。"
+}

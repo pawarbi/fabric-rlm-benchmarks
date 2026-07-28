@@ -1,0 +1,17 @@
+{
+  "id": "QA_197",
+  "answer": "Item that sold the most: Sato Rhinitis (quantity sold: 271). Unit price: ¥23.",
+  "model_response": "Item that sold the most: Sato Rhinitis (quantity sold: 271). Unit price: ¥23.",
+  "reference": "Sato Rhinitis Tablets. Unit price ¥23",
+  "rubrics": "Both the name and unit price must be correct",
+  "question": "In the \"Medicine\" sheet, what item sold the most? What is its unit price?",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 18425,
+  "completion_tokens": 1160,
+  "elapsed_seconds": 14.92,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型正确识别出了销量最高的产品（Sato Rhinitis）及其单价（¥23），与参考答案一致，满足答题点要求。"
+}

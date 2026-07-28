@@ -1,0 +1,17 @@
+{
+  "id": "QA_223",
+  "answer": "Store K has the most payers, with 20,000+ people paid (the maximum 'Price 6' value in the Search sheet). For context, the next-highest stores by total payers are Store O (1,198 across 6 listings), Store B (1,000), Store AB (1,000), and Store E (800).",
+  "model_response": "Store K has the most payers, with 20,000+ people paid (the maximum 'Price 6' value in the Search sheet). For context, the next-highest stores by total payers are Store O (1,198 across 6 listings), Store B (1,000), Store AB (1,000), and Store E (800).",
+  "reference": "Store K",
+  "rubrics": null,
+  "question": "Which store has the most payers?",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 36807,
+  "completion_tokens": 1112,
+  "elapsed_seconds": 22.33,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的结论与参考答案完全一致，准确指出了Store K是付款人数最多的商店。"
+}

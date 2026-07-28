@@ -1,0 +1,17 @@
+{
+  "id": "QA_129",
+  "answer": "Repeat purchase rates by cohort and month (purchase = unique customer-day, repeat = at least one purchase in the target month):\n\nCohort sizes: January new users = 626, February new users = 715\n\n|            | January new users | February new users |\n|------------|-------------------|--------------------|\n| February 2024 | 47.28% (296/626) |              |\n| March 2024    | 38.02% (238/626) | 26.57% (190/715) |\n| April 2024    | 39.30% (246/626) | 25.59% (183/715) |\n\nMethod: Deduplicated (Customer ID, Sales date) to count a single purchase per customer per day. A customer is in the January-new cohort if their first purchase month = 202401 (n=626) and in the February-new cohort if first purchase month = 202402 (n=715). Repeat purchase rate for month M = (customers in cohort with ≥1 purchase in M) / (cohort size).",
+  "model_response": "Repeat purchase rates by cohort and month (purchase = unique customer-day, repeat = at least one purchase in the target month):\n\nCohort sizes: January new users = 626, February new users = 715\n\n|            | January new users | February new users |\n|------------|-------------------|--------------------|\n| February 2024 | 47.28% (296/626) |              |\n| March 2024    | 38.02% (238/626) | 26.57% (190/715) |\n| April 2024    | 39.30% (246/626) | 25.59% (183/715) |\n\nMethod: Deduplicated (Customer ID, Sales date) to count a single purchase per customer per day. A customer is in the January-new cohort if their first purchase month = 202401 (n=626) and in the February-new cohort if first purchase month = 202402 (n=715). Repeat purchase rate for month M = (customers in cohort with ≥1 purchase in M) / (cohort size).",
+  "reference": "|            | New users in January | New users in February |\n|------------|----------------------|-----------------------|\n| February 2024 | 47.28%     |            |\n| March 2024 | 38.02%     | 26.57%     |\n| April 2024 | 39.30%     | 25.59%",
+  "rubrics": null,
+  "question": "As the manager of a large supermarket chain, you have obtained detailed sales data for the period January through April 2024. If the same customer makes multiple purchases on the same day, it counts as a single purchase. Please analyze the following questions: Define users who made their first purchase in January 2024 as \"January new users\". Define users who made their first purchase in February 2024 and had never purchased before as \"February new users\".\n1) For the \"January new users\" cohort, calculate their repeat purchase rate for each of February, March, and April. Repeat purchase is defined as: having at least one purchase in that month (regardless of product category).\n2) For the \"February new users\" cohort, calculate their repeat purchase rate for each of March and April. Output in the table format below, |            | January new users | February new users |\n|------------|------------|------------|\n| February 2024 |      |            |\n| March 2024 |      |      |\n| April 2024 |      | , leaving the February 2024 data cell for February new users empty",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 32955,
+  "completion_tokens": 1182,
+  "elapsed_seconds": 19.76,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案在重复购买率的计算上与参考答案完全一致，包括所有百分比数值（47.28%、38.02%、39.30%、26.57%、25.59%），且表格格式正确，空格处理符合要求。计算逻辑也正确，基于首次购买月份划分用户群，并按客户-天去重统计重复购买，因此判定为1分。"
+}

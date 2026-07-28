@@ -1,0 +1,17 @@
+{
+  "id": "QA_205",
+  "answer": "Total sales volume by category (Sheet1 of sales_by_category.xlsx, 18 entries each):\n- Mugwort: 7.001 kg (min 0.202, max 0.631, mean 0.389)\n- Bok Choy Stems: 4.249 kg (min 0.159, max 0.269, mean 0.236)\nGrand total: 11.250 kg across both categories. Sheets 'Sheet2' and 'Sheet3' are empty.",
+  "model_response": "Total sales volume by category (Sheet1 of sales_by_category.xlsx, 18 entries each):\n- Mugwort: 7.001 kg (min 0.202, max 0.631, mean 0.389)\n- Bok Choy Stems: 4.249 kg (min 0.159, max 0.269, mean 0.236)\nGrand total: 11.250 kg across both categories. Sheets 'Sheet2' and 'Sheet3' are empty.",
+  "reference": "| Item | Total Sales (kg) |\n| Cabbage Sprouts | 4.249 |\n| Mugwort | 7.001 |",
+  "rubrics": null,
+  "question": "Summarize the total sales volume for each category",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 29866,
+  "completion_tokens": 1238,
+  "elapsed_seconds": 16.68,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型答案中的类别名称与参考答案不一致：模型将4.249 kg对应为Bok Choy Stems，而参考答案中该数值应对应Cabbage Sprouts。在无证据表明两者为同一物品的情况下，属于类别匹配错误，导致统计结果与参考答案存在明显差异，因此得0分。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_95",
+  "answer": "Salary allocated per project (in column order, 7 projects):\nProject 1: 450.73\nProject 2: 321.87\nProject 3: 257.51\nProject 4: 547.28\nProject 5: 1770.68\nProject 6: 2060.38\nProject 7: 676.07\n\nMethod: 7 ratio columns identified. Allocation weight = (sum of each ratio column) / (sum of all ratio columns = 899.99). Total salary (max row total) = 42591.66. Amount per project = 42591.66/7 = 6084.522857. Final = amount_per_project × weight, rounded to 2 decimals.",
+  "model_response": "Salary allocated per project (in column order, 7 projects):\nProject 1: 450.73\nProject 2: 321.87\nProject 3: 257.51\nProject 4: 547.28\nProject 5: 1770.68\nProject 6: 2060.38\nProject 7: 676.07\n\nMethod: 7 ratio columns identified. Allocation weight = (sum of each ratio column) / (sum of all ratio columns = 899.99). Total salary (max row total) = 42591.66. Amount per project = 42591.66/7 = 6084.522857. Final = amount_per_project × weight, rounded to 2 decimals.",
+  "reference": "4853.58\n3466.02\n2772.96\n5893.18\n19067.10\n22186.59\n7280.02",
+  "rubrics": null,
+  "question": "Based on the working-hours ratios in the table, calculate the salary amount to be allocated to each project. Specific requirements:\n 1. Identify the columns in the first row that contain \"Ratio\"; use the count of such columns as the number of projects. Definition of allocation weight: sum all data in the specified column as the denominator, and the sum of that column's data as the numerator — their ratio is the final allocation weight;\n 2. Identify the \"Total\" figure from the table related to \"salary\" or \"total salary\", and take the maximum value as the total salary. Divide the total salary by the number of projects to obtain the amount to be allocated per project;\n 3. Calculation formula: Salary allocated to each project = Amount to be allocated per project × Allocation weight of that project\n 4. Output the allocated salary amounts in column order, with each row representing the salary amount for one project;\n 5. Round the allocated salary to 2 decimal places",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 4.6,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型的答案与参考答案存在明显差异。根据参考答案，各项目的分配薪资分别为4853.58、3466.02等，而AI模型计算出的结果（如450.73、321.87等）仅为参考答案的约十分之一，表明其计算过程中存在严重错误。虽然AI模型描述了计算方法，但其最终结果明显错误。例如，总工资为42591.66，除以7个项目得到每项目6084.52，再乘以各列比例作为权重，但实际分配结果应加总回总工资。然而，AI模型输出的7个项目分配金额之和约为4124.51，远低于总工资42591.66，说明其权重计算或分配逻辑有误。此外，参考答案中最大分配金额超过2万，而AI模型最大值仅2060，数量级不符。因此判定为0分。"
+}

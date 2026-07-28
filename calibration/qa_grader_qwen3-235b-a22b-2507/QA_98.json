@@ -1,0 +1,17 @@
+{
+  "id": "QA_98",
+  "answer": "Secondary Industry | Average Income\nG | 228601\nE | 158530\nF | 120681\nA | 86773\nC | 28145\nD | 8931\nB | 0",
+  "model_response": "Secondary Industry | Average Income\nG | 228601\nE | 158530\nF | 120681\nA | 86773\nC | 28145\nD | 8931\nB | 0",
+  "reference": "Secondary Industry Average Income\n\nG 228602\nE 158531\nF 120681\nA 86773\nC 28146\nD 8932\nB 0",
+  "rubrics": null,
+  "question": "Using the file provided, group by \"Secondary Industry\" and calculate the mean Cash Income for each secondary industry. Output the result as a two-column table: the first column is the \"Secondary Industry\" name, and the second column is the \"Average Income\" (integer). Sort the results in descending order by Average Income, with ties broken by Secondary Industry name in ascending alphabetical order.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.84,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型的答案在多个Secondary Industry的Average Income上与参考答案相差1，尽管整体趋势和排序正确，但统计类题目要求计算结果与参考答案基本一致，微小数值差异不符合严格对应的要求，因此判定为0分。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_130",
+  "answer": "```md\n| Price Range (yuan) | Total Sales Volume | Record Count | Average Sales Volume | Sales Volume Percentage(%) |\n|---|---|---|---|---|\n| 100-150 | 12,941,213 | 6 | 2,156,868.83 | 6.17 |\n| 150-200 | 61,760,558 | 15 | 4,117,370.53 | 29.46 |\n| 200-250 | 57,088,422 | 18 | 3,171,579.00 | 27.24 |\n| 250 and above | 77,824,135 | 8 | 9,728,016.88 | 37.13 |\n```",
+  "model_response": "```md\n| Price Range (yuan) | Total Sales Volume | Record Count | Average Sales Volume | Sales Volume Percentage(%) |\n|---|---|---|---|---|\n| 100-150 | 12,941,213 | 6 | 2,156,868.83 | 6.17 |\n| 150-200 | 61,760,558 | 15 | 4,117,370.53 | 29.46 |\n| 200-250 | 57,088,422 | 18 | 3,171,579.00 | 27.24 |\n| 250 and above | 77,824,135 | 8 | 9,728,016.88 | 37.13 |\n```",
+  "reference": "| Price Range (CNY) | Total Sales Volume | Record Count | Average Sales Volume | Sales Volume Share (%) |\n|---|---:|---:|---:|---:|\n| 100-150 | 12941213 | 6 | 2156868.83 | 6.17 |\n| 150-200 | 61760558 | 15 | 4117370.53 | 29.46 |\n| 200-250 | 57088422 | 18 | 3171579 | 27.23 |\n| 250 and above | 77824135 | 8 | 9728016.88 | 37.13 |\n| Total | 209614328 | 47 | 4459879.32 | 100 |",
+  "rubrics": "If the total in the last row is not answered but everything else is answered correctly, it counts as correct",
+  "question": "Please categorize and summarize Sales Volume by the following price ranges: 100-150, 150-200, 200-250, 250 and above.\nCalculate for each range: total Sales Volume, record count, average Sales Volume, and Sales Volume percentage (%). Retain 2 decimal places for the percentage.\nOutput the results as a Markdown table with the following header:\n| Price Range (yuan) | Total Sales Volume | Record Count | Average Sales Volume | Sales Volume Percentage(%) |\nOutput only the Markdown table, wrapped in a ```md code block, with no additional explanatory text.",
+  "n_inputs": 1,
+  "n_turns": 9,
+  "prompt_tokens": 66243,
+  "completion_tokens": 2238,
+  "elapsed_seconds": 26.91,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型提供的各价格区间统计数据（总量、记录数、平均值、占比）与参考答案基本一致。虽然200-250区间的占比存在0.01%的微小差异，但属于可接受的精度范围。且根据答题点要求，缺失总计行不影响得分。"
+}

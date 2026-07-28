@@ -1,0 +1,17 @@
+{
+  "id": "QA_75",
+  "answer": "Key Product Category | Total Stockpile Quantity (cases)\nClass A              | 369\nClass B              | 383\n\nNotes:\n- Extracted A Distribution and B Distribution quantities from 32 unique store visit reports in the document.\n- One duplicate was identified and deduplicated: report for store code 3793336522 (member users_11, A=25, B=15) appeared twice (T29 and T31).\n- The template/instruction message (T8) was excluded as it contains placeholder values, not real figures.",
+  "model_response": "Key Product Category | Total Stockpile Quantity (cases)\nClass A              | 369\nClass B              | 383\n\nNotes:\n- Extracted A Distribution and B Distribution quantities from 32 unique store visit reports in the document.\n- One duplicate was identified and deduplicated: report for store code 3793336522 (member users_11, A=25, B=15) appeared twice (T29 and T31).\n- The template/instruction message (T8) was excluded as it contains placeholder values, not real figures.",
+  "reference": "Key product categories, total stockpile volume (cases)\nCategory A, 369\nCategory B, 383",
+  "rubrics": null,
+  "question": "Count the cumulative stockpile/haul quantity of \"key products\" (Class A and Class B) in the statistics document.\nSpecific requirements:\nIdentify the stockpile quantities (unit: cases) following \"A Distribution\" and \"B Distribution\" in the document.\nCalculate the total stockpile quantity for Class A and Class B products separately.\nOutput format is a table containing two columns: \"Key Product Category\" and \"Total Stockpile Quantity (cases)\".\nIf there are duplicate referenced messages, deduplication must be applied.",
+  "n_inputs": 1,
+  "n_turns": 9,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.87,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果（Class A: 369, Class B: 383）与参考答案完全一致，且符合要求的表格输出格式。"
+}

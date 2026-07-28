@@ -1,0 +1,17 @@
+{
+  "id": "QA_108",
+  "answer": "Summary Table: Zone A Commodity Catalog vs City A Export Commodity Catalog Match Status\n\n| Total Commodities in Zone A | Matched Commodities | Unmatched Commodities | Match Rate |\n|-----------------------------|---------------------|----------------------|------------|\n| 178                         | 177                 | 1                    | 99.44%     |\n\nNote: The single unmatched item is \"Agricultural Products\" (Zone A) vs \"Agricultural Products*\" (City A) - exact match fails due to the trailing asterisk in the City A entry.",
+  "model_response": "Summary Table: Zone A Commodity Catalog vs City A Export Commodity Catalog Match Status\n\n| Total Commodities in Zone A | Matched Commodities | Unmatched Commodities | Match Rate |\n|-----------------------------|---------------------|----------------------|------------|\n| 178                         | 177                 | 1                    | 99.44%     |\n\nNote: The single unmatched item is \"Agricultural Products\" (Zone A) vs \"Agricultural Products*\" (City A) - exact match fails due to the trailing asterisk in the City A entry.",
+  "reference": "Total number of commodities in Zone A: 186\n Matched commodities (existing in City A catalog): 152\n Unmatched commodities (not existing in City A catalog): 34\n Match rate: 81.72%",
+  "rubrics": null,
+  "question": "Analyze the matching status of commodities in the Zone A commodity catalog against the City A export commodity catalog: calculate the total number of commodities in Zone A, the number of commodities present in the City A catalog, the number of commodities not present in the City A catalog, and the match rate (rounded to 2 decimal places, presented as a percentage). Matching is based on exact agreement of commodity code or commodity name (commodity code takes priority; if the code is missing, commodity name is used for matching). Output the result as a summary table containing four fields: Total Commodities in Zone A, Matched Commodities, Unmatched Commodities, and Match Rate. Output plain text only.",
+  "n_inputs": 1,
+  "n_turns": 7,
+  "prompt_tokens": 55848,
+  "completion_tokens": 1342,
+  "elapsed_seconds": 25.32,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型计算的总商品数、匹配数、未匹配数及匹配率均与参考答案存在显著差异（如总数178 vs 186，匹配率99.44% vs 81.72%），不符合统计类题目得分要求，判定为0分。"
+}

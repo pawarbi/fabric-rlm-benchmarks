@@ -1,0 +1,17 @@
+{
+  "id": "QA_150",
+  "answer": "Unit selling price per mu in terraced fields (descending order):\n\n1. Sweet Potato: 6825 yuan/mu\n2. Pumpkin: 4275 yuan/mu\n3. Buckwheat: 4200 yuan/mu\n4. Broomcorn Millet: 3750 yuan/mu\n5. Sorghum: 3600 yuan/mu\n6. Black Soybean: 3562.5 yuan/mu\n7. Red Bean: 3135 yuan/mu\n8. Corn: 2850 yuan/mu\n9. Climbing Bean: 2666.25 yuan/mu\n10. Wheat: 2660 yuan/mu\n11. Millet: 2565 yuan/mu\n12. Mung Bean: 2310 yuan/mu\n13. Oat (Youmai): 2200 yuan/mu\n14. Barley: 1750 yuan/mu\n15. Duan Feng: 1235 yuan/mu",
+  "model_response": "Unit selling price per mu in terraced fields (descending order):\n\n1. Sweet Potato: 6825 yuan/mu\n2. Pumpkin: 4275 yuan/mu\n3. Buckwheat: 4200 yuan/mu\n4. Broomcorn Millet: 3750 yuan/mu\n5. Sorghum: 3600 yuan/mu\n6. Black Soybean: 3562.5 yuan/mu\n7. Red Bean: 3135 yuan/mu\n8. Corn: 2850 yuan/mu\n9. Climbing Bean: 2666.25 yuan/mu\n10. Wheat: 2660 yuan/mu\n11. Millet: 2565 yuan/mu\n12. Mung Bean: 2310 yuan/mu\n13. Oat (Youmai): 2200 yuan/mu\n14. Barley: 1750 yuan/mu\n15. Duan Feng: 1235 yuan/mu",
+  "reference": "Sweet potato, Pumpkin, Buckwheat, Millet (broomcorn), Sorghum, Black soybean, Red bean, Corn, Climbing bean, Wheat, Foxtail millet, Mung bean, Oat, Barley",
+  "rubrics": null,
+  "question": "What is the descending order of unit selling price per mu in terraced fields?",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 14316,
+  "completion_tokens": 227,
+  "elapsed_seconds": 4.11,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案完整覆盖了参考答案中的所有作物，且降序排列的顺序与参考答案完全一致。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_198",
+  "answer": "Count by Year for each *Qualification Level (from 'Professional Technical Position' sheet, *Date of Acquisition as statistical value):\n\n30-Intermediate:\n  1995: 1\n  2003: 1\n  2007: 1\n  2011: 3\n  2017: 1\n  2020: 1\n  2022: 3\n  2023: 4\n\n40-Entry-Level:\n  (no records in data)\n\n20-Associate Senior:\n  (no records in data)\n",
+  "model_response": "Count by Year for each *Qualification Level (from 'Professional Technical Position' sheet, *Date of Acquisition as statistical value):\n\n30-Intermediate:\n  1995: 1\n  2003: 1\n  2007: 1\n  2011: 3\n  2017: 1\n  2020: 1\n  2022: 3\n  2023: 4\n\n40-Entry-Level:\n  (no records in data)\n\n20-Associate Senior:\n  (no records in data)\n",
+  "reference": "Only the \"Professional Technical Position\" sheet matches the description of \"*Qualification Level\" in the question.\n|Year|30-Intermediate|40-Entry-Level|20-Associate Senior|\n|----|----|----|----|\n|1995|1|0|0|\n|1998|0|1|0|\n|2003|1|0|0|\n|2007|1|1|0|\n|2011|3|0|0|\n|2017|1|0|0|\n|2020|1|0|0|\n|2022|3|0|0|\n|2023|4|0|0|",
+  "rubrics": null,
+  "question": "Based on this new table, use \"*Qualification Level\" values of \"30-Intermediate\", \"40-Entry-Level\", and \"20-Associate Senior\" respectively, with \"*Date Obtained\" as the statistical value and year as the row value, to list the count corresponding to each year.",
+  "n_inputs": 1,
+  "n_turns": 11,
+  "prompt_tokens": 98125,
+  "completion_tokens": 1645,
+  "elapsed_seconds": 29.54,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型在统计 '40-Entry-Level' 等级时结果错误，将其标注为无记录，而参考答案中 1998 年和 2007 年均有记录，导致统计结果与参考答案不一致。"
+}

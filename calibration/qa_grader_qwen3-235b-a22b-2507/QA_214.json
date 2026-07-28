@@ -1,0 +1,17 @@
+{
+  "id": "QA_214",
+  "answer": "How to Request Special Meals, Special Passenger Services / Special Meals, 2880\nHow to Book Unaccompanied Minor Service, Special Passenger Services / Unaccompanied Passengers, 2537\nTotal: 5417",
+  "model_response": "How to Request Special Meals, Special Passenger Services / Special Meals, 2880\nHow to Book Unaccompanied Minor Service, Special Passenger Services / Unaccompanied Passengers, 2537\nTotal: 5417",
+  "reference": "Standard Question,Type,Match Count\nHow to apply for special meals,Special Passenger Services/Special Meals,2880\nHow to book unaccompanied minor service,Special Passenger Services/Unaccompanied Passengers,2537\nTotal:5417",
+  "rubrics": null,
+  "question": "Based on the file \"FAQ_full-8.26.xlsx\", filter all rows where the \"Type\" column contains \"Special Passenger Services\".\nOutput requirements:\nList the \"Standard Question\", \"Type\", and \"Match Count\" of these rows.\nCalculate the sum of \"Match Count\" for all filtered rows.\nMust follow the format below and output in table format:\n[Standard Question], [Type], [Match Count]...\nTotal: [Total Match Count]",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 14196,
+  "completion_tokens": 392,
+  "elapsed_seconds": 7.7,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案在核心内容上完全一致：两行数据的'Standard Question'、'Type'和'Match Count'均正确列出，且'Total'的求和结果5417也准确无误。尽管AI模型在'Standard Question'的表述上使用了'Request'而非'apply'，'Book'而非'book'，以及'Type'中的空格和大小写略有差异，但这些属于表述风格差异，不影响语义和数据对应。根据评分标准，数据四舍五入后一致即可接受，且逻辑和核心要点完整覆盖，因此判定为1分。"
+}

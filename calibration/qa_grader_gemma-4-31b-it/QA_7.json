@@ -1,0 +1,17 @@
+{
+  "id": "QA_7",
+  "answer": "Education Group 1",
+  "model_response": "Education Group 1",
+  "reference": "Education Group 1",
+  "rubrics": null,
+  "question": "Which education group can only take Course 5 in Grade 4?",
+  "n_inputs": 1,
+  "n_turns": 10,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 1.75,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案完全一致，准确回答了问题。"
+}

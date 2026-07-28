@@ -1,0 +1,17 @@
+{
+  "id": "QA_96",
+  "answer": "| City Name | Withdrawal Amount (100 million yuan) |\n|---|---|\n| Beijing | 2631.25 |\n| Shanghai | 1693.90 |\n| Guangzhou | 1132.68 |\n| Shenzhen | 1036.00 |\n| Hangzhou | 842.90 |\n| Chengdu | 693.19 |\n| Suzhou | 583.69 |\n| Nanjing | 577.36 |\n| Wuhan | 506.37 |\n| Ningbo | 312.81 |\n| Hefei | 293.70 |\n| Qingdao | 281.65 |\n| Foshan | 181.91 |\n| Dongguan | 155.64 |\n",
+  "model_response": "| City Name | Withdrawal Amount (100 million yuan) |\n|---|---|\n| Beijing | 2631.25 |\n| Shanghai | 1693.90 |\n| Guangzhou | 1132.68 |\n| Shenzhen | 1036.00 |\n| Hangzhou | 842.90 |\n| Chengdu | 693.19 |\n| Suzhou | 583.69 |\n| Nanjing | 577.36 |\n| Wuhan | 506.37 |\n| Ningbo | 312.81 |\n| Hefei | 293.70 |\n| Qingdao | 281.65 |\n| Foshan | 181.91 |\n| Dongguan | 155.64 |\n",
+  "reference": "City Name Withdrawal Amount (100 million yuan)\nBeijing 2,631.25\nShanghai 1693.90\nGuangzhou 1132.68\nShenzhen 1,036.00\nHangzhou 842.90\nChengdu 693.19\nSuzhou 583.69\nNanjing 577.36\nWuhan 506.37\nNingbo 312.81\nHefei 293.70\nQingdao 281.65\nFoshan 181.91\nDongguan 155.64",
+  "rubrics": null,
+  "question": "From the 2024 annual report documents of 14 cities' Housing Provident Funds, extract the value of the indicator \"withdrawals of Housing Provident Fund by contributors\" for each city. Rank the 14 cities in descending order by this value, and output a table with two columns: \"City Name\" and \"Withdrawal Amount (100 million yuan)\". Data in the table should not include units. If the data in the document contains commas, do not remove them — extract the original data as-is. All values should be retained to two decimal places; if the original document shows only one decimal place or none, pad with zeros accordingly.",
+  "n_inputs": 14,
+  "n_turns": 7,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 3.31,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型答案中的数值未保留原始数据中的逗号，例如北京应为'2,631.25'而非'2631.25'。题目明确要求'extract the original data as-is'且'不要删除逗号'，而模型输出删除了千位分隔符，违反了数据提取格式要求，因此判定为0分。"
+}

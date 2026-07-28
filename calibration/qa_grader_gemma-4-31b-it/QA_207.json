@@ -1,0 +1,17 @@
+{
+  "id": "QA_207",
+  "answer": "Categories in 'Traffic Channel' and their counts (from 40 orders):\n\n- Brand Search Traffic: 26\n- Student Referral Traffic: 6\n- APP Registration Traffic: 4\n- Website Content Traffic: 1\n- Agency Channel Traffic: 1\n- Paid Advertising Traffic: 1\n- Mini Program Traffic: 1\n\nTotal: 7 categories, 40 orders.",
+  "model_response": "Categories in 'Traffic Channel' and their counts (from 40 orders):\n\n- Brand Search Traffic: 26\n- Student Referral Traffic: 6\n- APP Registration Traffic: 4\n- Website Content Traffic: 1\n- Agency Channel Traffic: 1\n- Paid Advertising Traffic: 1\n- Mini Program Traffic: 1\n\nTotal: 7 categories, 40 orders.",
+  "reference": "|Traffic Channel|Count|\n|--|--|\n|Brand Search Traffic|26|\n|Student Referral Traffic|6|\n|APP Registration Traffic|4|\n|Website Content Traffic|1|\n|Agency Channel Traffic|1|\n|Paid Ad Traffic|1|\n|Mini Program Traffic|1|",
+  "rubrics": null,
+  "question": "What are the categories in \"Traffic Channel\" and how many times does each appear?",
+  "n_inputs": 1,
+  "n_turns": 2,
+  "prompt_tokens": 10651,
+  "completion_tokens": 339,
+  "elapsed_seconds": 6.0,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果与参考答案完全一致，所有类别及其对应的出现次数均正确，表述逻辑相符。"
+}

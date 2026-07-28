@@ -1,0 +1,17 @@
+{
+  "id": "QA_128",
+  "answer": "## Students with Significant Improvement (Spring 2023 → Fall 2023, > +10 points)\n\n| Name | Improvement Score |\n|------|------------------:|\n| student_9 | +49 |\n| student_15 | +36 |\n| student_16 | +33 |\n| student_18 | +26 |\n| student_21 | +20 |\n| student_22 | +18 |\n\n## Students with Significant Decline (Spring 2023 → Fall 2023, < -10 points)\n\n| Name | Decline Score |\n|------|--------------:|\n| student_1 | -76 |\n| student_2 | -70 |\n| student_3 | -70 |\n| student_4 | -68 |\n| student_5 | -62 |\n| student_6 | -60 |\n| student_7 | -54 |\n| student_8 | -53 |\n| student_10 | -48 |\n| student_11 | -47 |\n| student_12 | -43 |\n| student_13 | -41 |\n| student_14 | -40 |\n| student_17 | -30 |\n| student_19 | -24 |\n| student_20 | -24 |",
+  "model_response": "## Students with Significant Improvement (Spring 2023 → Fall 2023, > +10 points)\n\n| Name | Improvement Score |\n|------|------------------:|\n| student_9 | +49 |\n| student_15 | +36 |\n| student_16 | +33 |\n| student_18 | +26 |\n| student_21 | +20 |\n| student_22 | +18 |\n\n## Students with Significant Decline (Spring 2023 → Fall 2023, < -10 points)\n\n| Name | Decline Score |\n|------|--------------:|\n| student_1 | -76 |\n| student_2 | -70 |\n| student_3 | -70 |\n| student_4 | -68 |\n| student_5 | -62 |\n| student_6 | -60 |\n| student_7 | -54 |\n| student_8 | -53 |\n| student_10 | -48 |\n| student_11 | -47 |\n| student_12 | -43 |\n| student_13 | -41 |\n| student_14 | -40 |\n| student_17 | -30 |\n| student_19 | -24 |\n| student_20 | -24 |",
+  "reference": "## I. Students with Significant Score Improvement (Improvement exceeding 10 points)\n\n| Student Name | Improvement Score |\n|--------------|-------------------|\n| student_9    | 49 points         |\n| student_15   | 36 points         |\n| student_16   | 33 points         |\n| student_18   | 26 points         |\n| student_21   | 20 points         |\n| student_22   | 18 points         |\n\n---\n\n## II. Students with Significant Score Decline (Decline exceeding 10 points)\n\n| Student Name | Decline Score |\n|--------------|---------------|\n| student_1    | 76 points     |\n| student_2    | 70 points     |\n| student_3    | 70 points     |\n| student_4    | 68 points     |\n| student_5    | 62 points     |\n| student_6    | 60 points     |\n| student_7    | 54 points     |\n| student_8    | 53 points     |\n| student_10   | 48 points     |\n| student_11   | 47 points     |\n| student_12   | 43 points     |\n| student_13   | 41 points     |\n| student_14   | 40 points     |\n| student_17   | 30 points     |\n| student_19   | 24 points     |\n| student_20   | 24 points     |",
+  "rubrics": null,
+  "question": "Please read the data from the file and output the students who showed significant improvement from Spring 2023 to Fall 2023 (improvement of more than 10 points), and the students who showed significant decline (decline of more than 10 points). (Output the Name and improvement/decline score, two columns total, output separately in markdown format)",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 20050,
+  "completion_tokens": 470,
+  "elapsed_seconds": 9.19,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型准确地识别了所有分数提升和下降超过10分的学生，且对应的分值与参考答案完全一致，输出格式也符合题目要求。"
+}

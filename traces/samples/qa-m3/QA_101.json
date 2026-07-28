@@ -1,0 +1,953 @@
+{
+ "id": "QA_101",
+ "config": {
+  "model": "openrouter/minimax/minimax-m3",
+  "skill": "data_exploration",
+  "max_turns": 14,
+  "temperature": 1.0,
+  "split": "QA_en"
+ },
+ "task_prompt": "For the data in the file \"32——Experiment 1 League.xlsx\", binarize the \"Score\" column into \"Home Win\" (assigned value 1) and \"Home No Win\" (assigned value 0), then compute the Pearson correlation coefficient between all numeric columns in the dataset (excluding the \"Score\" column) and this binarized target variable. Output the result as a two-column table: the first column is \"Indicator Name\" (the column names of each numeric column), and the second column is \"Correlation Coefficient\" (rounded to 4 decimal places), sorted in descending order by the absolute value of the correlation coefficient. Output the correlation coefficients for all indicators (no Top N limit).\n\nWorking directory: C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\nThe input files listed below are already in that directory.\n\n## Input files (first 5 rows of each, for orientation)\n\n- 32——Experiment 1 League.xlsx\n  sheet 'League': 3922 rows x 22 cols\n      Score | Base Probability | Handicap probability | Same-type Probability | Same home strength 1 | Same home strength corre | Same home strength 2 | Same home strength corre | Same home index | Same home index correcti | Same-guest Strength 1 | Same-guest Strength 1 Ad\n      2-0 | 55.6 | 76.2 | 100 | 100 | 100 | 100 | 100 | 57.1 | 60 | 100 | 100\n      2-2 | 67.7 | 38.1 | 25 | 16.7 | 20 | 20 | 25 | 50 | 40 | 0 | 0\n      2-0 | 63.6 | 50.8 | 62.5 | 100 | 100 | 100 | 100 | 66.7 | 50 | 100 | 100\n      3-2 | 66.7 | 73.3 | 77.8 | 60 | 66.7 | 66.7 | 100 | 64.7 | 66.7 | 100 | 100\n  sheet 'National Team (New Data) ': 1701 rows x 25 cols\n      League | Date | Round | Home | Score | Away Team | Home team 2 | Away Team 2 | Strength Gap | Strength Line | Australian Line | Asian combined\n      Friendly match | 2017-01-14 15:35:00 | Saturday 002 | China | 1-1 | Croatia | 70.4 | 90.7 |  |  | -0.75 | \n      Friendly match | 2017-03-23 03:45:00 | Wednesday 002 | Germany | 1-0 | England | 96.9 | 90.3 |  |  | 0.75 | \n      Friendly match | 2017-03-23 03:45:00 | Wednesday 003 | Scotland | 1-1 | Canada | 78.7 | 72.2 |  |  | 1.25 | \n      World Cup Asia Qualifier | 2017-03-23 20:00:00 | Thursday 001 | Syria | 1-0 | Uzbekistan | 71.2 | 75.3 |  |  | -0.5 | \n\nRow counts above are the full file; only the first rows are shown. Read the\nfiles yourself for anything beyond this.\n\nReport the figures the question asks for. Show the values, not a description of\nhow to compute them. If the question asks for several statistics, give every one\nof them, clearly labelled.\n\nCall SUBMIT(answer=\"<your findings>\") when done.",
+ "submitted": true,
+ "failure_reason": null,
+ "payload": {
+  "answer": "Indicator Name | Correlation Coefficient\n--- | ---\nSame-guest Strength 1 Adjusted | 0.8491\nSame-guest Strength 2 Adjusted | 0.8399\nSame-guest Strength 1 | 0.8102\nSame-guest Strength 2 | 0.7967\nSame home strength correction 1 | 0.7712\nSame home strength correction 2 | 0.7702\nSame-guest Index Adjusted | 0.7412\nSame home strength 1 | 0.702\nSame home strength 2 | 0.7001\nSame-guest Index | 0.6817\nSame home index correction | 0.6208\nSame home index | 0.5648\nSame-type Probability | 0.4944\nBase Probability | 0.3474\nHandicap probability | 0.3275\nOpening handicap large | 0.2273\nMacau final handicap | 0.1624\nMacau water level | -0.0893\nFinal handicap water level | -0.0454\nWater Level | -0.0377"
+ },
+ "totals": {
+  "prompt_tokens": 41938,
+  "completion_tokens": 848,
+  "cached_tokens": 38372,
+  "reasoning_tokens": 192,
+  "lm_seconds": 12.686999999990803,
+  "worker_seconds": 2.360000000000582
+ },
+ "n_turns": 6,
+ "turns": [
+  {
+   "turn": 1,
+   "code": "import openpyxl\npath = r\"C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx\"\nwb = openpyxl.load_workbook(path, data_only=True)\nprint(\"Sheets:\", wb.sheetnames)\nfor sn in wb.sheetnames:\n    ws = wb[sn]\n    print(f\"\\nSheet '{sn}': {ws.max_row} rows x {ws.max_column} cols\")\n    # Print header row\n    headers = [c.value for c in ws[1]]\n    print(\"Headers:\", headers)",
+   "stdout": "Sheets: ['League', 'National Team (New Data) ']\n\nSheet 'League': 3922 rows x 22 cols\nHeaders: ['Score', 'Base Probability', 'Handicap probability', 'Same-type Probability', 'Same home strength 1', 'Same home strength correction 1', 'Same home strength 2', 'Same home strength correction 2', 'Same home index', 'Same home index correction', 'Same-guest Strength 1', 'Same-guest Strength 1 Adjusted', 'Same-guest Strength 2', 'Same-guest Strength 2 Adjusted', 'Same-guest Index', 'Same-guest Index Adjusted', 'Opening handicap large', 'Water Level', 'Final handicap water level', 'Aus odds comparison', 'Macau final handicap', 'Macau water level']\n\nSheet 'National Team (New Data) ': 1701 rows x 25 cols\nHeaders: ['League', 'Date', 'Round', 'Home', 'Score', 'Away Team', 'Home team 2', 'Away Team 2', 'Strength Gap', 'Strength Line', 'Australian Line', 'Asian combined', 'Typical characteristics & forecast', 'Pre-match bidding', 'Final handicap bidding', 'Heat', 'Domain', 'Prediction', 'Rally', 'Characteristics', 'Opening handicap', 'Asian handicap change (Macau odds)', 'Peak period change', '1-hour water level', 'Final handicap change']\n",
+   "stderr": "",
+   "error": null,
+   "submitted": false,
+   "state": {
+    "32_Experiment_1_League": {
+     "name": "32——Experiment 1 League.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx"
+    },
+    "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx",
+    "wb": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "sn": "National Team (New Data) ",
+    "ws": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"National Team (New Data) \">",
+     "__serializable__": false
+    },
+    "headers": [
+     "League",
+     "Date",
+     "Round",
+     "Home",
+     "Score",
+     "Away Team",
+     "Home team 2",
+     "Away Team 2",
+     "Strength Gap",
+     "Strength Line",
+     "Australian Line",
+     "Asian combined",
+     "Typical characteristics & forecast",
+     "Pre-match bidding",
+     "Final handicap bidding",
+     "Heat",
+     "Domain",
+     "Prediction",
+     "Rally",
+     "Characteristics",
+     "Opening handicap",
+     "Asian handicap change (Macau odds)",
+     "Peak period change",
+     "1-hour water level",
+     "Final handicap change"
+    ]
+   },
+   "response_text": "```python\nimport openpyxl\npath = r\"C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx\"\nwb = openpyxl.load_workbook(path, data_only=True)\nprint(\"Sheets:\", wb.sheetnames)\nfor sn in wb.sheetnames:\n    ws = wb[sn]\n    print(f\"\\nSheet '{sn}': {ws.max_row} rows x {ws.max_column} cols\")\n    # Print header row\n    headers = [c.value for c in ws[1]]\n    print(\"Headers:\", headers)\n```",
+   "duration_s": 1.213243300007889,
+   "token_usage": {
+    "completion_tokens": 167,
+    "prompt_tokens": 5743,
+    "total_tokens": 5910,
+    "completion_tokens_details": {
+     "audio_tokens": 0,
+     "reasoning_tokens": 21,
+     "image_tokens": 0
+    },
+    "prompt_tokens_details": {
+     "audio_tokens": 0,
+     "cached_tokens": 4466,
+     "video_tokens": 0,
+     "cache_write_tokens": 0
+    },
+    "cost": 0.0008429454,
+    "is_byok": false,
+    "cost_details": {
+     "upstream_inference_cost": 0.00085146,
+     "upstream_inference_prompt_cost": 0.00065106,
+     "upstream_inference_completions_cost": 0.0002004
+    }
+   },
+   "validation_errors": [],
+   "turn_type": "normal",
+   "prompt_tokens": 5743,
+   "completion_tokens": 167,
+   "total_tokens": 5910,
+   "cached_tokens": 4466,
+   "reasoning_tokens": 21,
+   "lm_call_seconds": 2.812999999994645,
+   "worker_execute_seconds": 1.2179999999934807,
+   "submit_payload": null
+  },
+  {
+   "turn": 2,
+   "code": "import pandas as pd\nimport numpy as np\n\n# Load the League sheet\ndf = pd.read_excel(path, sheet_name='League')\nprint(\"Shape:\", df.shape)\nprint(\"Dtypes:\")\nprint(df.dtypes)\nprint(\"\\nScore value samples:\")\nprint(df['Score'].head(20).tolist())\nprint(\"\\nUnique score count:\", df['Score'].nunique())\nprint(\"\\nNull counts:\")\nprint(df.isnull().sum())",
+   "stdout": "Shape: (1188, 22)\nDtypes:\nScore                               object\nBase Probability                   float64\nHandicap probability               float64\nSame-type Probability              float64\nSame home strength 1               float64\nSame home strength correction 1    float64\nSame home strength 2               float64\nSame home strength correction 2    float64\nSame home index                    float64\nSame home index correction         float64\nSame-guest Strength 1              float64\nSame-guest Strength 1 Adjusted     float64\nSame-guest Strength 2              float64\nSame-guest Strength 2 Adjusted     float64\nSame-guest Index                   float64\nSame-guest Index Adjusted          float64\nOpening handicap large             float64\nWater Level                        float64\nFinal handicap water level         float64\nAus odds comparison                 object\nMacau final handicap               float64\nMacau water level                  float64\ndtype: object\n\nScore value samples:\n['2-0', '2-2', '2-0', '3-2', '1-0', '2-1', '1-1', '1-1', '2-1', '4-0', '1-1', '3-1', '0-0', '4-1', '1-1', '1-0', '3-0', '0-0', '0-2', '2-2']\n\nUnique score count: 35\n\nNull counts:\nScore                                0\nBase Probability                     0\nHandicap probability                 0\nSame-type Probability                0\nSame home strength 1                 0\nSame home strength correction 1      0\nSame home strength 2                 0\nSame home strength correction 2      0\nSame home index                      0\nSame home index correction           0\nSame-guest Strength 1                0\nSame-guest Strength 1 Adjusted       0\nSame-guest Strength 2                0\nSame-guest Strength 2 Adjusted       0\nSame-guest Index                     0\nSame-guest Index Adjusted            0\nOpening handicap large              31\nWater Level                         31\nFinal handicap water level          31\nAus odds comparison                 31\nMacau final handicap               960\nMacau water level                  960\ndtype: int64\n",
+   "stderr": "",
+   "error": null,
+   "submitted": false,
+   "state": {
+    "32_Experiment_1_League": {
+     "name": "32——Experiment 1 League.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx"
+    },
+    "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx",
+    "wb": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "sn": "National Team (New Data) ",
+    "ws": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"National Team (New Data) \">",
+     "__serializable__": false
+    },
+    "headers": [
+     "League",
+     "Date",
+     "Round",
+     "Home",
+     "Score",
+     "Away Team",
+     "Home team 2",
+     "Away Team 2",
+     "Strength Gap",
+     "Strength Line",
+     "Australian Line",
+     "Asian combined",
+     "Typical characteristics & forecast",
+     "Pre-match bidding",
+     "Final handicap bidding",
+     "Heat",
+     "Domain",
+     "Prediction",
+     "Rally",
+     "Characteristics",
+     "Opening handicap",
+     "Asian handicap change (Macau odds)",
+     "Peak period change",
+     "1-hour water level",
+     "Final handicap change"
+    ],
+    "df": {
+     "__type__": "DataFrame",
+     "__repr__": "     Score  Base Probability  ...  Macau final handicap  Macau water level\n0      2-0              55.6  ...                   NaN                NaN\n1      2-2              67.7  ...                   NaN                NaN\n2      2-0              63.6  ...                   NaN                NaN\n",
+     "__serializable__": false
+    }
+   },
+   "response_text": "```python\nimport pandas as pd\nimport numpy as np\n\n# Load the League sheet\ndf = pd.read_excel(path, sheet_name='League')\nprint(\"Shape:\", df.shape)\nprint(\"Dtypes:\")\nprint(df.dtypes)\nprint(\"\\nScore value samples:\")\nprint(df['Score'].head(20).tolist())\nprint(\"\\nUnique score count:\", df['Score'].nunique())\nprint(\"\\nNull counts:\")\nprint(df.isnull().sum())\n```",
+   "duration_s": 1.07167639999534,
+   "token_usage": {
+    "completion_tokens": 274,
+    "prompt_tokens": 6247,
+    "total_tokens": 6521,
+    "completion_tokens_details": {
+     "audio_tokens": 0,
+     "reasoning_tokens": 171,
+     "image_tokens": 0
+    },
+    "prompt_tokens_details": {
+     "audio_tokens": 0,
+     "cached_tokens": 5618,
+     "video_tokens": 0,
+     "cache_write_tokens": 0
+    },
+    "cost": 0.0008460342,
+    "is_byok": false,
+    "cost_details": {
+     "upstream_inference_cost": 0.00085458,
+     "upstream_inference_prompt_cost": 0.00052578,
+     "upstream_inference_completions_cost": 0.0003288
+    }
+   },
+   "validation_errors": [],
+   "turn_type": "normal",
+   "prompt_tokens": 6247,
+   "completion_tokens": 274,
+   "total_tokens": 6521,
+   "cached_tokens": 5618,
+   "reasoning_tokens": 171,
+   "lm_call_seconds": 3.5,
+   "worker_execute_seconds": 1.0780000000086147,
+   "submit_payload": null
+  },
+  {
+   "turn": 3,
+   "code": "# Binarize Score: Home Win (1) if home goals > away goals, else Home No Win (0)\ndef binarize_score(s):\n    if pd.isna(s):\n        return np.nan\n    try:\n        parts = str(s).split('-')\n        h, a = int(parts[0]), int(parts[1])\n        return 1 if h > a else 0\n    except:\n        return np.nan\n\ndf['Home Win'] = df['Score'].apply(binarize_score)\nprint(\"Home Win distribution:\")\nprint(df['Home Win'].value_counts(dropna=False))\nprint(\"\\nNulls in target:\", df['Home Win'].isnull().sum())",
+   "stdout": "Home Win distribution:\nHome Win\n1    645\n0    543\nName: count, dtype: int64\n\nNulls in target: 0\n",
+   "stderr": "",
+   "error": null,
+   "submitted": false,
+   "state": {
+    "32_Experiment_1_League": {
+     "name": "32——Experiment 1 League.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx"
+    },
+    "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx",
+    "wb": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "sn": "National Team (New Data) ",
+    "ws": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"National Team (New Data) \">",
+     "__serializable__": false
+    },
+    "headers": [
+     "League",
+     "Date",
+     "Round",
+     "Home",
+     "Score",
+     "Away Team",
+     "Home team 2",
+     "Away Team 2",
+     "Strength Gap",
+     "Strength Line",
+     "Australian Line",
+     "Asian combined",
+     "Typical characteristics & forecast",
+     "Pre-match bidding",
+     "Final handicap bidding",
+     "Heat",
+     "Domain",
+     "Prediction",
+     "Rally",
+     "Characteristics",
+     "Opening handicap",
+     "Asian handicap change (Macau odds)",
+     "Peak period change",
+     "1-hour water level",
+     "Final handicap change"
+    ],
+    "df": {
+     "__type__": "DataFrame",
+     "__repr__": "     Score  Base Probability  ...  Macau water level  Home Win\n0      2-0              55.6  ...                NaN         1\n1      2-2              67.7  ...                NaN         0\n2      2-0              63.6  ...                NaN         1\n3      3-2              66.7  ...               ",
+     "__serializable__": false
+    }
+   },
+   "response_text": "```python\n# Binarize Score: Home Win (1) if home goals > away goals, else Home No Win (0)\ndef binarize_score(s):\n    if pd.isna(s):\n        return np.nan\n    try:\n        parts = str(s).split('-')\n        h, a = int(parts[0]), int(parts[1])\n        return 1 if h > a else 0\n    except:\n        return np.nan\n\ndf['Home Win'] = df['Score'].apply(binarize_score)\nprint(\"Home Win distribution:\")\nprint(df['Home Win'].value_counts(dropna=False))\nprint(\"\\nNulls in target:\", df['Home Win'].isnull().sum())\n```",
+   "duration_s": 0.012566799996420741,
+   "token_usage": {
+    "completion_tokens": 150,
+    "prompt_tokens": 6899,
+    "total_tokens": 7049,
+    "completion_tokens_details": {
+     "audio_tokens": 0,
+     "reasoning_tokens": 0,
+     "image_tokens": 0
+    },
+    "prompt_tokens_details": {
+     "audio_tokens": 0,
+     "cached_tokens": 6130,
+     "video_tokens": 0,
+     "cache_write_tokens": 0
+    },
+    "cost": 0.000770715,
+    "is_byok": false,
+    "cost_details": {
+     "upstream_inference_cost": 0.0007785,
+     "upstream_inference_prompt_cost": 0.0005985,
+     "upstream_inference_completions_cost": 0.00018
+    }
+   },
+   "validation_errors": [],
+   "turn_type": "normal",
+   "prompt_tokens": 6899,
+   "completion_tokens": 150,
+   "total_tokens": 7049,
+   "cached_tokens": 6130,
+   "reasoning_tokens": 0,
+   "lm_call_seconds": 1.7660000000032596,
+   "worker_execute_seconds": 0.015999999988707714,
+   "submit_payload": null
+  },
+  {
+   "turn": 4,
+   "code": "# Identify numeric columns excluding Score\nnumeric_cols = [c for c in df.columns if c not in ('Score', 'Home Win') and df[c].dtype in ('float64', 'int64', 'float32', 'int32')]\nprint(\"Numeric cols:\", len(numeric_cols))\nprint(numeric_cols)\n\n# Compute Pearson correlation with Home Win, using pairwise complete obs\nresults = []\nfor c in numeric_cols:\n    r = df[c].corr(df['Home Win'])\n    results.append((c, r))\n\n# Sort by abs descending\nresults.sort(key=lambda x: abs(x[1]) if pd.notna(x[1]) else -1, reverse=True)\n\nprint(\"\\nIndicator | Correlation (rounded 4)\")\nfor name, r in results:\n    print(f\"{name}: {round(r, 4)}\")",
+   "stdout": "Numeric cols: 20\n['Base Probability', 'Handicap probability', 'Same-type Probability', 'Same home strength 1', 'Same home strength correction 1', 'Same home strength 2', 'Same home strength correction 2', 'Same home index', 'Same home index correction', 'Same-guest Strength 1', 'Same-guest Strength 1 Adjusted', 'Same-guest Strength 2', 'Same-guest Strength 2 Adjusted', 'Same-guest Index', 'Same-guest Index Adjusted', 'Opening handicap large', 'Water Level', 'Final handicap water level', 'Macau final handicap', 'Macau water level']\n\nIndicator | Correlation (rounded 4)\nSame-guest Strength 1 Adjusted: 0.8491\nSame-guest Strength 2 Adjusted: 0.8399\nSame-guest Strength 1: 0.8102\nSame-guest Strength 2: 0.7967\nSame home strength correction 1: 0.7712\nSame home strength correction 2: 0.7702\nSame-guest Index Adjusted: 0.7412\nSame home strength 1: 0.702\nSame home strength 2: 0.7001\nSame-guest Index: 0.6817\nSame home index correction: 0.6208\nSame home index: 0.5648\nSame-type Probability: 0.4944\nBase Probability: 0.3474\nHandicap probability: 0.3275\nOpening handicap large: 0.2273\nMacau final handicap: 0.1624\nMacau water level: -0.0893\nFinal handicap water level: -0.0454\nWater Level: -0.0377\n",
+   "stderr": "",
+   "error": null,
+   "submitted": false,
+   "state": {
+    "32_Experiment_1_League": {
+     "name": "32——Experiment 1 League.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx"
+    },
+    "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx",
+    "wb": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "sn": "National Team (New Data) ",
+    "ws": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"National Team (New Data) \">",
+     "__serializable__": false
+    },
+    "headers": [
+     "League",
+     "Date",
+     "Round",
+     "Home",
+     "Score",
+     "Away Team",
+     "Home team 2",
+     "Away Team 2",
+     "Strength Gap",
+     "Strength Line",
+     "Australian Line",
+     "Asian combined",
+     "Typical characteristics & forecast",
+     "Pre-match bidding",
+     "Final handicap bidding",
+     "Heat",
+     "Domain",
+     "Prediction",
+     "Rally",
+     "Characteristics",
+     "Opening handicap",
+     "Asian handicap change (Macau odds)",
+     "Peak period change",
+     "1-hour water level",
+     "Final handicap change"
+    ],
+    "df": {
+     "__type__": "DataFrame",
+     "__repr__": "     Score  Base Probability  ...  Macau water level  Home Win\n0      2-0              55.6  ...                NaN         1\n1      2-2              67.7  ...                NaN         0\n2      2-0              63.6  ...                NaN         1\n3      3-2              66.7  ...               ",
+     "__serializable__": false
+    },
+    "numeric_cols": [
+     "Base Probability",
+     "Handicap probability",
+     "Same-type Probability",
+     "Same home strength 1",
+     "Same home strength correction 1",
+     "Same home strength 2",
+     "Same home strength correction 2",
+     "Same home index",
+     "Same home index correction",
+     "Same-guest Strength 1",
+     "Same-guest Strength 1 Adjusted",
+     "Same-guest Strength 2",
+     "Same-guest Strength 2 Adjusted",
+     "Same-guest Index",
+     "Same-guest Index Adjusted",
+     "Opening handicap large",
+     "Water Level",
+     "Final handicap water level",
+     "Macau final handicap",
+     "Macau water level"
+    ],
+    "results": [
+     [
+      "Same-guest Strength 1 Adjusted",
+      0.849121477886075
+     ],
+     [
+      "Same-guest Strength 2 Adjusted",
+      0.83990018236692
+     ],
+     [
+      "Same-guest Strength 1",
+      0.8102135783754548
+     ],
+     [
+      "Same-guest Strength 2",
+      0.7966798446754815
+     ],
+     [
+      "Same home strength correction 1",
+      0.7711841191567267
+     ],
+     [
+      "Same home strength correction 2",
+      0.7701942291103213
+     ],
+     [
+      "Same-guest Index Adjusted",
+      0.741236927397053
+     ],
+     [
+      "Same home strength 1",
+      0.7020156871462523
+     ],
+     [
+      "Same home strength 2",
+      0.7000962820476228
+     ],
+     [
+      "Same-guest Index",
+      0.6816663129192942
+     ],
+     [
+      "Same home index correction",
+      0.6207802435378504
+     ],
+     [
+      "Same home index",
+      0.5647779130721687
+     ],
+     [
+      "Same-type Probability",
+      0.4943873236114128
+     ],
+     [
+      "Base Probability",
+      0.34737740110356463
+     ],
+     [
+      "Handicap probability",
+      0.32748577333827966
+     ],
+     [
+      "Opening handicap large",
+      0.22733450878995645
+     ],
+     [
+      "Macau final handicap",
+      0.16240570188806414
+     ],
+     [
+      "Macau water level",
+      -0.08925838092757087
+     ],
+     [
+      "Final handicap water level",
+      -0.04544809797515848
+     ],
+     [
+      "Water Level",
+      -0.037701671113733196
+     ]
+    ],
+    "c": "Macau water level",
+    "r": -0.037701671113733196,
+    "name": "Water Level"
+   },
+   "response_text": "```python\n# Identify numeric columns excluding Score\nnumeric_cols = [c for c in df.columns if c not in ('Score', 'Home Win') and df[c].dtype in ('float64', 'int64', 'float32', 'int32')]\nprint(\"Numeric cols:\", len(numeric_cols))\nprint(numeric_cols)\n\n# Compute Pearson correlation with Home Win, using pairwise complete obs\nresults = []\nfor c in numeric_cols:\n    r = df[c].corr(df['Home Win'])\n    results.append((c, r))\n\n# Sort by abs descending\nresults.sort(key=lambda x: abs(x[1]) if pd.notna(x[1]) else -1, reverse=True)\n\nprint(\"\\nIndicator | Correlation (rounded 4)\")\nfor name, r in results:\n    print(f\"{name}: {round(r, 4)}\")\n```",
+   "duration_s": 0.014408000002731569,
+   "token_usage": {
+    "completion_tokens": 177,
+    "prompt_tokens": 7143,
+    "total_tokens": 7320,
+    "completion_tokens_details": {
+     "audio_tokens": 0,
+     "reasoning_tokens": 0,
+     "image_tokens": 0
+    },
+    "prompt_tokens_details": {
+     "audio_tokens": 0,
+     "cached_tokens": 7035,
+     "video_tokens": 0,
+     "cache_write_tokens": 0
+    },
+    "cost": 0.000660231,
+    "is_byok": false,
+    "cost_details": {
+     "upstream_inference_cost": 0.0006669,
+     "upstream_inference_prompt_cost": 0.0004545,
+     "upstream_inference_completions_cost": 0.0002124
+    }
+   },
+   "validation_errors": [],
+   "turn_type": "normal",
+   "prompt_tokens": 7143,
+   "completion_tokens": 177,
+   "total_tokens": 7320,
+   "cached_tokens": 7035,
+   "reasoning_tokens": 0,
+   "lm_call_seconds": 2.437000000005355,
+   "worker_execute_seconds": 0.01600000000325963,
+   "submit_payload": null
+  },
+  {
+   "turn": 5,
+   "code": "# Build the final answer string as a two-column table\nlines = [\"Indicator Name | Correlation Coefficient\"]\nlines.append(\"--- | ---\")\nfor name, r in results:\n    lines.append(f\"{name} | {round(r, 4)}\")\nanswer = \"\\n\".join(lines)\nprint(answer)",
+   "stdout": "Indicator Name | Correlation Coefficient\n--- | ---\nSame-guest Strength 1 Adjusted | 0.8491\nSame-guest Strength 2 Adjusted | 0.8399\nSame-guest Strength 1 | 0.8102\nSame-guest Strength 2 | 0.7967\nSame home strength correction 1 | 0.7712\nSame home strength correction 2 | 0.7702\nSame-guest Index Adjusted | 0.7412\nSame home strength 1 | 0.702\nSame home strength 2 | 0.7001\nSame-guest Index | 0.6817\nSame home index correction | 0.6208\nSame home index | 0.5648\nSame-type Probability | 0.4944\nBase Probability | 0.3474\nHandicap probability | 0.3275\nOpening handicap large | 0.2273\nMacau final handicap | 0.1624\nMacau water level | -0.0893\nFinal handicap water level | -0.0454\nWater Level | -0.0377\n",
+   "stderr": "",
+   "error": null,
+   "submitted": false,
+   "state": {
+    "32_Experiment_1_League": {
+     "name": "32——Experiment 1 League.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx"
+    },
+    "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx",
+    "wb": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "sn": "National Team (New Data) ",
+    "ws": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"National Team (New Data) \">",
+     "__serializable__": false
+    },
+    "headers": [
+     "League",
+     "Date",
+     "Round",
+     "Home",
+     "Score",
+     "Away Team",
+     "Home team 2",
+     "Away Team 2",
+     "Strength Gap",
+     "Strength Line",
+     "Australian Line",
+     "Asian combined",
+     "Typical characteristics & forecast",
+     "Pre-match bidding",
+     "Final handicap bidding",
+     "Heat",
+     "Domain",
+     "Prediction",
+     "Rally",
+     "Characteristics",
+     "Opening handicap",
+     "Asian handicap change (Macau odds)",
+     "Peak period change",
+     "1-hour water level",
+     "Final handicap change"
+    ],
+    "df": {
+     "__type__": "DataFrame",
+     "__repr__": "     Score  Base Probability  ...  Macau water level  Home Win\n0      2-0              55.6  ...                NaN         1\n1      2-2              67.7  ...                NaN         0\n2      2-0              63.6  ...                NaN         1\n3      3-2              66.7  ...               ",
+     "__serializable__": false
+    },
+    "numeric_cols": [
+     "Base Probability",
+     "Handicap probability",
+     "Same-type Probability",
+     "Same home strength 1",
+     "Same home strength correction 1",
+     "Same home strength 2",
+     "Same home strength correction 2",
+     "Same home index",
+     "Same home index correction",
+     "Same-guest Strength 1",
+     "Same-guest Strength 1 Adjusted",
+     "Same-guest Strength 2",
+     "Same-guest Strength 2 Adjusted",
+     "Same-guest Index",
+     "Same-guest Index Adjusted",
+     "Opening handicap large",
+     "Water Level",
+     "Final handicap water level",
+     "Macau final handicap",
+     "Macau water level"
+    ],
+    "results": [
+     [
+      "Same-guest Strength 1 Adjusted",
+      0.849121477886075
+     ],
+     [
+      "Same-guest Strength 2 Adjusted",
+      0.83990018236692
+     ],
+     [
+      "Same-guest Strength 1",
+      0.8102135783754548
+     ],
+     [
+      "Same-guest Strength 2",
+      0.7966798446754815
+     ],
+     [
+      "Same home strength correction 1",
+      0.7711841191567267
+     ],
+     [
+      "Same home strength correction 2",
+      0.7701942291103213
+     ],
+     [
+      "Same-guest Index Adjusted",
+      0.741236927397053
+     ],
+     [
+      "Same home strength 1",
+      0.7020156871462523
+     ],
+     [
+      "Same home strength 2",
+      0.7000962820476228
+     ],
+     [
+      "Same-guest Index",
+      0.6816663129192942
+     ],
+     [
+      "Same home index correction",
+      0.6207802435378504
+     ],
+     [
+      "Same home index",
+      0.5647779130721687
+     ],
+     [
+      "Same-type Probability",
+      0.4943873236114128
+     ],
+     [
+      "Base Probability",
+      0.34737740110356463
+     ],
+     [
+      "Handicap probability",
+      0.32748577333827966
+     ],
+     [
+      "Opening handicap large",
+      0.22733450878995645
+     ],
+     [
+      "Macau final handicap",
+      0.16240570188806414
+     ],
+     [
+      "Macau water level",
+      -0.08925838092757087
+     ],
+     [
+      "Final handicap water level",
+      -0.04544809797515848
+     ],
+     [
+      "Water Level",
+      -0.037701671113733196
+     ]
+    ],
+    "c": "Macau water level",
+    "r": -0.037701671113733196,
+    "name": "Water Level",
+    "lines": [
+     "Indicator Name | Correlation Coefficient",
+     "--- | ---",
+     "Same-guest Strength 1 Adjusted | 0.8491",
+     "Same-guest Strength 2 Adjusted | 0.8399",
+     "Same-guest Strength 1 | 0.8102",
+     "Same-guest Strength 2 | 0.7967",
+     "Same home strength correction 1 | 0.7712",
+     "Same home strength correction 2 | 0.7702",
+     "Same-guest Index Adjusted | 0.7412",
+     "Same home strength 1 | 0.702",
+     "Same home strength 2 | 0.7001",
+     "Same-guest Index | 0.6817",
+     "Same home index correction | 0.6208",
+     "Same home index | 0.5648",
+     "Same-type Probability | 0.4944",
+     "Base Probability | 0.3474",
+     "Handicap probability | 0.3275",
+     "Opening handicap large | 0.2273",
+     "Macau final handicap | 0.1624",
+     "Macau water level | -0.0893",
+     "Final handicap water level | -0.0454",
+     "Water Level | -0.0377"
+    ],
+    "answer": "Indicator Name | Correlation Coefficient\n--- | ---\nSame-guest Strength 1 Adjusted | 0.8491\nSame-guest Strength 2 Adjusted | 0.8399\nSame-guest Strength 1 | 0.8102\nSame-guest Strength 2 | 0.7967\nSame home strength correction 1 | 0.7712\nSame home strength correction 2 | 0.7702\nSame-guest Index Adjusted | 0.7412\nSame home strength 1 | 0.702\nSame home strength 2 | 0.7001\nSame-guest Index | 0.6817\nSame home index correction | 0.6208\nSame home index | 0.5648\nSame-type Probability | 0.4944\nBase Probability | 0.3474\nHandicap probability | 0.3275\nOpening handicap large | 0.2273\nMacau final handicap | 0.1624\nMacau water level | -0.0893\nFinal handicap water level | -0.0454\nWater Level | -0.0377"
+   },
+   "response_text": "```python\n# Build the final answer string as a two-column table\nlines = [\"Indicator Name | Correlation Coefficient\"]\nlines.append(\"--- | ---\")\nfor name, r in results:\n    lines.append(f\"{name} | {round(r, 4)}\")\nanswer = \"\\n\".join(lines)\nprint(answer)\n```",
+   "duration_s": 0.010937599989119917,
+   "token_usage": {
+    "completion_tokens": 68,
+    "prompt_tokens": 7763,
+    "total_tokens": 7831,
+    "completion_tokens_details": {
+     "audio_tokens": 0,
+     "reasoning_tokens": 0,
+     "image_tokens": 0
+    },
+    "prompt_tokens_details": {
+     "audio_tokens": 0,
+     "cached_tokens": 7306,
+     "video_tokens": 0,
+     "cache_write_tokens": 0
+    },
+    "cost": 0.0006504894,
+    "is_byok": false,
+    "cost_details": {
+     "upstream_inference_cost": 0.00065706,
+     "upstream_inference_prompt_cost": 0.00057546,
+     "upstream_inference_completions_cost": 8.16e-05
+    }
+   },
+   "validation_errors": [],
+   "turn_type": "normal",
+   "prompt_tokens": 7763,
+   "completion_tokens": 68,
+   "total_tokens": 7831,
+   "cached_tokens": 7306,
+   "reasoning_tokens": 0,
+   "lm_call_seconds": 1.2339999999967404,
+   "worker_execute_seconds": 0.01600000000325963,
+   "submit_payload": null
+  },
+  {
+   "turn": 6,
+   "code": "SUBMIT(answer=answer)",
+   "stdout": "",
+   "stderr": "",
+   "error": null,
+   "submitted": true,
+   "state": {
+    "32_Experiment_1_League": {
+     "name": "32——Experiment 1 League.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx"
+    },
+    "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\qa-m3\\work\\QA_101\\32——Experiment 1 League.xlsx",
+    "wb": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "sn": "National Team (New Data) ",
+    "ws": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"National Team (New Data) \">",
+     "__serializable__": false
+    },
+    "headers": [
+     "League",
+     "Date",
+     "Round",
+     "Home",
+     "Score",
+     "Away Team",
+     "Home team 2",
+     "Away Team 2",
+     "Strength Gap",
+     "Strength Line",
+     "Australian Line",
+     "Asian combined",
+     "Typical characteristics & forecast",
+     "Pre-match bidding",
+     "Final handicap bidding",
+     "Heat",
+     "Domain",
+     "Prediction",
+     "Rally",
+     "Characteristics",
+     "Opening handicap",
+     "Asian handicap change (Macau odds)",
+     "Peak period change",
+     "1-hour water level",
+     "Final handicap change"
+    ],
+    "df": {
+     "__type__": "DataFrame",
+     "__repr__": "     Score  Base Probability  ...  Macau water level  Home Win\n0      2-0              55.6  ...                NaN         1\n1      2-2              67.7  ...                NaN         0\n2      2-0              63.6  ...                NaN         1\n3      3-2              66.7  ...               ",
+     "__serializable__": false
+    },
+    "numeric_cols": [
+     "Base Probability",
+     "Handicap probability",
+     "Same-type Probability",
+     "Same home strength 1",
+     "Same home strength correction 1",
+     "Same home strength 2",
+     "Same home strength correction 2",
+     "Same home index",
+     "Same home index correction",
+     "Same-guest Strength 1",
+     "Same-guest Strength 1 Adjusted",
+     "Same-guest Strength 2",
+     "Same-guest Strength 2 Adjusted",
+     "Same-guest Index",
+     "Same-guest Index Adjusted",
+     "Opening handicap large",
+     "Water Level",
+     "Final handicap water level",
+     "Macau final handicap",
+     "Macau water level"
+    ],
+    "results": [
+     [
+      "Same-guest Strength 1 Adjusted",
+      0.849121477886075
+     ],
+     [
+      "Same-guest Strength 2 Adjusted",
+      0.83990018236692
+     ],
+     [
+      "Same-guest Strength 1",
+      0.8102135783754548
+     ],
+     [
+      "Same-guest Strength 2",
+      0.7966798446754815
+     ],
+     [
+      "Same home strength correction 1",
+      0.7711841191567267
+     ],
+     [
+      "Same home strength correction 2",
+      0.7701942291103213
+     ],
+     [
+      "Same-guest Index Adjusted",
+      0.741236927397053
+     ],
+     [
+      "Same home strength 1",
+      0.7020156871462523
+     ],
+     [
+      "Same home strength 2",
+      0.7000962820476228
+     ],
+     [
+      "Same-guest Index",
+      0.6816663129192942
+     ],
+     [
+      "Same home index correction",
+      0.6207802435378504
+     ],
+     [
+      "Same home index",
+      0.5647779130721687
+     ],
+     [
+      "Same-type Probability",
+      0.4943873236114128
+     ],
+     [
+      "Base Probability",
+      0.34737740110356463
+     ],
+     [
+      "Handicap probability",
+      0.32748577333827966
+     ],
+     [
+      "Opening handicap large",
+      0.22733450878995645
+     ],
+     [
+      "Macau final handicap",
+      0.16240570188806414
+     ],
+     [
+      "Macau water level",
+      -0.08925838092757087
+     ],
+     [
+      "Final handicap water level",
+      -0.04544809797515848
+     ],
+     [
+      "Water Level",
+      -0.037701671113733196
+     ]
+    ],
+    "c": "Macau water level",
+    "r": -0.037701671113733196,
+    "name": "Water Level",
+    "lines": [
+     "Indicator Name | Correlation Coefficient",
+     "--- | ---",
+     "Same-guest Strength 1 Adjusted | 0.8491",
+     "Same-guest Strength 2 Adjusted | 0.8399",
+     "Same-guest Strength 1 | 0.8102",
+     "Same-guest Strength 2 | 0.7967",
+     "Same home strength correction 1 | 0.7712",
+     "Same home strength correction 2 | 0.7702",
+     "Same-guest Index Adjusted | 0.7412",
+     "Same home strength 1 | 0.702",
+     "Same home strength 2 | 0.7001",
+     "Same-guest Index | 0.6817",
+     "Same home index correction | 0.6208",
+     "Same home index | 0.5648",
+     "Same-type Probability | 0.4944",
+     "Base Probability | 0.3474",
+     "Handicap probability | 0.3275",
+     "Opening handicap large | 0.2273",
+     "Macau final handicap | 0.1624",
+     "Macau water level | -0.0893",
+     "Final handicap water level | -0.0454",
+     "Water Level | -0.0377"
+    ],
+    "answer": "Indicator Name | Correlation Coefficient\n--- | ---\nSame-guest Strength 1 Adjusted | 0.8491\nSame-guest Strength 2 Adjusted | 0.8399\nSame-guest Strength 1 | 0.8102\nSame-guest Strength 2 | 0.7967\nSame home strength correction 1 | 0.7712\nSame home strength correction 2 | 0.7702\nSame-guest Index Adjusted | 0.7412\nSame home strength 1 | 0.702\nSame home strength 2 | 0.7001\nSame-guest Index | 0.6817\nSame home index correction | 0.6208\nSame home index | 0.5648\nSame-type Probability | 0.4944\nBase Probability | 0.3474\nHandicap probability | 0.3275\nOpening handicap large | 0.2273\nMacau final handicap | 0.1624\nMacau water level | -0.0893\nFinal handicap water level | -0.0454\nWater Level | -0.0377"
+   },
+   "response_text": "```python\nSUBMIT(answer=answer)\n```",
+   "duration_s": 0.011539899991475977,
+   "token_usage": {
+    "completion_tokens": 12,
+    "prompt_tokens": 8143,
+    "total_tokens": 8155,
+    "completion_tokens_details": {
+     "audio_tokens": 0,
+     "reasoning_tokens": 0,
+     "image_tokens": 0
+    },
+    "prompt_tokens_details": {
+     "audio_tokens": 0,
+     "cached_tokens": 7817,
+     "video_tokens": 0,
+     "cache_write_tokens": 0
+    },
+    "cost": 0.0005754078,
+    "is_byok": false,
+    "cost_details": {
+     "upstream_inference_cost": 0.00058122,
+     "upstream_inference_prompt_cost": 0.00056682,
+     "upstream_inference_completions_cost": 1.44e-05
+    }
+   },
+   "validation_errors": [],
+   "turn_type": "normal",
+   "prompt_tokens": 8143,
+   "completion_tokens": 12,
+   "total_tokens": 8155,
+   "cached_tokens": 7817,
+   "reasoning_tokens": 0,
+   "lm_call_seconds": 0.9369999999908032,
+   "worker_execute_seconds": 0.01600000000325963,
+   "submit_payload": {
+    "answer": "Indicator Name | Correlation Coefficient\n--- | ---\nSame-guest Strength 1 Adjusted | 0.8491\nSame-guest Strength 2 Adjusted | 0.8399\nSame-guest Strength 1 | 0.8102\nSame-guest Strength 2 | 0.7967\nSame home strength correction 1 | 0.7712\nSame home strength correction 2 | 0.7702\nSame-guest Index Adjusted | 0.7412\nSame home strength 1 | 0.702\nSame home strength 2 | 0.7001\nSame-guest Index | 0.6817\nSame home index correction | 0.6208\nSame home index | 0.5648\nSame-type Probability | 0.4944\nBase Probability | 0.3474\nHandicap probability | 0.3275\nOpening handicap large | 0.2273\nMacau final handicap | 0.1624\nMacau water level | -0.0893\nFinal handicap water level | -0.0454\nWater Level | -0.0377"
+   }
+  }
+ ]
+}

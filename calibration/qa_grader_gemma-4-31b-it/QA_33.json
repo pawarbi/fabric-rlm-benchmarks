@@ -1,0 +1,17 @@
+{
+  "id": "QA_33",
+  "answer": "Merchants with a 50% or more decline in Completed Order Count (days 1-4, this week vs last week):\n\n1. Merchant No._010: 1 -> 0 (100% decline)\n2. Merchant No._084: 1 -> 0 (100% decline)\n3. Merchant No._129: 2 -> 0 (100% decline)\n4. Merchant No._026: 3 -> 1 (66.67% decline)\n\nTotal: 4 merchants",
+  "model_response": "Merchants with a 50% or more decline in Completed Order Count (days 1-4, this week vs last week):\n\n1. Merchant No._010: 1 -> 0 (100% decline)\n2. Merchant No._084: 1 -> 0 (100% decline)\n3. Merchant No._129: 2 -> 0 (100% decline)\n4. Merchant No._026: 3 -> 1 (66.67% decline)\n\nTotal: 4 merchants",
+  "reference": "Merchant No.  Last Week Completed Order Count  This Week Completed Order Count  Decline Magnitude\nMerchant No._010  1  0  100% (↓ 1)\nMerchant No._084  1  0  100% (↓ 1)\nMerchant No._129  2  0  100% (↓ 2)\nMerchant No._026  3  1  66.7% (↓ 2)",
+  "rubrics": null,
+  "question": "Compare these two datasets and identify which Merchant No. had a decline of 50% or more in Completed Order Count during days 1–4 of the current week",
+  "n_inputs": 2,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 1.92,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型准确识别了所有符合条件的商户编号，且订单数变化和下降幅度与参考答案完全一致。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_148",
+  "answer": "Outlier removal (IQR method): Q1=950.278, Q3=1070.075, IQR=119.797; lower=770.583, upper=1249.771. Original n=40, removed 4 outliers, retained n=36.\n\nOne-sample t-test against mean=950: t=3.522, df=35, two-sided p=0.001212 (one-sided p=0.000606). Sample mean=1002.051, SD=88.671.",
+  "model_response": "Outlier removal (IQR method): Q1=950.278, Q3=1070.075, IQR=119.797; lower=770.583, upper=1249.771. Original n=40, removed 4 outliers, retained n=36.\n\nOne-sample t-test against mean=950: t=3.522, df=35, two-sided p=0.001212 (one-sided p=0.000606). Sample mean=1002.051, SD=88.671.",
+  "reference": 0.0012,
+  "rubrics": null,
+  "question": "First remove outliers, then calculate the P value. The lower and upper bounds are defined as: Q1 - 1.5 * IQR and Q3 + 1.5 * IQR.\nWhat is the P value for this dataset under the condition that the mean is 950? Use a one-sample t-test.",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 26477,
+  "completion_tokens": 1349,
+  "elapsed_seconds": 17.59,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果（p=0.001212）与参考答案（0.0012）基本一致，符合统计类题目的评分标准。"
+}

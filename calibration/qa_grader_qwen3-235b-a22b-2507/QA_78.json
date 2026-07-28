@@ -1,0 +1,17 @@
+{
+  "id": "QA_78",
+  "answer": "Top 10 Salespeople by Total Sales (with stockpile customer counts):\n\nRank  Personnel                 Total Sales (yuan)  Stockpile Customers\n----------------------------------------------------------------------\n1     Users_14                             9565.00                    1\n2     Users_25                             5776.00                    1\n3     Users_26                             5703.00                    1\n4     Users_33                             5421.00                    1\n5     Users_23                             5320.00                    1\n6     Users_37                             5030.00                    1\n7     Users_06                             4857.00                    1\n8     Users_35                             4680.00                    1\n9     Users_36                             4503.00                    1\n10    Users_34                             4446.00                    1\n",
+  "model_response": "Top 10 Salespeople by Total Sales (with stockpile customer counts):\n\nRank  Personnel                 Total Sales (yuan)  Stockpile Customers\n----------------------------------------------------------------------\n1     Users_14                             9565.00                    1\n2     Users_25                             5776.00                    1\n3     Users_26                             5703.00                    1\n4     Users_33                             5421.00                    1\n5     Users_23                             5320.00                    1\n6     Users_37                             5030.00                    1\n7     Users_06                             4857.00                    1\n8     Users_35                             4680.00                    1\n9     Users_36                             4503.00                    1\n10    Users_34                             4446.00                    1\n",
+  "reference": "Name,Total Sales Volume (Yuan),New Stockpile Stores (stores)\nWang Jinfeng,\"4,982\",2\nXie Liangchao,\"4,231\",2\nSun Ge,\"3,823\",2\nGe Jinghua,\"3,773\",3\nSun Chao,\"3,531\",2\nJiang Xuefeng,\"3,436\",2\nLu Lu,\"3,160\",2\nWen Chengcheng,\"2,675\",2\nRen Hongwei,\"2,340\",1\nLi Yuhao,\"1,932\",3",
+  "rubrics": null,
+  "question": "Compile the sales volume data for each person (salesperson/sales representative) in the statistics document, and count the number of stockpile customers corresponding to each person. Output a table containing the following columns: personnel name, total sales volume (rounded to 2 decimal places), number of stockpile customers (integer). Sort by total sales volume in descending order and output the Top 10 (if the total number of personnel is fewer than 10, output all of them).",
+  "n_inputs": 1,
+  "n_turns": 14,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.98,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型的答案与参考答案在人员姓名、总销售量和囤货客户数量上均存在显著差异。例如，参考答案中最高销售员Wang Jinfeng的销售量为4,982元，而AI模型中排名第一的Users_14销售量为9,565元，明显不一致。此外，AI模型中的人员名称为'Users_XX'格式，与参考答案中的真实姓名完全不符，表明数据来源或处理错误。同时，参考答案中有多人拥有2或3个囤货客户，而AI模型中所有人员均为1个，与参考答案的核心信息严重偏离。因此判定为0分。"
+}

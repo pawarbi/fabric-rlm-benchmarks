@@ -1,0 +1,17 @@
+{
+  "id": "QA_82",
+  "answer": "Fresh Produce Share = 77.63%\nFresh Produce absolute (Sales Revenue sum) = 69,993,962,500 RMB\nOverall absolute (Sales Revenue sum)       = 90,163,787,500 RMB\n\nMethodology: Sales Revenue values in source files are binned ranges (e.g., 100M+, 75M-100M, 5000w-7500w where 1w=10,000). Bin midpoints were used as point estimates; open-ended bins like '100M+' were treated as 100M-200M (midpoint 150M). For files that include a Brand Type column (influencer, brand_sales, brand_own_store, douyin_618), rows with Brand Type='Fresh Produce' were summed for the fresh total and all rows for the overall total. For the product_data file (no Brand Type column) all 90 valid rows were added to overall. The livestream file (only 'Live Stream Sales Revenue', not 'Sales Revenue') and the top_seeding file (no Sales Revenue column at all) contributed 0.",
+  "model_response": "Fresh Produce Share = 77.63%\nFresh Produce absolute (Sales Revenue sum) = 69,993,962,500 RMB\nOverall absolute (Sales Revenue sum)       = 90,163,787,500 RMB\n\nMethodology: Sales Revenue values in source files are binned ranges (e.g., 100M+, 75M-100M, 5000w-7500w where 1w=10,000). Bin midpoints were used as point estimates; open-ended bins like '100M+' were treated as 100M-200M (midpoint 150M). For files that include a Brand Type column (influencer, brand_sales, brand_own_store, douyin_618), rows with Brand Type='Fresh Produce' were summed for the fresh total and all rows for the overall total. For the product_data file (no Brand Type column) all 90 valid rows were added to overall. The livestream file (only 'Live Stream Sales Revenue', not 'Sales Revenue') and the top_seeding file (no Sales Revenue column at all) contributed 0.",
+  "reference": "Fresh Produce Sales Revenue 4663600000 yuan\n Total Sales Revenue 5201125000 yuan\n Fresh Produce Share 89.66%",
+  "rubrics": null,
+  "question": "Calculate the total Sales Revenue for the fresh produce category across all files, compute its proportion of the overall data, and output as a percentage rounded to 2 decimal places. Use Sales Revenue. Output format: Fresh Produce Share = XX.XX%, and also provide the absolute value for fresh produce and the overall absolute value as reference.",
+  "n_inputs": 7,
+  "n_turns": 13,
+  "prompt_tokens": 197439,
+  "completion_tokens": 6249,
+  "elapsed_seconds": 74.77,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型计算的新鲜农产品销售额和总销售额与参考答案存在数量级上的显著差异，导致最终比例77.63%与参考答案89.66%相差过大。尽管提供了分析方法，但结果未与参考答案基本一致，不符合统计类题目得分标准。"
+}

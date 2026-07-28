@@ -1,0 +1,17 @@
+{
+  "id": "QA_47",
+  "answer": "Total Payment Amount (yuan) for individuals aged 70 and above with Disability Grade level 1: 400 yuan (4 matched individuals, each receiving 100 yuan: ages 80, 75, 74, 73).",
+  "model_response": "Total Payment Amount (yuan) for individuals aged 70 and above with Disability Grade level 1: 400 yuan (4 matched individuals, each receiving 100 yuan: ages 80, 75, 74, 73).",
+  "reference": 400,
+  "rubrics": null,
+  "question": "In the file personnel list.xlsx, calculate the total Payment Amount (yuan) for individuals aged 70 and above with Disability Grade level 1.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 16852,
+  "completion_tokens": 467,
+  "elapsed_seconds": 8.45,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果为400，与参考答案完全一致。"
+}

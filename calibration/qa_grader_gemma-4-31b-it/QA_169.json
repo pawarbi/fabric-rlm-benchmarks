@@ -1,0 +1,17 @@
+{
+  "id": "QA_169",
+  "answer": "Top 3 Major Project Categories by Actual Expenditure (Full Year Actual Total):\n1. Personnel Labor Costs: 14,036,475.08\n2. Depreciation & Amortization: 7,244,746.42\n3. Material Costs: 4,011,347.91",
+  "model_response": "Top 3 Major Project Categories by Actual Expenditure (Full Year Actual Total):\n1. Personnel Labor Costs: 14,036,475.08\n2. Depreciation & Amortization: 7,244,746.42\n3. Material Costs: 4,011,347.91",
+  "reference": "Personnel labor costs: 14036475.08\nDepreciation and amortization: 7244746.42\nMaterial costs: 4011347.91",
+  "rubrics": null,
+  "question": "Summarize actual expenditures by major project category, sort in descending order, and output the top 3 category names along with their actual expenditure amounts. Round all numbers to two decimal places.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 18449,
+  "completion_tokens": 516,
+  "elapsed_seconds": 8.07,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果与参考答案完全一致，涵盖了所有核心要点，且排序正确。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_213",
+  "answer": "Injection Molding Department totals (from 'August Attendance' sheet):\n- Total Payable Hours: 1044\n- Total Overtime Duration: 648\n- Total Leave Duration: 24",
+  "model_response": "Injection Molding Department totals (from 'August Attendance' sheet):\n- Total Payable Hours: 1044\n- Total Overtime Duration: 648\n- Total Leave Duration: 24",
+  "reference": "Total Payable Hours: 1044\nTotal Overtime Duration: 648\nTotal Leave Duration: 24",
+  "rubrics": "No specific unit required for numerical values",
+  "question": "Calculate the total Payable Hours, total Overtime Duration, and total Leave Duration for the \"Injection Molding Department\"",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 46298,
+  "completion_tokens": 1095,
+  "elapsed_seconds": 15.18,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案中的Total Payable Hours、Total Overtime Duration和Total Leave Duration分别为1044、648、24，与参考答案完全一致，符合统计类题目得分标准。"
+}

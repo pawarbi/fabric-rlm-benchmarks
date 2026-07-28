@@ -1,0 +1,17 @@
+{
+  "id": "QA_177",
+  "answer": "Top 3 stores by Total Sales (yuan) after summing duplicates:\n1. Store QSYR - 14,639.00\n2. Store GZ - 10,620.00\n3. Store DU - 6,361.00",
+  "model_response": "Top 3 stores by Total Sales (yuan) after summing duplicates:\n1. Store QSYR - 14,639.00\n2. Store GZ - 10,620.00\n3. Store DU - 6,361.00",
+  "reference": "Based on the aggregated sales data, the top three stores by sales amount are:\n\n1. Store QSYR, with Total Sales (yuan) of 14,639 yuan\n2. Store GZ, with Total Sales (yuan) of 10,620 yuan\n3. Store DU, with Total Sales (yuan) of 6,361 yuan",
+  "rubrics": null,
+  "question": "Sales amounts for duplicate store names are summed; who are the top three stores by Total Sales (yuan) in the complete dataset?",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 16784,
+  "completion_tokens": 380,
+  "elapsed_seconds": 7.48,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案中的三个店铺名称及其总销售额与参考答案完全一致，数值虽保留两位小数但与参考答案四舍五入后相同，排序正确，核心要点完整覆盖。"
+}

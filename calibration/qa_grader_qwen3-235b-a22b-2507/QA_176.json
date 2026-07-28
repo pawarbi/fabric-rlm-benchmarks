@@ -1,0 +1,17 @@
+{
+  "id": "QA_176",
+  "answer": "Top 5 best-selling vehicle brands (by Sales Volume) and their associated Battery Manufacturers:\n\n1. Vehicle Type 3 — 343 units — Battery Manufacturers: 2, 3, 4, 5, 6, 7\n2. Vehicle Type 4 — 221 units — Battery Manufacturers: 2, 4, 8, 9, 10\n3. Vehicle Type 7 — 119 units — Battery Manufacturer: 2\n4. Vehicle Type 2 — 61 units — Battery Manufacturer: 2\n5. Vehicle Type 6 — 53 units — Battery Manufacturer: 4",
+  "model_response": "Top 5 best-selling vehicle brands (by Sales Volume) and their associated Battery Manufacturers:\n\n1. Vehicle Type 3 — 343 units — Battery Manufacturers: 2, 3, 4, 5, 6, 7\n2. Vehicle Type 4 — 221 units — Battery Manufacturers: 2, 4, 8, 9, 10\n3. Vehicle Type 7 — 119 units — Battery Manufacturer: 2\n4. Vehicle Type 2 — 61 units — Battery Manufacturer: 2\n5. Vehicle Type 6 — 53 units — Battery Manufacturer: 4",
+  "reference": "| Rank | Brand (Vehicle Model Name) | Total Sales Volume | Corresponding Battery Brand (by Highest Sales Volume) | That Battery's Sales Volume | That Battery Manufacturer's Share (by Sales Volume) |\n| -: | -------- | --: | ------------- | ----: | -------------------------------------------------------------------- |\n| 1 | Vehicle Model 3 | 343 | Battery Manufacturer 7 | 170 | Battery Manufacturer 7 49.6%; Battery Manufacturer 4 20.7%; Battery Manufacturer 2 19.2%; Battery Manufacturer 6 5.2%; Battery Manufacturer 5 5.0%; Battery Manufacturer 3 0.3% |\n| 2 | Vehicle Model 4 | 221 | Battery Manufacturer 2 | 85 | Battery Manufacturer 2 38.5%; Battery Manufacturer 10 33.9%; Battery Manufacturer 9 20.4%; Battery Manufacturer 8 5.4%; Battery Manufacturer 4 1.8% |\n| 3 | Vehicle Model 7 | 119 | Battery Manufacturer 2 | 119 | Battery Manufacturer 2 100.0% |\n| 4 | Vehicle Model 2 | 61 | Battery Manufacturer 2 | 61 | Battery Manufacturer 2 100.0% |\n| 5 | Vehicle Model 6 | 53 | Battery Manufacturer 4 | 53 | Battery Manufacturer 4 100.0% |",
+  "rubrics": "The battery manufacturer name just needs to be correct; no need to write the percentage/proportion",
+  "question": "The top 5 best-selling brands in the market and their corresponding battery brands (top 5)",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17521,
+  "completion_tokens": 555,
+  "elapsed_seconds": 9.66,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型答案列出了每个车辆型号使用的所有电池制造商，但未明确指出‘对应电池品牌’中按销量最高的那一个。根据参考答案，Vehicle Model 3 应对应 Battery Manufacturer 7，Vehicle Model 4 应对应 Battery Manufacturer 2，但AI将其与其他制造商并列，未突出主供品牌，导致信息不准确。尽管[答题点]不要求写比例，但仍需正确识别并呈现‘对应’的电池制造商。因此，答案存在显著偏差，核心要求未满足，判定为0分。"
+}

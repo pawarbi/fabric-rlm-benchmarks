@@ -1,0 +1,17 @@
+{
+  "id": "QA_193",
+  "answer": "Top 2 best-selling products by sales volume:\n1. A002 — XMQ5039XXYBEVL02 (Pure Electric Box Transport Vehicle): 182 units\n2. A003 — SQR5030XXYBEVH77 (Pure Electric Box Transport Vehicle): 179 units",
+  "model_response": "Top 2 best-selling products by sales volume:\n1. A002 — XMQ5039XXYBEVL02 (Pure Electric Box Transport Vehicle): 182 units\n2. A003 — SQR5030XXYBEVH77 (Pure Electric Box Transport Vehicle): 179 units",
+  "reference": "A002 182\nA003 179",
+  "rubrics": "The product name and number are correct",
+  "question": "What are the sales volumes of the two best-selling products?\n",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 18050,
+  "completion_tokens": 613,
+  "elapsed_seconds": 8.16,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案正确识别出两个最畅销产品的编号A002和A003，并给出了对应的销售量182和179，与参考答案完全一致。虽然额外提供了产品名称和型号，但核心信息中的产品编号和销售数量均准确无误，符合[答题点]中要求的'产品名称和数量正确'（此处产品名称可理解为编号A002、A003），因此满足得分为1的条件。"
+}

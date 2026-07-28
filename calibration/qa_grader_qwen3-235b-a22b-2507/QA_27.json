@@ -1,0 +1,17 @@
+{
+  "id": "QA_27",
+  "answer": "Date Range | Total OT Orders | OT-Web Orders | Overall Market Orders | OT Order Share | OT-Web Order Share\nNov 1-4, 2025 | 21 | 10 | 797 | 2.63% | 1.25%\nDec 1-4, 2025 | 21 | 10 | 453 | 4.64% | 2.21%",
+  "model_response": "Date Range | Total OT Orders | OT-Web Orders | Overall Market Orders | OT Order Share | OT-Web Order Share\nNov 1-4, 2025 | 21 | 10 | 797 | 2.63% | 1.25%\nDec 1-4, 2025 | 21 | 10 | 453 | 4.64% | 2.21%",
+  "reference": "Date Range OT Total Orders OT-Web Orders Overall Orders OT Order Share OT-Web Order Share\nNov 1-4 153 10 797 19.20% 1.25%\nDec 1-4 120 10 453 26.49% 2.21%",
+  "rubrics": null,
+  "question": "These are 2 datasets: OT channel order volume (OT_order_volume.xlsx contains November data, OT_order_volume-December.xlsx contains December data) and overall market orders. Please integrate all 3 documents, perform a comparative analysis across 2 time intervals, and produce data with the following headers (answer directly): Date Range, Total OT Orders, OT-Web Orders, Overall Market Orders, OT Order Share, OT-Web Order Share\n\nDate ranges: November 1–4 and December 1–4",
+  "n_inputs": 3,
+  "n_turns": 6,
+  "prompt_tokens": 30753,
+  "completion_tokens": 1054,
+  "elapsed_seconds": 26.46,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型答案中的Total OT Orders在两个时间段均为21，与参考答案的153和120存在显著差异，导致OT Order Share计算错误（2.63%和4.64% vs 19.20%和26.49%）。尽管OT-Web Orders和Overall Market Orders正确，但核心统计指标错误，不符合统计类题目得分标准。"
+}

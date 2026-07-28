@@ -1,0 +1,17 @@
+{
+  "id": "QA_76",
+  "answer": "17",
+  "model_response": "17",
+  "reference": 30,
+  "rubrics": null,
+  "question": "Count the total number of terminal customers with \"increase stockpile\" or \"increased stockpile\" recorded in the statistical document. If the document contains an explicit customer list or customer name field, deduplicate and count the customers meeting the \"increase stockpile\" condition; if the document is unstructured text, extract all customer names mentioning \"increase stockpile\" and count after deduplication. The output is a single integer representing the number of customers with increased stockpile.",
+  "n_inputs": 1,
+  "n_turns": 12,
+  "prompt_tokens": 104635,
+  "completion_tokens": 1919,
+  "elapsed_seconds": 33.12,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型给出的统计结果为17，与参考答案的30不一致，属于统计类题目结果存在明显差异。"
+}

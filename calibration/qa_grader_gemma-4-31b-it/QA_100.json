@@ -1,0 +1,17 @@
+{
+  "id": "QA_100",
+  "answer": "| Group | Emission Rate (ppm/min) | R² Coefficient |\n|-------|------------------------|----------------|\n| Group 1 | 70.97 | 0.9984 |\n| Group 2 | 82.39 | 0.9787 |\n| Group 3 | 72.27 | 0.9989 |\n| Group 4 | 73.28 | 0.9728 |\n",
+  "model_response": "| Group | Emission Rate (ppm/min) | R² Coefficient |\n|-------|------------------------|----------------|\n| Group 1 | 70.97 | 0.9984 |\n| Group 2 | 82.39 | 0.9787 |\n| Group 3 | 72.27 | 0.9989 |\n| Group 4 | 73.28 | 0.9728 |\n",
+  "reference": "Group Emission Rate (ppm/min) R² Coefficient\n Group 1 71.02 0.9986\n Group 2 82.41 0.9816\n Group 3 72.32 0.9991\n Group 4 73.28 0.9751",
+  "rubrics": null,
+  "question": "Based on the 4 groups of CO2 emission data within 15 minutes provided in the Excel file, calculate the emission rate (unit: ppm/min, rounded to 2 decimal places) and the R² coefficient of the linear fit (rounded to 4 decimal places) for each group, and organize the results into a table. The table must include the following columns: Group, Emission Rate, R² Coefficient. The table should be arranged in group order (Group 1 to Group 4). The emission rate is calculated as follows: perform linear regression on the CO2 concentration values versus time for each group, and the slope is the emission rate; the R² coefficient is the coefficient of determination of that linear regression. Missing values present in the data should be excluded from the calculation. Output the final results in Markdown table format.",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 1.27,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型计算的排放率（Emission Rate）和R²系数与参考答案存在明显差异，未达到统计类题目要求的严格对应。"
+}

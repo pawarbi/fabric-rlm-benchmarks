@@ -1,0 +1,17 @@
+{
+  "id": "QA_93",
+  "answer": "C\n47\n50.00%",
+  "model_response": "C\n47\n50.00%",
+  "reference": "C;\n47;\n58.65%",
+  "rubrics": "1、Give the answers to the three questions in three separate lines.\n2、The data matches the reference answer.",
+  "question": "1. What is the Shelf location name with the most Medical Insurance Pooling?\n2. What is the average Age of recorded medication purchases at this store? Round to the nearest integer and provide the number only.\n3. What proportion of purchasers at this store have valid follow-up records? Keep two decimal places with a percentage sign. Definition of a valid Follow-up summary: the Follow-up summary field contains condition or medication information.\nProvide the answers to the three questions on three separate lines.",
+  "n_inputs": 2,
+  "n_turns": 14,
+  "prompt_tokens": 87778,
+  "completion_tokens": 1501,
+  "elapsed_seconds": 99.14,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型的答案没有完全覆盖参考答案的核心要点。前两个问题的回答 'C' 和 '47' 与参考答案一致，得分为1分的标准下是正确的。但第三个问题的回答 '50.00%' 与参考答案 '58.65%' 存在明显差异，不符合比例计算结果。因此，第三个问题答案错误，导致整体答案存在显著偏差，核心要点缺失，判定为0分。"
+}

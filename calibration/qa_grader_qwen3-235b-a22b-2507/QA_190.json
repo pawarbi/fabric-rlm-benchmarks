@@ -1,0 +1,17 @@
+{
+  "id": "QA_190",
+  "answer": "Student 1, Student 4, Student 5, Student 10",
+  "model_response": "Student 1, Student 4, Student 5, Student 10",
+  "reference": "Student 1, Student 4, Student 5, Student 10",
+  "rubrics": null,
+  "question": "Which names appear exactly 2 times? Output the names only.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17141,
+  "completion_tokens": 322,
+  "elapsed_seconds": 6.17,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案完全一致，列出的名称均为Student 1, Student 4, Student 5, Student 10，符合问题要求找出恰好出现2次的名称。因此判定为1分。"
+}

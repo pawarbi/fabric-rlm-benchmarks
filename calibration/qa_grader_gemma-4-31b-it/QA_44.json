@@ -1,0 +1,17 @@
+{
+  "id": "QA_44",
+  "answer": "Per-group linear regression of NH3 concentration vs time (hours) for the 4 head-count groups in Sheet1 of the workbook. Each group's data spans the full hourly time series (855 non-missing points per group).\n\nUnits: concentration per hour (as the y-axis is concentration and x-axis is time in hours).\n\n| Group | Emission Rate (concentration/hour) | Fitting Coefficient R² |\n|---|---|---|\n| 2100 heads | -0.15 | 0.9172 |\n| 1800 heads | -0.1 | 0.9195 |\n| 1500 heads | -0.11 | 0.9299 |\n| 1200 heads | -0.09 | 0.9608 |",
+  "model_response": "Per-group linear regression of NH3 concentration vs time (hours) for the 4 head-count groups in Sheet1 of the workbook. Each group's data spans the full hourly time series (855 non-missing points per group).\n\nUnits: concentration per hour (as the y-axis is concentration and x-axis is time in hours).\n\n| Group | Emission Rate (concentration/hour) | Fitting Coefficient R² |\n|---|---|---|\n| 2100 heads | -0.15 | 0.9172 |\n| 1800 heads | -0.1 | 0.9195 |\n| 1500 heads | -0.11 | 0.9299 |\n| 1200 heads | -0.09 | 0.9608 |",
+  "reference": "Group Emission Rate Fitting Coefficient R²\n 2100 heads 6.95 0.7571\n 1800 heads 4.63 0.7591\n 1500 heads 5.23 0.7675\n 1200 heads 4.00 0.7922",
+  "rubrics": null,
+  "question": "For the 4 groups of NH3 emission data in the file \"2025-11-04_11：27-_11：42_NH3.xlsx\", calculate the emission rate (unit: consistent with the data column unit; if the data is concentration-time data, the unit is concentration/time) and the fitting coefficient R² (coefficient of determination for linear fitting) for each group separately. Output format is a table containing the columns: Group, Emission Rate (rounded to 2 decimal places), Fitting Coefficient R² (rounded to 4 decimal places). The emission rate is obtained by performing a time-concentration linear regression on each group's data to get the slope; the fitting coefficient is the R² value of that linear regression. If missing values exist in the data, ignore those data points; if a group has fewer than 2 data points, annotate it as \"Insufficient data\".",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 28830,
+  "completion_tokens": 1238,
+  "elapsed_seconds": 18.69,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型计算的排放率（Emission Rate）和拟合系数（R²）与参考答案存在显著差异，数值完全不一致。"
+}

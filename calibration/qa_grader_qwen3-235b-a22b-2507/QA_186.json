@@ -1,0 +1,17 @@
+{
+  "id": "QA_186",
+  "answer": "ATTACHED PATIENT-PHYSICIAN PAIRS (patient visited the same physician >=2 times):\n\nPatient         Card #       Physician       Physician Code  # Visits  \n----------------------------------------------------------------------\nCai Moumou      900000010    Yu Moumou       1009            12        \nHu Mou          900000025    Kong Mou        1024            2         \nChen Mou        900000034    Wei Mou         1002            2         \n\nTotal attached patient-physician pairs: 3\nPatients attached: 3 (Cai Moumou, Hu Mou, Chen Mou)\nPhysicians with attached patients: 3 (Yu Moumou, Kong Mou, Wei Mou)",
+  "model_response": "ATTACHED PATIENT-PHYSICIAN PAIRS (patient visited the same physician >=2 times):\n\nPatient         Card #       Physician       Physician Code  # Visits  \n----------------------------------------------------------------------\nCai Moumou      900000010    Yu Moumou       1009            12        \nHu Mou          900000025    Kong Mou        1024            2         \nChen Mou        900000034    Wei Mou         1002            2         \n\nTotal attached patient-physician pairs: 3\nPatients attached: 3 (Cai Moumou, Hu Mou, Chen Mou)\nPhysicians with attached patients: 3 (Yu Moumou, Kong Mou, Wei Mou)",
+  "reference": "A total of 2 physicians have been attached by patients:\n1️⃣ Physician: Yu XX (Code: 1009)\n- Number of attached patients: 1 (Patient 900000010)\n- Number of visits by this patient: 12 ⭐⭐⭐\n- Attachment intensity: Extremely strong (far exceeds the attachment threshold)\n2️⃣ Physician: Kong X (Code: 1024)\n- Number of attached patients: 1 (Patient 900000025)\n- Number of visits by this patient: 2 ⭐\n- Attachment intensity: Meets standard (just satisfies the attachment threshold)",
+  "rubrics": "Answering with Yu and Kong is sufficient",
+  "question": "Identify which physicians have patients attached to them.\nCalculate the total number of visits for each patient, then if a patient has visited a particular physician two or more times, the patient is considered \"attached\" to that physician.",
+  "n_inputs": 1,
+  "n_turns": 12,
+  "prompt_tokens": 110205,
+  "completion_tokens": 2543,
+  "elapsed_seconds": 35.4,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "根据参考答案，只有2位医师（Yu XX和Kong X）有患者附着，而AI模型答案中列出了3位医师，包括Wei Mou（Code: 1002），该医师对应的患者Chen Mou虽然有2次访问，但参考答案并未将其计入，说明可能存在额外筛选条件或数据理解差异。AI模型得出'3位医师'与参考答案'2位医师'存在明显数量偏差，核心结论不符。尽管[答题点]说明回答出Yu和Kong即可得分，但AI模型不仅包含这两人，还错误地包含了第三人，导致整体判断错误，因此不能给1分。"
+}

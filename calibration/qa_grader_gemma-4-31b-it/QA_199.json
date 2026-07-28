@@ -1,0 +1,17 @@
+{
+  "id": "QA_199",
+  "answer": "Both sheets contain 17 unique values in the 'Fund Name' column.\n\nSheet 'Interbank Repo Pledged Securiti' (17 unique): ****Anying No.2, ****Jianying No.13, ****Jianying No.15, ****Jianying No.20, ****Jianying No.21, ****Jianying No.22, ****Jianying No.23, ****Jianying No.29, ****Jianying No.3, ****Jianying No.32, ****Jianying No.33, ****Jianying No.36, ****Jianying No.37, ****Jianying No.5, ****Jianying No.7, ****Jianying No.8, ****Jianying No.9.\n\nSheet 'wp' (17 unique): Bohai Huijin Anying No.2, Bohai Huijin Jianying No.13, Bohai Huijin Jianying No.15, Bohai Huijin Jianying No.20, Bohai Huijin Jianying No.21, Bohai Huijin Jianying No.22, Bohai Huijin Jianying No.23, Bohai Huijin Jianying No.29, Bohai Huijin Jianying No.3, Bohai Huijin Jianying No.32, Bohai Huijin Jianying No.33, Bohai Huijin Jianying No.36, Bohai Huijin Jianying No.37, Bohai Huijin Jianying No.5, Bohai Huijin Jianying No.7, Bohai Huijin Jianying No.8, Bohai Huijin Jianying No.9.\n\nTotal unique Fund Name values across the workbook: 17 (both sheets share the same 17 funds; 'wp' uses the full 'Bohai Huijin ...' names while 'Interbank Repo Pledged Securiti' uses a masked '****...' version).",
+  "model_response": "Both sheets contain 17 unique values in the 'Fund Name' column.\n\nSheet 'Interbank Repo Pledged Securiti' (17 unique): ****Anying No.2, ****Jianying No.13, ****Jianying No.15, ****Jianying No.20, ****Jianying No.21, ****Jianying No.22, ****Jianying No.23, ****Jianying No.29, ****Jianying No.3, ****Jianying No.32, ****Jianying No.33, ****Jianying No.36, ****Jianying No.37, ****Jianying No.5, ****Jianying No.7, ****Jianying No.8, ****Jianying No.9.\n\nSheet 'wp' (17 unique): Bohai Huijin Anying No.2, Bohai Huijin Jianying No.13, Bohai Huijin Jianying No.15, Bohai Huijin Jianying No.20, Bohai Huijin Jianying No.21, Bohai Huijin Jianying No.22, Bohai Huijin Jianying No.23, Bohai Huijin Jianying No.29, Bohai Huijin Jianying No.3, Bohai Huijin Jianying No.32, Bohai Huijin Jianying No.33, Bohai Huijin Jianying No.36, Bohai Huijin Jianying No.37, Bohai Huijin Jianying No.5, Bohai Huijin Jianying No.7, Bohai Huijin Jianying No.8, Bohai Huijin Jianying No.9.\n\nTotal unique Fund Name values across the workbook: 17 (both sheets share the same 17 funds; 'wp' uses the full 'Bohai Huijin ...' names while 'Interbank Repo Pledged Securiti' uses a masked '****...' version).",
+  "reference": 17,
+  "rubrics": null,
+  "question": "Count the number of unique values in the \"Fund Name\" column of the file",
+  "n_inputs": 1,
+  "n_turns": 2,
+  "prompt_tokens": 12422,
+  "completion_tokens": 686,
+  "elapsed_seconds": 8.65,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型给出的唯一值数量为17，与参考答案完全一致。"
+}

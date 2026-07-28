@@ -1,0 +1,17 @@
+{
+  "id": "QA_84",
+  "answer": "Average Unit Price: 99.96 yuan",
+  "model_response": "Average Unit Price: 99.96 yuan",
+  "reference": "Average Unit Price: 90.74 yuan",
+  "rubrics": null,
+  "question": "Calculate the overall average of the numeric field that best semantically matches \"unit price\" or \"average price\" across all files, ignoring missing values and non-positive values. Round the result to 2 decimal places and output in the format \"Average Unit Price: XX.XX yuan\".",
+  "n_inputs": 7,
+  "n_turns": 4,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 2.38,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型的计算结果（99.96 yuan）与参考答案（90.74 yuan）存在明显差异，未得出正确统计结果。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_77",
+  "answer": "21",
+  "model_response": "21",
+  "reference": 14,
+  "rubrics": null,
+  "question": "Count the number of distinct merchants or suppliers related to \"shelf pricing\" in the statistical document. Specific rules: Search for fields or descriptions containing keywords such as \"pricing\", \"shelf setup\", \"merchant\", \"supplier\", \"manufacturer\", etc. in the tables or text of the document, and count the number of distinct merchant/supplier names found. If the document contains a clearly defined merchant name column, perform a deduplicated count on that column; if no such column exists but multiple merchants are mentioned in the text, extract and deduplicate the count. Output a single integer representing the total number of distinct merchants involved.",
+  "n_inputs": 1,
+  "n_turns": 6,
+  "prompt_tokens": 50478,
+  "completion_tokens": 1851,
+  "elapsed_seconds": 26.39,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型给出的统计结果为21，而参考答案为14，两者存在明显差异。"
+}

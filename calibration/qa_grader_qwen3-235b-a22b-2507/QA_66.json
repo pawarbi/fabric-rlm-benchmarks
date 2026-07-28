@@ -1,0 +1,17 @@
+{
+  "id": "QA_66",
+  "answer": "For draw 2025301:\n- Fucai 3D Difference (Welfare Lottery, winning number 755): Non-fixed 2-digit difference = 2, 2, 0  (Hundreds-Tens=2, Hundreds-Ones=2, Tens-Ones=0)\n- Sports Lottery Perm3 difference (winning number 582): Non-fixed 2-digit difference = 3, 3, 6  (Hundreds-Tens=3, Hundreds-Ones=3, Tens-Ones=6)\n\nBoth files store this value in column U ('Non-fixed 2-digit difference') via the formula TEXTJOIN(\", \", TRUE, ABS(MID(B,{1,1,2},1)-MID(B,{2,3,3},1))), which joins the three pairwise absolute differences of the three digits (hundreds-tens, hundreds-ones, tens-ones). The cached values were blank in the file, so the values were computed directly from the winning numbers.",
+  "model_response": "For draw 2025301:\n- Fucai 3D Difference (Welfare Lottery, winning number 755): Non-fixed 2-digit difference = 2, 2, 0  (Hundreds-Tens=2, Hundreds-Ones=2, Tens-Ones=0)\n- Sports Lottery Perm3 difference (winning number 582): Non-fixed 2-digit difference = 3, 3, 6  (Hundreds-Tens=3, Hundreds-Ones=3, Tens-Ones=6)\n\nBoth files store this value in column U ('Non-fixed 2-digit difference') via the formula TEXTJOIN(\", \", TRUE, ABS(MID(B,{1,1,2},1)-MID(B,{2,3,3},1))), which joins the three pairwise absolute differences of the three digits (hundreds-tens, hundreds-ones, tens-ones). The cached values were blank in the file, so the values were computed directly from the winning numbers.",
+  "reference": "Fucai 3D Difference: 2, 2, 0\nSports Lottery Perm3 difference: 3, 3, 6",
+  "rubrics": null,
+  "question": "For draw 2025301, what are the \"non-fixed two-digit differences\" of the Fucai 3D Difference and the Sports Lottery Perm3 difference respectively?",
+  "n_inputs": 2,
+  "n_turns": 13,
+  "prompt_tokens": 109284,
+  "completion_tokens": 2473,
+  "elapsed_seconds": 34.48,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案中Fucai 3D Difference和Sports Lottery Perm3 difference的非固定两位数差分别为2, 2, 0和3, 3, 6，与参考答案完全一致，且计算逻辑正确，核心要点完整覆盖。"
+}

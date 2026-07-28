@@ -1,0 +1,17 @@
+{
+  "id": "QA_173",
+  "answer": "Yes, there is a significant positive linear relationship between wait time and order amount. Pearson r = 0.8811 (n=20).",
+  "model_response": "Yes, there is a significant positive linear relationship between wait time and order amount. Pearson r = 0.8811 (n=20).",
+  "reference": "Yes; 0.88",
+  "rubrics": null,
+  "question": "Is there a significant linear relationship between wait time and order amount? Calculate the Pearson coefficient. First answer yes or no, then directly provide the coefficient.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17580,
+  "completion_tokens": 557,
+  "elapsed_seconds": 8.97,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型正确回答了'Yes'，且计算出的Pearson系数0.8811与参考答案0.88在四舍五入后一致，符合统计类题目的评分标准。"
+}

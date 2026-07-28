@@ -1,0 +1,17 @@
+{
+  "id": "QA_88",
+  "answer": "**Number of distinct Project Types:** 3 (Service, Goods, Works)\n\n**Total Project Amount:** 3563.03 (10,000 CNY)",
+  "model_response": "**Number of distinct Project Types:** 3 (Service, Goods, Works)\n\n**Total Project Amount:** 3563.03 (10,000 CNY)",
+  "reference": "| Statistics Item | Result |\n| :------------ | :------------ |\n| Number of Project Types (deduplicated) | 3 types (Service, Goods, Engineering) |\n| Total Amount of All Projects | 3563.03 万元 |",
+  "rubrics": null,
+  "question": "Count the number of distinct categories in the \"Project Type\" field across all projects in this file, and calculate the sum of the \"Project Amount\" field for all projects (rounded to 2 decimal places). Output in markdown format, containing two values: the number of project types (integer) and the total project amount (numeric value, in the same unit as the original data).",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17503,
+  "completion_tokens": 438,
+  "elapsed_seconds": 8.86,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果与参考答案完全一致：项目类型数量均为3，总金额均为3563.03，且单位对应正确。"
+}

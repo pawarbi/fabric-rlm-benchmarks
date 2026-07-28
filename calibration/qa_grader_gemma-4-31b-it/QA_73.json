@@ -1,0 +1,17 @@
+{
+  "id": "QA_73",
+  "answer": "| Group Name | Total Sales Volume |\n|---|---|\n| Group 4 | 14681.00 |\n| Group 3 | 13924.00 |\n| Group 1 | 3995.00 |\n| Group 2 | 2954.00 |",
+  "model_response": "| Group Name | Total Sales Volume |\n|---|---|\n| Group 4 | 14681.00 |\n| Group 3 | 13924.00 |\n| Group 1 | 3995.00 |\n| Group 2 | 2954.00 |",
+  "reference": "Group 4: 10241.00 Yuan    Group 3: 10040.00 Yuan    Group 2: 13231.00 Yuan    Group 1: 10526.00 Yuan",
+  "rubrics": null,
+  "question": "Calculate the total sales volume for each of the four groups in the WeChat group chat records, and output the results in a table. The table contains two columns: \"Group Name\" and \"Total Sales Volume\", sorted in descending order by total sales volume. Total sales volume should be rounded to 2 decimal places; if no unit is explicitly indicated in the data, do not add a unit. If a group has no sales data, display 0.",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.58,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型计算出的各组销售额数值与参考答案存在显著差异，未能得出正确的统计结果。"
+}

@@ -1,0 +1,4025 @@
+{
+ "id": "FG_10",
+ "config": {
+  "model": "openrouter/minimax/minimax-m3",
+  "skill": "excel_modify",
+  "max_turns": 14,
+  "temperature": 1.0,
+  "split": "file_generation_en"
+ },
+ "task_prompt": "Fill in the blank parts of the table based on the extracted table content. Return the new file with the format unchanged.\n\nWorking directory: C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\nAll input files listed below are already in that directory.\n\n## Input files (first 5 rows of each, for orientation)\n\n- extraction_results.xlsx\n  sheet 'data': 201 rows x 2 cols\n      Patient ID | Sample Data\n      Patient 1 | Metric1(g): 31.97\nMetric\n      Patient 2 | Metric1(g): 6.98\nMetric2\n      Patient 3 | Metric1(g): 4.35\nMetric2\n      Patient 4 | Metric1(g): 11.63\nMetric\n- form_to_fill.xlsx\n  sheet 'Sheet1': 13 rows x 6 cols\n      Indicator Name | Indicator 1 | Indicator 2 | Indicator 3 | Indicator 4 | Description\n      Unit |  |  |  |  | No unit\n      Patient 2 |  |  |  |  | \n      Patient 12 |  |  |  |  | \n      Patient 44 |  |  |  |  | \n\nRow counts above are the full file; only the first rows are shown. Read the\nfiles yourself for anything beyond this.\n\nWrite your result to a file named exactly \"'completion_results.xlsx'\" in the same directory.\nDo not rename it. Do not write it anywhere else.\n\nWhen finished, call SUBMIT(answer=\"done\").",
+ "submitted": true,
+ "failure_reason": null,
+ "payload": {
+  "answer": "done"
+ },
+ "totals": {
+  "prompt_tokens": 20344,
+  "completion_tokens": 1422,
+  "cached_tokens": 16231,
+  "reasoning_tokens": 337,
+  "lm_seconds": 15.14100000000326,
+  "worker_seconds": 0.625
+ },
+ "n_turns": 3,
+ "turns": [
+  {
+   "turn": 1,
+   "code": "import openpyxl\n\n# Load extraction_results.xlsx\npath1 = r\"C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\extraction_results.xlsx\"\nwb1 = openpyxl.load_workbook(path1)\nws1 = wb1.active\nprint(\"extraction_results sheets:\", wb1.sheetnames)\nprint(\"extraction_results active sheet:\", ws1.title, \"dims:\", ws1.dimensions, \"max_row:\", ws1.max_row, \"max_col:\", ws1.max_column)\n\n# Print first 10 rows\nfor r in range(1, min(11, ws1.max_row + 1)):\n    row = [ws1.cell(row=r, column=c).value for c in range(1, ws1.max_column + 1)]\n    print(f\"row {r}:\", row)\n\nprint(\"=\"*60)\n\n# Load form_to_fill.xlsx\npath2 = r\"C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\form_to_fill.xlsx\"\nwb2 = openpyxl.load_workbook(path2)\nws2 = wb2.active\nprint(\"form_to_fill sheets:\", wb2.sheetnames)\nprint(\"form_to_fill active sheet:\", ws2.title, \"dims:\", ws2.dimensions, \"max_row:\", ws2.max_row, \"max_col:\", ws2.max_column)\n\n# Print all rows\nfor r in range(1, ws2.max_row + 1):\n    row = [ws2.cell(row=r, column=c).value for c in range(1, ws2.max_column + 1)]\n    print(f\"row {r}:\", row)",
+   "stdout": "extraction_results sheets: ['data']\nextraction_results active sheet: data dims: A1:B201 max_row: 201 max_col: 2\nrow 1: ['Patient ID', 'Sample Data']\nrow 2: ['Patient 1', 'Metric1(g): 31.97\\nMetric2(cm/s): 12204\\nMetric3(cm/s): 18074\\nMetric4(m/s): 0.275\\nDescription: Ultrasonic detection sensitivity improved, defects more easily identified.']\nrow 3: ['Patient 2', 'Metric1(g): 6.98\\nMetric2(cm/s): 12839\\nMetric3(cm/s): 17543\\nMetric4(m/s): 0.741\\nDescription: Ultrasonic imaging artifacts reduced, structure is clearer.']\nrow 4: ['Patient 3', 'Metric1(g): 4.35\\nMetric2(cm/s): 15456\\nMetric3(cm/s): 12260\\nMetric4(m/s): 0.03\\nDescription: Ultrasonic detection sensitivity improved, defects are easier to identify.']\nrow 5: ['Patient 4', 'Metric1(g): 11.63\\nMetric2(cm/s): 16931\\nMetric3(cm/s): 12217\\nMetric4(m/s): 0.561\\nDescription: Ultrasonic imaging artifacts reduced, structure is clearer.']\nrow 6: ['Patient 5', 'Metric1(g): 20.98\\nMetric2(cm/s): 15679\\nMetric3(cm/s): 16827\\nMetric4(m/s): 0.278\\nDescription: Ultrasonic echo is clear with good signal-to-noise ratio.']\nrow 7: ['Patient 6', 'Metric1(g): 37.94\\nMetric2(cm/s): 13307\\nMetric3(cm/s): 17719\\nMetric4(m/s): 0.423\\nDescription: Ultrasonic propagation attenuation is small, penetration capability is strong.']\nrow 8: ['Patient 7', 'Metric1(g): 7.77\\nMetric2(cm/s): 19841\\nMetric3(cm/s): 18254\\nMetric4(m/s): 0.337\\nDescription: Ultrasonic beam focusing is stable, imaging contrast is high.']\nrow 9: ['Patient 8', 'Metric1(g): 19.0\\nMetric2(cm/s): 14940\\nMetric3(cm/s): 18942\\nMetric4(m/s): 0.344\\nDescription: Ultrasonic propagation attenuation is low with strong penetration capability.']\nrow 10: ['Patient 9', 'Metric1(g): 40.36\\nMetric2(cm/s): 17977\\nMetric3(cm/s): 15763\\nMetric4(m/s): 0.536\\nDescription: Ultrasonic signal spectrum is concentrated, spurious components are few.']\n============================================================\nform_to_fill sheets: ['Sheet1']\nform_to_fill active sheet: Sheet1 dims: A1:F13 max_row: 13 max_col: 6\nrow 1: ['Indicator Name', 'Indicator 1', 'Indicator 2', 'Indicator 3', 'Indicator 4', 'Description']\nrow 2: ['Unit', None, None, None, None, 'No unit']\nrow 3: ['Patient 2', None, None, None, None, None]\nrow 4: ['Patient 12', None, None, None, None, None]\nrow 5: ['Patient 44', None, None, None, None, None]\nrow 6: ['Patient 51', None, None, None, None, None]\nrow 7: ['Patient 60', None, None, None, None, None]\nrow 8: ['Patient 120', None, None, None, None, None]\nrow 9: ['Patient 131', None, None, None, None, None]\nrow 10: ['Patient 132', None, None, None, None, None]\nrow 11: ['Patient 159', None, None, None, None, None]\nrow 12: ['Patient 160', None, None, None, None, None]\nrow 13: ['Patient 161', None, None, None, None, None]\n",
+   "stderr": "",
+   "error": null,
+   "submitted": false,
+   "state": {
+    "extraction_results": {
+     "name": "extraction_results.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\extraction_results.xlsx"
+    },
+    "form_to_fill": {
+     "name": "form_to_fill.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\form_to_fill.xlsx"
+    },
+    "path1": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\extraction_results.xlsx",
+    "wb1": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "ws1": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"data\">",
+     "__serializable__": false
+    },
+    "r": 13,
+    "row": [
+     "Patient 161",
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    "path2": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\form_to_fill.xlsx",
+    "wb2": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "ws2": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"Sheet1\">",
+     "__serializable__": false
+    }
+   },
+   "response_text": "```python\nimport openpyxl\n\n# Load extraction_results.xlsx\npath1 = r\"C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\extraction_results.xlsx\"\nwb1 = openpyxl.load_workbook(path1)\nws1 = wb1.active\nprint(\"extraction_results sheets:\", wb1.sheetnames)\nprint(\"extraction_results active sheet:\", ws1.title, \"dims:\", ws1.dimensions, \"max_row:\", ws1.max_row, \"max_col:\", ws1.max_column)\n\n# Print first 10 rows\nfor r in range(1, min(11, ws1.max_row + 1)):\n    row = [ws1.cell(row=r, column=c).value for c in range(1, ws1.max_column + 1)]\n    print(f\"row {r}:\", row)\n\nprint(\"=\"*60)\n\n# Load form_to_fill.xlsx\npath2 = r\"C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\form_to_fill.xlsx\"\nwb2 = openpyxl.load_workbook(path2)\nws2 = wb2.active\nprint(\"form_to_fill sheets:\", wb2.sheetnames)\nprint(\"form_to_fill active sheet:\", ws2.title, \"dims:\", ws2.dimensions, \"max_row:\", ws2.max_row, \"max_col:\", ws2.max_column)\n\n# Print all rows\nfor r in range(1, ws2.max_row + 1):\n    row = [ws2.cell(row=r, column=c).value for c in range(1, ws2.max_column + 1)]\n    print(f\"row {r}:\", row)\n```",
+   "duration_s": 0.5088426000002073,
+   "token_usage": {
+    "completion_tokens": 407,
+    "prompt_tokens": 5448,
+    "total_tokens": 5855,
+    "completion_tokens_details": {
+     "audio_tokens": 0,
+     "reasoning_tokens": 18,
+     "image_tokens": 0
+    },
+    "prompt_tokens_details": {
+     "audio_tokens": 0,
+     "cached_tokens": 4722,
+     "video_tokens": 0,
+     "cache_write_tokens": 0
+    },
+    "cost": 0.0009796248,
+    "is_byok": false,
+    "cost_details": {
+     "upstream_inference_cost": 0.00098952,
+     "upstream_inference_prompt_cost": 0.00050112,
+     "upstream_inference_completions_cost": 0.0004884
+    }
+   },
+   "validation_errors": [],
+   "turn_type": "normal",
+   "prompt_tokens": 5448,
+   "completion_tokens": 407,
+   "total_tokens": 5855,
+   "cached_tokens": 4722,
+   "reasoning_tokens": 18,
+   "lm_call_seconds": 3.5160000000032596,
+   "worker_execute_seconds": 0.5160000000032596,
+   "submit_payload": null
+  },
+  {
+   "turn": 2,
+   "code": "import re\n\n# Build a lookup from extraction_results\npatient_data = {}\nfor r in range(2, ws1.max_row + 1):\n    pid = ws1.cell(row=r, column=1).value\n    text = ws1.cell(row=r, column=2).value\n    if pid is None or text is None:\n        continue\n    metrics = {}\n    desc = None\n    for line in text.split(\"\\n\"):\n        line = line.strip()\n        m = re.match(r\"Metric(\\d+)\\(([^)]+)\\):\\s*([\\d.]+)\", line)\n        if m:\n            metrics[int(m.group(1))] = float(m.group(3))\n        if line.startswith(\"Description:\"):\n            desc = line[len(\"Description:\"):].strip()\n    patient_data[pid] = (metrics, desc)\n\n# Patients to fill in the form (column A from row 3 down)\npatients_in_form = []\nfor r in range(3, ws2.max_row + 1):\n    p = ws2.cell(row=r, column=1).value\n    if p is not None:\n        patients_in_form.append((r, p))\n\n# Fill the unit row (row 2) - indicators 1..4\nws2.cell(row=2, column=2).value = \"g\"\nws2.cell(row=2, column=3).value = \"cm/s\"\nws2.cell(row=2, column=4).value = \"cm/s\"\nws2.cell(row=2, column=5).value = \"m/s\"\n\n# Fill each patient row\nfor r, pname in patients_in_form:\n    if pname in patient_data:\n        metrics, desc = patient_data[pname]\n        ws2.cell(row=r, column=2).value = metrics.get(1)\n        ws2.cell(row=r, column=3).value = metrics.get(2)\n        ws2.cell(row=r, column=4).value = metrics.get(3)\n        ws2.cell(row=r, column=5).value = metrics.get(4)\n        ws2.cell(row=r, column=6).value = desc\n    else:\n        print(f\"WARNING: {pname} not found in extraction data\")\n\n# Save as completion_results.xlsx (in the same directory)\nout_path = r\"C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\completion_results.xlsx\"\nwb2.save(out_path)\nprint(\"Saved:\", out_path)\n\n# Verify by reloading\nimport openpyxl as op2\nwbv = op2.load_workbook(out_path)\nwsv = wbv.active\nfor r in range(1, wsv.max_row + 1):\n    row = [wsv.cell(row=r, column=c).value for c in range(1, wsv.max_column + 1)]\n    print(f\"row {r}:\", row)",
+   "stdout": "Saved: C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\completion_results.xlsx\nrow 1: ['Indicator Name', 'Indicator 1', 'Indicator 2', 'Indicator 3', 'Indicator 4', 'Description']\nrow 2: ['Unit', 'g', 'cm/s', 'cm/s', 'm/s', 'No unit']\nrow 3: ['Patient 2', 6.98, 12839, 17543, 0.741, 'Ultrasonic imaging artifacts reduced, structure is clearer.']\nrow 4: ['Patient 12', 38.65, 12653, 19006, 0.233, 'Ultrasonic beam focusing is stable, imaging contrast is high.']\nrow 5: ['Patient 44', 42.98, 12580, 16211, 0.238, 'Ultrasonic ranging results are consistent, repeatability is good.']\nrow 6: ['Patient 51', 9.17, 15789, 14046, 0.874, 'Ultrasonic beam focusing is stable, imaging contrast is high.']\nrow 7: ['Patient 60', 2.86, 16785, 15905, 0.503, 'Ultrasonic imaging artifacts reduced, structure is clearer.']\nrow 8: ['Patient 120', 22.3, 13303, 18092, 0.861, 'Ultrasonic ranging results are consistent with good repeatability.']\nrow 9: ['Patient 131', 21.79, 12237, 15185, 0.336, 'Ultrasonic signal spectrum is concentrated with few spurious components.']\nrow 10: ['Patient 132', 36.21, 18885, 15828, 0.92, 'Ultrasonic pulse width is appropriate, resolution is better.']\nrow 11: ['Patient 159', 35.06, 14263, 16553, 0.01, 'Ultrasonic detection sensitivity improved, defects are easier to identify.']\nrow 12: ['Patient 160', 4.28, 17898, 15329, 0.489, 'Ultrasonic detection sensitivity improved, defects are easier to identify.']\nrow 13: ['Patient 161', 34.53, 17291, 17831, 0.491, 'Ultrasonic echo is clear with good signal-to-noise ratio.']\n",
+   "stderr": "",
+   "error": null,
+   "submitted": false,
+   "state": {
+    "extraction_results": {
+     "name": "extraction_results.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\extraction_results.xlsx"
+    },
+    "form_to_fill": {
+     "name": "form_to_fill.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\form_to_fill.xlsx"
+    },
+    "path1": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\extraction_results.xlsx",
+    "wb1": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "ws1": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"data\">",
+     "__serializable__": false
+    },
+    "r": 13,
+    "row": [
+     "Patient 161",
+     34.53,
+     17291,
+     17831,
+     0.491,
+     "Ultrasonic echo is clear with good signal-to-noise ratio."
+    ],
+    "path2": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\form_to_fill.xlsx",
+    "wb2": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "ws2": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"Sheet1\">",
+     "__serializable__": false
+    },
+    "patient_data": {
+     "Patient 1": [
+      {
+       "1": 31.97,
+       "2": 12204.0,
+       "3": 18074.0,
+       "4": 0.275
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 2": [
+      {
+       "1": 6.98,
+       "2": 12839.0,
+       "3": 17543.0,
+       "4": 0.741
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 3": [
+      {
+       "1": 4.35,
+       "2": 15456.0,
+       "3": 12260.0,
+       "4": 0.03
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 4": [
+      {
+       "1": 11.63,
+       "2": 16931.0,
+       "3": 12217.0,
+       "4": 0.561
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 5": [
+      {
+       "1": 20.98,
+       "2": 15679.0,
+       "3": 16827.0,
+       "4": 0.278
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 6": [
+      {
+       "1": 37.94,
+       "2": 13307.0,
+       "3": 17719.0,
+       "4": 0.423
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 7": [
+      {
+       "1": 7.77,
+       "2": 19841.0,
+       "3": 18254.0,
+       "4": 0.337
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 8": [
+      {
+       "1": 19.0,
+       "2": 14940.0,
+       "3": 18942.0,
+       "4": 0.344
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 9": [
+      {
+       "1": 40.36,
+       "2": 17977.0,
+       "3": 15763.0,
+       "4": 0.536
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 10": [
+      {
+       "1": 3.94,
+       "2": 14401.0,
+       "3": 18794.0,
+       "4": 0.629
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 11": [
+      {
+       "1": 28.87,
+       "2": 17771.0,
+       "3": 12569.0,
+       "4": 0.046
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 12": [
+      {
+       "1": 38.65,
+       "2": 12653.0,
+       "3": 19006.0,
+       "4": 0.233
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 13": [
+      {
+       "1": 19.01,
+       "2": 15714.0,
+       "3": 17207.0,
+       "4": 0.834
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 14": [
+      {
+       "1": 18.51,
+       "2": 13716.0,
+       "3": 17490.0,
+       "4": 0.267
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 15": [
+      {
+       "1": 30.46,
+       "2": 13401.0,
+       "3": 16375.0,
+       "4": 0.729
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 16": [
+      {
+       "1": 23.11,
+       "2": 14211.0,
+       "3": 19580.0,
+       "4": 0.64
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 17": [
+      {
+       "1": 10.98,
+       "2": 14656.0,
+       "3": 18904.0,
+       "4": 0.768
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 18": [
+      {
+       "1": 11.45,
+       "2": 12262.0,
+       "3": 18594.0,
+       "4": 0.315
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 19": [
+      {
+       "1": 3.31,
+       "2": 19480.0,
+       "3": 19724.0,
+       "4": 0.567
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 20": [
+      {
+       "1": 10.63,
+       "2": 16089.0,
+       "3": 15241.0,
+       "4": 0.885
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 21": [
+      {
+       "1": 7.14,
+       "2": 13143.0,
+       "3": 14020.0,
+       "4": 0.745
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 22": [
+      {
+       "1": 13.14,
+       "2": 16788.0,
+       "3": 15509.0,
+       "4": 0.898
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 23": [
+      {
+       "1": 18.1,
+       "2": 13133.0,
+       "3": 16174.0,
+       "4": 0.494
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 24": [
+      {
+       "1": 43.06,
+       "2": 13252.0,
+       "3": 17140.0,
+       "4": 0.16
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 25": [
+      {
+       "1": 29.82,
+       "2": 15152.0,
+       "3": 15126.0,
+       "4": 0.596
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 26": [
+      {
+       "1": 26.46,
+       "2": 19955.0,
+       "3": 16532.0,
+       "4": 0.861
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 27": [
+      {
+       "1": 34.01,
+       "2": 12938.0,
+       "3": 17584.0,
+       "4": 0.885
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 28": [
+      {
+       "1": 38.43,
+       "2": 14786.0,
+       "3": 12913.0,
+       "4": 0.294
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 29": [
+      {
+       "1": 22.69,
+       "2": 19813.0,
+       "3": 17915.0,
+       "4": 0.876
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 30": [
+      {
+       "1": 48.59,
+       "2": 18241.0,
+       "3": 13463.0,
+       "4": 0.508
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 31": [
+      {
+       "1": 43.53,
+       "2": 14444.0,
+       "3": 18894.0,
+       "4": 0.639
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 32": [
+      {
+       "1": 9.95,
+       "2": 15063.0,
+       "3": 18246.0,
+       "4": 0.162
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 33": [
+      {
+       "1": 45.92,
+       "2": 16906.0,
+       "3": 14655.0,
+       "4": 0.489
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 34": [
+      {
+       "1": 46.45,
+       "2": 19198.0,
+       "3": 18813.0,
+       "4": 0.807
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 35": [
+      {
+       "1": 2.9,
+       "2": 19192.0,
+       "3": 16647.0,
+       "4": 0.947
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 36": [
+      {
+       "1": 36.6,
+       "2": 18684.0,
+       "3": 12566.0,
+       "4": 0.978
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 37": [
+      {
+       "1": 38.29,
+       "2": 13051.0,
+       "3": 17404.0,
+       "4": 0.475
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 38": [
+      {
+       "1": 8.26,
+       "2": 16322.0,
+       "3": 19146.0,
+       "4": 0.607
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 39": [
+      {
+       "1": 46.45,
+       "2": 18187.0,
+       "3": 17979.0,
+       "4": 0.69
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 40": [
+      {
+       "1": 19.95,
+       "2": 17502.0,
+       "3": 17323.0,
+       "4": 0.373
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 41": [
+      {
+       "1": 22.57,
+       "2": 14030.0,
+       "3": 13840.0,
+       "4": 0.064
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 42": [
+      {
+       "1": 29.42,
+       "2": 13885.0,
+       "3": 16820.0,
+       "4": 0.22
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 43": [
+      {
+       "1": 35.39,
+       "2": 12482.0,
+       "3": 13875.0,
+       "4": 0.067
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 44": [
+      {
+       "1": 42.98,
+       "2": 12580.0,
+       "3": 16211.0,
+       "4": 0.238
+      },
+      "Ultrasonic ranging results are consistent, repeatability is good."
+     ],
+     "Patient 45": [
+      {
+       "1": 10.71,
+       "2": 13083.0,
+       "3": 17925.0,
+       "4": 0.936
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 46": [
+      {
+       "1": 28.81,
+       "2": 13990.0,
+       "3": 18427.0,
+       "4": 0.473
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 47": [
+      {
+       "1": 9.52,
+       "2": 12794.0,
+       "3": 17398.0,
+       "4": 0.431
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 48": [
+      {
+       "1": 20.56,
+       "2": 19076.0,
+       "3": 17972.0,
+       "4": 0.054
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 49": [
+      {
+       "1": 3.03,
+       "2": 17965.0,
+       "3": 14779.0,
+       "4": 0.801
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 50": [
+      {
+       "1": 12.43,
+       "2": 13558.0,
+       "3": 16393.0,
+       "4": 0.449
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 51": [
+      {
+       "1": 9.17,
+       "2": 15789.0,
+       "3": 14046.0,
+       "4": 0.874
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 52": [
+      {
+       "1": 22.16,
+       "2": 19056.0,
+       "3": 19012.0,
+       "4": 0.55
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 53": [
+      {
+       "1": 32.61,
+       "2": 16428.0,
+       "3": 18848.0,
+       "4": 0.015
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 54": [
+      {
+       "1": 46.32,
+       "2": 18952.0,
+       "3": 13936.0,
+       "4": 0.166
+      },
+      "Ultrasonic ranging results are consistent, repeatability is good."
+     ],
+     "Patient 55": [
+      {
+       "1": 24.07,
+       "2": 19083.0,
+       "3": 15285.0,
+       "4": 0.902
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 56": [
+      {
+       "1": 18.95,
+       "2": 15198.0,
+       "3": 14172.0,
+       "4": 0.927
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 57": [
+      {
+       "1": 14.26,
+       "2": 17706.0,
+       "3": 19842.0,
+       "4": 0.731
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 58": [
+      {
+       "1": 33.09,
+       "2": 15986.0,
+       "3": 13268.0,
+       "4": 0.19
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 59": [
+      {
+       "1": 48.44,
+       "2": 16744.0,
+       "3": 18027.0,
+       "4": 0.542
+      },
+      "Ultrasonic scan speed is moderate, boundary display is clear."
+     ],
+     "Patient 60": [
+      {
+       "1": 2.86,
+       "2": 16785.0,
+       "3": 15905.0,
+       "4": 0.503
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 61": [
+      {
+       "1": 7.87,
+       "2": 19870.0,
+       "3": 16160.0,
+       "4": 0.08
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 62": [
+      {
+       "1": 3.43,
+       "2": 12556.0,
+       "3": 17531.0,
+       "4": 0.862
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 63": [
+      {
+       "1": 5.99,
+       "2": 19293.0,
+       "3": 16666.0,
+       "4": 0.246
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 64": [
+      {
+       "1": 1.99,
+       "2": 12671.0,
+       "3": 15434.0,
+       "4": 0.657
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 65": [
+      {
+       "1": 26.14,
+       "2": 19657.0,
+       "3": 14136.0,
+       "4": 0.204
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 66": [
+      {
+       "1": 11.93,
+       "2": 15242.0,
+       "3": 13072.0,
+       "4": 0.672
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 67": [
+      {
+       "1": 22.86,
+       "2": 19610.0,
+       "3": 18159.0,
+       "4": 0.936
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 68": [
+      {
+       "1": 22.91,
+       "2": 16612.0,
+       "3": 12819.0,
+       "4": 0.073
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 69": [
+      {
+       "1": 25.29,
+       "2": 13085.0,
+       "3": 19645.0,
+       "4": 0.349
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 70": [
+      {
+       "1": 43.96,
+       "2": 15027.0,
+       "3": 14334.0,
+       "4": 0.158
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 71": [
+      {
+       "1": 35.18,
+       "2": 17010.0,
+       "3": 18611.0,
+       "4": 0.654
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 72": [
+      {
+       "1": 33.39,
+       "2": 16543.0,
+       "3": 14452.0,
+       "4": 0.932
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 73": [
+      {
+       "1": 46.95,
+       "2": 13100.0,
+       "3": 14166.0,
+       "4": 0.115
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 74": [
+      {
+       "1": 37.12,
+       "2": 13273.0,
+       "3": 14231.0,
+       "4": 0.282
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 75": [
+      {
+       "1": 35.88,
+       "2": 13667.0,
+       "3": 17631.0,
+       "4": 0.634
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 76": [
+      {
+       "1": 25.27,
+       "2": 14057.0,
+       "3": 19416.0,
+       "4": 0.908
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 77": [
+      {
+       "1": 4.61,
+       "2": 15469.0,
+       "3": 18794.0,
+       "4": 0.277
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 78": [
+      {
+       "1": 16.68,
+       "2": 13071.0,
+       "3": 17219.0,
+       "4": 0.98
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 79": [
+      {
+       "1": 37.06,
+       "2": 16519.0,
+       "3": 17780.0,
+       "4": 0.428
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 80": [
+      {
+       "1": 5.59,
+       "2": 19741.0,
+       "3": 19234.0,
+       "4": 0.691
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 81": [
+      {
+       "1": 27.28,
+       "2": 18837.0,
+       "3": 15024.0,
+       "4": 0.583
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 82": [
+      {
+       "1": 21.49,
+       "2": 12342.0,
+       "3": 14525.0,
+       "4": 0.365
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 83": [
+      {
+       "1": 44.95,
+       "2": 13720.0,
+       "3": 17587.0,
+       "4": 0.25
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 84": [
+      {
+       "1": 17.68,
+       "2": 16586.0,
+       "3": 19242.0,
+       "4": 0.875
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 85": [
+      {
+       "1": 37.47,
+       "2": 19583.0,
+       "3": 19617.0,
+       "4": 0.237
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 86": [
+      {
+       "1": 48.81,
+       "2": 18641.0,
+       "3": 13450.0,
+       "4": 0.881
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 87": [
+      {
+       "1": 8.97,
+       "2": 19573.0,
+       "3": 14721.0,
+       "4": 0.782
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 88": [
+      {
+       "1": 40.11,
+       "2": 19078.0,
+       "3": 18021.0,
+       "4": 0.811
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 89": [
+      {
+       "1": 7.96,
+       "2": 17744.0,
+       "3": 12885.0,
+       "4": 0.383
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 90": [
+      {
+       "1": 42.93,
+       "2": 13822.0,
+       "3": 13634.0,
+       "4": 0.817
+      },
+      "Ultrasonic ranging results are consistent, repeatability is good."
+     ],
+     "Patient 91": [
+      {
+       "1": 17.48,
+       "2": 18721.0,
+       "3": 18515.0,
+       "4": 0.871
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 92": [
+      {
+       "1": 1.18,
+       "2": 13582.0,
+       "3": 15264.0,
+       "4": 0.328
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 93": [
+      {
+       "1": 48.34,
+       "2": 14286.0,
+       "3": 14876.0,
+       "4": 0.641
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 94": [
+      {
+       "1": 33.98,
+       "2": 18911.0,
+       "3": 16392.0,
+       "4": 0.331
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 95": [
+      {
+       "1": 5.77,
+       "2": 19949.0,
+       "3": 14139.0,
+       "4": 0.179
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 96": [
+      {
+       "1": 1.91,
+       "2": 16887.0,
+       "3": 15559.0,
+       "4": 0.346
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 97": [
+      {
+       "1": 21.82,
+       "2": 16189.0,
+       "3": 12947.0,
+       "4": 0.385
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 98": [
+      {
+       "1": 9.5,
+       "2": 12363.0,
+       "3": 17806.0,
+       "4": 0.436
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 99": [
+      {
+       "1": 46.28,
+       "2": 16410.0,
+       "3": 17626.0,
+       "4": 0.719
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 100": [
+      {
+       "1": 18.21,
+       "2": 12573.0,
+       "3": 19773.0,
+       "4": 0.664
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 101": [
+      {
+       "1": 31.16,
+       "2": 17434.0,
+       "3": 18946.0,
+       "4": 0.125
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 102": [
+      {
+       "1": 25.36,
+       "2": 17463.0,
+       "3": 15345.0,
+       "4": 0.326
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 103": [
+      {
+       "1": 27.72,
+       "2": 13571.0,
+       "3": 15444.0,
+       "4": 0.665
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 104": [
+      {
+       "1": 33.87,
+       "2": 19395.0,
+       "3": 13425.0,
+       "4": 0.616
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 105": [
+      {
+       "1": 20.3,
+       "2": 18829.0,
+       "3": 12003.0,
+       "4": 0.304
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 106": [
+      {
+       "1": 21.49,
+       "2": 16751.0,
+       "3": 16969.0,
+       "4": 0.655
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 107": [
+      {
+       "1": 22.09,
+       "2": 17534.0,
+       "3": 13750.0,
+       "4": 0.511
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 108": [
+      {
+       "1": 32.94,
+       "2": 14324.0,
+       "3": 16222.0,
+       "4": 0.664
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 109": [
+      {
+       "1": 16.76,
+       "2": 18704.0,
+       "3": 19798.0,
+       "4": 0.751
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 110": [
+      {
+       "1": 11.23,
+       "2": 13631.0,
+       "3": 13207.0,
+       "4": 0.024
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 111": [
+      {
+       "1": 49.2,
+       "2": 17007.0,
+       "3": 18961.0,
+       "4": 0.768
+      },
+      "Ultrasonic ranging results are consistent, repeatability is good."
+     ],
+     "Patient 112": [
+      {
+       "1": 20.72,
+       "2": 17159.0,
+       "3": 16715.0,
+       "4": 0.194
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 113": [
+      {
+       "1": 24.72,
+       "2": 13998.0,
+       "3": 13208.0,
+       "4": 0.656
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 114": [
+      {
+       "1": 44.63,
+       "2": 19048.0,
+       "3": 18308.0,
+       "4": 0.885
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 115": [
+      {
+       "1": 10.94,
+       "2": 18587.0,
+       "3": 19847.0,
+       "4": 0.696
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 116": [
+      {
+       "1": 2.51,
+       "2": 14041.0,
+       "3": 19515.0,
+       "4": 0.848
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 117": [
+      {
+       "1": 6.67,
+       "2": 15806.0,
+       "3": 17468.0,
+       "4": 0.531
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 118": [
+      {
+       "1": 29.77,
+       "2": 19782.0,
+       "3": 18187.0,
+       "4": 0.891
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 119": [
+      {
+       "1": 40.75,
+       "2": 19307.0,
+       "3": 16135.0,
+       "4": 0.427
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 120": [
+      {
+       "1": 22.3,
+       "2": 13303.0,
+       "3": 18092.0,
+       "4": 0.861
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 121": [
+      {
+       "1": 12.96,
+       "2": 14025.0,
+       "3": 18880.0,
+       "4": 0.638
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 122": [
+      {
+       "1": 24.23,
+       "2": 13959.0,
+       "3": 14249.0,
+       "4": 0.44
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 123": [
+      {
+       "1": 11.72,
+       "2": 14751.0,
+       "3": 14619.0,
+       "4": 0.893
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 124": [
+      {
+       "1": 6.92,
+       "2": 13894.0,
+       "3": 15137.0,
+       "4": 0.694
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 125": [
+      {
+       "1": 3.21,
+       "2": 15339.0,
+       "3": 14710.0,
+       "4": 0.543
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 126": [
+      {
+       "1": 3.11,
+       "2": 18823.0,
+       "3": 15441.0,
+       "4": 0.389
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 127": [
+      {
+       "1": 47.3,
+       "2": 12160.0,
+       "3": 19018.0,
+       "4": 0.881
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 128": [
+      {
+       "1": 19.02,
+       "2": 12048.0,
+       "3": 19722.0,
+       "4": 0.352
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 129": [
+      {
+       "1": 42.67,
+       "2": 19810.0,
+       "3": 18846.0,
+       "4": 0.419
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 130": [
+      {
+       "1": 39.99,
+       "2": 19354.0,
+       "3": 13806.0,
+       "4": 0.488
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 131": [
+      {
+       "1": 21.79,
+       "2": 12237.0,
+       "3": 15185.0,
+       "4": 0.336
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 132": [
+      {
+       "1": 36.21,
+       "2": 18885.0,
+       "3": 15828.0,
+       "4": 0.92
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 133": [
+      {
+       "1": 26.71,
+       "2": 19429.0,
+       "3": 15227.0,
+       "4": 0.592
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 134": [
+      {
+       "1": 4.2,
+       "2": 15511.0,
+       "3": 13111.0,
+       "4": 0.867
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 135": [
+      {
+       "1": 2.51,
+       "2": 15105.0,
+       "3": 14681.0,
+       "4": 0.212
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 136": [
+      {
+       "1": 16.88,
+       "2": 19206.0,
+       "3": 15105.0,
+       "4": 0.278
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 137": [
+      {
+       "1": 12.61,
+       "2": 12670.0,
+       "3": 15852.0,
+       "4": 0.019
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 138": [
+      {
+       "1": 2.6,
+       "2": 19798.0,
+       "3": 14866.0,
+       "4": 0.224
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 139": [
+      {
+       "1": 39.06,
+       "2": 17339.0,
+       "3": 12329.0,
+       "4": 0.754
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 140": [
+      {
+       "1": 9.97,
+       "2": 12166.0,
+       "3": 17089.0,
+       "4": 0.152
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 141": [
+      {
+       "1": 23.68,
+       "2": 12937.0,
+       "3": 16620.0,
+       "4": 0.948
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 142": [
+      {
+       "1": 34.97,
+       "2": 18282.0,
+       "3": 15021.0,
+       "4": 0.168
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 143": [
+      {
+       "1": 48.19,
+       "2": 17884.0,
+       "3": 12938.0,
+       "4": 0.778
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 144": [
+      {
+       "1": 48.24,
+       "2": 12885.0,
+       "3": 16740.0,
+       "4": 0.026
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 145": [
+      {
+       "1": 28.79,
+       "2": 19438.0,
+       "3": 19849.0,
+       "4": 0.375
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 146": [
+      {
+       "1": 3.8,
+       "2": 17657.0,
+       "3": 18804.0,
+       "4": 0.627
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 147": [
+      {
+       "1": 34.86,
+       "2": 14470.0,
+       "3": 18965.0,
+       "4": 0.684
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 148": [
+      {
+       "1": 39.81,
+       "2": 16636.0,
+       "3": 18411.0,
+       "4": 0.041
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 149": [
+      {
+       "1": 21.42,
+       "2": 15035.0,
+       "3": 12564.0,
+       "4": 0.506
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 150": [
+      {
+       "1": 0.63,
+       "2": 15441.0,
+       "3": 18736.0,
+       "4": 0.49
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 151": [
+      {
+       "1": 48.04,
+       "2": 17206.0,
+       "3": 19303.0,
+       "4": 0.829
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 152": [
+      {
+       "1": 21.77,
+       "2": 18011.0,
+       "3": 16274.0,
+       "4": 0.965
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 153": [
+      {
+       "1": 30.8,
+       "2": 19533.0,
+       "3": 16408.0,
+       "4": 0.775
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 154": [
+      {
+       "1": 21.78,
+       "2": 17988.0,
+       "3": 16853.0,
+       "4": 0.268
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 155": [
+      {
+       "1": 41.54,
+       "2": 12709.0,
+       "3": 14284.0,
+       "4": 0.882
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 156": [
+      {
+       "1": 37.52,
+       "2": 16668.0,
+       "3": 16999.0,
+       "4": 0.668
+      },
+      "Ultrasonic scan speed is moderate, boundary display is clear."
+     ],
+     "Patient 157": [
+      {
+       "1": 1.43,
+       "2": 18971.0,
+       "3": 14662.0,
+       "4": 0.182
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 158": [
+      {
+       "1": 17.74,
+       "2": 14116.0,
+       "3": 14788.0,
+       "4": 0.28
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 159": [
+      {
+       "1": 35.06,
+       "2": 14263.0,
+       "3": 16553.0,
+       "4": 0.01
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 160": [
+      {
+       "1": 4.28,
+       "2": 17898.0,
+       "3": 15329.0,
+       "4": 0.489
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 161": [
+      {
+       "1": 34.53,
+       "2": 17291.0,
+       "3": 17831.0,
+       "4": 0.491
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 162": [
+      {
+       "1": 4.65,
+       "2": 13815.0,
+       "3": 15312.0,
+       "4": 0.692
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 163": [
+      {
+       "1": 33.2,
+       "2": 15023.0,
+       "3": 15876.0,
+       "4": 0.553
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 164": [
+      {
+       "1": 21.28,
+       "2": 18110.0,
+       "3": 16508.0,
+       "4": 0.331
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 165": [
+      {
+       "1": 13.55,
+       "2": 14059.0,
+       "3": 13888.0,
+       "4": 0.121
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 166": [
+      {
+       "1": 15.78,
+       "2": 18085.0,
+       "3": 16389.0,
+       "4": 0.951
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 167": [
+      {
+       "1": 9.58,
+       "2": 18050.0,
+       "3": 15966.0,
+       "4": 0.276
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 168": [
+      {
+       "1": 48.83,
+       "2": 16297.0,
+       "3": 16888.0,
+       "4": 0.283
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 169": [
+      {
+       "1": 41.63,
+       "2": 14426.0,
+       "3": 13863.0,
+       "4": 0.361
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 170": [
+      {
+       "1": 0.71,
+       "2": 16375.0,
+       "3": 13036.0,
+       "4": 0.274
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 171": [
+      {
+       "1": 27.67,
+       "2": 17713.0,
+       "3": 19733.0,
+       "4": 0.126
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 172": [
+      {
+       "1": 5.13,
+       "2": 12100.0,
+       "3": 16702.0,
+       "4": 0.284
+      },
+      "Ultrasonic ranging results are consistent, repeatability is good."
+     ],
+     "Patient 173": [
+      {
+       "1": 22.02,
+       "2": 13510.0,
+       "3": 19909.0,
+       "4": 0.051
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 174": [
+      {
+       "1": 5.7,
+       "2": 12535.0,
+       "3": 15282.0,
+       "4": 0.492
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 175": [
+      {
+       "1": 31.47,
+       "2": 12439.0,
+       "3": 13242.0,
+       "4": 0.149
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 176": [
+      {
+       "1": 47.46,
+       "2": 12697.0,
+       "3": 14033.0,
+       "4": 0.118
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 177": [
+      {
+       "1": 30.32,
+       "2": 18477.0,
+       "3": 17066.0,
+       "4": 0.226
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 178": [
+      {
+       "1": 19.02,
+       "2": 19442.0,
+       "3": 15626.0,
+       "4": 0.297
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 179": [
+      {
+       "1": 49.5,
+       "2": 14501.0,
+       "3": 16658.0,
+       "4": 0.621
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 180": [
+      {
+       "1": 48.01,
+       "2": 12812.0,
+       "3": 19762.0,
+       "4": 0.763
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 181": [
+      {
+       "1": 13.23,
+       "2": 12665.0,
+       "3": 13286.0,
+       "4": 0.24
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 182": [
+      {
+       "1": 3.75,
+       "2": 12021.0,
+       "3": 15346.0,
+       "4": 0.451
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 183": [
+      {
+       "1": 23.5,
+       "2": 12267.0,
+       "3": 13896.0,
+       "4": 0.288
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 184": [
+      {
+       "1": 35.15,
+       "2": 15719.0,
+       "3": 12583.0,
+       "4": 0.687
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 185": [
+      {
+       "1": 39.39,
+       "2": 17120.0,
+       "3": 16831.0,
+       "4": 0.661
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 186": [
+      {
+       "1": 21.26,
+       "2": 16461.0,
+       "3": 13841.0,
+       "4": 0.648
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 187": [
+      {
+       "1": 41.33,
+       "2": 12584.0,
+       "3": 12488.0,
+       "4": 0.166
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 188": [
+      {
+       "1": 29.75,
+       "2": 18752.0,
+       "3": 16662.0,
+       "4": 0.921
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 189": [
+      {
+       "1": 6.22,
+       "2": 17641.0,
+       "3": 14491.0,
+       "4": 0.7
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 190": [
+      {
+       "1": 25.02,
+       "2": 16045.0,
+       "3": 15586.0,
+       "4": 0.08
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 191": [
+      {
+       "1": 44.47,
+       "2": 18017.0,
+       "3": 14640.0,
+       "4": 0.604
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 192": [
+      {
+       "1": 4.57,
+       "2": 19879.0,
+       "3": 17523.0,
+       "4": 0.836
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 193": [
+      {
+       "1": 29.36,
+       "2": 12169.0,
+       "3": 18264.0,
+       "4": 0.672
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 194": [
+      {
+       "1": 28.81,
+       "2": 18251.0,
+       "3": 18195.0,
+       "4": 0.175
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 195": [
+      {
+       "1": 32.58,
+       "2": 19504.0,
+       "3": 14278.0,
+       "4": 0.181
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 196": [
+      {
+       "1": 21.79,
+       "2": 18670.0,
+       "3": 16028.0,
+       "4": 0.969
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 197": [
+      {
+       "1": 17.4,
+       "2": 14730.0,
+       "3": 14630.0,
+       "4": 0.67
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 198": [
+      {
+       "1": 16.49,
+       "2": 17682.0,
+       "3": 16058.0,
+       "4": 0.288
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 199": [
+      {
+       "1": 40.68,
+       "2": 16506.0,
+       "3": 12300.0,
+       "4": 0.455
+      },
+      "Ultrasonic scan speed is moderate, boundary display is clear."
+     ],
+     "Patient 200": [
+      {
+       "1": 12.62,
+       "2": 12949.0,
+       "3": 19947.0,
+       "4": 0.773
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ]
+    },
+    "pid": "Patient 200",
+    "text": "Metric1(g): 12.62\nMetric2(cm/s): 12949\nMetric3(cm/s): 19947\nMetric4(m/s): 0.773\nDescription: Ultrasonic imaging artifacts reduced, structure is clearer.",
+    "metrics": {
+     "1": 34.53,
+     "2": 17291.0,
+     "3": 17831.0,
+     "4": 0.491
+    },
+    "desc": "Ultrasonic echo is clear with good signal-to-noise ratio.",
+    "line": "Description: Ultrasonic imaging artifacts reduced, structure is clearer.",
+    "m": null,
+    "patients_in_form": [
+     [
+      3,
+      "Patient 2"
+     ],
+     [
+      4,
+      "Patient 12"
+     ],
+     [
+      5,
+      "Patient 44"
+     ],
+     [
+      6,
+      "Patient 51"
+     ],
+     [
+      7,
+      "Patient 60"
+     ],
+     [
+      8,
+      "Patient 120"
+     ],
+     [
+      9,
+      "Patient 131"
+     ],
+     [
+      10,
+      "Patient 132"
+     ],
+     [
+      11,
+      "Patient 159"
+     ],
+     [
+      12,
+      "Patient 160"
+     ],
+     [
+      13,
+      "Patient 161"
+     ]
+    ],
+    "p": "Patient 161",
+    "pname": "Patient 161",
+    "out_path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\completion_results.xlsx",
+    "wbv": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "wsv": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"Sheet1\">",
+     "__serializable__": false
+    }
+   },
+   "response_text": "```python\nimport re\n\n# Build a lookup from extraction_results\npatient_data = {}\nfor r in range(2, ws1.max_row + 1):\n    pid = ws1.cell(row=r, column=1).value\n    text = ws1.cell(row=r, column=2).value\n    if pid is None or text is None:\n        continue\n    metrics = {}\n    desc = None\n    for line in text.split(\"\\n\"):\n        line = line.strip()\n        m = re.match(r\"Metric(\\d+)\\(([^)]+)\\):\\s*([\\d.]+)\", line)\n        if m:\n            metrics[int(m.group(1))] = float(m.group(3))\n        if line.startswith(\"Description:\"):\n            desc = line[len(\"Description:\"):].strip()\n    patient_data[pid] = (metrics, desc)\n\n# Patients to fill in the form (column A from row 3 down)\npatients_in_form = []\nfor r in range(3, ws2.max_row + 1):\n    p = ws2.cell(row=r, column=1).value\n    if p is not None:\n        patients_in_form.append((r, p))\n\n# Fill the unit row (row 2) - indicators 1..4\nws2.cell(row=2, column=2).value = \"g\"\nws2.cell(row=2, column=3).value = \"cm/s\"\nws2.cell(row=2, column=4).value = \"cm/s\"\nws2.cell(row=2, column=5).value = \"m/s\"\n\n# Fill each patient row\nfor r, pname in patients_in_form:\n    if pname in patient_data:\n        metrics, desc = patient_data[pname]\n        ws2.cell(row=r, column=2).value = metrics.get(1)\n        ws2.cell(row=r, column=3).value = metrics.get(2)\n        ws2.cell(row=r, column=4).value = metrics.get(3)\n        ws2.cell(row=r, column=5).value = metrics.get(4)\n        ws2.cell(row=r, column=6).value = desc\n    else:\n        print(f\"WARNING: {pname} not found in extraction data\")\n\n# Save as completion_results.xlsx (in the same directory)\nout_path = r\"C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\completion_results.xlsx\"\nwb2.save(out_path)\nprint(\"Saved:\", out_path)\n\n# Verify by reloading\nimport openpyxl as op2\nwbv = op2.load_workbook(out_path)\nwsv = wbv.active\nfor r in range(1, wsv.max_row + 1):\n    row = [wsv.cell(row=r, column=c).value for c in range(1, wsv.max_column + 1)]\n    print(f\"row {r}:\", row)\n```",
+   "duration_s": 0.10247579999850132,
+   "token_usage": {
+    "completion_tokens": 909,
+    "prompt_tokens": 6801,
+    "total_tokens": 7710,
+    "completion_tokens_details": {
+     "audio_tokens": 0,
+     "reasoning_tokens": 227,
+     "image_tokens": 0
+    },
+    "prompt_tokens_details": {
+     "audio_tokens": 0,
+     "cached_tokens": 4722,
+     "video_tokens": 0,
+     "cache_write_tokens": 0
+    },
+    "cost": 0.0019778418,
+    "is_byok": false,
+    "cost_details": {
+     "upstream_inference_cost": 0.00199782,
+     "upstream_inference_prompt_cost": 0.00090702,
+     "upstream_inference_completions_cost": 0.0010908
+    }
+   },
+   "validation_errors": [],
+   "turn_type": "normal",
+   "prompt_tokens": 6801,
+   "completion_tokens": 909,
+   "total_tokens": 7710,
+   "cached_tokens": 4722,
+   "reasoning_tokens": 227,
+   "lm_call_seconds": 8.812000000005355,
+   "worker_execute_seconds": 0.10899999999674037,
+   "submit_payload": null
+  },
+  {
+   "turn": 3,
+   "code": "SUBMIT(answer=\"done\")",
+   "stdout": "",
+   "stderr": "",
+   "error": null,
+   "submitted": true,
+   "state": {
+    "extraction_results": {
+     "name": "extraction_results.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\extraction_results.xlsx"
+    },
+    "form_to_fill": {
+     "name": "form_to_fill.xlsx",
+     "path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\form_to_fill.xlsx"
+    },
+    "path1": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\extraction_results.xlsx",
+    "wb1": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "ws1": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"data\">",
+     "__serializable__": false
+    },
+    "r": 13,
+    "row": [
+     "Patient 161",
+     34.53,
+     17291,
+     17831,
+     0.491,
+     "Ultrasonic echo is clear with good signal-to-noise ratio."
+    ],
+    "path2": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\form_to_fill.xlsx",
+    "wb2": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "ws2": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"Sheet1\">",
+     "__serializable__": false
+    },
+    "patient_data": {
+     "Patient 1": [
+      {
+       "1": 31.97,
+       "2": 12204.0,
+       "3": 18074.0,
+       "4": 0.275
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 2": [
+      {
+       "1": 6.98,
+       "2": 12839.0,
+       "3": 17543.0,
+       "4": 0.741
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 3": [
+      {
+       "1": 4.35,
+       "2": 15456.0,
+       "3": 12260.0,
+       "4": 0.03
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 4": [
+      {
+       "1": 11.63,
+       "2": 16931.0,
+       "3": 12217.0,
+       "4": 0.561
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 5": [
+      {
+       "1": 20.98,
+       "2": 15679.0,
+       "3": 16827.0,
+       "4": 0.278
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 6": [
+      {
+       "1": 37.94,
+       "2": 13307.0,
+       "3": 17719.0,
+       "4": 0.423
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 7": [
+      {
+       "1": 7.77,
+       "2": 19841.0,
+       "3": 18254.0,
+       "4": 0.337
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 8": [
+      {
+       "1": 19.0,
+       "2": 14940.0,
+       "3": 18942.0,
+       "4": 0.344
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 9": [
+      {
+       "1": 40.36,
+       "2": 17977.0,
+       "3": 15763.0,
+       "4": 0.536
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 10": [
+      {
+       "1": 3.94,
+       "2": 14401.0,
+       "3": 18794.0,
+       "4": 0.629
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 11": [
+      {
+       "1": 28.87,
+       "2": 17771.0,
+       "3": 12569.0,
+       "4": 0.046
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 12": [
+      {
+       "1": 38.65,
+       "2": 12653.0,
+       "3": 19006.0,
+       "4": 0.233
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 13": [
+      {
+       "1": 19.01,
+       "2": 15714.0,
+       "3": 17207.0,
+       "4": 0.834
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 14": [
+      {
+       "1": 18.51,
+       "2": 13716.0,
+       "3": 17490.0,
+       "4": 0.267
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 15": [
+      {
+       "1": 30.46,
+       "2": 13401.0,
+       "3": 16375.0,
+       "4": 0.729
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 16": [
+      {
+       "1": 23.11,
+       "2": 14211.0,
+       "3": 19580.0,
+       "4": 0.64
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 17": [
+      {
+       "1": 10.98,
+       "2": 14656.0,
+       "3": 18904.0,
+       "4": 0.768
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 18": [
+      {
+       "1": 11.45,
+       "2": 12262.0,
+       "3": 18594.0,
+       "4": 0.315
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 19": [
+      {
+       "1": 3.31,
+       "2": 19480.0,
+       "3": 19724.0,
+       "4": 0.567
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 20": [
+      {
+       "1": 10.63,
+       "2": 16089.0,
+       "3": 15241.0,
+       "4": 0.885
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 21": [
+      {
+       "1": 7.14,
+       "2": 13143.0,
+       "3": 14020.0,
+       "4": 0.745
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 22": [
+      {
+       "1": 13.14,
+       "2": 16788.0,
+       "3": 15509.0,
+       "4": 0.898
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 23": [
+      {
+       "1": 18.1,
+       "2": 13133.0,
+       "3": 16174.0,
+       "4": 0.494
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 24": [
+      {
+       "1": 43.06,
+       "2": 13252.0,
+       "3": 17140.0,
+       "4": 0.16
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 25": [
+      {
+       "1": 29.82,
+       "2": 15152.0,
+       "3": 15126.0,
+       "4": 0.596
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 26": [
+      {
+       "1": 26.46,
+       "2": 19955.0,
+       "3": 16532.0,
+       "4": 0.861
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 27": [
+      {
+       "1": 34.01,
+       "2": 12938.0,
+       "3": 17584.0,
+       "4": 0.885
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 28": [
+      {
+       "1": 38.43,
+       "2": 14786.0,
+       "3": 12913.0,
+       "4": 0.294
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 29": [
+      {
+       "1": 22.69,
+       "2": 19813.0,
+       "3": 17915.0,
+       "4": 0.876
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 30": [
+      {
+       "1": 48.59,
+       "2": 18241.0,
+       "3": 13463.0,
+       "4": 0.508
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 31": [
+      {
+       "1": 43.53,
+       "2": 14444.0,
+       "3": 18894.0,
+       "4": 0.639
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 32": [
+      {
+       "1": 9.95,
+       "2": 15063.0,
+       "3": 18246.0,
+       "4": 0.162
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 33": [
+      {
+       "1": 45.92,
+       "2": 16906.0,
+       "3": 14655.0,
+       "4": 0.489
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 34": [
+      {
+       "1": 46.45,
+       "2": 19198.0,
+       "3": 18813.0,
+       "4": 0.807
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 35": [
+      {
+       "1": 2.9,
+       "2": 19192.0,
+       "3": 16647.0,
+       "4": 0.947
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 36": [
+      {
+       "1": 36.6,
+       "2": 18684.0,
+       "3": 12566.0,
+       "4": 0.978
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 37": [
+      {
+       "1": 38.29,
+       "2": 13051.0,
+       "3": 17404.0,
+       "4": 0.475
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 38": [
+      {
+       "1": 8.26,
+       "2": 16322.0,
+       "3": 19146.0,
+       "4": 0.607
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 39": [
+      {
+       "1": 46.45,
+       "2": 18187.0,
+       "3": 17979.0,
+       "4": 0.69
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 40": [
+      {
+       "1": 19.95,
+       "2": 17502.0,
+       "3": 17323.0,
+       "4": 0.373
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 41": [
+      {
+       "1": 22.57,
+       "2": 14030.0,
+       "3": 13840.0,
+       "4": 0.064
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 42": [
+      {
+       "1": 29.42,
+       "2": 13885.0,
+       "3": 16820.0,
+       "4": 0.22
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 43": [
+      {
+       "1": 35.39,
+       "2": 12482.0,
+       "3": 13875.0,
+       "4": 0.067
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 44": [
+      {
+       "1": 42.98,
+       "2": 12580.0,
+       "3": 16211.0,
+       "4": 0.238
+      },
+      "Ultrasonic ranging results are consistent, repeatability is good."
+     ],
+     "Patient 45": [
+      {
+       "1": 10.71,
+       "2": 13083.0,
+       "3": 17925.0,
+       "4": 0.936
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 46": [
+      {
+       "1": 28.81,
+       "2": 13990.0,
+       "3": 18427.0,
+       "4": 0.473
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 47": [
+      {
+       "1": 9.52,
+       "2": 12794.0,
+       "3": 17398.0,
+       "4": 0.431
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 48": [
+      {
+       "1": 20.56,
+       "2": 19076.0,
+       "3": 17972.0,
+       "4": 0.054
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 49": [
+      {
+       "1": 3.03,
+       "2": 17965.0,
+       "3": 14779.0,
+       "4": 0.801
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 50": [
+      {
+       "1": 12.43,
+       "2": 13558.0,
+       "3": 16393.0,
+       "4": 0.449
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 51": [
+      {
+       "1": 9.17,
+       "2": 15789.0,
+       "3": 14046.0,
+       "4": 0.874
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 52": [
+      {
+       "1": 22.16,
+       "2": 19056.0,
+       "3": 19012.0,
+       "4": 0.55
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 53": [
+      {
+       "1": 32.61,
+       "2": 16428.0,
+       "3": 18848.0,
+       "4": 0.015
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 54": [
+      {
+       "1": 46.32,
+       "2": 18952.0,
+       "3": 13936.0,
+       "4": 0.166
+      },
+      "Ultrasonic ranging results are consistent, repeatability is good."
+     ],
+     "Patient 55": [
+      {
+       "1": 24.07,
+       "2": 19083.0,
+       "3": 15285.0,
+       "4": 0.902
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 56": [
+      {
+       "1": 18.95,
+       "2": 15198.0,
+       "3": 14172.0,
+       "4": 0.927
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 57": [
+      {
+       "1": 14.26,
+       "2": 17706.0,
+       "3": 19842.0,
+       "4": 0.731
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 58": [
+      {
+       "1": 33.09,
+       "2": 15986.0,
+       "3": 13268.0,
+       "4": 0.19
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 59": [
+      {
+       "1": 48.44,
+       "2": 16744.0,
+       "3": 18027.0,
+       "4": 0.542
+      },
+      "Ultrasonic scan speed is moderate, boundary display is clear."
+     ],
+     "Patient 60": [
+      {
+       "1": 2.86,
+       "2": 16785.0,
+       "3": 15905.0,
+       "4": 0.503
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 61": [
+      {
+       "1": 7.87,
+       "2": 19870.0,
+       "3": 16160.0,
+       "4": 0.08
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 62": [
+      {
+       "1": 3.43,
+       "2": 12556.0,
+       "3": 17531.0,
+       "4": 0.862
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 63": [
+      {
+       "1": 5.99,
+       "2": 19293.0,
+       "3": 16666.0,
+       "4": 0.246
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 64": [
+      {
+       "1": 1.99,
+       "2": 12671.0,
+       "3": 15434.0,
+       "4": 0.657
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 65": [
+      {
+       "1": 26.14,
+       "2": 19657.0,
+       "3": 14136.0,
+       "4": 0.204
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 66": [
+      {
+       "1": 11.93,
+       "2": 15242.0,
+       "3": 13072.0,
+       "4": 0.672
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 67": [
+      {
+       "1": 22.86,
+       "2": 19610.0,
+       "3": 18159.0,
+       "4": 0.936
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 68": [
+      {
+       "1": 22.91,
+       "2": 16612.0,
+       "3": 12819.0,
+       "4": 0.073
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 69": [
+      {
+       "1": 25.29,
+       "2": 13085.0,
+       "3": 19645.0,
+       "4": 0.349
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 70": [
+      {
+       "1": 43.96,
+       "2": 15027.0,
+       "3": 14334.0,
+       "4": 0.158
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 71": [
+      {
+       "1": 35.18,
+       "2": 17010.0,
+       "3": 18611.0,
+       "4": 0.654
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 72": [
+      {
+       "1": 33.39,
+       "2": 16543.0,
+       "3": 14452.0,
+       "4": 0.932
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 73": [
+      {
+       "1": 46.95,
+       "2": 13100.0,
+       "3": 14166.0,
+       "4": 0.115
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 74": [
+      {
+       "1": 37.12,
+       "2": 13273.0,
+       "3": 14231.0,
+       "4": 0.282
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 75": [
+      {
+       "1": 35.88,
+       "2": 13667.0,
+       "3": 17631.0,
+       "4": 0.634
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 76": [
+      {
+       "1": 25.27,
+       "2": 14057.0,
+       "3": 19416.0,
+       "4": 0.908
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 77": [
+      {
+       "1": 4.61,
+       "2": 15469.0,
+       "3": 18794.0,
+       "4": 0.277
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 78": [
+      {
+       "1": 16.68,
+       "2": 13071.0,
+       "3": 17219.0,
+       "4": 0.98
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 79": [
+      {
+       "1": 37.06,
+       "2": 16519.0,
+       "3": 17780.0,
+       "4": 0.428
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 80": [
+      {
+       "1": 5.59,
+       "2": 19741.0,
+       "3": 19234.0,
+       "4": 0.691
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 81": [
+      {
+       "1": 27.28,
+       "2": 18837.0,
+       "3": 15024.0,
+       "4": 0.583
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 82": [
+      {
+       "1": 21.49,
+       "2": 12342.0,
+       "3": 14525.0,
+       "4": 0.365
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 83": [
+      {
+       "1": 44.95,
+       "2": 13720.0,
+       "3": 17587.0,
+       "4": 0.25
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 84": [
+      {
+       "1": 17.68,
+       "2": 16586.0,
+       "3": 19242.0,
+       "4": 0.875
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 85": [
+      {
+       "1": 37.47,
+       "2": 19583.0,
+       "3": 19617.0,
+       "4": 0.237
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 86": [
+      {
+       "1": 48.81,
+       "2": 18641.0,
+       "3": 13450.0,
+       "4": 0.881
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 87": [
+      {
+       "1": 8.97,
+       "2": 19573.0,
+       "3": 14721.0,
+       "4": 0.782
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 88": [
+      {
+       "1": 40.11,
+       "2": 19078.0,
+       "3": 18021.0,
+       "4": 0.811
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 89": [
+      {
+       "1": 7.96,
+       "2": 17744.0,
+       "3": 12885.0,
+       "4": 0.383
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 90": [
+      {
+       "1": 42.93,
+       "2": 13822.0,
+       "3": 13634.0,
+       "4": 0.817
+      },
+      "Ultrasonic ranging results are consistent, repeatability is good."
+     ],
+     "Patient 91": [
+      {
+       "1": 17.48,
+       "2": 18721.0,
+       "3": 18515.0,
+       "4": 0.871
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 92": [
+      {
+       "1": 1.18,
+       "2": 13582.0,
+       "3": 15264.0,
+       "4": 0.328
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 93": [
+      {
+       "1": 48.34,
+       "2": 14286.0,
+       "3": 14876.0,
+       "4": 0.641
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 94": [
+      {
+       "1": 33.98,
+       "2": 18911.0,
+       "3": 16392.0,
+       "4": 0.331
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 95": [
+      {
+       "1": 5.77,
+       "2": 19949.0,
+       "3": 14139.0,
+       "4": 0.179
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 96": [
+      {
+       "1": 1.91,
+       "2": 16887.0,
+       "3": 15559.0,
+       "4": 0.346
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 97": [
+      {
+       "1": 21.82,
+       "2": 16189.0,
+       "3": 12947.0,
+       "4": 0.385
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 98": [
+      {
+       "1": 9.5,
+       "2": 12363.0,
+       "3": 17806.0,
+       "4": 0.436
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 99": [
+      {
+       "1": 46.28,
+       "2": 16410.0,
+       "3": 17626.0,
+       "4": 0.719
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 100": [
+      {
+       "1": 18.21,
+       "2": 12573.0,
+       "3": 19773.0,
+       "4": 0.664
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 101": [
+      {
+       "1": 31.16,
+       "2": 17434.0,
+       "3": 18946.0,
+       "4": 0.125
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 102": [
+      {
+       "1": 25.36,
+       "2": 17463.0,
+       "3": 15345.0,
+       "4": 0.326
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 103": [
+      {
+       "1": 27.72,
+       "2": 13571.0,
+       "3": 15444.0,
+       "4": 0.665
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 104": [
+      {
+       "1": 33.87,
+       "2": 19395.0,
+       "3": 13425.0,
+       "4": 0.616
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 105": [
+      {
+       "1": 20.3,
+       "2": 18829.0,
+       "3": 12003.0,
+       "4": 0.304
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 106": [
+      {
+       "1": 21.49,
+       "2": 16751.0,
+       "3": 16969.0,
+       "4": 0.655
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 107": [
+      {
+       "1": 22.09,
+       "2": 17534.0,
+       "3": 13750.0,
+       "4": 0.511
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 108": [
+      {
+       "1": 32.94,
+       "2": 14324.0,
+       "3": 16222.0,
+       "4": 0.664
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 109": [
+      {
+       "1": 16.76,
+       "2": 18704.0,
+       "3": 19798.0,
+       "4": 0.751
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 110": [
+      {
+       "1": 11.23,
+       "2": 13631.0,
+       "3": 13207.0,
+       "4": 0.024
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 111": [
+      {
+       "1": 49.2,
+       "2": 17007.0,
+       "3": 18961.0,
+       "4": 0.768
+      },
+      "Ultrasonic ranging results are consistent, repeatability is good."
+     ],
+     "Patient 112": [
+      {
+       "1": 20.72,
+       "2": 17159.0,
+       "3": 16715.0,
+       "4": 0.194
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 113": [
+      {
+       "1": 24.72,
+       "2": 13998.0,
+       "3": 13208.0,
+       "4": 0.656
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 114": [
+      {
+       "1": 44.63,
+       "2": 19048.0,
+       "3": 18308.0,
+       "4": 0.885
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 115": [
+      {
+       "1": 10.94,
+       "2": 18587.0,
+       "3": 19847.0,
+       "4": 0.696
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 116": [
+      {
+       "1": 2.51,
+       "2": 14041.0,
+       "3": 19515.0,
+       "4": 0.848
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 117": [
+      {
+       "1": 6.67,
+       "2": 15806.0,
+       "3": 17468.0,
+       "4": 0.531
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 118": [
+      {
+       "1": 29.77,
+       "2": 19782.0,
+       "3": 18187.0,
+       "4": 0.891
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 119": [
+      {
+       "1": 40.75,
+       "2": 19307.0,
+       "3": 16135.0,
+       "4": 0.427
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 120": [
+      {
+       "1": 22.3,
+       "2": 13303.0,
+       "3": 18092.0,
+       "4": 0.861
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 121": [
+      {
+       "1": 12.96,
+       "2": 14025.0,
+       "3": 18880.0,
+       "4": 0.638
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 122": [
+      {
+       "1": 24.23,
+       "2": 13959.0,
+       "3": 14249.0,
+       "4": 0.44
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 123": [
+      {
+       "1": 11.72,
+       "2": 14751.0,
+       "3": 14619.0,
+       "4": 0.893
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 124": [
+      {
+       "1": 6.92,
+       "2": 13894.0,
+       "3": 15137.0,
+       "4": 0.694
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 125": [
+      {
+       "1": 3.21,
+       "2": 15339.0,
+       "3": 14710.0,
+       "4": 0.543
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 126": [
+      {
+       "1": 3.11,
+       "2": 18823.0,
+       "3": 15441.0,
+       "4": 0.389
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 127": [
+      {
+       "1": 47.3,
+       "2": 12160.0,
+       "3": 19018.0,
+       "4": 0.881
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 128": [
+      {
+       "1": 19.02,
+       "2": 12048.0,
+       "3": 19722.0,
+       "4": 0.352
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 129": [
+      {
+       "1": 42.67,
+       "2": 19810.0,
+       "3": 18846.0,
+       "4": 0.419
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 130": [
+      {
+       "1": 39.99,
+       "2": 19354.0,
+       "3": 13806.0,
+       "4": 0.488
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 131": [
+      {
+       "1": 21.79,
+       "2": 12237.0,
+       "3": 15185.0,
+       "4": 0.336
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 132": [
+      {
+       "1": 36.21,
+       "2": 18885.0,
+       "3": 15828.0,
+       "4": 0.92
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 133": [
+      {
+       "1": 26.71,
+       "2": 19429.0,
+       "3": 15227.0,
+       "4": 0.592
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 134": [
+      {
+       "1": 4.2,
+       "2": 15511.0,
+       "3": 13111.0,
+       "4": 0.867
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 135": [
+      {
+       "1": 2.51,
+       "2": 15105.0,
+       "3": 14681.0,
+       "4": 0.212
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 136": [
+      {
+       "1": 16.88,
+       "2": 19206.0,
+       "3": 15105.0,
+       "4": 0.278
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 137": [
+      {
+       "1": 12.61,
+       "2": 12670.0,
+       "3": 15852.0,
+       "4": 0.019
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 138": [
+      {
+       "1": 2.6,
+       "2": 19798.0,
+       "3": 14866.0,
+       "4": 0.224
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 139": [
+      {
+       "1": 39.06,
+       "2": 17339.0,
+       "3": 12329.0,
+       "4": 0.754
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 140": [
+      {
+       "1": 9.97,
+       "2": 12166.0,
+       "3": 17089.0,
+       "4": 0.152
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 141": [
+      {
+       "1": 23.68,
+       "2": 12937.0,
+       "3": 16620.0,
+       "4": 0.948
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 142": [
+      {
+       "1": 34.97,
+       "2": 18282.0,
+       "3": 15021.0,
+       "4": 0.168
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 143": [
+      {
+       "1": 48.19,
+       "2": 17884.0,
+       "3": 12938.0,
+       "4": 0.778
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 144": [
+      {
+       "1": 48.24,
+       "2": 12885.0,
+       "3": 16740.0,
+       "4": 0.026
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 145": [
+      {
+       "1": 28.79,
+       "2": 19438.0,
+       "3": 19849.0,
+       "4": 0.375
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 146": [
+      {
+       "1": 3.8,
+       "2": 17657.0,
+       "3": 18804.0,
+       "4": 0.627
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 147": [
+      {
+       "1": 34.86,
+       "2": 14470.0,
+       "3": 18965.0,
+       "4": 0.684
+      },
+      "Ultrasonic beam focusing is stable with high imaging contrast."
+     ],
+     "Patient 148": [
+      {
+       "1": 39.81,
+       "2": 16636.0,
+       "3": 18411.0,
+       "4": 0.041
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 149": [
+      {
+       "1": 21.42,
+       "2": 15035.0,
+       "3": 12564.0,
+       "4": 0.506
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 150": [
+      {
+       "1": 0.63,
+       "2": 15441.0,
+       "3": 18736.0,
+       "4": 0.49
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 151": [
+      {
+       "1": 48.04,
+       "2": 17206.0,
+       "3": 19303.0,
+       "4": 0.829
+      },
+      "Ultrasonic probe coupling is good, echo amplitude is uniform."
+     ],
+     "Patient 152": [
+      {
+       "1": 21.77,
+       "2": 18011.0,
+       "3": 16274.0,
+       "4": 0.965
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 153": [
+      {
+       "1": 30.8,
+       "2": 19533.0,
+       "3": 16408.0,
+       "4": 0.775
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 154": [
+      {
+       "1": 21.78,
+       "2": 17988.0,
+       "3": 16853.0,
+       "4": 0.268
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 155": [
+      {
+       "1": 41.54,
+       "2": 12709.0,
+       "3": 14284.0,
+       "4": 0.882
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 156": [
+      {
+       "1": 37.52,
+       "2": 16668.0,
+       "3": 16999.0,
+       "4": 0.668
+      },
+      "Ultrasonic scan speed is moderate, boundary display is clear."
+     ],
+     "Patient 157": [
+      {
+       "1": 1.43,
+       "2": 18971.0,
+       "3": 14662.0,
+       "4": 0.182
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 158": [
+      {
+       "1": 17.74,
+       "2": 14116.0,
+       "3": 14788.0,
+       "4": 0.28
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 159": [
+      {
+       "1": 35.06,
+       "2": 14263.0,
+       "3": 16553.0,
+       "4": 0.01
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 160": [
+      {
+       "1": 4.28,
+       "2": 17898.0,
+       "3": 15329.0,
+       "4": 0.489
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 161": [
+      {
+       "1": 34.53,
+       "2": 17291.0,
+       "3": 17831.0,
+       "4": 0.491
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 162": [
+      {
+       "1": 4.65,
+       "2": 13815.0,
+       "3": 15312.0,
+       "4": 0.692
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 163": [
+      {
+       "1": 33.2,
+       "2": 15023.0,
+       "3": 15876.0,
+       "4": 0.553
+      },
+      "Ultrasonic scan speed is moderate with clear boundary display."
+     ],
+     "Patient 164": [
+      {
+       "1": 21.28,
+       "2": 18110.0,
+       "3": 16508.0,
+       "4": 0.331
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 165": [
+      {
+       "1": 13.55,
+       "2": 14059.0,
+       "3": 13888.0,
+       "4": 0.121
+      },
+      "Ultrasonic detection sensitivity improved, defects more easily identified."
+     ],
+     "Patient 166": [
+      {
+       "1": 15.78,
+       "2": 18085.0,
+       "3": 16389.0,
+       "4": 0.951
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 167": [
+      {
+       "1": 9.58,
+       "2": 18050.0,
+       "3": 15966.0,
+       "4": 0.276
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 168": [
+      {
+       "1": 48.83,
+       "2": 16297.0,
+       "3": 16888.0,
+       "4": 0.283
+      },
+      "Ultrasonic beam focusing is stable, imaging contrast is high."
+     ],
+     "Patient 169": [
+      {
+       "1": 41.63,
+       "2": 14426.0,
+       "3": 13863.0,
+       "4": 0.361
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 170": [
+      {
+       "1": 0.71,
+       "2": 16375.0,
+       "3": 13036.0,
+       "4": 0.274
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 171": [
+      {
+       "1": 27.67,
+       "2": 17713.0,
+       "3": 19733.0,
+       "4": 0.126
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 172": [
+      {
+       "1": 5.13,
+       "2": 12100.0,
+       "3": 16702.0,
+       "4": 0.284
+      },
+      "Ultrasonic ranging results are consistent, repeatability is good."
+     ],
+     "Patient 173": [
+      {
+       "1": 22.02,
+       "2": 13510.0,
+       "3": 19909.0,
+       "4": 0.051
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 174": [
+      {
+       "1": 5.7,
+       "2": 12535.0,
+       "3": 15282.0,
+       "4": 0.492
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 175": [
+      {
+       "1": 31.47,
+       "2": 12439.0,
+       "3": 13242.0,
+       "4": 0.149
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 176": [
+      {
+       "1": 47.46,
+       "2": 12697.0,
+       "3": 14033.0,
+       "4": 0.118
+      },
+      "Ultrasonic signal spectrum is concentrated, spurious components are few."
+     ],
+     "Patient 177": [
+      {
+       "1": 30.32,
+       "2": 18477.0,
+       "3": 17066.0,
+       "4": 0.226
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 178": [
+      {
+       "1": 19.02,
+       "2": 19442.0,
+       "3": 15626.0,
+       "4": 0.297
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 179": [
+      {
+       "1": 49.5,
+       "2": 14501.0,
+       "3": 16658.0,
+       "4": 0.621
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 180": [
+      {
+       "1": 48.01,
+       "2": 12812.0,
+       "3": 19762.0,
+       "4": 0.763
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 181": [
+      {
+       "1": 13.23,
+       "2": 12665.0,
+       "3": 13286.0,
+       "4": 0.24
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 182": [
+      {
+       "1": 3.75,
+       "2": 12021.0,
+       "3": 15346.0,
+       "4": 0.451
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 183": [
+      {
+       "1": 23.5,
+       "2": 12267.0,
+       "3": 13896.0,
+       "4": 0.288
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 184": [
+      {
+       "1": 35.15,
+       "2": 15719.0,
+       "3": 12583.0,
+       "4": 0.687
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 185": [
+      {
+       "1": 39.39,
+       "2": 17120.0,
+       "3": 16831.0,
+       "4": 0.661
+      },
+      "Ultrasonic detection sensitivity improved, defects are easier to identify."
+     ],
+     "Patient 186": [
+      {
+       "1": 21.26,
+       "2": 16461.0,
+       "3": 13841.0,
+       "4": 0.648
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 187": [
+      {
+       "1": 41.33,
+       "2": 12584.0,
+       "3": 12488.0,
+       "4": 0.166
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 188": [
+      {
+       "1": 29.75,
+       "2": 18752.0,
+       "3": 16662.0,
+       "4": 0.921
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 189": [
+      {
+       "1": 6.22,
+       "2": 17641.0,
+       "3": 14491.0,
+       "4": 0.7
+      },
+      "Ultrasonic propagation attenuation is small, penetration capability is strong."
+     ],
+     "Patient 190": [
+      {
+       "1": 25.02,
+       "2": 16045.0,
+       "3": 15586.0,
+       "4": 0.08
+      },
+      "Ultrasonic echo is clear with good signal-to-noise ratio."
+     ],
+     "Patient 191": [
+      {
+       "1": 44.47,
+       "2": 18017.0,
+       "3": 14640.0,
+       "4": 0.604
+      },
+      "Ultrasonic echo is clear, signal-to-noise ratio is good."
+     ],
+     "Patient 192": [
+      {
+       "1": 4.57,
+       "2": 19879.0,
+       "3": 17523.0,
+       "4": 0.836
+      },
+      "Ultrasonic pulse width is appropriate, resolution is better."
+     ],
+     "Patient 193": [
+      {
+       "1": 29.36,
+       "2": 12169.0,
+       "3": 18264.0,
+       "4": 0.672
+      },
+      "Ultrasonic propagation attenuation is low with strong penetration capability."
+     ],
+     "Patient 194": [
+      {
+       "1": 28.81,
+       "2": 18251.0,
+       "3": 18195.0,
+       "4": 0.175
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ],
+     "Patient 195": [
+      {
+       "1": 32.58,
+       "2": 19504.0,
+       "3": 14278.0,
+       "4": 0.181
+      },
+      "Ultrasonic pulse width is appropriate with better resolution."
+     ],
+     "Patient 196": [
+      {
+       "1": 21.79,
+       "2": 18670.0,
+       "3": 16028.0,
+       "4": 0.969
+      },
+      "Ultrasonic ranging results are consistent with good repeatability."
+     ],
+     "Patient 197": [
+      {
+       "1": 17.4,
+       "2": 14730.0,
+       "3": 14630.0,
+       "4": 0.67
+      },
+      "Ultrasonic probe coupling is good with uniform echo amplitude."
+     ],
+     "Patient 198": [
+      {
+       "1": 16.49,
+       "2": 17682.0,
+       "3": 16058.0,
+       "4": 0.288
+      },
+      "Ultrasonic signal spectrum is concentrated with few spurious components."
+     ],
+     "Patient 199": [
+      {
+       "1": 40.68,
+       "2": 16506.0,
+       "3": 12300.0,
+       "4": 0.455
+      },
+      "Ultrasonic scan speed is moderate, boundary display is clear."
+     ],
+     "Patient 200": [
+      {
+       "1": 12.62,
+       "2": 12949.0,
+       "3": 19947.0,
+       "4": 0.773
+      },
+      "Ultrasonic imaging artifacts reduced, structure is clearer."
+     ]
+    },
+    "pid": "Patient 200",
+    "text": "Metric1(g): 12.62\nMetric2(cm/s): 12949\nMetric3(cm/s): 19947\nMetric4(m/s): 0.773\nDescription: Ultrasonic imaging artifacts reduced, structure is clearer.",
+    "metrics": {
+     "1": 34.53,
+     "2": 17291.0,
+     "3": 17831.0,
+     "4": 0.491
+    },
+    "desc": "Ultrasonic echo is clear with good signal-to-noise ratio.",
+    "line": "Description: Ultrasonic imaging artifacts reduced, structure is clearer.",
+    "m": null,
+    "patients_in_form": [
+     [
+      3,
+      "Patient 2"
+     ],
+     [
+      4,
+      "Patient 12"
+     ],
+     [
+      5,
+      "Patient 44"
+     ],
+     [
+      6,
+      "Patient 51"
+     ],
+     [
+      7,
+      "Patient 60"
+     ],
+     [
+      8,
+      "Patient 120"
+     ],
+     [
+      9,
+      "Patient 131"
+     ],
+     [
+      10,
+      "Patient 132"
+     ],
+     [
+      11,
+      "Patient 159"
+     ],
+     [
+      12,
+      "Patient 160"
+     ],
+     [
+      13,
+      "Patient 161"
+     ]
+    ],
+    "p": "Patient 161",
+    "pname": "Patient 161",
+    "out_path": "C:\\Users\\sandeeppawar\\OneDrive - Microsoft\\Documents\\projects\\fabric-rlm-core\\_local\\bench\\aida\\runs\\fg-final\\work\\FG_10\\completion_results.xlsx",
+    "wbv": {
+     "__type__": "Workbook",
+     "__repr__": "<openpyxl.workbook.workbook.Workbook object>",
+     "__serializable__": false
+    },
+    "wsv": {
+     "__type__": "Worksheet",
+     "__repr__": "<Worksheet \"Sheet1\">",
+     "__serializable__": false
+    }
+   },
+   "response_text": "```python\nSUBMIT(answer=\"done\")\n```",
+   "duration_s": 0.004602999993949197,
+   "token_usage": {
+    "completion_tokens": 106,
+    "prompt_tokens": 8095,
+    "total_tokens": 8201,
+    "completion_tokens_details": {
+     "audio_tokens": 0,
+     "reasoning_tokens": 92,
+     "image_tokens": 0
+    },
+    "prompt_tokens_details": {
+     "audio_tokens": 0,
+     "cached_tokens": 6787,
+     "video_tokens": 0,
+     "cache_write_tokens": 0
+    },
+    "cost": 0.0009175518,
+    "is_byok": false,
+    "cost_details": {
+     "upstream_inference_cost": 0.00092682,
+     "upstream_inference_prompt_cost": 0.00079962,
+     "upstream_inference_completions_cost": 0.0001272
+    }
+   },
+   "validation_errors": [],
+   "turn_type": "normal",
+   "prompt_tokens": 8095,
+   "completion_tokens": 106,
+   "total_tokens": 8201,
+   "cached_tokens": 6787,
+   "reasoning_tokens": 92,
+   "lm_call_seconds": 2.812999999994645,
+   "worker_execute_seconds": 0.0,
+   "submit_payload": {
+    "answer": "done"
+   }
+  }
+ ]
+}

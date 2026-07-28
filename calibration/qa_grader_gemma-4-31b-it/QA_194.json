@@ -1,0 +1,17 @@
+{
+  "id": "QA_194",
+  "answer": "The item with the highest expenditure is:\n- Date: 2024/08/28 15:18:09\n- Type: Expenditure\n- Amount: 1200 CNY (recorded as -1200)\n- Primary Category: Learning\n- Secondary Category: Education\n- Remarks: Tuition",
+  "model_response": "The item with the highest expenditure is:\n- Date: 2024/08/28 15:18:09\n- Type: Expenditure\n- Amount: 1200 CNY (recorded as -1200)\n- Primary Category: Learning\n- Secondary Category: Education\n- Remarks: Tuition",
+  "reference": "An educational/learning expense dated 2024/08/28 15:18:09, with Remarks as tuition fee, and Amount of 1200",
+  "rubrics": "Credit is given as long as the correct time period is mentioned and the expense category calculation is correct",
+  "question": "Which item has the highest expenditure?\n",
+  "n_inputs": 1,
+  "n_turns": 11,
+  "prompt_tokens": 91454,
+  "completion_tokens": 1750,
+  "elapsed_seconds": 31.04,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案准确提供了最高支出的日期（2024/08/28 15:18:09）、金额（1200）以及类别（Learning/Education）和备注（Tuition），与参考答案完全一致，覆盖了所有核心答题点。"
+}

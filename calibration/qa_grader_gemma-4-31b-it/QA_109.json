@@ -1,0 +1,17 @@
+{
+  "id": "QA_109",
+  "answer": "Top 3 Competency Dimensions with Largest Average Gap (Standard = 5, Scale 1-5):\n\nRank Competency Dimension               Standard  Actual Avg  Avg Gap   Gap Rate  \n1    Service awareness                  5         3.343       1.657     33.14%\n2    Performance creation               5         3.373       1.627     32.55%\n3    Professional skills                5         3.52        1.48      29.61%",
+  "model_response": "Top 3 Competency Dimensions with Largest Average Gap (Standard = 5, Scale 1-5):\n\nRank Competency Dimension               Standard  Actual Avg  Avg Gap   Gap Rate  \n1    Service awareness                  5         3.343       1.657     33.14%\n2    Performance creation               5         3.373       1.627     32.55%\n3    Professional skills                5         3.52        1.48      29.61%",
+  "reference": "Competency Dimension Name Standard Required Score Actual Average Score Average Gap Value Gap Rate\n Emergency Response Capability 10 6.69 3.31 33.14%\n Cost Control Capability 10 6.75 3.25 32.55%\n Banquet Menu Design Capability 10 7.03 2.97 29.71%",
+  "rubrics": null,
+  "question": "Based on the two files talent_review_head_chef_assessment_results0730.xlsx and head_chef_talent_profile.xlsx, calculate the gap between each head chef's \"actual review score\" and the \"talent profile standard required score\" for each competency dimension (gap value = standard score − actual score). Aggregate the average gap across all head chefs by competency dimension, identify the top 3 competency dimensions with the largest average gap, and output a result table containing the following fields: competency dimension name, standard required score, actual average score, average gap value, and gap rate (average gap / standard score × 100%, rounded to 2 decimal places with a % symbol). Sort the results in descending order by average gap value, and output only the Top 3.",
+  "n_inputs": 2,
+  "n_turns": 14,
+  "prompt_tokens": 156564,
+  "completion_tokens": 3548,
+  "elapsed_seconds": 49.56,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型提供的能力维度名称、标准分、实际平均分以及平均差距值与参考答案完全不一致，属于计算结果存在明显差异。"
+}

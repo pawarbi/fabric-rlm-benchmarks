@@ -1,0 +1,17 @@
+{
+  "id": "QA_8",
+  "answer": "21 questions have an Accuracy Rate below 80% (out of 30 total questions). The 21 questions below 80% are: Q5 (0.6774), Q6 (0.4839), Q7 (0.5484), Q8 (0.5484), Q9 (0.0968), Q10 (0.7097), Q11 (0.6129), Q12 (0.4194), Q13 (0.7742), Q18 (0.6452), Q19 (0.7419), Q20 (0.7742), Q21 (0.4839), Q22 (0.2903), Q23 (0.4194), Q24 (0.5806), Q25 (0.6452), Q27 (0.6129), Q28 (0.5484), Q29 (0.3226), Q30 (0.6452). The remaining 9 questions (Q1, Q2, Q3, Q4, Q14, Q15, Q16, Q17, Q26) have rates at or above 80%.",
+  "model_response": "21 questions have an Accuracy Rate below 80% (out of 30 total questions). The 21 questions below 80% are: Q5 (0.6774), Q6 (0.4839), Q7 (0.5484), Q8 (0.5484), Q9 (0.0968), Q10 (0.7097), Q11 (0.6129), Q12 (0.4194), Q13 (0.7742), Q18 (0.6452), Q19 (0.7419), Q20 (0.7742), Q21 (0.4839), Q22 (0.2903), Q23 (0.4194), Q24 (0.5806), Q25 (0.6452), Q27 (0.6129), Q28 (0.5484), Q29 (0.3226), Q30 (0.6452). The remaining 9 questions (Q1, Q2, Q3, Q4, Q14, Q15, Q16, Q17, Q26) have rates at or above 80%.",
+  "reference": "21 questions",
+  "rubrics": "Must be 21 questions; any other number is incorrect.",
+  "question": "How many questions have an Accuracy Rate below 80%",
+  "n_inputs": 1,
+  "n_turns": 2,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 1.01,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果为21，与参考答案及答题点要求完全一致。"
+}

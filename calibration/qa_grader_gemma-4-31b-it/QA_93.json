@@ -1,0 +1,17 @@
+{
+  "id": "QA_93",
+  "answer": "C\n47\n50.00%",
+  "model_response": "C\n47\n50.00%",
+  "reference": "C;\n47;\n58.65%",
+  "rubrics": "1、Give the answers to the three questions in three separate lines.\n2、The data matches the reference answer.",
+  "question": "1. What is the Shelf location name with the most Medical Insurance Pooling?\n2. What is the average Age of recorded medication purchases at this store? Round to the nearest integer and provide the number only.\n3. What proportion of purchasers at this store have valid follow-up records? Keep two decimal places with a percentage sign. Definition of a valid Follow-up summary: the Follow-up summary field contains condition or medication information.\nProvide the answers to the three questions on three separate lines.",
+  "n_inputs": 2,
+  "n_turns": 14,
+  "prompt_tokens": 87778,
+  "completion_tokens": 1501,
+  "elapsed_seconds": 99.14,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型在第三个问题的计算结果（50.00%）与参考答案（58.65%）存在明显差异，不符合统计类题目结果需一致的标准。"
+}

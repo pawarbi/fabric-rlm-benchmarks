@@ -1,0 +1,17 @@
+{
+  "id": "QA_207",
+  "answer": "Categories in 'Traffic Channel' and their counts (from 40 orders):\n\n- Brand Search Traffic: 26\n- Student Referral Traffic: 6\n- APP Registration Traffic: 4\n- Website Content Traffic: 1\n- Agency Channel Traffic: 1\n- Paid Advertising Traffic: 1\n- Mini Program Traffic: 1\n\nTotal: 7 categories, 40 orders.",
+  "model_response": "Categories in 'Traffic Channel' and their counts (from 40 orders):\n\n- Brand Search Traffic: 26\n- Student Referral Traffic: 6\n- APP Registration Traffic: 4\n- Website Content Traffic: 1\n- Agency Channel Traffic: 1\n- Paid Advertising Traffic: 1\n- Mini Program Traffic: 1\n\nTotal: 7 categories, 40 orders.",
+  "reference": "|Traffic Channel|Count|\n|--|--|\n|Brand Search Traffic|26|\n|Student Referral Traffic|6|\n|APP Registration Traffic|4|\n|Website Content Traffic|1|\n|Agency Channel Traffic|1|\n|Paid Ad Traffic|1|\n|Mini Program Traffic|1|",
+  "rubrics": null,
+  "question": "What are the categories in \"Traffic Channel\" and how many times does each appear?",
+  "n_inputs": 1,
+  "n_turns": 2,
+  "prompt_tokens": 10651,
+  "completion_tokens": 339,
+  "elapsed_seconds": 6.0,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案完整列出了所有7个Traffic Channel类别及其出现次数，数值与参考答案完全一致。尽管'Paid Ad Traffic'被写作'Paid Advertising Traffic'，但属于语义等价的合理表达变体，不影响答案准确性。所有核心要点均已覆盖，符合1分标准。"
+}

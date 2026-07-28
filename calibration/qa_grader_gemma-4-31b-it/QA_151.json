@@ -1,0 +1,17 @@
+{
+  "id": "QA_151",
+  "answer": "Order Amount by Different Salespersons (Responsible Person):\n\n| Salesperson | # Orders | Tax-Inclusive Amount (CNY) | Amount Received (CNY) | Amount Invoiced (CNY) |\n|-------------|---------:|---------------------------:|----------------------:|----------------------:|\n| BB          | 13       | 2,415,650.00               | 672,840.00            | 608,000.00            |\n| AA          | 23       | 866,220.00                 | 473,880.00            | 320,720.00            |\n| CC          | 2        | 84,908.00                  | 40,000.00             | 0.00                  |\n| DD          | 2        | 53,000.00                  | 33,200.00             | 20,000.00             |\n| **TOTAL**   | **40**   | **3,419,778.00**           | **1,219,920.00**      | **948,720.00**        |\n\nKey observations:\n- BB is the top performer by Tax-Inclusive Order Amount (2,415,650 CNY across 13 orders), nearly 3x AA despite AA handling the most orders.\n- AA handled the most orders (23) but with the lowest average order value.\n- CC and DD each handled only 2 orders.\n- Total across all salespersons: 40 orders, 3,419,778.00 CNY tax-inclusive.",
+  "model_response": "Order Amount by Different Salespersons (Responsible Person):\n\n| Salesperson | # Orders | Tax-Inclusive Amount (CNY) | Amount Received (CNY) | Amount Invoiced (CNY) |\n|-------------|---------:|---------------------------:|----------------------:|----------------------:|\n| BB          | 13       | 2,415,650.00               | 672,840.00            | 608,000.00            |\n| AA          | 23       | 866,220.00                 | 473,880.00            | 320,720.00            |\n| CC          | 2        | 84,908.00                  | 40,000.00             | 0.00                  |\n| DD          | 2        | 53,000.00                  | 33,200.00             | 20,000.00             |\n| **TOTAL**   | **40**   | **3,419,778.00**           | **1,219,920.00**      | **948,720.00**        |\n\nKey observations:\n- BB is the top performer by Tax-Inclusive Order Amount (2,415,650 CNY across 13 orders), nearly 3x AA despite AA handling the most orders.\n- AA handled the most orders (23) but with the lowest average order value.\n- CC and DD each handled only 2 orders.\n- Total across all salespersons: 40 orders, 3,419,778.00 CNY tax-inclusive.",
+  "reference": "AA's order amount 866220, BB's order amount 2415650, CC's order amount 84908, DD's order amount 53000",
+  "rubrics": null,
+  "question": "Order Amount by Different Salespersons",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 18572,
+  "completion_tokens": 1314,
+  "elapsed_seconds": 17.26,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型提供的订单金额数据与参考答案完全一致，涵盖了所有销售员的正确统计数值。"
+}

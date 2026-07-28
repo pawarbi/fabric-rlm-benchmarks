@@ -1,0 +1,17 @@
+{
+  "id": "QA_79",
+  "answer": "| Name/Personnel | Sales Volume |\n|---|---|\n| users_15 | 7546.00 |\n| users_06 | 6872.00 |\n| users_23 | 6320.00 |\n| users_26 | 5766.00 |\n| users_01 | 4680.00 |\n| users_07 | 3588.00 |\n| users_25 | 3531.00 |\n| users_02 | 3310.00 |\n| users_03 | 3172.00 |\n| users_11 | 3012.00 |",
+  "model_response": "| Name/Personnel | Sales Volume |\n|---|---|\n| users_15 | 7546.00 |\n| users_06 | 6872.00 |\n| users_23 | 6320.00 |\n| users_26 | 5766.00 |\n| users_01 | 4680.00 |\n| users_07 | 3588.00 |\n| users_25 | 3531.00 |\n| users_02 | 3310.00 |\n| users_03 | 3172.00 |\n| users_11 | 3012.00 |",
+  "reference": "Name/Personnel, Sales Volume (Yuan)\nUsers_14, 4982.00\nUsers_16, 4231.00\nUsers_26, 3823.00\nUsers_15, 3773.00\nUsers_25, 3531.00\nUsers_06, 3436.00\nUsers_23, 3160.00\nUsers_13, 2675.00\nUsers_01, 2340.00\nUsers_11, 1932.00",
+  "rubrics": null,
+  "question": "Calculate the total sales volume for each person (salesperson/sales representative) in the document, sort by sales volume from highest to lowest, and output the top 10 along with their corresponding sales values. If the document contains multiple fields that could represent \"Sales Volume\" (e.g., \"Revenue\", \"Sales Quantity\", \"Transaction Amount\", etc.), prioritize the field whose meaning is closest to \"Sales Volume\"; if both \"Quantity\" and \"Amount\" exist simultaneously, prioritize \"Quantity\". Round sales values to 2 decimal places; if the total number of people in the data is fewer than 10, output all of them. Ignore records where sales volume is null or 0. Output format is a table containing two columns: \"Name/Personnel\" and \"Sales Volume\".",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.71,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型的答案与参考答案在多个关键数据上存在明显差异，例如Users_14在参考答案中排名第一（4982.00），但在AI答案中未出现；而AI答案中的users_15为7546.00，远高于参考答案中的3773.00。此外，人员名单也不一致，如AI答案中包含users_07、users_02、users_03等，这些在参考答案的前10中并未出现。这表明AI模型的计算结果与参考答案存在显著偏差，不符合统计类题目的打分标准中对数据一致性的要求。因此判定为0分。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_215",
+  "answer": "Total duration of 210 machine: 23.5 hours (23 hours 30 minutes). Breakdown: 2023/8/1=7h, 2023/8/2=3h30m, 2023/8/3=1h, 2023/8/4=6h, 2023/8/5=6h.",
+  "model_response": "Total duration of 210 machine: 23.5 hours (23 hours 30 minutes). Breakdown: 2023/8/1=7h, 2023/8/2=3h30m, 2023/8/3=1h, 2023/8/4=6h, 2023/8/5=6h.",
+  "reference": "23 hours 30 minutes",
+  "rubrics": null,
+  "question": "What is the total duration of 210 machine hours\n",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 19022,
+  "completion_tokens": 628,
+  "elapsed_seconds": 14.55,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案计算结果为23.5小时，即23小时30分钟，与参考答案完全一致。虽然提供了额外的日期分解信息，但最终结论正确，符合参考答案的核心要点。因此得分为1分。"
+}

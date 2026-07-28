@@ -1,0 +1,17 @@
+{
+  "id": "QA_202",
+  "answer": "| Zodiac Sign | Count |\n|---|---:|\n| Aries | 1 |\n| Taurus | 2 |\n| Gemini | 2 |\n| Cancer | 2 |\n| Leo | 8 |\n| Virgo | 5 |\n| Libra | 2 |\n| Scorpio | 5 |\n| Sagittarius | 3 |\n| Capricorn | 5 |\n| Aquarius | 4 |\n| Pisces | 1 |\n| **Total** | **40** |",
+  "model_response": "| Zodiac Sign | Count |\n|---|---:|\n| Aries | 1 |\n| Taurus | 2 |\n| Gemini | 2 |\n| Cancer | 2 |\n| Leo | 8 |\n| Virgo | 5 |\n| Libra | 2 |\n| Scorpio | 5 |\n| Sagittarius | 3 |\n| Capricorn | 5 |\n| Aquarius | 4 |\n| Pisces | 1 |\n| **Total** | **40** |",
+  "reference": "| Zodiac Sign | Count |\n| :--- | :--- |\n| Aquarius | 4 |\n| Pisces | 1 |\n| Aries | 1 |\n| Taurus | 2 |\n| Gemini | 2 |\n| Cancer | 2 |\n| Leo | 8 |\n| Virgo | 5 |\n| Libra | 2 |\n| Scorpio | 5 |\n| Sagittarius | 3 |\n| Capricorn | 5 |",
+  "rubrics": null,
+  "question": "How many people are there for each zodiac sign? Present in markdown format with columns: Zodiac Sign, Count",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 1.26,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案在每个星座的人数统计上完全一致，所有数值都准确对应。虽然AI模型额外添加了总计行（Total: 40），但这并不影响核心数据的正确性。数据顺序不同但内容无误，符合‘四舍五入后相同也算数据对’的原则，且统计类题目重点关注计算结果是否一致。因此判定为1分。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_184",
+  "answer": "2021 line-on quantity (range hoods): 1,151 units. 2023 line-on quantity: 0 (no 2023 data exists in the workbook — the only sheet containing 'Line-on quantity' is 'Daily record sheet', which contains entries from 2021/1/2 to 2021/1/11 only). Change (2023 − 2021): −1,151 units (a decrease of 1,151 units; the line-on quantity for range hoods is not recorded for 2023 in this ledger).",
+  "model_response": "2021 line-on quantity (range hoods): 1,151 units. 2023 line-on quantity: 0 (no 2023 data exists in the workbook — the only sheet containing 'Line-on quantity' is 'Daily record sheet', which contains entries from 2021/1/2 to 2021/1/11 only). Change (2023 − 2021): −1,151 units (a decrease of 1,151 units; the line-on quantity for range hoods is not recorded for 2023 in this ledger).",
+  "reference": "The 2023 data is not provided in the file. The 21-year range hood line-on quantity is 1151.",
+  "rubrics": "Must indicate that the 21-year \"Line-on quantity\" is 1151, and that no 2023 data is provided, to be considered correct",
+  "question": "By how much did the line-on quantity of range hoods in 2023 increase compared to 2021?",
+  "n_inputs": 1,
+  "n_turns": 12,
+  "prompt_tokens": 96809,
+  "completion_tokens": 1879,
+  "elapsed_seconds": 26.67,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型准确提供了2021年的Line-on quantity为1151，并明确指出文件中没有2023年的数据，完全覆盖了参考答案的核心要点和[答题点]的要求。"
+}

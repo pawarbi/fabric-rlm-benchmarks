@@ -1,0 +1,17 @@
+{
+  "id": "QA_212",
+  "answer": "The workbook has two sheets, each with its own column B:\n\n1) Sheet 'Existing arable land in the vil', Column B = 'Plot Type' → 5 categories:\n   - Flat Dryland\n   - Terraced Field\n   - Hillside Land\n   - Irrigated land\n   - Standard greenhouse\n\n2) Sheet 'Crops grown in the village', Column B = 'Crop Name' → 40 unique crop names (all entries are distinct, e.g., Zhang, Black Soybean, Red Bean, Mung Bean, Corn, Wheat, Rice, Tomato, etc.).\n\nIf the question refers to the categorical column on the first sheet, the answer is 5.",
+  "model_response": "The workbook has two sheets, each with its own column B:\n\n1) Sheet 'Existing arable land in the vil', Column B = 'Plot Type' → 5 categories:\n   - Flat Dryland\n   - Terraced Field\n   - Hillside Land\n   - Irrigated land\n   - Standard greenhouse\n\n2) Sheet 'Crops grown in the village', Column B = 'Crop Name' → 40 unique crop names (all entries are distinct, e.g., Zhang, Black Soybean, Red Bean, Mung Bean, Corn, Wheat, Rice, Tomato, etc.).\n\nIf the question refers to the categorical column on the first sheet, the answer is 5.",
+  "reference": "1. In the **Existing arable land in the village** worksheet, column B (\"Plot Type\") has **5** categories.\n2. In the **Crops grown in the village** worksheet, column B (\"Crop Name\") has **40** categories.",
+  "rubrics": null,
+  "question": "How many categories are in column B",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 12275,
+  "completion_tokens": 830,
+  "elapsed_seconds": 10.91,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型正确指出在'Existing arable land in the village'工作表中列B有5个类别，在'Crops grown in the village'工作表中列B有40个类别，与参考答案完全一致，数据准确且覆盖全部核心要点。"
+}

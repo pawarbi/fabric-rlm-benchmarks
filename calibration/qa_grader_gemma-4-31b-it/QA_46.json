@@ -1,0 +1,17 @@
+{
+  "id": "QA_46",
+  "answer": "407",
+  "model_response": "407",
+  "reference": 407,
+  "rubrics": null,
+  "question": "Count the number of customers whose \"Cash Income\" field value is strictly greater than 51000, ignoring rows where the \"Cash Income\" field is null or non-numeric. Output a single integer.",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 28522,
+  "completion_tokens": 496,
+  "elapsed_seconds": 9.97,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果与参考答案完全一致。"
+}

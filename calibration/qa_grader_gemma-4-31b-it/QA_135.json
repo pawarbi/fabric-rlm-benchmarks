@@ -1,0 +1,17 @@
+{
+  "id": "QA_135",
+  "answer": "Number of competitions for each department:\n\n- Department A: 31\n- Department B: 25\n- Department C: 29\n- Department D: 43\n- Department E: 2\n- Department F: 3\n- Department G: 2\n\nTotal: 135 (3 rows had no department listed)",
+  "model_response": "Number of competitions for each department:\n\n- Department A: 31\n- Department B: 25\n- Department C: 29\n- Department D: 43\n- Department E: 2\n- Department F: 3\n- Department G: 2\n\nTotal: 135 (3 rows had no department listed)",
+  "reference": "Department A has 31 projects, Department B has 25 projects, Department C has 29 projects, Department D has 43 projects, Department E has 2 projects, Department F has 3 projects, Department G has 2 projects",
+  "rubrics": null,
+  "question": "List the number of competitions for each department separately",
+  "n_inputs": 1,
+  "n_turns": 2,
+  "prompt_tokens": 10961,
+  "completion_tokens": 422,
+  "elapsed_seconds": 7.47,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型提供的每个部门的比赛数量与参考答案完全一致，准确覆盖了所有统计数据。"
+}

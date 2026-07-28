@@ -1,0 +1,17 @@
+{
+  "id": "QA_102",
+  "answer": "95th percentile daily total usage value: 1678.86",
+  "model_response": "95th percentile daily total usage value: 1678.86",
+  "reference": 1.24,
+  "rubrics": null,
+  "question": "Filter the table for data between March 1, 2014 and July 31, 2014 (inclusive), group by date (at the day level), and calculate the sum of the 45KFK field usage for each day (ignore null values), obtaining a set of \"daily total usage\" data. Then count the number of occurrences of each distinct value in this set of daily total usage values, and sort in ascending order by usage value. Finally, calculate the cumulative frequency, find the usage value at which the cumulative probability first reaches or exceeds 95% (i.e., the 95th percentile), output that usage value, rounded to 2 decimal places.",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 19110,
+  "completion_tokens": 923,
+  "elapsed_seconds": 17.78,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型计算出的95th percentile值为1678.86，与参考答案1.24存在显著差异，数量级完全不同，说明计算过程存在严重错误，不符合评分标准中对结果一致性的要求。"
+}

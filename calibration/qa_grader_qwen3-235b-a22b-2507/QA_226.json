@@ -1,0 +1,17 @@
+{
+  "id": "QA_226",
+  "answer": "Year with exactly 5 equipment: 2018 — Total asset value = 238,900",
+  "model_response": "Year with exactly 5 equipment: 2018 — Total asset value = 238,900",
+  "reference": 238900,
+  "rubrics": null,
+  "question": "What is the total asset value for the year in which the number of equipment is 5?",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 33475,
+  "completion_tokens": 813,
+  "elapsed_seconds": 13.31,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案指出在设备数量为5的年份（2018年），总资产价值为238,900，与参考答案238900在数值上一致（逗号为数字格式化，不影响数值），且符合统计类题目的评分标准。因此判定为1分。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_145",
+  "answer": "Yes. Five sales representatives each sold at least 2 orders: Staff A (2), Staff D (2), Staff K (2), Staff N (2), and Staff Q (2). All other 29 representatives each sold exactly 1 order. Total of 39 orders across 34 unique sales representatives.",
+  "model_response": "Yes. Five sales representatives each sold at least 2 orders: Staff A (2), Staff D (2), Staff K (2), Staff N (2), and Staff Q (2). All other 29 representatives each sold exactly 1 order. Total of 39 orders across 34 unique sales representatives.",
+  "reference": "Person A, Person D, Person Q, Person K, Person N",
+  "rubrics": null,
+  "question": "In the \"2024 Outbound Ledger\" table, is there any sales representative who sold at least 2 orders?",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 18071,
+  "completion_tokens": 376,
+  "elapsed_seconds": 6.01,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案正确识别出所有满足条件的销售代表：Staff A, D, K, N, Q，与参考答案中的Person A, D, Q, K, N完全对应，仅称谓不同但不影响指代一致性。计算结果与核心要点完全覆盖，因此得1分。"
+}

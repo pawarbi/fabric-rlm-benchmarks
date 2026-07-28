@@ -1,0 +1,17 @@
+{
+  "id": "QA_101",
+  "answer": "Indicator Name\tCorrelation Coefficient\nSame-guest Strength 1 Adjusted\t0.8491\nSame-guest Strength 2 Adjusted\t0.8399\nSame-guest Strength 1\t0.8102\nSame-guest Strength 2\t0.7967\nSame home strength correction 1\t0.7712\nSame home strength correction 2\t0.7702\nSame-guest Index Adjusted\t0.7412\nSame home strength 1\t0.7020\nSame home strength 2\t0.7001\nSame-guest Index\t0.6817\nSame home index correction\t0.6208\nSame home index\t0.5648\nSame-type Probability\t0.4944\nBase Probability\t0.3474\nHandicap probability\t0.3275\nMacau final handicap\t0.1624\nMacau water level\t-0.0893\nFinal handicap water level\t-0.0454\nWater Level\t-0.0377",
+  "model_response": "Indicator Name\tCorrelation Coefficient\nSame-guest Strength 1 Adjusted\t0.8491\nSame-guest Strength 2 Adjusted\t0.8399\nSame-guest Strength 1\t0.8102\nSame-guest Strength 2\t0.7967\nSame home strength correction 1\t0.7712\nSame home strength correction 2\t0.7702\nSame-guest Index Adjusted\t0.7412\nSame home strength 1\t0.7020\nSame home strength 2\t0.7001\nSame-guest Index\t0.6817\nSame home index correction\t0.6208\nSame home index\t0.5648\nSame-type Probability\t0.4944\nBase Probability\t0.3474\nHandicap probability\t0.3275\nMacau final handicap\t0.1624\nMacau water level\t-0.0893\nFinal handicap water level\t-0.0454\nWater Level\t-0.0377",
+  "reference": "Indicator Name    Correlation Coefficient\nSame-guest Strength 1 Adjusted  0.8491\nSame-guest Strength 2 Adjusted  0.8399\n  Same-guest Strength 1  0.8102\n  Same-guest Strength 2  0.7967\nSame home strength correction 1  0.7712\nSame home strength correction 2  0.7702\n Same-guest Index Adjusted  0.7412\n  Same home strength 1  0.7020\n  Same home strength 2  0.7001\n   Same-guest Index  0.6817\n Same home index correction  0.6208\n   Same home index  0.5648\n   Same-type Probability  0.4944\n   Base Probability  0.3474\n   Handicap probability  0.3275\n    Opening handicap large  0.2273\n   Macau final handicap  0.1624\n   Macau water level -0.0893\n   Final handicap water level -0.0454\n     Water Level -0.0377",
+  "rubrics": null,
+  "question": "For the data in the file \"32——Experiment 1 League.xlsx\", binarize the \"Score\" column into \"Home Win\" (assigned value 1) and \"Home No Win\" (assigned value 0), then compute the Pearson correlation coefficient between all numeric columns in the dataset (excluding the \"Score\" column) and this binarized target variable. Output the result as a two-column table: the first column is \"Indicator Name\" (the column names of each numeric column), and the second column is \"Correlation Coefficient\" (rounded to 4 decimal places), sorted in descending order by the absolute value of the correlation coefficient. Output the correlation coefficients for all indicators (no Top N limit).",
+  "n_inputs": 1,
+  "n_turns": 7,
+  "prompt_tokens": 52205,
+  "completion_tokens": 1188,
+  "elapsed_seconds": 19.94,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案中，所有指标的相关系数与参考答案完全一致（保留4位小数），且按相关系数绝对值从大到小排序正确，无遗漏或多余项，符合题目全部要求。"
+}

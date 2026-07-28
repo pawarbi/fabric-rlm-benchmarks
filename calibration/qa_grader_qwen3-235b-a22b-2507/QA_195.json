@@ -1,0 +1,17 @@
+{
+  "id": "QA_195",
+  "answer": "Planned Outage Energy Loss for September 2023 (Summary Sheet):\n- Turbine #01 (Tong**Chuan): 573.882 (sum across 30 days in Sept 2023)\n\nNote: Only turbine #01 has records in the Summary Sheet for September 2023.",
+  "model_response": "Planned Outage Energy Loss for September 2023 (Summary Sheet):\n- Turbine #01 (Tong**Chuan): 573.882 (sum across 30 days in Sept 2023)\n\nNote: Only turbine #01 has records in the Summary Sheet for September 2023.",
+  "reference": "Turbine Number #01 Planned Outage Energy Loss is 573.882",
+  "rubrics": null,
+  "question": "Planned Outage Energy Loss for each turbine in September 2023",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 2.07,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案中，Turbine #01的Planned Outage Energy Loss值为573.882，与参考答案完全一致。虽然AI补充了额外信息（如仅#01有记录、数据为9月30天之和），但核心数值与参考答案匹配，且无矛盾。数据保留三位小数，四舍五入后也一致，符合打分标准中的数据对应要求。因此判定为1分。"
+}

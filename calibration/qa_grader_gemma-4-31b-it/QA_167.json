@@ -1,0 +1,17 @@
+{
+  "id": "QA_167",
+  "answer": "36",
+  "model_response": "36",
+  "reference": 36,
+  "rubrics": null,
+  "question": "The number of people whose Theory and Skills scores are both greater than or equal to 60",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 16520,
+  "completion_tokens": 306,
+  "elapsed_seconds": 6.97,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果与参考答案完全一致。"
+}

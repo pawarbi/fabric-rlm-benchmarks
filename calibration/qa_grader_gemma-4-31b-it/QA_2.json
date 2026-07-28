@@ -1,0 +1,17 @@
+{
+  "id": "QA_2",
+  "answer": "Statistical Period: 2000-01-01 to 2000-09-14\nNumber of Business Orders: 1712\nTotal Cost: 1522209.00\nAverage Cost per Order: 889.14\nNumber of Suppliers Involved: 5\nNumber of Fee Types: 26",
+  "model_response": "Statistical Period: 2000-01-01 to 2000-09-14\nNumber of Business Orders: 1712\nTotal Cost: 1522209.00\nAverage Cost per Order: 889.14\nNumber of Suppliers Involved: 5\nNumber of Fee Types: 26",
+  "reference": "Statistical Period: $2000-01-01$ to $2000-09-14$\nNumber of Transactions: $1712$\nTotal Cost: $1,522,209.00$ yuan\nAverage Cost per Transaction: $889.14$ yuan\nNumber of Suppliers Involved: $5$\nNumber of Fee Types: $29$ (referring to fee line items that had amounts recorded during this period)",
+  "rubrics": null,
+  "question": "Compile the following statistics: statistical period, number of business orders, total cost, average cost per order, number of suppliers involved, and number of fee types. The statistical period should display the range from the earliest to the latest date in the data (format: YYYY-MM-DD to YYYY-MM-DD); the number of business orders is the total count of deduplicated business order numbers; the total cost is the sum of all cost amounts (rounded to 2 decimal places); the average cost per order is the total cost divided by the number of business orders (rounded to 2 decimal places); the number of suppliers involved is the total count of deduplicated supplier names; the number of fee types is the total count of deduplicated fee types.",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 1.72,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型的统计结果中，'Number of Fee Types' 为 26，而参考答案为 29，统计数据不一致。"
+}

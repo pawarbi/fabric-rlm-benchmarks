@@ -1,0 +1,17 @@
+{
+  "id": "QA_155",
+  "answer": "75",
+  "model_response": "75",
+  "reference": 75,
+  "rubrics": null,
+  "question": "Based on 《Q2 [Case Files].xlsx》, count the number of case files with issues for \"City 6\" in Q2. The answer should contain only the specific number.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 6460,
+  "completion_tokens": 12,
+  "elapsed_seconds": 3.0,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果与参考答案完全一致。"
+}

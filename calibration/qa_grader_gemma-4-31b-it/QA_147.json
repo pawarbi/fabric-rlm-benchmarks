@@ -1,0 +1,17 @@
+{
+  "id": "QA_147",
+  "answer": "Longest overtime on January 4, 2024: Employee 1, clocked out at 21:58, overtime = 3h 58m (238 minutes).",
+  "model_response": "Longest overtime on January 4, 2024: Employee 1, clocked out at 21:58, overtime = 3h 58m (238 minutes).",
+  "reference": "January 4, 2024 is a workday, and the maximum overtime duration is 3 hours 58 minutes.",
+  "rubrics": null,
+  "question": "This is an attendance detail sheet. The overtime duration on non-working days = actual Clock Out time - actual Work hours time. The overtime duration on working days = actual Clock Out time - 18:00.\nWhat is the longest overtime duration on January 4th?",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 27871,
+  "completion_tokens": 885,
+  "elapsed_seconds": 19.3,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果（3h 58m）与参考答案（3 hours 58 minutes）完全一致。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_188",
+  "answer": "Turbine Unplanned Outage Duration and Planned Outage Duration for September 2023 (Tong**Chuan Wind Farm, Turbine #01, 30 days):\n- Unplanned Outage Duration total: 1.57 hours\n- Planned Outage Duration total: 13.53 hours",
+  "model_response": "Turbine Unplanned Outage Duration and Planned Outage Duration for September 2023 (Tong**Chuan Wind Farm, Turbine #01, 30 days):\n- Unplanned Outage Duration total: 1.57 hours\n- Planned Outage Duration total: 13.53 hours",
+  "reference": "Unplanned Outage Duration: 1.57\nPlanned Outage Duration: 13.53",
+  "rubrics": null,
+  "question": "Turbine Unplanned Outage Duration and Planned Outage Duration for September",
+  "n_inputs": 1,
+  "n_turns": 7,
+  "prompt_tokens": 34321,
+  "completion_tokens": 875,
+  "elapsed_seconds": 12.17,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案中的Unplanned Outage Duration（1.57）和Planned Outage Duration（13.53）与参考答案完全一致，数值匹配且单位合理，符合统计类题目打分标准，因此得1分。"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "FG_233",
+  "question": "Read the full text content of all 5 files, extract all \"non-everyday common vocabulary\" (including but not limited to: technical terms, place names, organization names, product names, industry jargon, abbreviations, numeric codes, special symbol combinations, and any other vocabulary that does not belong to common vernacular), deduplicate the extracted results, sort them in lexicographic order, and output one term per line to extracted_terms.xlsx",
+  "input_file": "Wealth and Officer Rhyme Formulas.pdf\nIntroduction to Traditional Fate Calculation.doc\nShen Sha Divination Records Disciple Edition.docx\nFour Word Solo Steps.docx\nWake World Karma Records.txt",
+  "output_type": "Data Editing",
+  "output_file": "extracted_terms.xlsx",
+  "eval_area": "A1:B826",
+  "reference_file": "C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\data\\file_generation_en\\reference\\FG_233\\extracted_terms_res.xlsx",
+  "eval_score": 0,
+  "eval_reason": "Generated file not found: C:\\Users\\sandeeppawar\\Downloads\\aida-eval\\runs\\aida-ctrl\\work\\FG_233\\extracted_terms.xlsx"
+}

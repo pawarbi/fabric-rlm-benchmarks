@@ -1,0 +1,17 @@
+{
+  "id": "QA_18",
+  "answer": "Date | Total Equipment Input Machine-Hours\n--- | ---\n2025-11-16 | 36.5\n2025-11-17 | 40.5\n2025-11-18 | 41.0\n2025-11-19 | 30.0\n2025-11-20 | 30.0\n2025-11-21 | 30.0\n2025-11-22 | 30.0\n2025-11-23 | 61.5\n2025-11-24 | 51.0\n2025-11-25 | 61.5\n2025-11-26 | 61.5\n2025-11-27 | 61.5\n2025-11-28 | 42.0\n2025-11-29 | 61.5\n2025-11-30 | 40.5\n2025-12-01 | 51.0\n2025-12-02 | 61.5\n2025-12-03 | 0.0\n2025-12-04 | 30.0\n2025-12-05 | 41.0\n2025-12-06 | 61.5\n2025-12-07 | 61.5\n2025-12-08 | 61.5\n2025-12-09 | 51.5\n2025-12-10 | 41.0\n2025-12-11 | 21.0",
+  "model_response": "Date | Total Equipment Input Machine-Hours\n--- | ---\n2025-11-16 | 36.5\n2025-11-17 | 40.5\n2025-11-18 | 41.0\n2025-11-19 | 30.0\n2025-11-20 | 30.0\n2025-11-21 | 30.0\n2025-11-22 | 30.0\n2025-11-23 | 61.5\n2025-11-24 | 51.0\n2025-11-25 | 61.5\n2025-11-26 | 61.5\n2025-11-27 | 61.5\n2025-11-28 | 42.0\n2025-11-29 | 61.5\n2025-11-30 | 40.5\n2025-12-01 | 51.0\n2025-12-02 | 61.5\n2025-12-03 | 0.0\n2025-12-04 | 30.0\n2025-12-05 | 41.0\n2025-12-06 | 61.5\n2025-12-07 | 61.5\n2025-12-08 | 61.5\n2025-12-09 | 51.5\n2025-12-10 | 41.0\n2025-12-11 | 21.0",
+  "reference": null,
+  "rubrics": null,
+  "question": "Calculate the total sum of equipment input machine-hours for each date (in \"YYYY-MM-DD\" format) in the dataset. If the data contains fields related to \"date\" and \"equipment input machine-hours\", group by date and aggregate the equipment input machine-hours; if there are multiple records for the same day, sum them cumulatively; missing values are excluded from the calculation; the final output is a table containing two columns: \"Date\" and \"Total Equipment Input Machine-Hours\", sorted by date in ascending order, with values rounded to 2 decimal places, in units of \"machine-hours\".",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.9,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "参考答案为'None'，表示该问题下没有提供正确的参考结果或预期输出。AI模型虽然给出了一个格式上符合要求的表格（包含Date和Total Equipment Input Machine-Hours两列，日期排序、保留1位小数、无缺失值处理等），但由于无法验证其计算结果是否与真实数据一致，且题目属于统计类题目，要求基于实际数据进行聚合计算，而AI模型的答案无法与参考答案进行比对以确认正确性，因此不能判定为正确。在参考答案缺失的情况下，无法证明AI输出的数据是准确的，故给0分。"
+}

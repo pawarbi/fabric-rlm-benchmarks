@@ -1,0 +1,17 @@
+{
+  "id": "QA_165",
+  "answer": "Column S (Years of Service) from 'Source Data' sheet (n=40):\n- Maximum: 8.0\n- Minimum: 0.033\n- Median: 1.167",
+  "model_response": "Column S (Years of Service) from 'Source Data' sheet (n=40):\n- Maximum: 8.0\n- Minimum: 0.033\n- Median: 1.167",
+  "reference": "Maximum: 8, Minimum: 0.033, Median: 1.167",
+  "rubrics": null,
+  "question": "Analyze the maximum, minimum, and median values in column S",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 21122,
+  "completion_tokens": 744,
+  "elapsed_seconds": 11.55,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型给出的最大值、最小值和中位数与参考答案完全一致。"
+}

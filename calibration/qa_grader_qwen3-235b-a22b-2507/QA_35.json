@@ -1,0 +1,17 @@
+{
+  "id": "QA_35",
+  "answer": "Number of employees meeting all criteria: 33\n\nFilter criteria applied:\n1. Active on January 1, 2025 (the workbook contains only 'sheet1' — no separate '250101' sheet; rows with populated roster data and no resignation before 2025-01-01 qualify).\n2. Probation completed (Actual Regularization Date populated) and before 2025-01-01.\n3. Hire Date (entry date) before 2025-01-01.\n4. Job Level contains 'backbone', 'non-backbone', or 'expert' — only '30-Expert' exists among the 9 job levels present in the file.\n\nMatching Employee IDs (33): 2446, 3808, 3816, 4131, 4489, 4871, 5359, 6015, 6028, 6038, 6039, 6041, 6043, 6044, 6356, 6618, 6805, 7132, 7309, 7320, 8562, 8684, 9615, 11108, 11218, 11501, 11974, 12006, 12199, 12308, 12309, 12696, 13118",
+  "model_response": "Number of employees meeting all criteria: 33\n\nFilter criteria applied:\n1. Active on January 1, 2025 (the workbook contains only 'sheet1' — no separate '250101' sheet; rows with populated roster data and no resignation before 2025-01-01 qualify).\n2. Probation completed (Actual Regularization Date populated) and before 2025-01-01.\n3. Hire Date (entry date) before 2025-01-01.\n4. Job Level contains 'backbone', 'non-backbone', or 'expert' — only '30-Expert' exists among the 9 job levels present in the file.\n\nMatching Employee IDs (33): 2446, 3808, 3816, 4131, 4489, 4871, 5359, 6015, 6028, 6038, 6039, 6041, 6043, 6044, 6356, 6618, 6805, 7132, 7309, 7320, 8562, 8684, 9615, 11108, 11218, 11501, 11974, 12006, 12199, 12308, 12309, 12696, 13118",
+  "reference": "4507 people",
+  "rubrics": null,
+  "question": "The \"250101\" sheet contains information on personnel who were active on January 1, 2025. Please filter for individuals who must have completed their probation period before January 1, 2025, and whose entry date must also be before January 1, 2025, and whose job level includes \"backbone\", \"non-backbone\", or \"expert\".",
+  "n_inputs": 1,
+  "n_turns": 14,
+  "prompt_tokens": 79387,
+  "completion_tokens": 2291,
+  "elapsed_seconds": 36.18,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "该问题为统计类题目，参考答案为4507人，而AI模型给出的统计结果为33人，两者存在显著差异。尽管AI模型提供了详细的筛选逻辑和条件，但其计算结果与参考答案相差极大，不符合统计类题目中‘计算结果基本一致’的1分标准。因此判定为0分。"
+}

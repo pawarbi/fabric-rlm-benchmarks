@@ -1,0 +1,17 @@
+{
+  "id": "QA_163",
+  "answer": "Number of students who rank in the top 100 in Chinese_Score at the grade level AND also rank in the top 100 in Composite Grade: 6\n\nStudents meeting both criteria: A009, A011, A013, A020, A022, A035",
+  "model_response": "Number of students who rank in the top 100 in Chinese_Score at the grade level AND also rank in the top 100 in Composite Grade: 6\n\nStudents meeting both criteria: A009, A011, A013, A020, A022, A035",
+  "reference": 6,
+  "rubrics": null,
+  "question": "In old_data_51, the number of students who rank in the top 100 in Chinese_Score at the grade level AND also rank in the top 100 in Composite Grade",
+  "n_inputs": 1,
+  "n_turns": 6,
+  "prompt_tokens": 31471,
+  "completion_tokens": 950,
+  "elapsed_seconds": 11.87,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案计算结果为6，与参考答案完全一致，符合统计类题目打分标准中‘结果基本一致得1分’的要求。"
+}

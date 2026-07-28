@@ -1,0 +1,17 @@
+{
+  "id": "QA_203",
+  "answer": "Q1 (Duplicate names): Yes — there are 4 distinct name values that appear more than once in the 40-person roster: 'Y*' (2), 'Z*' (4), 'V*' (2), 'L*' (2). In total, 10 of the 40 rows share a name with at least one other person.\n\nQ2 (Four-character names): 0 — every anonymized name in the sheet is either 2 characters (19 people) or 3 characters (21 people). No one has a four-character name.",
+  "model_response": "Q1 (Duplicate names): Yes — there are 4 distinct name values that appear more than once in the 40-person roster: 'Y*' (2), 'Z*' (4), 'V*' (2), 'L*' (2). In total, 10 of the 40 rows share a name with at least one other person.\n\nQ2 (Four-character names): 0 — every anonymized name in the sheet is either 2 characters (19 people) or 3 characters (21 people). No one has a four-character name.",
+  "reference": "People with no duplicate names\nPeople without four-character names",
+  "rubrics": null,
+  "question": "Are there any people with duplicate names?\nHow many people have a four-character name",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 30134,
+  "completion_tokens": 804,
+  "elapsed_seconds": 17.25,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型的答案与参考答案存在显著偏差。参考答案指出的是“People with no duplicate names”和“People without four-character names”，即强调的是没有重名的人和没有四字符名字的人。而AI模型回答的是存在重名（Yes）以及四字符名字人数为0，虽然第二问的计算结果正确（0人），但第一问的回答方向与参考答案相反，参考答案暗示应关注无重复名字的情况，AI却强调有重复，导致核心要点不一致，因此整体判定为0分。"
+}

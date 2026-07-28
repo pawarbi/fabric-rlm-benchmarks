@@ -1,0 +1,17 @@
+{
+  "id": "QA_51",
+  "answer": "Year | Average Indicator A\n---- | -------------------\n2019 | 2.36\n2020 | 2.97\n2021 | 3.18\n2022 | 2.47\n2023 | 2.82\n2024 | 2.49\n2025 | 2.53",
+  "model_response": "Year | Average Indicator A\n---- | -------------------\n2019 | 2.36\n2020 | 2.97\n2021 | 3.18\n2022 | 2.47\n2023 | 2.82\n2024 | 2.49\n2025 | 2.53",
+  "reference": "Year Indicator A Average\n 2019 2.36\n 2020 2.97\n 2021 3.18\n 2022 2.47\n 2023 2.82\n 2024 2.49\n 2025 2.53",
+  "rubrics": "Is the data sorted by Year",
+  "question": "In the file \"Indicator A.xlsx\", filter all rows where the \"Grade\" column value is \"B2F\", then group by the \"Year\" column and calculate the average value of the \"Indicator A\" column for each year. The output should be a table with two columns: the first column is \"Year\" (sorted in ascending order by year), and the second column is \"Average Indicator A\" (rounded to 2 decimal places). If \"Indicator A\" has missing values for a given year, ignore the missing values when calculating the average for that year; if all \"Indicator A\" values are missing for a given year, display the average for that year as \"No Data\".",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17341,
+  "completion_tokens": 547,
+  "elapsed_seconds": 7.41,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果与参考答案完全一致，且Year列严格按照升序排列，符合所有题目要求和答题点。"
+}

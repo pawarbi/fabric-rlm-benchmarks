@@ -1,0 +1,17 @@
+{
+  "id": "QA_49",
+  "answer": "SKWC2\t2\nXXC1.2\t2\nHSWC2\t2\nHQC1.1\t2\nHQWC1\t2\nJGWC2.2\t2\nXNWC1\t2\nPPC1.1\t2\nDTC1.1\t2\nXXC2.1\t2\nXNC1.1\t2\nDTC2.2\t2\nFMC2.2\t2\nHSWC1\t2\nKJC2.2.2\t2\nXNWC2\t2\nHQC2.2\t2\nSKWC1\t2\nJGWC1.1\t2\nFMC1.1\t2\nSKC2.2\t2\nXXWC2.2\t2\nPPWC1\t2\nKJC2.2.1\t3\nFMWC1\t3\nXXC2.2\t3\nFMWC2\t3\nXXC1.1\t3\nXXWC2.1\t3\nDTWC1\t3\nKJWC1.1\t3\nXNC2.2\t3\nKJC1.1.1\t3\nHSC2.2\t3\nPPC2.2\t4\nJGC1.1\t4\nSSWC1\t4\nXXWC1.1\t4\nJGC2.2\t4\nSSWC2\t4\nDTWC2\t5\nKJC1.1.2\t5\nSSC1.1\t5\nSSC2.2\t5\nKJWC1.2\t5\nHSC1.1\t6\nHQWC2\t6\nPPWC2\t6\nXXWC1.2\t6\nSKC1.1\t11",
+  "model_response": "SKWC2\t2\nXXC1.2\t2\nHSWC2\t2\nHQC1.1\t2\nHQWC1\t2\nJGWC2.2\t2\nXNWC1\t2\nPPC1.1\t2\nDTC1.1\t2\nXXC2.1\t2\nXNC1.1\t2\nDTC2.2\t2\nFMC2.2\t2\nHSWC1\t2\nKJC2.2.2\t2\nXNWC2\t2\nHQC2.2\t2\nSKWC1\t2\nJGWC1.1\t2\nFMC1.1\t2\nSKC2.2\t2\nXXWC2.2\t2\nPPWC1\t2\nKJC2.2.1\t3\nFMWC1\t3\nXXC2.2\t3\nFMWC2\t3\nXXC1.1\t3\nXXWC2.1\t3\nDTWC1\t3\nKJWC1.1\t3\nXNC2.2\t3\nKJC1.1.1\t3\nHSC2.2\t3\nPPC2.2\t4\nJGC1.1\t4\nSSWC1\t4\nXXWC1.1\t4\nJGC2.2\t4\nSSWC2\t4\nDTWC2\t5\nKJC1.1.2\t5\nSSC1.1\t5\nSSC2.2\t5\nKJWC1.2\t5\nHSC1.1\t6\nHQWC2\t6\nPPWC2\t6\nXXWC1.2\t6\nSKC1.1\t11",
+  "reference": "Task Code Row Number DTC1.1 37 DTC2.2 10 DTWC1 28 DTWC2 40 FMC1.1 5 FMC2.2 17 FMWC1 32 FMWC2 4 HQC1.1 42 HQC2.2 35 HQWC1 11 HQWC2 50 HSC1.1 7 HSC2.2 33 HSWC1 20 HSWC2 9 JGC1.1 45 JGC2.2 15 JGWC1.1 21 JGWC2.2 24 KJC1.1.1 22 KJC1.1.2 51 KJC2.2.1 3 KJC2.2.2 41 KJWC1.1 30 KJWC1.2 23 PPC1.1 49 PPC2.2 14 PPWC1 44 PPWC2 48 SKC1.1 27 SKC2.2 47 SKWC1 25 SKWC2 2 SSC1.1 6 SSC2.2 13 SSWC1 16 SSWC2 18 XNC1.1 36 XNC2.2 43 XNWC1 12 XNWC2 26 XXC1.1 31 XXC1.2 34 XXC2.1 46 XXC2.2 19 XXWC1.1 39 XXWC1.2 8 XXWC2.1 38 XXWC2.2 29",
+  "rubrics": null,
+  "question": "In the file \"result_order.xlsx\", find the column that contains the list of question codes (DTC1.1, DTC2.2, DTWC1, etc., 50 question codes in total). For each question code, record the row number of its first occurrence in that column (counting from 1, including the header row). Output the results: the 1st column contains the question codes (listed in the order given by the user), and the 2nd column contains the corresponding row numbers. If a question code does not exist in that column, mark its row number as \"Not Found\". Retain results for all 50 question codes without any Top N truncation.",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 40363,
+  "completion_tokens": 4074,
+  "elapsed_seconds": 51.68,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型的答案与参考答案存在显著差异。根据参考答案，每个 question code 对应的 row number 是唯一的且多数大于2，而AI模型输出的大部分 row number 为2或3，仅有少数达到更高值，且顺序混乱。例如，DTC1.1 在参考答案中对应 row 37，但AI模型给出为2；DTWC1 应为28，AI模型给出为3。此外，AI模型仅列出了部分 question codes（如缺少 KJC1.1.2、PPWC2 等），未覆盖全部50个 question codes，导致信息严重缺失。因此，计算结果与参考答案明显不符，核心要求未满足，判定为0分。"
+}

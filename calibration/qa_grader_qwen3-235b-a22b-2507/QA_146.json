@@ -1,0 +1,17 @@
+{
+  "id": "QA_146",
+  "answer": "Total Outbound Net Weight by Date:\n2024/1/1: 731.01 T\n2024/1/2: 351.60 T\n2024/1/3: 276.82 T",
+  "model_response": "Total Outbound Net Weight by Date:\n2024/1/1: 731.01 T\n2024/1/2: 351.60 T\n2024/1/3: 276.82 T",
+  "reference": "| Date | Total Factory Net Weight/T |\n| 2024-01-01 | 731.01 |\n| 2024-01-02 | 351.60 |\n| 2024-01-03 | 276.82 |",
+  "rubrics": "Calculate the total outbound net weight for January 1, January 2, and January 3, 2024, respectively.",
+  "question": "Calculate the total outbound net weight by date, and output the results as text. Only the date and total outbound net weight/T are needed.",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 13195,
+  "completion_tokens": 162,
+  "elapsed_seconds": 4.67,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案计算了2024年1月1日、1月2日和1月3日这三天各自的总出库净重，分别为731.01 T、351.60 T和276.82 T，与参考答案中的数值完全一致。尽管日期格式略有不同（使用斜杠分隔且无前导零），但数据内容和单位均正确对应，符合‘四舍五入后相同也算数据对’的标准，且覆盖了[答题点]中要求的三个日期的计算。因此判定为1分。"
+}

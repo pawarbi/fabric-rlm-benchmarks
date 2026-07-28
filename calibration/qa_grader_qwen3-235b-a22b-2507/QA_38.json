@@ -1,0 +1,17 @@
+{
+  "id": "QA_38",
+  "answer": "Shandong Province: 1448\nZhejiang Province: 796\nHunan Province: 434\nJiangsu Province: 365\nJiangxi Province: 305\nShaanxi Province: 205\nGuangxi Zhuang Autonomous Region: 174\nHebei Province: 169\nShanxi Province: 158\nHenan Province: 132",
+  "model_response": "Shandong Province: 1448\nZhejiang Province: 796\nHunan Province: 434\nJiangsu Province: 365\nJiangxi Province: 305\nShaanxi Province: 205\nGuangxi Zhuang Autonomous Region: 174\nHebei Province: 169\nShanxi Province: 158\nHenan Province: 132",
+  "reference": "Shandong Province 1448\nZhejiang Province 796\nHunan Province 434\nJiangsu Province 365\nJiangxi Province 305\nShaanxi Province 205\nGuangxi Zhuang Autonomous Region 174\nHebei Province 169\nShanxi Province 158\nHenan Province 132",
+  "rubrics": "- The province names and numbers must all be completely correct;\n- The sorting must be completely correct",
+  "question": "Read the file \"Question 7 Statistical Analysis Results.xlsx\" and locate the province distribution data within it. Sort all provinces by activity index (using \"number of participants\" as the activity measure) from highest to lowest, and list the top 10 provinces one by one in list format with their corresponding activity values, without any grouping or classification (such as \"high activity zone\", \"medium activity zone\", etc.). Output format: one \"Province name: activity value\" per line, values rounded to 2 decimal places, sorted in descending order of activity. If the original file already contains grouping labels, ignore those labels and extract only the raw province names and values for re-sorting and output. Output plain text only.",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.87,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案完全一致，省份名称和对应的活动值均正确，排序也完全正确，且数值为整数，无需四舍五入。虽然AI答案中使用了冒号和空格（'Province: value'）而参考答案未使用，但输出格式要求为每行一个“Province name: activity value”，AI模型遵守了该格式。因此满足所有答题点要求。"
+}

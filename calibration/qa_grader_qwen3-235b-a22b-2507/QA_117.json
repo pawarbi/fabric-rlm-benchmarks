@@ -1,0 +1,17 @@
+{
+  "id": "QA_117",
+  "answer": "800",
+  "model_response": "800",
+  "reference": 800,
+  "rubrics": null,
+  "question": "What is the number of students admitted to regular High School in Region 4?",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 21110,
+  "completion_tokens": 304,
+  "elapsed_seconds": 6.93,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案为800，与参考答案完全一致。该问题为统计类题目，要求提供具体数值，AI模型给出的数字与参考答案相同，符合打分标准中关于统计类题目计算结果基本一致得1分的要求。"
+}

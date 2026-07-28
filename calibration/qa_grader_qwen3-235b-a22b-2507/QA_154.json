@@ -1,0 +1,17 @@
+{
+  "id": "QA_154",
+  "answer": "0",
+  "model_response": "0",
+  "reference": 0,
+  "rubrics": null,
+  "question": "How many blue cells are there",
+  "n_inputs": 1,
+  "n_turns": 14,
+  "prompt_tokens": 126225,
+  "completion_tokens": 2192,
+  "elapsed_seconds": 35.21,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案为0，与参考答案完全一致。题目为统计类问题，要求计算蓝色细胞的数量，AI模型给出的结果与参考答案相同，因此得1分。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_182",
+  "answer": "Mid-size Van Market - Sales Volume by Vehicle Model:\n\n1. Wuling Yangguang: 2,448\n2. Yuancheng Xingxiang V6E: 1,975\n3. Kairui Jiangton E6: 730\n4. Dongfeng Yufeng EM27L: 524\n5. Xinyuan E3L: 475\n6. Jinhu EV48: 352\n7. Guangtong Medium Bus: 325\n8. SAIC Maxus EV30: 231\n9. Changan Kuayue Xing V7: 5\n\nTotal: 7,065",
+  "model_response": "Mid-size Van Market - Sales Volume by Vehicle Model:\n\n1. Wuling Yangguang: 2,448\n2. Yuancheng Xingxiang V6E: 1,975\n3. Kairui Jiangton E6: 730\n4. Dongfeng Yufeng EM27L: 524\n5. Xinyuan E3L: 475\n6. Jinhu EV48: 352\n7. Guangtong Medium Bus: 325\n8. SAIC Maxus EV30: 231\n9. Changan Kuayue Xing V7: 5\n\nTotal: 7,065",
+  "reference": "Vehicle Model Name Sales Volume\n0 SAIC MAXUS EV30 231.0\n1 Dongfeng Yufeng EM27L 524.0\n2 Wuling Yangguang 2448.0\n3 Guangtong Medium Bus 325.0\n4 Kairui Jiangton E6 730.0\n5 Yuancheng Xingxiang V6E 1975.0\n6 Jinhu EV48 352.0\n7 Xinyuan E3L 475.0\n8 Changan Kuayue Xing V7 5.0",
+  "rubrics": null,
+  "question": "What are the sales volumes of each vehicle model in the Mid-size Van Market?",
+  "n_inputs": 1,
+  "n_turns": 5,
+  "prompt_tokens": 40559,
+  "completion_tokens": 1114,
+  "elapsed_seconds": 18.24,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案中列出的各车型销量与参考答案完全一致，数值四舍五入后相同，车型名称虽有大小写和空格差异但可识别为同一车型，且无数据遗漏或错误，符合统计类题目1分标准。"
+}

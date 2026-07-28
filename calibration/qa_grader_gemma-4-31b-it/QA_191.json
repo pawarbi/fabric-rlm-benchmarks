@@ -1,0 +1,17 @@
+{
+  "id": "QA_191",
+  "answer": "Among the last 18 cells in column A (rows 3-20), the 5 most frequently occurring values, each appearing 3 times, are: 12, 13, 10, 7, 11.",
+  "model_response": "Among the last 18 cells in column A (rows 3-20), the 5 most frequently occurring values, each appearing 3 times, are: 12, 13, 10, 7, 11.",
+  "reference": "7,10,11,12,13",
+  "rubrics": null,
+  "question": "The 5 most frequently occurring values among the last 18 cells in column A",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 16085,
+  "completion_tokens": 311,
+  "elapsed_seconds": 7.78,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型给出的5个高频值（12, 13, 10, 7, 11）与参考答案（7, 10, 11, 12, 13）完全一致，符合题目要求。"
+}

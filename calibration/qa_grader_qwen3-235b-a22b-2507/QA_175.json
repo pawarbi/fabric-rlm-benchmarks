@@ -1,0 +1,17 @@
+{
+  "id": "QA_175",
+  "answer": "Top 3 Vehicle Models by Sales Volume in the Micro-van Market:\nRank 1: Vehicle Type E, Model 009, Length 4500 mm, Sales Volume 108\nRank 2: Vehicle Type B, Model 015, Length 4490 mm, Sales Volume 74\nRank 3: Vehicle Type G, Model 022, Length 4495/4500 mm, Sales Volume 62",
+  "model_response": "Top 3 Vehicle Models by Sales Volume in the Micro-van Market:\nRank 1: Vehicle Type E, Model 009, Length 4500 mm, Sales Volume 108\nRank 2: Vehicle Type B, Model 015, Length 4490 mm, Sales Volume 74\nRank 3: Vehicle Type G, Model 022, Length 4495/4500 mm, Sales Volume 62",
+  "reference": "| Rank | Vehicle Model Name | Vehicle Model Number | Vehicle Length | Sales Volume |\n| 1 | Vehicle Model E | Model 009 | 4500 | 108 |\n| 2 | Vehicle Model B | Model 015 | 4490 | 74 |\n| 3 | Vehicle Model G | Model 022 | 4495,4500 | 62 |",
+  "rubrics": "Ranked first is Vehicle Model E | Model Number 009, second is Vehicle Model B | Model Number 015, third is Vehicle Model G | Model Number 022\nThe Vehicle Length of Model Number 022 is \"4495,4500\"",
+  "question": "Find the top 3 Vehicle Model Names by Sales Volume in the Micro-van Market. Output the rank, Vehicle Model Name, Vehicle Model Number, Vehicle Length, and Sales Volume.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 18323,
+  "completion_tokens": 376,
+  "elapsed_seconds": 6.81,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案正确列出了前三名的车型名称、型号、车长和销量，所有关键数据与参考答案一致。Model 022的车长表示为'4495/4500'，虽分隔符与参考答案的逗号不同，但数值相同且表达等效，符合数据一致性要求。所有[答题点]均被满足。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_83",
+  "answer": "Highest single-day 'Views' was on 2025/09/25 (September 25, 2025) with 72,131,775 views. On that day, 'Video Sales Revenue' falls into the range '5000w-7500w'.",
+  "model_response": "Highest single-day 'Views' was on 2025/09/25 (September 25, 2025) with 72,131,775 views. On that day, 'Video Sales Revenue' falls into the range '5000w-7500w'.",
+  "reference": "The day with the highest single-day Views was September 25, 2025, when the Video Sales Revenue was in the 50M–75M range.",
+  "rubrics": null,
+  "question": "Based on this file, help me find the specific day (Year/Month/Day) with the highest single-day 'Views' during this period. Also, tell me which range the 'Video Sales Revenue' falls into on that day?",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 1.07,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型正确识别出最高单日Views的日期为2025年9月25日，与参考答案一致；同时指出当日Video Sales Revenue在5000w-7500w范围，换算后等价于50M–75M，与参考答案范围一致。虽表达方式略有不同，但核心要点完整且准确，符合1分标准。"
+}

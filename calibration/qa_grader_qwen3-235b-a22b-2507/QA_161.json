@@ -1,0 +1,17 @@
+{
+  "id": "QA_161",
+  "answer": "6 distinct non-null values in the 'Color' column: Blue-Green, Dark Blue, Dark Green, Light Blue, Light Green, Purple",
+  "model_response": "6 distinct non-null values in the 'Color' column: Blue-Green, Dark Blue, Dark Green, Light Blue, Light Green, Purple",
+  "reference": 6,
+  "rubrics": null,
+  "question": "How many distinct values are there in the \"Color\" column (excluding null values)",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17781,
+  "completion_tokens": 472,
+  "elapsed_seconds": 10.13,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型答案中计算的distinct非空值数量为6，与参考答案完全一致，符合统计类题目的评分标准。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_36",
+  "answer": "Feeding-type classification of 1,572 fish (1,592 data rows minus 20 with no fish name) in '2024-2025 Heishui River Fish Data (Friday Evening).xlsx', sheet '2025' (classifications per species follow standard ichthyology):\n\n  Omnivorous  : 882 individuals, 128,102.34 g total body weight\n  Herbivorous : 334 individuals, 150,432.78 g total body weight\n  Carnivorous : 356 individuals,  49,387.81 g total body weight\n\n  TOTAL       : 1,572 individuals, 327,922.93 g",
+  "model_response": "Feeding-type classification of 1,572 fish (1,592 data rows minus 20 with no fish name) in '2024-2025 Heishui River Fish Data (Friday Evening).xlsx', sheet '2025' (classifications per species follow standard ichthyology):\n\n  Omnivorous  : 882 individuals, 128,102.34 g total body weight\n  Herbivorous : 334 individuals, 150,432.78 g total body weight\n  Carnivorous : 356 individuals,  49,387.81 g total body weight\n\n  TOTAL       : 1,572 individuals, 327,922.93 g",
+  "reference": "Dietary classification        Count (individuals)        Total weight (g) \nOmnivorous        1,136        105,680.34 \nHerbivorous        192        173,951.20 \nCarnivorous        244        48,291.39",
+  "rubrics": null,
+  "question": "How many individuals and what is the total weight for omnivorous, herbivorous, and carnivorous fish respectively?",
+  "n_inputs": 1,
+  "n_turns": 6,
+  "prompt_tokens": 17662,
+  "completion_tokens": 567,
+  "elapsed_seconds": 7.5,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型提供的三种鱼类（杂食性、草食性、肉食性）的个体数量和总重量与参考答案均存在显著差异，未达到统计一致性要求。"
+}

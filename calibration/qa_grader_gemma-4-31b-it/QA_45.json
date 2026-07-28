@@ -1,0 +1,17 @@
+{
+  "id": "QA_45",
+  "answer": "414",
+  "model_response": "414",
+  "reference": 246,
+  "rubrics": null,
+  "question": "Count how many distinct business_code values correspond to more than one distinct product_id in the dataset, and output that count. Specific requirements: group by business_code, calculate the number of distinct product_id values for each business_code, filter for those with a count greater than 1, and finally output the number of business_code entries that meet the condition (a single integer).",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 17980,
+  "completion_tokens": 342,
+  "elapsed_seconds": 10.79,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型给出的统计结果为414，与参考答案246不一致。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_58",
+  "answer": "Qualifying customers (Secondary Industry 12, Cash Income > 61000): 39\nTotal customers across all industries: 557\nPercentage: 7.00%",
+  "model_response": "Qualifying customers (Secondary Industry 12, Cash Income > 61000): 39\nTotal customers across all industries: 557\nPercentage: 7.00%",
+  "reference": "The number of customers in Secondary Industry 12 with income greater than 61000 is 39; this count as a percentage of the total number of customers across all industries is 7.00%",
+  "rubrics": "Both numerical values in the answer must be completely accurate to be considered correct",
+  "question": "Count the number of customers in the \"Secondary Industry 12\" secondary industry whose Cash Income is greater than 61000 (excluding 61000), and calculate this count as a percentage of the total number of customers across all industries. The output should contain two values: (1) the number of qualifying customers (integer); (2) the percentage (rounded to 2 decimal places, formatted as \"12.34%\"). Ignore rows where the Cash Income field is null or non-numeric when counting.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 11740,
+  "completion_tokens": 248,
+  "elapsed_seconds": 4.47,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型给出的合格客户数量（39）和百分比（7.00%）与参考答案完全一致，符合所有答题要求。"
+}

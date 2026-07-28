@@ -1,0 +1,17 @@
+{
+  "id": "QA_204",
+  "answer": "Descending order of 'Unit selling price per mu' in Irrigated land:\n1. Staff F: 84000\n2. Water Spinach: 45000\n3. Eggplant: 35200\n4. Cabbage: 24050\n5. Cowpea: 24000\n6. Staff G: 22500\n7. Celery: 22000\n8. Lettuce : 21525\n9. Romaine Lettuce: 20500\n10. Green Beans: 19500\n11. Baby bok choy: 18400\n12. Cauliflower: 18150\n13. Spinach : 15525\n14. Tomato: 15000\n15. Sword bean: 13500\n16. Green Pepper: 12600\n17. Chili Pepper: 11600\n18. Potato: 7500\n19. Rice: 3500",
+  "model_response": "Descending order of 'Unit selling price per mu' in Irrigated land:\n1. Staff F: 84000\n2. Water Spinach: 45000\n3. Eggplant: 35200\n4. Cabbage: 24050\n5. Cowpea: 24000\n6. Staff G: 22500\n7. Celery: 22000\n8. Lettuce : 21525\n9. Romaine Lettuce: 20500\n10. Green Beans: 19500\n11. Baby bok choy: 18400\n12. Cauliflower: 18150\n13. Spinach : 15525\n14. Tomato: 15000\n15. Sword bean: 13500\n16. Green Pepper: 12600\n17. Chili Pepper: 11600\n18. Potato: 7500\n19. Rice: 3500",
+  "reference": "1. Personnel F - 84,000 yuan/mu\n2. Water spinach - 45,000 yuan/mu\n3. Eggplant - 35,200 yuan/mu\n4. Cabbage - 24,050 yuan/mu\n5. Cowpea - 24,000 yuan/mu\n6. Personnel G - 22,500 yuan/mu\n7. Celery - 22,000 yuan/mu\n8. Lettuce - 21,525 yuan/mu\n9. Romaine lettuce - 20,500 yuan/mu\n10. Green beans - 19,500 yuan/mu\n11. Baby bok choy - 18,400 yuan/mu\n12. Cauliflower - 18,150 yuan/mu\n13. Spinach - 15,525 yuan/mu\n14. Tomato - 15,000 yuan/mu\n15. Sword bean - 13,500 yuan/mu\n16. Green pepper - 12,600 yuan/mu\n17. Chili pepper - 11,600 yuan/mu\n18. Potato - 7,500 yuan/mu\n19. Rice - 3,500 yuan/mu",
+  "rubrics": null,
+  "question": "What is the descending order of \"Unit selling price per mu\" in irrigated land?",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 6662,
+  "completion_tokens": 89,
+  "elapsed_seconds": 3.49,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案与参考答案在排序和数值上完全一致，仅存在表述上的微小差异（如'Personnel F'写作'Staff F'，'Cowpea'写作'Green Beans'等，但对应关系正确），且单位和数值四舍五入后一致。整体逻辑清晰，顺序正确，核心信息完整覆盖参考答案，因此判定为1分。"
+}

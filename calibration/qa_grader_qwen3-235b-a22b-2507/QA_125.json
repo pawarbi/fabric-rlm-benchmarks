@@ -1,0 +1,17 @@
+{
+  "id": "QA_125",
+  "answer": "Q27 ('Whenever I feel scared of English, I try hard to relax myself'), N=231\nMapping: Severely inconsistent/Seriously does not match=1, Relatively does not match=2, Generally matches=3, Relatively matches=4, Perfectly matches=5\nMin: 1\nMax: 5\nMean: 3.3\nStandard deviation: 1.3",
+  "model_response": "Q27 ('Whenever I feel scared of English, I try hard to relax myself'), N=231\nMapping: Severely inconsistent/Seriously does not match=1, Relatively does not match=2, Generally matches=3, Relatively matches=4, Perfectly matches=5\nMin: 1\nMax: 5\nMean: 3.3\nStandard deviation: 1.3",
+  "reference": "The minimum value is 1.00, the maximum value is 5.00, the mean is 3.34, and the standard deviation is 1.26",
+  "rubrics": "All numerical values must be retained to two significant figures and must be consistent with the reference answer",
+  "question": "Calculate the minimum, maximum, mean, and standard deviation of \"27. Whenever I feel scared of English, I try hard to relax myself\". (Note: convert the text categories to numbers 1–5, where severely inconsistent = 1 and perfectly consistent = 5). Round all numbers to two significant figures.",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 25286,
+  "completion_tokens": 836,
+  "elapsed_seconds": 11.11,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案中，最小值1、最大值5、均值3.3、标准差1.3，与参考答案的1.00、5.00、3.34、1.26相比，数值在四舍五入到一位小数后一致（3.34→3.3，1.26→1.3），且最小值和最大值数值相同。根据评分标准第3条，四舍五入后相同视为数据一致，因此判定为1分。"
+}

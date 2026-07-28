@@ -1,0 +1,17 @@
+{
+  "id": "QA_121",
+  "answer": "The 2-medicine combination with the highest confidence is **DRUG_955C5A + DRUG_C1AA40** with a confidence of **1.0000** (7 co-occurrences; DRUG_C1AA40 appears in 7 prescriptions and all 7 of those prescriptions also contain DRUG_955C5A). This pair has the highest support among all 1.0-confidence pairs.",
+  "model_response": "The 2-medicine combination with the highest confidence is **DRUG_955C5A + DRUG_C1AA40** with a confidence of **1.0000** (7 co-occurrences; DRUG_C1AA40 appears in 7 prescriptions and all 7 of those prescriptions also contain DRUG_955C5A). This pair has the highest support among all 1.0-confidence pairs.",
+  "reference": "The combination of DRUG_D5A58F->DRUG_955C5A has a confidence of 0.6923.",
+  "rubrics": null,
+  "question": "Among all combinations containing exactly 2 medicines, which combination has the highest confidence?",
+  "n_inputs": 1,
+  "n_turns": 7,
+  "prompt_tokens": 37893,
+  "completion_tokens": 1134,
+  "elapsed_seconds": 17.03,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型给出的最高置信度组合（DRUG_955C5A + DRUG_C1AA40, 1.0000）与参考答案（DRUG_D5A58F->DRUG_955C5A, 0.6923）完全不一致。"
+}

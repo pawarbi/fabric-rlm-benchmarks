@@ -1,0 +1,17 @@
+{
+  "id": "QA_152",
+  "answer": "Average scores for the 39 students in 14.xlsx:\n- Chinese: 49.64\n- Math: 40.49\n- English: 27.77",
+  "model_response": "Average scores for the 39 students in 14.xlsx:\n- Chinese: 49.64\n- Math: 40.49\n- English: 27.77",
+  "reference": "The average score for Chinese is 49.641, the average score for Math is 40.487, and the average score for English is 27.769",
+  "rubrics": null,
+  "question": "What are the average scores for Chinese, Math, and English respectively?",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 18609,
+  "completion_tokens": 499,
+  "elapsed_seconds": 7.4,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型提供的三门课程平均分与参考答案在四舍五入后完全一致，符合统计类题目的评分标准。"
+}

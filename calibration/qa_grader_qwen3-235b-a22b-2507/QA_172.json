@@ -1,0 +1,17 @@
+{
+  "id": "QA_172",
+  "answer": "95734",
+  "model_response": "95734",
+  "reference": "95,734 (10k)",
+  "rubrics": null,
+  "question": "What is the total sales amount of zq_8 in 10k units? Provide only the specific number.",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.86,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的答案为95734，与参考答案95,734 (10k) 在数值上完全一致，仅缺少千位分隔符，但数值表达正确，且单位为10k单位下的具体数字，符合题目要求。因此判定为1分。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "QA_18",
+  "answer": "Date | Total Equipment Input Machine-Hours\n--- | ---\n2025-11-16 | 36.5\n2025-11-17 | 40.5\n2025-11-18 | 41.0\n2025-11-19 | 30.0\n2025-11-20 | 30.0\n2025-11-21 | 30.0\n2025-11-22 | 30.0\n2025-11-23 | 61.5\n2025-11-24 | 51.0\n2025-11-25 | 61.5\n2025-11-26 | 61.5\n2025-11-27 | 61.5\n2025-11-28 | 42.0\n2025-11-29 | 61.5\n2025-11-30 | 40.5\n2025-12-01 | 51.0\n2025-12-02 | 61.5\n2025-12-03 | 0.0\n2025-12-04 | 30.0\n2025-12-05 | 41.0\n2025-12-06 | 61.5\n2025-12-07 | 61.5\n2025-12-08 | 61.5\n2025-12-09 | 51.5\n2025-12-10 | 41.0\n2025-12-11 | 21.0",
+  "model_response": "Date | Total Equipment Input Machine-Hours\n--- | ---\n2025-11-16 | 36.5\n2025-11-17 | 40.5\n2025-11-18 | 41.0\n2025-11-19 | 30.0\n2025-11-20 | 30.0\n2025-11-21 | 30.0\n2025-11-22 | 30.0\n2025-11-23 | 61.5\n2025-11-24 | 51.0\n2025-11-25 | 61.5\n2025-11-26 | 61.5\n2025-11-27 | 61.5\n2025-11-28 | 42.0\n2025-11-29 | 61.5\n2025-11-30 | 40.5\n2025-12-01 | 51.0\n2025-12-02 | 61.5\n2025-12-03 | 0.0\n2025-12-04 | 30.0\n2025-12-05 | 41.0\n2025-12-06 | 61.5\n2025-12-07 | 61.5\n2025-12-08 | 61.5\n2025-12-09 | 51.5\n2025-12-10 | 41.0\n2025-12-11 | 21.0",
+  "reference": null,
+  "rubrics": null,
+  "question": "Calculate the total sum of equipment input machine-hours for each date (in \"YYYY-MM-DD\" format) in the dataset. If the data contains fields related to \"date\" and \"equipment input machine-hours\", group by date and aggregate the equipment input machine-hours; if there are multiple records for the same day, sum them cumulatively; missing values are excluded from the calculation; the final output is a table containing two columns: \"Date\" and \"Total Equipment Input Machine-Hours\", sorted by date in ascending order, with values rounded to 2 decimal places, in units of \"machine-hours\".",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "elapsed_seconds": 0.9,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "参考答案（Reference Answer）缺失，无法验证AI模型输出的统计数据是否正确，因此无法判定为1分。"
+}

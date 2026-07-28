@@ -1,0 +1,17 @@
+{
+  "id": "QA_53",
+  "answer": "Year\tMedian(Indicator A)\n2019\t2.27\n2020\t2.95\n2021\t3.19\n2022\t2.53\n2023\t2.84\n2024\t2.5\n2025\t2.53",
+  "model_response": "Year\tMedian(Indicator A)\n2019\t2.27\n2020\t2.95\n2021\t3.19\n2022\t2.53\n2023\t2.84\n2024\t2.5\n2025\t2.53",
+  "reference": "Year Indicator A Median\n 2019 2.27\n 2020 2.94\n 2021 3.19\n 2022 2.53\n 2023 2.84\n 2024 2.5\n 2025 2.53",
+  "rubrics": "Whether the data is sorted by Year",
+  "question": "Filter all rows where the \"Grade\" column value is \"B2F\", group by the \"Year\" field, and calculate the median of the \"Indicator A\" column for each year. Output a table with two columns: the first column is the year (sorted in ascending order), and the second column is the median of Indicator A for that year (rounded to 2 decimal places). If all values of Indicator A for a given year are missing, display the median for that year as \"N/A\".",
+  "n_inputs": 1,
+  "n_turns": 4,
+  "prompt_tokens": 23734,
+  "completion_tokens": 599,
+  "elapsed_seconds": 10.26,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 0,
+  "reason": "AI模型答案中2020年的中位数为2.95，而参考答案为2.94，两者四舍五入后仍不一致，属于明显差异。根据统计类题目评分标准，计算结果存在明显差异应得0分。尽管年份排序正确且其余年份数值正确，但关键数据错误导致整体不得分。"
+}

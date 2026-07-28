@@ -1,0 +1,17 @@
+{
+  "id": "QA_65",
+  "answer": "Top 3 first-purchase dates (parsed from Customer ID field, format KH+YYYYMMDD+HHMM):\n1. 2025-10-30 — 24,390 customers\n2. 2025-04-18 — 10,730 customers\n3. 2024-11-04 — 7,189 customers\n\n(Total of 141,066 Customer IDs parsed across 709 unique first-purchase dates.)",
+  "model_response": "Top 3 first-purchase dates (parsed from Customer ID field, format KH+YYYYMMDD+HHMM):\n1. 2025-10-30 — 24,390 customers\n2. 2025-04-18 — 10,730 customers\n3. 2024-11-04 — 7,189 customers\n\n(Total of 141,066 Customer IDs parsed across 709 unique first-purchase dates.)",
+  "reference": "20251030, customer count 24390\n20250418, customer count 10730\n20241104, customer count 7189",
+  "rubrics": null,
+  "question": "Read the file \"20251219_order_details_Anna(17317597692)_1.xlsx\", parse the first-purchase date YYYYMMDD from the \"Customer ID\" field (format: KH+YYYYMMDD+HHMM, e.g. KH202506031921 means first purchase on June 3, 2025 at 19:21), count the number of customers per first-purchase date, sort by customer count from highest to lowest, and output the top 3 first-purchase dates along with their corresponding customer counts",
+  "n_inputs": 1,
+  "n_turns": 3,
+  "prompt_tokens": 18719,
+  "completion_tokens": 633,
+  "elapsed_seconds": 66.42,
+  "run_err": null,
+  "model": "openrouter/minimax/minimax-m3",
+  "score": 1,
+  "reason": "AI模型的计算结果与参考答案完全一致，正确识别并统计了前三个首次购买日期及其对应的客户数量。"
+}
