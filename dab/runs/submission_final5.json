@@ -1,0 +1,1622 @@
+[
+ {
+  "dataset": "DEPS_DEV_V1",
+  "query": 1,
+  "run": 1,
+  "answer": "The top 5 NPM packages (by GitHub stars, considering only the latest release version per package) are: 1) @dylanvann/svelte, version 3.25.4 (73,499 stars, sveltejs/svelte); 2) @dumc11/tailwindcss, version 0.4.0 (73,464 stars, tailwindcss/tailwindcss); 3) @dman777/shadow-dom-quill-temp, version 1.0.0 (42,407 stars, quilljs/quill); 4) @dynasty/styled-components, version 3.2.1 (39,660 stars, styled-components/styled-components); 5) @dothq/styled-components, version 1.0.0 (39,660 stars, styled-components/styled-components). Analyst 2 was wrong because they did not properly use the VersionInfo Ordinal field to select the latest release per package — the top stars come from re-published/aliased packages like @dylanvann/svelte and @dumc11/tailwindcss that are tied to high-star repos (svelte, tailwindcss) via their latest release version, which Analyst 2's query missed entirely."
+ },
+ {
+  "dataset": "DEPS_DEV_V1",
+  "query": 1,
+  "run": 2,
+  "answer": "Top 5 most popular NPM packages (latest release version) by GitHub stars:\n1. @dylanvann/svelte — version 3.25.4 — 73,499 stars (repo: sveltejs/svelte)\n2. @dumc11/tailwindcss — version 0.4.0 — 73,464 stars (repo: tailwindcss/tailwindcss)\n3. @dman777/shadow-dom-quill-temp — version 1.0.0 — 42,407 stars (repo: quilljs/quill)\n4. @dothq/styled-components — version 1.0.0 — 39,660 stars (repo: styled-components/styled-components)\n5. @dynasty/styled-components — version 3.2.1 — 39,660 stars (repo: styled-components/styled-components)"
+ },
+ {
+  "dataset": "DEPS_DEV_V1",
+  "query": 1,
+  "run": 3,
+  "answer": "The top 5 most popular NPM packages (latest version) by GitHub stars: 1) @dylanvann/svelte version 3.25.4 (73499 stars), 2) @dumc11/tailwindcss version 0.4.0 (73464 stars), 3) @edgarai/strapi-provider-upload-local version 3.6.3-devgar-fork.2 (57236 stars), 4) @dman777/shadow-dom-quill-temp version 1.0.0 (42407 stars), 5) @dothq/styled-components version 6.0.2-prealpha-dot (39660 stars)."
+ },
+ {
+  "dataset": "DEPS_DEV_V1",
+  "query": 1,
+  "run": 4,
+  "answer": "Top 5 NPM packages (latest release only) by GitHub stars:\n1) @dylanvann/svelte version 3.25.4 (73499 stars)\n2) @dumc11/tailwindcss version 0.4.0 (73464 stars)\n3) @dman777/shadow-dom-quill-temp version 1.0.0 (42407 stars)\n4) @dothq/styled-components version 1.0.0 (39660 stars)\n5) @dynasty/styled-components version 3.2.1 (39660 stars)\n\nAnalyst 2's answer is wrong because they did not correctly identify the latest release version of each package (max Ordinal from VersionInfo), and they appear to have included sub-dependencies (e.g. react-scripts>node-sass, cli>qs) rather than mapping each NPM package to its corresponding top-level GitHub project via project_packageversion."
+ },
+ {
+  "dataset": "DEPS_DEV_V1",
+  "query": 1,
+  "run": 5,
+  "answer": "Top 5 most popular NPM packages (latest release versions) by GitHub stars: 1) @dylanvann/svelte v3.25.4 (sveltejs/svelte, 73,499 stars); 2) @dumc11/tailwindcss v0.4.0 (tailwindcss/tailwindcss, 73,464 stars); 3) @dman777/shadow-dom-quill-temp v1.0.0 (quilljs/quill, 42,407 stars); 4) @dynasty/styled-components v3.2.1 (styled-components/styled-components, 39,660 stars); 5) @dothq/styled-components v1.0.0 (styled-components/styled-components, 39,660 stars). Analyst 2 was wrong because they omitted the 42,407-star quilljs entry and the @dynasty/styled-components tie at 39,660 stars, substituting @ec-nordbund/leaflet (38,715) instead."
+ },
+ {
+  "dataset": "DEPS_DEV_V1",
+  "query": 2,
+  "run": 1,
+  "answer": "Top 5 NPM projects with MIT license and release versions ranked by GitHub fork count: 1) mui-org/material-ui: 30522 forks; 2) moment/moment: 7201 forks; 3) lodash/lodash: 7109 forks; 4) semantic-org/semantic-ui: 4955 forks; 5) react-native-elements/react-native-elements: 4623 forks. Analyst 2's answer was wrong because they omitted mui-org/material-ui (30522 forks) and lodash/lodash (7109 forks), both of which are NPM packages with MIT license, release versions, and rank above all of Analyst 2's listed projects."
+ },
+ {
+  "dataset": "DEPS_DEV_V1",
+  "query": 2,
+  "run": 2,
+  "answer": "Top 5 NPM MIT-licensed release projects by GitHub forks: 1) mui-org/material-ui: 30,522, 2) semantic-org/semantic-ui: 4,955, 3) react-native-elements/react-native-elements: 4,623, 4) sveltejs/svelte: 4,091, 5) tailwindcss/tailwindcss: 3,848. Analyst 1 was wrong because lodash/lodash and moment/moment do not appear in the top results under the proper join (filter for MIT, IsRelease=true, GITHUB ProjectType, fork count parsed from Project_Information); the correct 5th entry is tailwindcss/tailwindcss at 3,848 forks, matching Analyst 2."
+ },
+ {
+  "dataset": "DEPS_DEV_V1",
+  "query": 2,
+  "run": 3,
+  "answer": "The top 5 NPM packages with MIT license marked as release by GitHub fork count: 1) mui-org/material-ui: 30,522 forks; 2) moment/moment: 7,201 forks; 3) lodash/lodash: 7,109 forks; 4) semantic-org/semantic-ui: 4,955 forks; 5) react-native-elements/react-native-elements: 4,623 forks. Analyst 1 was wrong because they omitted moment/moment (7,201) and lodash/lodash (7,109) which rank 2nd and 3rd; Analyst 2 was wrong because they omitted the same top projects and included much lower-ranked packages."
+ },
+ {
+  "dataset": "DEPS_DEV_V1",
+  "query": 2,
+  "run": 4,
+  "answer": "The top 5 NPM projects with MIT project license and marked as release, ranked by GitHub fork count, are: mui-org/material-ui (30,522 forks), moment/moment (7,201 forks), semantic-org/semantic-ui (4,955 forks), react-native-elements/react-native-elements (4,623 forks), sveltejs/svelte (4,091 forks). Analyst 1 was wrong because they omitted moment/moment (7,201 forks), which is MIT-licensed and has more forks than semantic-ui, react-native-elements, svelte, and tailwindcss; Analyst 2 was wrong because they omitted mui-org/material-ui entirely despite it being the clear #1 with 30,522 forks, and instead listed much lower-ranked projects."
+ },
+ {
+  "dataset": "DEPS_DEV_V1",
+  "query": 2,
+  "run": 5,
+  "answer": "The 5 NPM projects (MIT license, marked as release) with the highest GitHub fork count are: 1) mui-org/material-ui (30,522 forks), 2) moment/moment (7,201 forks), 3) semantic-org/semantic-ui (4,955 forks), 4) react-native-elements/react-native-elements (4,623 forks), 5) sveltejs/svelte (4,091 forks). Both analysts missed moment/moment (7,201 forks), which qualifies with MIT project license and multiple MIT release versions that properly join to the project_packageversion table."
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 1,
+  "run": 1,
+  "answer": "0.1232 (17 out of 138, approximately 12.32%)"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 1,
+  "run": 2,
+  "answer": "0.1905 (20 out of 105 README.md files in non-Python repositories contain copyright markers, i.e., the word 'copyright', '©', or '(c)'). Analyst 2's denominator of 117 was incorrect; the correct count of README.md files in non-Python repos with available content is 105, of which 20 contain copyright information."
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 1,
+  "run": 3,
+  "answer": "0.1524 (16 out of 105 README.md files in non-Python repositories contain copyright information, approximately 15.24%). Analyst 2's count of 138 was wrong because the proper approach uses the contents table (105 non-Python README.md files), not the files table, since only the contents table provides the actual file text needed to detect copyright strings."
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 1,
+  "run": 4,
+  "answer": "0.1524"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 1,
+  "run": 5,
+  "answer": "0.1524 (16 out of 105 README.md files in non-Python repositories contain copyright information). Analyst 1's 111-count was wrong because they likely used a stricter primary-language filter (excluding 6 repos where Python appears as a secondary language), but the natural reading of 'do not use Python' is that Python is not among the languages used at all."
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 2,
+  "run": 1,
+  "answer": "uacaps/PageMenu"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 2,
+  "run": 2,
+  "answer": "uacaps/PageMenu"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 2,
+  "run": 3,
+  "answer": "uacaps/PageMenu"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 2,
+  "run": 4,
+  "answer": "uacaps/PageMenu"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 2,
+  "run": 5,
+  "answer": "uacaps/PageMenu. Analyst 2 was wrong: othierry/future contains no .swift files in the contents table, so it cannot host the most-copied non-binary Swift file. The top result by copy count is uacaps/PageMenu, whose ContactTableViewCell.swift (id 6f4cdb70f044b0486a24a07403600cb964a02672) appears 38 times and is non-binary."
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 3,
+  "run": 1,
+  "answer": "1077"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 3,
+  "run": 2,
+  "answer": "1077"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 3,
+  "run": 3,
+  "answer": "1077"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 3,
+  "run": 4,
+  "answer": "1077"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 3,
+  "run": 5,
+  "answer": "1077"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 4,
+  "run": 1,
+  "answer": "apple/swift, twbs/bootstrap, Microsoft/vscode, facebook/react, tensorflow/tensorflow"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 4,
+  "run": 2,
+  "answer": "apple/swift, twbs/bootstrap, Microsoft/vscode, facebook/react, tensorflow/tensorflow. Analyst 1 was wrong because torvalds/linux has no entry in the metadata_database.languages table, so its main language cannot be determined and it cannot be classified as non-Python; Analyst 2's list correctly includes tensorflow/tensorflow instead."
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 4,
+  "run": 3,
+  "answer": "['apple/swift', 'twbs/bootstrap', 'Microsoft/vscode', 'facebook/react', 'tensorflow/tensorflow']"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 4,
+  "run": 4,
+  "answer": "apple/swift, twbs/bootstrap, Microsoft/vscode, facebook/react, tensorflow/tensorflow"
+ },
+ {
+  "dataset": "GITHUB_REPOS",
+  "query": 4,
+  "run": 5,
+  "answer": "The top 5 GitHub repositories whose main language is not Python, ordered by commit count, are: apple/swift (1051 commits, main language C++), twbs/bootstrap (340 commits, JavaScript), Microsoft/vscode (190 commits, TypeScript), facebook/react (178 commits, JavaScript), tensorflow/tensorflow (156 commits, C++). Analyst 1's repo list and ordering match the correct answer, but Analyst 1 incorrectly labeled apple/swift's main language as Swift when it is actually C++ (49M bytes vs 41M for Swift); Analyst 2 provided accurate commit counts."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 1,
+  "run": 1,
+  "answer": "For LGG patients, the average log10(IGF2 normalized_count + 1) by histology is: Astrocytoma: 2.5713 (n=10); Oligoastrocytoma: 2.7136 (n=5); Oligodendroglioma: 2.6825 (n=8). Both analysts agree; no divergence to resolve."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 1,
+  "run": 2,
+  "answer": "Astrocytoma: 2.5713 (n=10), Oligoastrocytoma: 2.7136 (n=5), Oligodendroglioma: 2.6825 (n=8). Full precision: Astrocytoma 2.571298, Oligoastrocytoma 2.713571, Oligodendroglioma 2.682458. Both analysts agree on the numeric values; Analyst 1 presented full precision while Analyst 2 rounded to 4 decimals — there is no substantive disagreement."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 1,
+  "run": 3,
+  "answer": "For LGG patients, the average log10-transformed expression of IGF2 across histology types is: Astrocytoma: 2.5713, Oligoastrocytoma: 2.7136, Oligodendroglioma: 2.6825. Both analysts provided the same values; there is no actual disagreement on the numerical answers."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 1,
+  "run": 4,
+  "answer": "For LGG (Brain lower grade glioma) patients, the average log10(IGF2 normalized_count + 1) by histological type (excluding bracketed values like [Discrepancy]) is: Astrocytoma: 2.5713 (n=10); Oligoastrocytoma: 2.7136 (n=5); Oligodendroglioma: 2.6825 (n=8). Both analysts agreed on these identical values."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 1,
+  "run": 5,
+  "answer": "For LGG patients, average log10(IGF2 normalized_count + 1) by histology type: Astrocytoma: 2.5713 (n=10); Oligoastrocytoma: 2.7136 (n=5); Oligodendroglioma: 2.6825 (n=8)."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 2,
+  "run": 1,
+  "answer": "Among alive BRCA patients, the top three histological types by CDH1 mutation percentage are: (1) Infiltrating Lobular Carcinoma — 50.56% (90 of 178 patients); (2) Mixed Histology (please specify) — 16.67% (4 of 24 patients); (3) Other specify — 6.67% (3 of 45 patients). Analyst 1's answer was wrong because Medullary Carcinoma has 0 CDH1 mutations among the 4 alive BRCA patients (their 1/6 figure mixed in 2 dead patients, only one of whom carried CDH1)."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 2,
+  "run": 2,
+  "answer": "Among alive BRCA patients in the PanCancer Atlas, the top three histological types with the highest CDH1 mutation percentages are: 1) Infiltrating Lobular Carcinoma: 50.56% (90 of 178 patients); 2) Mixed Histology (please specify): 16.67% (4 of 24 patients); 3) Other specify: 8.33% (3 of 36 patients). Analyst 2 was wrong because they restricted the BRCA cohort using an incorrect join/filter that dropped the Mixed Histology and Other specify groups and reported only Infiltrating Lobular (50.57%, 88/174) and Infiltrating Ductal (2.30%, 16/697); the correct join on patient_id recovers all histological types including Mixed and Other specify with higher mutation rates than Infiltrating Ductal."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 2,
+  "run": 3,
+  "answer": "The top three histological types among alive BRCA patients with the highest percentage of CDH1 mutations are: (1) Infiltrating Lobular Carcinoma: 50.56% (90 of 178 patients), (2) Mixed Histology (please specify): 16.67% (4 of 24 patients), and (3) Infiltrating Ductal Carcinoma: 2.09% (14 of 671 patients). Both analysts' answers are wrong: Medullary Carcinoma has 0% CDH1 mutation rate among alive patients because the only Medullary CDH1 carrier (TCGA-BH-A209) is Dead, so it must be excluded; Analyst 1 also missed Mixed Histology and Analyst 2 used a TUMOR FREE filter that incorrectly included a Dead patient."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 2,
+  "run": 4,
+  "answer": "Among BRCA patients in the PanCancer Atlas who are alive, the top three histological types by percentage of CDH1 gene mutations are: (1) Infiltrating Lobular Carcinoma: 50.56% (90 of 178 patients); (2) Mixed Histology (please specify): 16.67% (4 of 24 patients); (3) Other specify: 8.33% (3 of 36 patients). Analyst 1's answer was wrong because they used an overly restrictive alive filter (e.g., person_neoplasm_cancer_status='TUMOR FREE' or similar) that dropped patients whose Patient_description text clearly says 'Alive', yielding too-small denominators (116, 10, 24 vs the correct 178, 24, 36)."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 2,
+  "run": 5,
+  "answer": "Among alive BRCA patients in the PanCancer Atlas, the top three histological types by CDH1 mutation percentage are: 1) Infiltrating Lobular Carcinoma: 50.56% (90/178); 2) Mixed Histology (please specify): 16.67% (4/24); 3) Other specify: 8.33% (3/36). Analyst 2 is correct. Analyst 1's 'Other specify' denominator of 35 was wrong — the correct count is 36 alive BRCA patients, yielding 8.33% (not 5.71%)."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 3,
+  "run": 1,
+  "answer": "305.12"
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 3,
+  "run": 2,
+  "answer": "305.1239"
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 3,
+  "run": 3,
+  "answer": "301.29. The losing answer (305.1239) was wrong because it included the 'Other  specify' histological type category, which is not a known histological type and should be excluded per the question's 'only known histological types' requirement."
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 3,
+  "run": 4,
+  "answer": "305.1239"
+ },
+ {
+  "dataset": "PANCANCER_ATLAS",
+  "query": 3,
+  "run": 5,
+  "answer": "305.12"
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 1,
+  "run": 1,
+  "answer": "A61K (957.41): PREPARATIONS FOR MEDICAL, DENTAL OR TOILETRY PURPOSES; H04L (843.10): TRANSMISSION OF DIGITAL INFORMATION, e.g. TELEGRAPHIC COMMUNICATION; A61B (613.20): DIAGNOSIS; SURGERY; IDENTIFICATION; G01N (492.08): INVESTIGATING OR ANALYSING MATERIALS BY DETERMINING THEIR CHEMICAL OR PHYSICAL PROPERTIES; C07D (435.09): HETEROCYCLIC COMPOUNDS; G02B (331.47): OPTICAL ELEMENTS, SYSTEMS OR APPARATUS; B29C (219.42): SHAPING OR JOINING OF PLASTICS; SHAPING OF MATERIAL IN A PLASTIC STATE, NOT OTHERWISE PROVIDED FOR; AFTER-TREATMENT OF THE SHAPED PRODUCTS, e.g. REPAIRING; A61F (214.47): FILTERS IMPLANTABLE INTO BLOOD VESSELS; PROSTHESES; DEVICES PROVIDING PATENCY TO, OR PREVENTING COLLAPSING OF, TUBULAR STRUCTURES OF THE BODY, e.g. STENTS; ORTHOPAEDIC, NURSING OR CONTRACEPTIVE DEVICES; FOMENTATION; TREATMENT OR PROTECTION OF EYES OR EARS; BANDAGES, DRESSINGS OR ABSORBENT PADS; FIRST-AID KITS; E21B (176.65): EARTH OR ROCK DRILLING; OBTAINING OIL, GAS, WATER, SOLUBLE OR MELTABLE MATERIALS OR A SLURRY OF MINERALS FROM WELLS; H05K (146.99): PRINTED CIRCUITS; CASINGS OR CONSTRUCTIONAL DETAILS OF ELECTRIC APPARATUS; MANUFACTURE OF ASSEMBLAGES OF ELECTRICAL COMPONENTS; H01R (140.09): ELECTRICALLY-CONDUCTIVE CONNECTIONS; STRUCTURAL ASSOCIATIONS OF A PLURALITY OF MUTUALLY-INSULATED ELECTRICAL CONNECTING ELEMENTS; COUPLING DEVICES; CURRENT COLLECTORS; B01J (135.72): CHEMICAL OR PHYSICAL PROCESSES, e.g. CATALYSIS OR COLLOID CHEMISTRY; THEIR RELEVANT APPARATUS; C12Q (127.26): MEASURING OR TESTING PROCESSES INVOLVING ENZYMES, NUCLEIC ACIDS OR MICROORGANISMS; COMPOSITIONS OR TEST PAPERS THEREFOR; PROCESSES OF PREPARING SUCH COMPOSITIONS; CONDITION-RESPONSIVE CONTROL IN MICROBIOLOGICAL OR ENZYMOLOGICAL PROCESSES; G11C (127.03): STATIC STORES; B23K (126.83): SOLDERING OR UNSOLDERING; WELDING; CLADDING OR PLATING BY SOLDERING OR WELDING; CUTTING BY APPLYING HEAT LOCALLY, e.g. FLAME CUTTING; WORKING BY LASER BEAM; B60R (124.08): VEHICLES, VEHICLE FITTINGS, OR VEHICLE PARTS, NOT OTHERWISE PROVIDED FOR; H02M (107.21): APPARATUS FOR CONVERSION BETWEEN AC AND AC, BETWEEN AC AND DC, OR BETWEEN DC AND DC, AND FOR USE WITH MAINS OR SIMILAR POWER SUPPLY SYSTEMS; CONVERSION OF DC OR AC INPUT POWER INTO SURGE OUTPUT POWER; CONTROL OR REGULATION THEREOF; C09K (103.91): MATERIALS FOR MISCELLANEOUS APPLICATIONS, NOT PROVIDED FOR ELSEWHERE; G03F (103.34): PHOTOMECHANICAL PRODUCTION OF TEXTURED OR PATTERNED SURFACES, e.g. FOR PRINTING, FOR PROCESSING OF SEMICONDUCTOR DEVICES; MATERIALS THEREFOR; ORIGINALS THEREFOR; APPARATUS SPECIALLY ADAPTED THEREFOR; C04B (102.82): LIME, MAGNESIA; SLAG; CEMENTS; COMPOSITIONS THEREOF, e.g. MORTARS, CONCRETE OR LIKE BUILDING MATERIALS; ARTIFICIAL STONE; CERAMICS; REFRACTORIES; TREATMENT OF NATURAL STONE; B65G (102.68): TRANSPORT OR STORAGE DEVICES, e.g. CONVEYORS FOR LOADING OR TIPPING, SHOP CONVEYOR SYSTEMS OR PNEUMATIC TUBE CONVEYORS; C02F (101.54): TREATMENT OF WATER, WASTE WATER, SEWAGE, OR SLUDGE; C08F (93.54): MACROMOLECULAR COMPOUNDS OBTAINED BY REACTIONS ONLY INVOLVING CARBON-TO-CARBON UNSATURATED BONDS; B25J (89.95): MANIPULATORS; CHAMBERS PROVIDED WITH MANIPULATION DEVICES; C22C (89.86): ALLOYS; H01Q (88.28): ANTENNAS, i.e. RADIO AERIALS; A61L (87.93): METHODS OR APPARATUS FOR STERILISING MATERIALS OR OBJECTS IN GENERAL; DISINFECTION, STERILISATION OR DEODORISATION OF AIR; CHEMICAL ASPECTS OF BANDAGES, DRESSINGS, ABSORBENT PADS OR SURGICAL ARTICLES; MATERIALS FOR BANDAGES, DRESSINGS, ABSORBENT PADS OR SURGICAL ARTICLES; A01K (87.52): ANIMAL HUSBANDRY; AVICULTURE; APICULTURE; PISCICULTURE; FISHING; REARING OR BREEDING ANIMALS, NOT OTHERWISE PROVIDED FOR; NEW BREEDS OF ANIMALS; H01F (78.80): MAGNETS; INDUCTANCES; TRANSFORMERS; SELECTION OF MATERIALS FOR THEIR MAGNETIC PROPERTIES; A47J (77.43): KITCHEN EQUIPMENT; COFFEE MILLS; SPICE MILLS; APPARATUS FOR MAKING BEVERAGES; G05D (76.74): SYSTEMS FOR CONTROLLING OR REGULATING NON-ELECTRIC VARIABLES; A01G (73.13): HORTICULTURE; CULTIVATION OF VEGETABLES, FLOWERS, RICE, FRUIT, VINES, HOPS OR SEAWEED; FORESTRY; WATERING; G01B (65.76): MEASURING LENGTH, THICKNESS OR SIMILAR LINEAR DIMENSIONS; MEASURING ANGLES; MEASURING AREAS; MEASURING IRREGULARITIES OF SURFACES OR CONTOURS; G01M (64.17): TESTING STATIC OR DYNAMIC BALANCE OF MACHINES OR STRUCTURES; TESTING OF STRUCTURES OR APPARATUS, NOT OTHERWISE PROVIDED FOR; C09J (59.72): ADHESIVES; NON-MECHANICAL ASPECTS OF ADHESIVE PROCESSES IN GENERAL; ADHESIVE PROCESSES NOT PROVIDED FOR ELSEWHERE; USE OF MATERIALS AS ADHESIVES; B01L (54.11): CHEMICAL OR PHYSICAL LABORATORY APPARATUS FOR GENERAL USE; F04B (51.89): POSITIVE-DISPLACEMENT MACHINES FOR LIQUIDS; PUMPS; B64C (51.86): AEROPLANES; HELICOPTERS; C08K (51.53): Use of inorganic or non-macromolecular organic substances as compounding ingredients; B60T (50.91): VEHICLE BRAKE CONTROL SYSTEMS OR PARTS THEREOF; BRAKE CONTROL SYSTEMS OR PARTS THEREOF, IN GENERAL; ARRANGEMENT OF BRAKING ELEMENTS ON VEHICLES IN GENERAL; PORTABLE DEVICES FOR PREVENTING UNWANTED MOVEMENT OF VEHICLES; VEHICLE MODIFICATIONS TO FACILITATE COOLING OF BRAKES; B64D (50.28): EQUIPMENT FOR FITTING IN OR TO AIRCRAFT; FLIGHT SUITS; PARACHUTES; ARRANGEMENT OR MOUNTING OF POWER PLANTS OR PROPULSION TRANSMISSIONS IN AIRCRAFT; H01B (50.22): CABLES; CONDUCTORS; INSULATORS; SELECTION OF MATERIALS FOR THEIR CONDUCTIVE, INSULATING OR DIELECTRIC PROPERTIES; H01G (50.03): CAPACITORS; CAPACITORS, RECTIFIERS, DETECTORS, SWITCHING DEVICES, LIGHT-SENSITIVE OR TEMPERATURE-SENSITIVE DEVICES OF THE ELECTROLYTIC TYPE; F25B (49.49): REFRIGERATION MACHINES, PLANTS OR SYSTEMS; COMBINED HEATING AND REFRIGERATION SYSTEMS; HEAT PUMP SYSTEMS; H02P (48.89): CONTROL OR REGULATION OF ELECTRIC MOTORS, ELECTRIC GENERATORS OR DYNAMO-ELECTRIC CONVERTERS; CONTROLLING TRANSFORMERS, REACTORS OR CHOKE COILS; G03B (47.53): APPARATUS OR ARRANGEMENTS FOR TAKING PHOTOGRAPHS OR FOR PROJECTING OR VIEWING THEM; APPARATUS OR ARRANGEMENTS EMPLOYING ANALOGOUS TECHNIQUES USING WAVES OTHER THAN OPTICAL WAVES; ACCESSORIES THEREFOR; F01N (47.07): GAS-FLOW SILENCERS OR EXHAUST APPARATUS FOR MACHINES OR ENGINES IN GENERAL; GAS-FLOW SILENCERS OR EXHAUST APPARATUS FOR INTERNAL COMBUSTION ENGINES; B05B (46.66): SPRAYING APPARATUS; ATOMISING APPARATUS; NOZZLES; B21D (46.14): WORKING OR PROCESSING OF SHEET METAL OR METAL TUBES, RODS OR PROFILES WITHOUT ESSENTIALLY REMOVING MATERIAL; PUNCHING METAL; E04B (44.53): GENERAL BUILDING CONSTRUCTIONS; WALLS, e.g. PARTITIONS; ROOFS; FLOORS; CEILINGS; INSULATION OR OTHER PROTECTION OF BUILDINGS; A61H (44.31): PHYSICAL THERAPY APPARATUS, e.g. DEVICES FOR LOCATING OR STIMULATING REFLEX POINTS IN THE BODY; ARTIFICIAL RESPIRATION; MASSAGE; BATHING DEVICES FOR SPECIAL THERAPEUTIC OR HYGIENIC PURPOSES OR SPECIFIC PARTS OF THE BODY; F16B (43.44): DEVICES FOR FASTENING OR SECURING CONSTRUCTIONAL ELEMENTS OR MACHINE PARTS TOGETHER, e.g. NAILS, BOLTS, CIRCLIPS, CLAMPS, CLIPS OR WEDGES; JOINTS OR JOINTING; E05B (43.13): LOCKS; ACCESSORIES THEREFOR; HANDCUFFS; H03M (42.84): CODING; DECODING; CODE CONVERSION IN GENERAL; B22F (42.14): WORKING METALLIC POWDER; MANUFACTURE OF ARTICLES FROM METALLIC POWDER; MAKING METALLIC POWDER; APPARATUS OR DEVICES SPECIALLY ADAPTED FOR METALLIC POWDER; G09F (42.02): DISPLAYING; ADVERTISING; SIGNS; LABELS OR NAME-PLATES; SEALS; G01J (41.98): MEASUREMENT OF INTENSITY, VELOCITY, SPECTRAL CONTENT, POLARISATION, PHASE OR PULSE CHARACTERISTICS OF INFRARED, VISIBLE OR ULTRAVIOLET LIGHT; COLORIMETRY; RADIATION PYROMETRY; C12P (40.71): FERMENTATION OR ENZYME-USING PROCESSES TO SYNTHESISE A DESIRED CHEMICAL COMPOUND OR COMPOSITION OR TO SEPARATE OPTICAL ISOMERS FROM A RACEMIC MIXTURE; C10G (40.20): CRACKING HYDROCARBON OILS; PRODUCTION OF LIQUID HYDROCARBON MIXTURES, e.g. BY DESTRUCTIVE HYDROGENATION, OLIGOMERISATION, POLYMERISATION; RECOVERY OF HYDROCARBON OILS FROM OIL-SHALE, OIL-SAND, OR GASES; REFINING MIXTURES MAINLY CONSISTING OF HYDROCARBONS; REFORMING OF NAPHTHA; MINERAL WAXES; G01F (39.33): MEASURING VOLUME, VOLUME FLOW, MASS FLOW OR LIQUID LEVEL; METERING BY VOLUME; G07C (38.52): TIME OR ATTENDANCE REGISTERS; REGISTERING OR INDICATING THE WORKING OF MACHINES; GENERATING RANDOM NUMBERS; VOTING OR LOTTERY APPARATUS; ARRANGEMENTS, SYSTEMS OR APPARATUS FOR CHECKING NOT PROVIDED FOR ELSEWHERE; G01D (37.77): MEASURING NOT SPECIALLY ADAPTED FOR A SPECIFIC VARIABLE; ARRANGEMENTS FOR MEASURING TWO OR MORE VARIABLES NOT COVERED IN A SINGLE OTHER SUBCLASS; TARIFF METERING APPARATUS; MEASURING OR TESTING NOT OTHERWISE PROVIDED FOR; B08B (36.84): CLEANING IN GENERAL; PREVENTION OF FOULING IN GENERAL; A47C (36.65): CHAIRS; SOFAS; BEDS; B23Q (36.39): DETAILS, COMPONENTS, OR ACCESSORIES FOR MACHINE TOOLS, e.g. ARRANGEMENTS FOR COPYING OR CONTROLLING; MACHINE TOOLS IN GENERAL CHARACTERISED BY THE CONSTRUCTION OF PARTICULAR DETAILS OR COMPONENTS; COMBINATIONS OR ASSOCIATIONS OF METAL-WORKING MACHINES, NOT DIRECTED TO A PARTICULAR RESULT; B63B (36.39): SHIPS OR OTHER WATERBORNE VESSELS; EQUIPMENT FOR SHIPPING ; E04H (36.13): BUILDINGS OR LIKE STRUCTURES FOR PARTICULAR PURPOSES; SWIMMING OR SPLASH BATHS OR POOLS; MASTS; FENCING; TENTS OR CANOPIES, IN GENERAL; A43B (35.81): CHARACTERISTIC FEATURES OF FOOTWEAR; PARTS OF FOOTWEAR; F16F (35.58): SPRINGS; SHOCK-ABSORBERS; MEANS FOR DAMPING VIBRATION; A45D (34.85): HAIRDRESSING OR SHAVING EQUIPMENT; EQUIPMENT FOR COSMETICS OR COSMETIC TREATMENTS, e.g. FOR MANICURING OR PEDICURING; B60H (34.77): ARRANGEMENTS OF HEATING, COOLING, VENTILATING OR OTHER AIR-TREATING DEVICES SPECIALLY ADAPTED FOR PASSENGER OR GOODS SPACES OF VEHICLES; B25B (34.66): TOOLS OR BENCH DEVICES NOT OTHERWISE PROVIDED FOR, FOR FASTENING, CONNECTING, DISENGAGING OR HOLDING; B01F (34.34): MIXING, e.g. DISSOLVING, EMULSIFYING OR DISPERSING; C12M (32.74): APPARATUS FOR ENZYMOLOGY OR MICROBIOLOGY; APPARATUS FOR CULTURING MICROORGANISMS FOR PRODUCING BIOMASS, FOR GROWING CELLS OR FOR OBTAINING FERMENTATION OR METABOLIC PRODUCTS, i.e. BIOREACTORS OR FERMENTERS; A47B (32.30): TABLES; DESKS; OFFICE FURNITURE; CABINETS; DRAWERS; GENERAL DETAILS OF FURNITURE; G01L (32.12): MEASURING FORCE, STRESS, TORQUE, WORK, MECHANICAL POWER, MECHANICAL EFFICIENCY, OR FLUID PRESSURE; B02C (31.14): CRUSHING, PULVERISING, OR DISINTEGRATING IN GENERAL; MILLING GRAIN; B60Q (30.81): ARRANGEMENT OF SIGNALLING OR LIGHTING DEVICES, THE MOUNTING OR SUPPORTING THEREOF OR CIRCUITS THEREFOR, FOR VEHICLES IN GENERAL; C03B (30.78): MANUFACTURE, SHAPING, OR SUPPLEMENTARY PROCESSES; E04F (29.87): FINISHING WORK ON BUILDINGS, e.g. STAIRS, FLOORS; F04C (27.83): ROTARY-PISTON, OR OSCILLATING-PISTON, POSITIVE-DISPLACEMENT MACHINES FOR LIQUIDS; ROTARY-PISTON, OR OSCILLATING-PISTON, POSITIVE-DISPLACEMENT PUMPS; B66C (27.24): CRANES; LOAD-ENGAGING ELEMENTS OR DEVICES FOR CRANES, CAPSTANS, WINCHES, OR TACKLES; C30B (26.23): SINGLE-CRYSTAL GROWTH; UNIDIRECTIONAL SOLIDIFICATION OF EUTECTIC MATERIAL OR UNIDIRECTIONAL DEMIXING OF EUTECTOID MATERIAL; REFINING BY ZONE-MELTING OF MATERIAL; PRODUCTION OF A HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; SINGLE CRYSTALS OR HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; AFTER-TREATMENT OF SINGLE CRYSTALS OR A HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; APPARATUS THEREFOR; G02C (25.88): SPECTACLES; SUNGLASSES OR GOGGLES INSOFAR AS THEY HAVE THE SAME FEATURES AS SPECTACLES; CONTACT LENSES; A23K (24.87): FODDER; B05C (24.33): APPARATUS FOR APPLYING FLUENT MATERIALS TO SURFACES, IN GENERAL; B29B (23.90): PREPARATION OR PRETREATMENT OF THE MATERIAL TO BE SHAPED; MAKING GRANULES OR PREFORMS; RECOVERY OF PLASTICS OR OTHER CONSTITUENTS OF WASTE MATERIAL CONTAINING PLASTICS; A01C (23.76): PLANTING; SOWING; FERTILISING; B60G (23.65): VEHICLE SUSPENSION ARRANGEMENTS; G01K (20.89): MEASURING TEMPERATURE; MEASURING QUANTITY OF HEAT; THERMALLY-SENSITIVE ELEMENTS NOT OTHERWISE PROVIDED FOR; G16B (20.65): BIOINFORMATICS, i.e. INFORMATION AND COMMUNICATION TECHNOLOGY [ICT] SPECIALLY ADAPTED FOR GENETIC OR PROTEIN-RELATED DATA PROCESSING IN COMPUTATIONAL MOLECULAR BIOLOGY; B62K (20.51): CYCLES; CYCLE FRAMES; CYCLE STEERING DEVICES; RIDER-OPERATED TERMINAL CONTROLS SPECIALLY ADAPTED FOR CYCLES; CYCLE AXLE SUSPENSIONS; CYCLE SIDE-CARS, FORECARS, OR THE LIKE; B05D (19.93): PROCESSES FOR APPLYING FLUENT MATERIALS TO SURFACES, IN GENERAL; F15B (19.82): SYSTEMS ACTING BY MEANS OF FLUIDS IN GENERAL; FLUID-PRESSURE ACTUATORS, e.g. SERVOMOTORS; DETAILS OF FLUID-PRESSURE SYSTEMS, NOT OTHERWISE PROVIDED FOR; E05F (19.32): DEVICES FOR MOVING WINGS INTO OPEN OR CLOSED POSITION; CHECKS FOR WINGS; WING FITTINGS NOT OTHERWISE PROVIDED FOR, CONCERNED WITH THE FUNCTIONING OF THE WING; F26B (19.31): DRYING SOLID MATERIALS OR OBJECTS BY REMOVING LIQUID THEREFROM; A01B (18.03): SOIL WORKING IN AGRICULTURE OR FORESTRY; PARTS, DETAILS, OR ACCESSORIES OF AGRICULTURAL MACHINES OR IMPLEMENTS, IN GENERAL; D01F (17.20): CHEMICAL FEATURES IN THE MANUFACTURE OF ARTIFICIAL FILAMENTS, THREADS, FIBRES, BRISTLES OR RIBBONS; APPARATUS SPECIALLY ADAPTED FOR THE MANUFACTURE OF CARBON FILAMENTS; D04H (16.76): MAKING TEXTILE FABRICS, e.g. FROM FIBRES OR FILAMENTARY MATERIAL; FABRICS MADE BY SUCH PROCESSES OR APPARATUS, e.g. FELTS, NON-WOVEN FABRICS; COTTON-WOOL; WADDING ; NON-WOVEN FABRICS FROM STAPLE FIBRES, FILAMENTS OR YARNS, BONDED WITH AT LEAST ONE WEB-LIKE MATERIAL DURING THEIR CONSOLIDATION; B67D (16.67): DISPENSING, DELIVERING OR TRANSFERRING LIQUIDS, NOT OTHERWISE PROVIDED FOR; B41F (16.62): PRINTING MACHINES OR PRESSES; D06M (16.48): TREATMENT, NOT PROVIDED FOR ELSEWHERE IN CLASS D06, OF FIBRES, THREADS, YARNS, FABRICS, FEATHERS OR FIBROUS GOODS MADE FROM SUCH MATERIALS; B63H (15.78): MARINE PROPULSION OR STEERING; E21D (15.53): SHAFTS; TUNNELS; GALLERIES; LARGE UNDERGROUND CHAMBERS; E01D (15.51): CONSTRUCTION OF BRIDGES, ELEVATED ROADWAYS OR VIADUCTS; ASSEMBLY OF BRIDGES; B62B (15.28): HAND-PROPELLED VEHICLES, e.g. HAND CARTS OR PERAMBULATORS; SLEDGES; G01P (15.14): MEASURING LINEAR OR ANGULAR SPEED, ACCELERATION, DECELERATION, OR SHOCK; INDICATING PRESENCE, ABSENCE, OR DIRECTION, OF MOVEMENT; G21C (14.73): NUCLEAR REACTORS; B64F (14.18): GROUND OR AIRCRAFT-CARRIER-DECK INSTALLATIONS SPECIALLY ADAPTED FOR USE IN CONNECTION WITH AIRCRAFT; DESIGNING, MANUFACTURING, ASSEMBLING, CLEANING, MAINTAINING OR REPAIRING AIRCRAFT, NOT OTHERWISE PROVIDED FOR; HANDLING, TRANSPORTING, TESTING OR INSPECTING AIRCRAFT COMPONENTS, NOT OTHERWISE PROVIDED FOR; B60P (13.82): VEHICLES ADAPTED FOR LOAD TRANSPORTATION OR TO TRANSPORT, TO CARRY, OR TO COMPRISE SPECIAL LOADS OR OBJECTS; B60B (13.15): VEHICLE WHEELS; CASTORS; AXLES FOR WHEELS OR CASTORS; INCREASING WHEEL ADHESION; B61L (13.11): GUIDING RAILWAY TRAFFIC; ENSURING THE SAFETY OF RAILWAY TRAFFIC; A24B (13.02): MANUFACTURE OR PREPARATION OF TOBACCO FOR SMOKING OR CHEWING; TOBACCO; SNUFF; G10K (12.93): SOUND-PRODUCING DEVICES; METHODS OR DEVICES FOR PROTECTING AGAINST, OR FOR DAMPING, NOISE OR OTHER ACOUSTIC WAVES IN GENERAL; ACOUSTICS NOT OTHERWISE PROVIDED FOR; B07B (12.65): SEPARATING SOLIDS FROM SOLIDS BY SIEVING, SCREENING, SIFTING OR BY USING GAS CURRENTS; SEPARATING BY OTHER DRY METHODS APPLICABLE TO BULK MATERIAL, e.g. LOOSE ARTICLES FIT TO BE HANDLED LIKE BULK MATERIAL; B07C (12.48): POSTAL SORTING; SORTING INDIVIDUAL ARTICLES, OR BULK MATERIAL FIT TO BE SORTED PIECE-MEAL, e.g. BY PICKING; G01G (12.38): WEIGHING; H02N (12.07): ELECTRIC MACHINES NOT OTHERWISE PROVIDED FOR; F01K (10.75): STEAM ENGINE PLANTS; STEAM ACCUMULATORS; ENGINE PLANTS NOT OTHERWISE PROVIDED FOR; ENGINES USING SPECIAL WORKING FLUIDS OR CYCLES; B23C (10.74): MILLING; F24D (10.74): DOMESTIC- OR SPACE-HEATING SYSTEMS, e.g. CENTRAL HEATING SYSTEMS; DOMESTIC HOT-WATER SUPPLY SYSTEMS; ELEMENTS OR COMPONENTS THEREFOR; B24D (10.03): TOOLS FOR GRINDING, BUFFING OR SHARPENING; E01B (10.02): PERMANENT WAY; PERMANENT-WAY TOOLS; MACHINES FOR MAKING RAILWAYS OF ALL KINDS; A47F (9.62): SPECIAL FURNITURE, FITTINGS, OR ACCESSORIES FOR SHOPS, STOREHOUSES, BARS, RESTAURANTS OR THE LIKE; PAYING COUNTERS; F01M (9.52): LUBRICATING OF MACHINES OR ENGINES IN GENERAL; LUBRICATING INTERNAL COMBUSTION ENGINES; CRANKCASE VENTILATING; C01F (9.38): COMPOUNDS OF THE METALS BERYLLIUM, MAGNESIUM, ALUMINIUM, CALCIUM, STRONTIUM, BARIUM, RADIUM, THORIUM, OR OF THE RARE-EARTH METALS; D01D (9.01): MECHANICAL METHODS OR APPARATUS IN THE MANUFACTURE OF ARTIFICIAL FILAMENTS, THREADS, FIBRES, BRISTLES OR RIBBONS; D02G (8.68): CRIMPING OR CURLING FIBRES, FILAMENTS, THREADS, OR YARNS; YARNS OR THREADS; E01H (8.33): STREET CLEANING; CLEANING OF PERMANENT WAYS; CLEANING BEACHES; DISPERSING OR PREVENTING FOG IN GENERAL CLEANING STREET OR RAILWAY FURNITURE OR TUNNEL WALLS; B28D (8.28): WORKING STONE OR STONE-LIKE MATERIALS; F27B (8.26): FURNACES, KILNS, OVENS, OR RETORTS IN GENERAL; OPEN SINTERING OR LIKE APPARATUS; F23G (7.64): CREMATION FURNACES; CONSUMING WASTE PRODUCTS BY COMBUSTION; B21J (7.57): FORGING; HAMMERING; PRESSING METAL; RIVETING; FORGE FURNACES; B81C (7.48): PROCESSES OR APPARATUS SPECIALLY ADAPTED FOR THE MANUFACTURE OR TREATMENT OF MICROSTRUCTURAL DEVICES OR SYSTEMS; B24C (7.27): ABRASIVE OR RELATED BLASTING WITH PARTICULATE MATERIAL; E05C (7.05): BOLTS OR FASTENING DEVICES FOR WINGS, SPECIALLY FOR DOORS OR WINDOWS; B43K (6.87): IMPLEMENTS FOR WRITING OR DRAWING; C22F (6.82): CHANGING THE PHYSICAL STRUCTURE OF NON-FERROUS METALS AND NON-FERROUS ALLOYS; C01D (6.68): COMPOUNDS OF ALKALI METALS, i.e. LITHIUM, SODIUM, POTASSIUM, RUBIDIUM, CAESIUM, OR FRANCIUM; C09G (6.47): POLISHING COMPOSITIONS; SKI WAXES; B21F (6.37): WORKING OR PROCESSING OF METAL WIRE; B09C (6.31): RECLAMATION OF CONTAMINATED SOIL; F41G (6.24): WEAPON SIGHTS; AIMING; C21C (5.70): PROCESSING OF PIG-IRON, e.g. REFINING, MANUFACTURE OF WROUGHT-IRON OR STEEL; TREATMENT IN MOLTEN STATE OF FERROUS ALLOYS; G03H (5.58): HOLOGRAPHIC PROCESSES OR APPARATUS; A41B (5.37): SHIRTS; UNDERWEAR; BABY LINEN; HANDKERCHIEFS; G07B (5.24): TICKET-ISSUING APPARATUS; FARE-REGISTERING APPARATUS; FRANKING APPARATUS; A41C (4.75): CORSETS; BRASSIERES; C08C (4.67): TREATMENT OR CHEMICAL MODIFICATION OF RUBBERS; A61D (4.27): VETERINARY INSTRUMENTS, IMPLEMENTS, TOOLS, OR METHODS; F04F (3.94): PUMPING OF FLUID BY DIRECT CONTACT OF ANOTHER FLUID OR BY USING INERTIA OF FLUID TO BE PUMPED; SIPHONS; C05C (3.82): NITROGENOUS FERTILISERS; D07B (3.59): ROPES OR CABLES IN GENERAL; B43L (3.45): ARTICLES FOR WRITING OR DRAWING UPON; WRITING OR DRAWING AIDS; ACCESSORIES FOR WRITING OR DRAWING; G07G (3.27): REGISTERING THE RECEIPT OF CASH, VALUABLES, OR TOKENS; B27M (3.24): WORKING OF WOOD NOT PROVIDED FOR IN SUBCLASSES B27B - B27L; MANUFACTURE OF SPECIFIC WOODEN ARTICLES; F24T (2.95): GEOTHERMAL COLLECTORS; GEOTHERMAL SYSTEMS; B61K (2.80): AUXILIARY EQUIPMENT SPECIALLY ADAPTED FOR RAILWAYS, NOT OTHERWISE PROVIDED FOR; C12Y (2.59): ENZYMES; B61G (2.44): COUPLINGS; DRAUGHT AND BUFFING APPLIANCES; B64B (2.19): LIGHTER-THAN AIR AIRCRAFT; A41H (2.16): APPLIANCES OR METHODS FOR MAKING CLOTHES, e.g. FOR DRESS-MAKING OR FOR TAILORING, NOT OTHERWISE PROVIDED FOR; D06C (2.14): FINISHING, DRESSING, TENTERING OR STRETCHING TEXTILE FABRICS; C07G (1.80): COMPOUNDS OF UNKNOWN CONSTITUTION; F15D (1.74): FLUID DYNAMICS, i.e. METHODS OR MEANS FOR INFLUENCING THE FLOW OF GASES OR LIQUIDS; G21H (1.26): OBTAINING ENERGY FROM RADIOACTIVE SOURCES; APPLICATIONS OF RADIATION FROM RADIOACTIVE SOURCES, NOT OTHERWISE PROVIDED FOR; UTILISING COSMIC RADIATION"
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 1,
+  "run": 2,
+  "answer": "G06Q, H01M, G06T, G06V, H02J, G01S, G06N, B65G, A61P, G16H, G05D, C22C, B60L, G08G, G10L, B24B, E04B, E02D, B08B, G09F, A24F, H02G, A61H, E04G, B22F, B25B, A61G, G01L, F16M, C01G, F26B, H03H, H02B, E02B, B66F, E21D, G16B, B07B, B60P, A63H, A24D, E21F, F02K, E01H, G01H, A47F, B09C, E03B, B21J, A23P, F25J, B04B, G21F, C01D, B63C, G16C, A23J, B60D, B27M, F04F, B27C, A41G, B63G, B25D, A62D, B61H, H04K, H05F, D21B, F17B"
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 1,
+  "run": 3,
+  "answer": "There are 75 CPC level-5 (subclass) group codes whose highest EMA (alpha=0.2) of patent filings occurs in 2022. In descending order of their 2022 EMA value: G06Q, H01M, G06T, G06V, H02J, G01S, G06N, B65G, A61P, G16H, G05D, C22C, B60L, G08G, G10L, B24B, E04B, E02D, B08B, G09F, A24F, H02G, A61H, E04G, B22F, B25B, A61G, G01L, F16M, C01G, F26B, H03H, H02B, E02B, B66F, E21D, G16B, B07B, B60P, A63H, A24D, E21F, F02K, E01H, G01H, A47F, C21B, B09C, E03B, B21J, A23P, F25J, B04B, G21F, C01D, C21C, B63C, G16C, A23J, B60D, B27M, F04F, B27C, A41G, B63G, B25D, A62D, B61H, A22B, H04K, H05F, D21B, C14B, F28B, A42C. Top 5 by EMA: G06Q=276.6165, H01M=183.1167, G06T=171.7336, G06V=98.9754, H02J=90.2456."
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 1,
+  "run": 4,
+  "answer": "A01B, A01C, A01G, A01K, A01N, A21C, A23K, A41B, A41C, A41H, A43B, A43C, A43D, A45F, A47C, A47F, A47J, A61B, A61D, A61F, A61H, A61K, A61L, A61M, B01F, B01J, B01L, B05B, B05C, B05D, B07B, B07C, B09C, B21D, B21F, B21J, B22C, B22F, B23C, B23D, B23K, B23Q, B25B, B26F, B27M, B28D, B29B, B29C, B29D, B30B, B31F, B41F, B43K, B43L, B60B, B60G, B60Q, B60R, B60T, B61D, B61F, B61K, B61L, B62B, B62K, B63B, B64B, B64C, B64D, B64F, B64G, B65C, B65D, B66B, B66C, B67D, B81C, C01C, C01D, C01F, C03B, C04B, C05C, C07D, C07J, C08C, C08F, C08K, C09G, C09J, C09K, C10G, C12M, C12P, C12Q, C12Y, C22C, C22F, C30B, D01D, D01F, D02G, D06M, D07B, D21H, E01C, E01F, E01H, E02B, E03F, E04B, E04F, E04H, E05B, E05C, E05F, E21D, F01K, F01M, F01N, F02C, F04B, F04C, F04F, F15B, F16B, F16C, F16F, F16K, F16L, F17C, F17D, F21K, F21S, F23D, F23G, F23J, F24D, F24T, F25B, F27B, F28C, F41G, F41H, G01B, G01D, G01F, G01G, G01J, G01K, G01M, G01P, G01R, G02B, G02C, G03B, G03H, G05D, G07B, G07C, G07G, G08B, G09F, G11C, G16B, G21C, H01B, H01F, H01G, H01L, H01Q, H01R, H02M, H02N, H02P, H03G, H04B, H04L, H04N, H04R, H04W, H05B, H05K"
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 1,
+  "run": 5,
+  "answer": "A22B,A23J,A23P,A24D,A24F,A41G,A47F,A61G,A61H,A61P,A62C,A62D,A63H,B04B,B07B,B08B,B09C,B21J,B22F,B24B,B25B,B25D,B27C,B27M,B60D,B60L,B60P,B61H,B61L,B63C,B63G,B65G,B66F,C01D,C01G,C21B,C21C,C22C,D21B,E01H,E02D,E03B,E04B,E04G,E21D,E21F,F02K,F04F,F16M,F25J,F26B,G01H,G01L,G01S,G05D,G06N,G06Q,G06T,G06V,G08G,G09F,G10L,G16B,G16C,G16H,G21F,H01M,H02B,H02G,H02J,H03H,H04K,H05F"
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 2,
+  "run": 1,
+  "answer": "The CPC technology area is A61 — MEDICAL OR VETERINARY SCIENCE; HYGIENE, with best year 2006 (EMA = 1.8034). Analyst 1 was wrong because A61 had zero DE patents in 2016 (the peak is 2006) and the EMA value was 1.80, not 2.0; analyst 2 was wrong because F02D41 is a subgroup (level 7+), not a level-4 CPC group, and it does not appear among the primary CPC codes of any DE patent granted in H2 2019."
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 2,
+  "run": 2,
+  "answer": "The CPC technology area with the highest exponential moving average of patent filings each year (smoothing factor 0.1) for patents granted in the second half of 2019 in Germany is H01L (SEMICONDUCTOR DEVICES NOT COVERED BY CLASS H10), with its best year being 2024 and peak EMA of approximately 2.94. Analyst 1 was wrong because B60 does not appear as a primary CPC code (first=true) in any of the 34 Germany patents granted in H2 2019, so it cannot qualify under the question's filter."
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 2,
+  "run": 3,
+  "answer": "CPC B60 (Best Year: 2021, Max EMA: 16.9744) — VEHICLES IN GENERAL. Analyst 1’s B60 EMA of 7.7746 (2023) is wrong because they failed to deduplicate primary CPC entries per patent (the hint requires this) and used grant_date instead of filing_date for 'patent filings'. Analyst 2’s A61 (2008, 5.7274) is wrong because B60 actually has a higher EMA than A61 once the EMA is correctly computed with deduplication on filing dates for the 2H-2019 DE-granted cohort."
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 2,
+  "run": 4,
+  "answer": "CPC group A61 - MEDICAL OR VETERINARY SCIENCE; HYGIENE, best year 2008 (exponential moving average ≈ 5.35 at smoothing factor 0.1). Analyst 1's answer (B60) was wrong because B60 ranks third with EMA 4.85, not first."
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 2,
+  "run": 5,
+  "answer": "The CPC technology area with the highest exponential moving average (alpha=0.1) of patent filings in Germany, restricted to CPC groups represented by patents granted in H2 2019, at level 4 is:\n\nB60 - VEHICLES IN GENERAL: best year 2023 (EMA=28.8130)\n\nFull ranking of all 23 CPC groups at level 4 (sorted by EMA descending):\nB60 - VEHICLES IN GENERAL: best year 2023 (EMA=28.813)\nH01 - ELECTRIC ELEMENTS: best year 2024 (EMA=16.7155)\nG01 - MEASURING; TESTING: best year 2021 (EMA=14.6973)\nF16 - ENGINEERING ELEMENTS AND UNITS; GENERAL MEASURES FOR PRODUCING AND MAINTAINING EFFECTIVE FUNCTIONING OF MACHINES OR INSTALLATIONS; THERMAL INSULATION IN GENERAL: best year 2022 (EMA=13.4855)\nA61 - MEDICAL OR VETERINARY SCIENCE; HYGIENE: best year 2013 (EMA=8.9072)\nH02 - GENERATION; CONVERSION OR DISTRIBUTION OF ELECTRIC POWER: best year 2023 (EMA=8.7181)\nF02 - COMBUSTION ENGINES; HOT-GAS OR COMBUSTION-PRODUCT ENGINE PLANTS: best year 2020 (EMA=7.9802)\nH04 - ELECTRIC COMMUNICATION TECHNIQUE: best year 2008 (EMA=6.9701)\nB62 - LAND VEHICLES FOR TRAVELLING OTHERWISE THAN ON RAILS: best year 2022 (EMA=6.4681)\nB23 - MACHINE TOOLS; METAL-WORKING NOT OTHERWISE PROVIDED FOR: best year 2021 (EMA=4.5796)\nB29 - WORKING OF PLASTICS; WORKING OF SUBSTANCES IN A PLASTIC STATE IN GENERAL: best year 2022 (EMA=3.332)\nE05 - LOCKS; KEYS; WINDOW OR DOOR FITTINGS; SAFES: best year 2020 (EMA=2.8184)\nG02 - OPTICS: best year 2018 (EMA=2.6748)\nG08 - SIGNALLING: best year 2023 (EMA=2.6629)\nF24 - HEATING; RANGES; VENTILATING: best year 2019 (EMA=2.1978)\nH03 - ELECTRONIC CIRCUITRY: best year 2006 (EMA=2.0571)\nB41 - PRINTING; LINING MACHINES; TYPEWRITERS; STAMPS: best year 2010 (EMA=2.022)\nC09 - DYES; PAINTS; POLISHES; NATURAL RESINS; ADHESIVES; COMPOSITIONS NOT OTHERWISE PROVIDED FOR; APPLICATIONS OF MATERIALS NOT OTHERWISE PROVIDED FOR: best year 2018 (EMA=1.6188)\nF23 - COMBUSTION APPARATUS; COMBUSTION PROCESSES: best year 2016 (EMA=1.1505)\nB63 - SHIPS OR OTHER WATERBORNE VESSELS; RELATED EQUIPMENT: best year 1900 (EMA=1)\nE02 - HYDRAULIC ENGINEERING; FOUNDATIONS; SOIL SHIFTING: best year 1959 (EMA=1)\nA21 - BAKING; EDIBLE DOUGHS: best year 1959 (EMA=1)\nF41 - WEAPONS: best year 1958 (EMA=1)"
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 3,
+  "run": 1,
+  "answer": "Four assignees (excluding UNIV CALIFORNIA) cited patents assigned to UNIV CALIFORNIA:\n\n1. CALIFORNIA INST OF TECHN — G01V: GEOPHYSICS; GRAVITATIONAL MEASUREMENTS; DETECTING MASSES OR OBJECTS; TAGS\n\n2. BLOOM ENERGY CORP — H01M: PROCESSES OR MEANS, e.g. BATTERIES, FOR THE DIRECT CONVERSION OF CHEMICAL ENERGY INTO ELECTRICAL ENERGY\n\n3. CRYSTAL IS INC — C30B: SINGLE-CRYSTAL GROWTH; UNIDIRECTIONAL SOLIDIFICATION OF EUTECTIC MATERIAL OR UNIDIRECTIONAL DEMIXING OF EUTECTOID MATERIAL; REFINING BY ZONE-MELTING OF MATERIAL; PRODUCTION OF A HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; SINGLE CRYSTALS OR HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; AFTER-TREATMENT OF SINGLE CRYSTALS OR A HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; APPARATUS THEREFOR\n\n4. SCHOWALTER LEO J — H01L: SEMICONDUCTOR DEVICES NOT COVERED BY CLASS H10"
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 3,
+  "run": 2,
+  "answer": "Four assignees have cited patents assigned to UNIV CALIFORNIA (excluding UNIV CALIFORNIA itself), along with the titles of their primary CPC subclasses:\n\n1. CALIFORNIA INST OF TECHN — GEOPHYSICS; GRAVITATIONAL MEASUREMENTS; DETECTING MASSES OR OBJECTS; TAGS\n2. BLOOM ENERGY CORP — PROCESSES OR MEANS, e.g. BATTERIES, FOR THE DIRECT CONVERSION OF CHEMICAL ENERGY INTO ELECTRICAL ENERGY\n3. CRYSTAL IS INC — SINGLE-CRYSTAL GROWTH; UNIDIRECTIONAL SOLIDIFICATION OF EUTECTIC MATERIAL OR UNIDIRECTIONAL DEMIXING OF EUTECTOID MATERIAL; REFINING BY ZONE-MELTING OF MATERIAL; PRODUCTION OF A HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; SINGLE CRYSTALS OR HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; AFTER-TREATMENT OF SINGLE CRYSTALS OR A HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; APPARATUS THEREFOR\n4. SCHOWALTER LEO J — SEMICONDUCTOR DEVICES NOT COVERED BY CLASS H10"
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 3,
+  "run": 3,
+  "answer": "CALIFORNIA INST OF TECHN: TESTING STATIC OR DYNAMIC BALANCE OF MACHINES OR STRUCTURES; TESTING OF STRUCTURES OR APPARATUS, NOT OTHERWISE PROVIDED FOR; GEOPHYSICS; GRAVITATIONAL MEASUREMENTS; DETECTING MASSES OR OBJECTS; TAGS\nBLOOM ENERGY CORP: PROCESSES OR MEANS, e.g. BATTERIES, FOR THE DIRECT CONVERSION OF CHEMICAL ENERGY INTO ELECTRICAL ENERGY\nCRYSTAL IS INC: SINGLE-CRYSTAL GROWTH; UNIDIRECTIONAL SOLIDIFICATION OF EUTECTIC MATERIAL OR UNIDIRECTIONAL DEMIXING OF EUTECTOID MATERIAL; REFINING BY ZONE-MELTING OF MATERIAL; PRODUCTION OF A HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; SINGLE CRYSTALS OR HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; AFTER-TREATMENT OF SINGLE CRYSTALS OR A HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; APPARATUS THEREFOR; SEMICONDUCTOR DEVICES NOT COVERED BY CLASS H10\nSCHOWALTER LEO J: SEMICONDUCTOR DEVICES NOT COVERED BY CLASS H10"
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 3,
+  "run": 4,
+  "answer": ""
+ },
+ {
+  "dataset": "PATENTS",
+  "query": 3,
+  "run": 5,
+  "answer": "CALIFORNIA INST OF TECHN: G01V - GEOPHYSICS; GRAVITATIONAL MEASUREMENTS; DETECTING MASSES OR OBJECTS; TAGS; BLOOM ENERGY CORP: H01M - PROCESSES OR MEANS, e.g. BATTERIES, FOR THE DIRECT CONVERSION OF CHEMICAL ENERGY INTO ELECTRICAL ENERGY; CRYSTAL IS INC: C30B - SINGLE-CRYSTAL GROWTH; UNIDIRECTIONAL SOLIDIFICATION OF EUTECTIC MATERIAL OR UNIDIRECTIONAL DEMIXING OF EUTECTOID MATERIAL; REFINING BY ZONE-MELTING OF MATERIAL; PRODUCTION OF A HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; SINGLE CRYSTALS OR HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; AFTER-TREATMENT OF SINGLE CRYSTALS OR A HOMOGENEOUS POLYCRYSTALLINE MATERIAL WITH DEFINED STRUCTURE; APPARATUS THEREFOR; SCHOWALTER LEO J: H01L - SEMICONDUCTOR DEVICES NOT COVERED BY CLASS H10"
+ },
+ {
+  "dataset": "agnews",
+  "query": 1,
+  "run": 1,
+  "answer": "The Rundown"
+ },
+ {
+  "dataset": "agnews",
+  "query": 1,
+  "run": 2,
+  "answer": "The Rundown"
+ },
+ {
+  "dataset": "agnews",
+  "query": 1,
+  "run": 3,
+  "answer": "The Rundown"
+ },
+ {
+  "dataset": "agnews",
+  "query": 1,
+  "run": 4,
+  "answer": "The Rundown"
+ },
+ {
+  "dataset": "agnews",
+  "query": 1,
+  "run": 5,
+  "answer": "Cavaliers, Hokies Play Host"
+ },
+ {
+  "dataset": "agnews",
+  "query": 2,
+  "run": 1,
+  "answer": "13/111 ≈ 0.117117 (approximately 11.71%) of Amy Jones's articles are in the Science/Technology category."
+ },
+ {
+  "dataset": "agnews",
+  "query": 2,
+  "run": 2,
+  "answer": "13 of 111 articles authored by Amy Jones are Science/Technology, a fraction of 0.1171. Analyst 1 is correct; Analyst 2's count of 16 is wrong because it includes a tech-company earnings article (Intel revenue) that the standard AG News Business/SciTech convention classifies as Business."
+ },
+ {
+  "dataset": "agnews",
+  "query": 2,
+  "run": 3,
+  "answer": "0.1531531531"
+ },
+ {
+  "dataset": "agnews",
+  "query": 2,
+  "run": 4,
+  "answer": "13/111 ≈ 0.1171 (Amy Jones authored 111 articles total; 13 are Science/Technology). Analyst 2's 14 was too inclusive — articles like Goodyear tires and DirecTV write-downs are Business (company/finance focus), not Sci/Tech. Analyst 1's 12 missed Microsoft/UK phone maker and XM Satellite Radio, which are Sci/Tech per AG News conventions (technology product announcements)."
+ },
+ {
+  "dataset": "agnews",
+  "query": 2,
+  "run": 5,
+  "answer": "0.13513513513513514"
+ },
+ {
+  "dataset": "agnews",
+  "query": 3,
+  "run": 1,
+  "answer": ""
+ },
+ {
+  "dataset": "agnews",
+  "query": 3,
+  "run": 2,
+  "answer": ""
+ },
+ {
+  "dataset": "agnews",
+  "query": 3,
+  "run": 3,
+  "answer": "351.24"
+ },
+ {
+  "dataset": "agnews",
+  "query": 3,
+  "run": 4,
+  "answer": "Approximately 365.64 business articles per year in Europe from 2010 to 2020, based on classifying all 14,860 Europe articles by content keywords (27.1% are business). This is close to Analyst 2's 350.12 estimate; Analyst 1's 561 was likely overcounted due to overly broad business keywords including many ambiguous articles."
+ },
+ {
+  "dataset": "agnews",
+  "query": 3,
+  "run": 5,
+  "answer": "337.73"
+ },
+ {
+  "dataset": "agnews",
+  "query": 4,
+  "run": 1,
+  "answer": ""
+ },
+ {
+  "dataset": "agnews",
+  "query": 4,
+  "run": 2,
+  "answer": "South America"
+ },
+ {
+  "dataset": "agnews",
+  "query": 4,
+  "run": 3,
+  "answer": ""
+ },
+ {
+  "dataset": "agnews",
+  "query": 4,
+  "run": 4,
+  "answer": "Africa"
+ },
+ {
+  "dataset": "agnews",
+  "query": 4,
+  "run": 5,
+  "answer": "South America: 402"
+ },
+ {
+  "dataset": "bookreview",
+  "query": 1,
+  "run": 1,
+  "answer": "2010s: 4.6156 average rating across 58 distinct books. Analyst 2's 2020s figure was wrong because the 2020s decade actually averages 4.5977 (lower than the 2010s), and Analyst 1's 4.84 was for a single year (2017), not a decade."
+ },
+ {
+  "dataset": "bookreview",
+  "query": 1,
+  "run": 2,
+  "answer": "2020s: 4.66 (21 distinct books, 110 reviews)"
+ },
+ {
+  "dataset": "bookreview",
+  "query": 1,
+  "run": 3,
+  "answer": "2020s: 4.66"
+ },
+ {
+  "dataset": "bookreview",
+  "query": 1,
+  "run": 4,
+  "answer": "2010s: 4.6156"
+ },
+ {
+  "dataset": "bookreview",
+  "query": 1,
+  "run": 5,
+  "answer": "2020s: 4.66"
+ },
+ {
+  "dataset": "bookreview",
+  "query": 2,
+  "run": 1,
+  "answer": "The 15 English-language books in the 'Literature & Fiction' category with a perfect average rating of 5.0 are: 1) Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message; 2) Childe Harold of Dysna; 3) Exits, Desires, & Slow Fires; 4) Fire Cracker; 5) Forged in Blood (Freehold); 6) Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries); 7) Kennebago Moments; 8) Knowing When To Die: Uncollected Stories; 9) Liza of Lambeth; 10) Local Honey; 11) Reunion: The Children of Lauderdale Park; 12) Something That Feels Like Truth (Switchgrass Books); 13) The Melancholy Strumpet Master; 14) The Prophet: With Original 1923 Illustrations by the Author; 15) The Sludge. Both analysts agreed on the same set of 15 books; only the listing order differed, so neither answer is wrong on the membership."
+ },
+ {
+  "dataset": "bookreview",
+  "query": 2,
+  "run": 2,
+  "answer": "['Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message', 'Childe Harold of Dysna', 'Exits, Desires, & Slow Fires', 'Fire Cracker', 'Forged in Blood (Freehold)', 'Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)', 'Kennebago Moments', 'Knowing When To Die: Uncollected Stories', 'Liza of Lambeth', 'Local Honey', 'Reunion: The Children of Lauderdale Park', 'Something That Feels Like Truth (Switchgrass Books)', 'The Melancholy Strumpet Master', 'The Prophet: With Original 1923 Illustrations by the Author', 'The Sludge']"
+ },
+ {
+  "dataset": "bookreview",
+  "query": 2,
+  "run": 3,
+  "answer": "The 15 English-language books in 'Literature & Fiction' with a perfect 5.0 average rating are: Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message; Childe Harold of Dysna; Exits, Desires, & Slow Fires; Fire Cracker; Forged in Blood (Freehold); Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries); Kennebago Moments; Knowing When To Die: Uncollected Stories; Liza of Lambeth; Local Honey; Reunion: The Children of Lauderdale Park; Something That Feels Like Truth (Switchgrass Books); The Melancholy Strumpet Master; The Prophet: With Original 1923 Illustrations by the Author; The Sludge."
+ },
+ {
+  "dataset": "bookreview",
+  "query": 2,
+  "run": 4,
+  "answer": "15 English-language books in the 'Literature & Fiction' category have a perfect average rating of 5.0: Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message; Childe Harold of Dysna; Exits, Desires, & Slow Fires; Fire Cracker; Forged in Blood (Freehold); Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries); Kennebago Moments; Knowing When To Die: Uncollected Stories; Liza of Lambeth; Local Honey; Reunion: The Children of Lauderdale Park; Something That Feels Like Truth (Switchgrass Books); The Melancholy Strumpet Master; The Prophet: With Original 1923 Illustrations by the Author; The Sludge. Both analysts listed the same 15 books in different orders; the count of 15 from Analyst 1 is correct."
+ },
+ {
+  "dataset": "bookreview",
+  "query": 2,
+  "run": 5,
+  "answer": "The 15 English-language books in 'Literature & Fiction' with a perfect 5.0 average rating are: Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message (5.0); Childe Harold of Dysna (5.0); Exits, Desires, & Slow Fires (5.0); Fire Cracker (5.0); Forged in Blood (Freehold) (5.0); Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries) (5.0); Kennebago Moments (5.0); Knowing When To Die: Uncollected Stories (5.0); Liza of Lambeth (5.0); Local Honey (5.0); Reunion: The Children of Lauderdale Park (5.0); Something That Feels Like Truth (Switchgrass Books) (5.0); The Melancholy Strumpet Master (5.0); The Prophet: With Original 1923 Illustrations by the Author (5.0); The Sludge (5.0). Analyst 1's list was correct in titles but lacked the explicit 5.0 rating labels and the count; Analyst 2's fully-formatted answer is accurate."
+ },
+ {
+  "dataset": "bookreview",
+  "query": 3,
+  "run": 1,
+  "answer": "14 Children's Books have an average rating ≥ 4.5 based on reviews from 2020 onwards: Cheer Up, Ben Franklin! (Young Historians): 5.0; Pokémon: Sun & Moon, Vol. 8 (8): 5.0; Around the World Mazes: 5.0; Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised): 5.0; Favorite Thorton W. Burgess Stories: 6 Books: 5.0; The Library Book: 5.0; Egypt (Enchantment of the World): 5.0; Monstrous Stories #4: The Day the Mice Stood Still: 5.0; LunaLu the Llamacorn: 5.0; Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1): 5.0; The Old Man and the Pirate Princess: 5.0; Trouble in the CTC!: The Terra Prime Adventures Book 2: 4.9; Clark the Shark: Tooth Trouble, No. 1: 4.75; Cleo Porter and the Body Electric: 4.71. Analyst 2 listed the same 14 titles but omitted the average ratings and did not show the threshold qualification."
+ },
+ {
+  "dataset": "bookreview",
+  "query": 3,
+  "run": 2,
+  "answer": "14 Children's Books have an average rating of at least 4.5 based on reviews from 2020 onwards: LunaLu the Llamacorn (5.0), The Old Man and the Pirate Princess (5.0), Monstrous Stories #4: The Day the Mice Stood Still (5.0), Pokémon: Sun & Moon, Vol. 8 (8) (5.0), Egypt (Enchantment of the World) (5.0), Cheer Up, Ben Franklin! (Young Historians) (5.0), Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1) (5.0), The Library Book (5.0), Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised) (5.0), Favorite Thorton W. Burgess Stories: 6 Books (5.0), Around the World Mazes (5.0), Trouble in the CTC!: The Terra Prime Adventures Book 2 (4.9), Clark the Shark: Tooth Trouble, No. 1 (4.75), Cleo Porter and the Body Electric (4.71). Both analysts actually agree on the same 14 books; there is no substantive disagreement."
+ },
+ {
+  "dataset": "bookreview",
+  "query": 3,
+  "run": 3,
+  "answer": "14 Children's Books have an average rating of at least 4.5 from reviews since 2020: Egypt (Enchantment of the World) (5.0), Monstrous Stories #4: The Day the Mice Stood Still (5.0), LunaLu the Llamacorn (5.0), The Old Man and the Pirate Princess (5.0), The Library Book (5.0), Cheer Up, Ben Franklin! (Young Historians) (5.0), Pokémon: Sun & Moon, Vol. 8 (8) (5.0), Around the World Mazes (5.0), Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1) (5.0), Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised) (5.0), Favorite Thorton W. Burgess Stories: 6 Books (5.0), Trouble in the CTC!: The Terra Prime Adventures Book 2 (4.9), Clark the Shark: Tooth Trouble, No. 1 (4.75), Cleo Porter and the Body Electric (4.7083). Both analysts agreed on the same 14 titles; Analyst 2 was not wrong on substance, only truncated the subtitle on 'Benny Goes To The Moon' and rounded 4.7083 to 4.71 instead of 4.708."
+ },
+ {
+  "dataset": "bookreview",
+  "query": 3,
+  "run": 4,
+  "answer": "There are 14 Children's Books with average rating ≥ 4.5 from reviews in 2020 or later: LunaLu the Llamacorn; The Library Book; Favorite Thorton W. Burgess Stories: 6 Books; The Old Man and the Pirate Princess; Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1); Around the World Mazes; Monstrous Stories #4: The Day the Mice Stood Still; Pokémon: Sun & Moon, Vol. 8 (8); Egypt (Enchantment of the World); Cheer Up, Ben Franklin! (Young Historians); Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised); Trouble in the CTC!: The Terra Prime Adventures Book 2; Clark the Shark: Tooth Trouble, No. 1; Cleo Porter and the Body Electric"
+ },
+ {
+  "dataset": "bookreview",
+  "query": 3,
+  "run": 5,
+  "answer": "14 books categorized as 'Children's Books' have received an average rating of at least 4.5 based on reviews from 2020 onwards: LunaLu the Llamacorn (5.0), The Old Man and the Pirate Princess (5.0), Around the World Mazes (5.0), Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1) (5.0), The Library Book (5.0), Pokémon: Sun & Moon, Vol. 8 (8) (5.0), Egypt (Enchantment of the World) (5.0), Cheer Up, Ben Franklin! (Young Historians) (5.0), Monstrous Stories #4: The Day the Mice Stood Still (5.0), Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised) (5.0), Favorite Thorton W. Burgess Stories: 6 Books (5.0), Trouble in the CTC!: The Terra Prime Adventures Book 2 (4.9), Clark the Shark: Tooth Trouble, No. 1 (4.75), and Cleo Porter and the Body Electric (4.708)."
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 1,
+  "run": 1,
+  "answer": "Authority"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 1,
+  "run": 2,
+  "answer": "Authority"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 1,
+  "run": 3,
+  "answer": "Authority"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 1,
+  "run": 4,
+  "answer": "Authority"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 1,
+  "run": 5,
+  "answer": "Authority"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 2,
+  "run": 1,
+  "answer": "ka0Wt000000Ens5IAC"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 2,
+  "run": 2,
+  "answer": "ka0Wt000000Ens5IAC"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 2,
+  "run": 3,
+  "answer": "ka0Wt000000Ens5IAC"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 2,
+  "run": 4,
+  "answer": "ka0Wt000000Ens5IAC"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 2,
+  "run": 5,
+  "answer": "ka0Wt000000Ens5IAC"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 3,
+  "run": 1,
+  "answer": "Negotiation"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 3,
+  "run": 2,
+  "answer": "Negotiation"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 3,
+  "run": 3,
+  "answer": "Negotiation"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 3,
+  "run": 4,
+  "answer": "Negotiation"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 3,
+  "run": 5,
+  "answer": "Negotiation"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 4,
+  "run": 1,
+  "answer": "November"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 4,
+  "run": 2,
+  "answer": "November"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 4,
+  "run": 3,
+  "answer": "November"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 4,
+  "run": 4,
+  "answer": "November"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 4,
+  "run": 5,
+  "answer": "November"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 5,
+  "run": 1,
+  "answer": "a03Wt00000JqnHwIAJ"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 5,
+  "run": 2,
+  "answer": "a03Wt00000JqnHwIAJ"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 5,
+  "run": 3,
+  "answer": "a03Wt00000JqnHwIAJ"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 5,
+  "run": 4,
+  "answer": "a03Wt00000JqnHwIAJ"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 5,
+  "run": 5,
+  "answer": "a03Wt00000JqzSfIAJ"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 6,
+  "run": 1,
+  "answer": "ka0Wt000000EnwvIAC"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 6,
+  "run": 2,
+  "answer": "ka0Wt000000EnwvIAC"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 6,
+  "run": 3,
+  "answer": "#ka0Wt000000EnwvIAC"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 6,
+  "run": 4,
+  "answer": "#ka0Wt000000EnwvIAC"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 6,
+  "run": 5,
+  "answer": "#ka0Wt000000EnwvIAC"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 7,
+  "run": 1,
+  "answer": "ka0Wt000000EpSUIA0"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 7,
+  "run": 2,
+  "answer": "ka0Wt000000EoD3IAK"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 7,
+  "run": 3,
+  "answer": "ka0Wt000000EoD3IAK"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 7,
+  "run": 4,
+  "answer": "ka0Wt000000EoD3IAK"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 7,
+  "run": 5,
+  "answer": "ka0Wt000000EoD3IAK"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 8,
+  "run": 1,
+  "answer": "005Wt000003NIliIAG"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 8,
+  "run": 2,
+  "answer": "005Wt000003NFKoIAO"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 8,
+  "run": 3,
+  "answer": "005Wt000003NIliIAG"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 8,
+  "run": 4,
+  "answer": "005Wt000003NIliIAG"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 8,
+  "run": 5,
+  "answer": "005Wt000003NIliIAG"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 9,
+  "run": 1,
+  "answer": "TX"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 9,
+  "run": 2,
+  "answer": "MI"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 9,
+  "run": 3,
+  "answer": "MI"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 9,
+  "run": 4,
+  "answer": "MI"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 9,
+  "run": 5,
+  "answer": "TX"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 10,
+  "run": 1,
+  "answer": "005Wt000003NDqDIAW"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 10,
+  "run": 2,
+  "answer": "005Wt000003NDqDIAW"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 10,
+  "run": 3,
+  "answer": "005Wt000003NDqDIAW"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 10,
+  "run": 4,
+  "answer": "005Wt000003NDqDIAW"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 10,
+  "run": 5,
+  "answer": "005Wt000003NDqDIAW"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 11,
+  "run": 1,
+  "answer": "01tWt000006hV8LIAU"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 11,
+  "run": 2,
+  "answer": "01tWt000006hV8LIAU"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 11,
+  "run": 3,
+  "answer": "01tWt000006hV8LIAU"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 11,
+  "run": 4,
+  "answer": "01tWt000006hV8LIAU"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 11,
+  "run": 5,
+  "answer": "01tWt000006hV8LIAU"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 12,
+  "run": 1,
+  "answer": "005Wt000003NJgAIAW"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 12,
+  "run": 2,
+  "answer": "005Wt000003NJgAIAW"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 12,
+  "run": 3,
+  "answer": "005Wt000003NJgAIAW"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 12,
+  "run": 4,
+  "answer": "005Wt000003NJgAIAW"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 12,
+  "run": 5,
+  "answer": "005Wt000003NJgAIAW"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 13,
+  "run": 1,
+  "answer": "005Wt000003NHw5IAG"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 13,
+  "run": 2,
+  "answer": "005Wt000003NHw5IAG"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 13,
+  "run": 3,
+  "answer": "005Wt000003NHw5IAG"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 13,
+  "run": 4,
+  "answer": "005Wt000003NIXCIA4"
+ },
+ {
+  "dataset": "crmarenapro",
+  "query": 13,
+  "run": 5,
+  "answer": "005Wt000003NBp4IAG"
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 1,
+  "run": 1,
+  "answer": "Top 5 businesses in Los Angeles, CA by highest average rating:\n1. Widows Peak Salon: 4.86\n2. City Textile: 4.50\n3. Nobel Textile Co: 4.29\n4. San Soo Dang: 4.28\n5. Nova Fabrics: 3.33"
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 1,
+  "run": 2,
+  "answer": "Top 5 businesses in Los Angeles, CA by highest average rating: 1) Widows Peak Salon — 4.857 (35 reviews); 2) City Textile — 4.500 (6 reviews); 3) Nobel Textile Co — 4.286 (7 reviews); 4) San Soo Dang — 4.278 (18 reviews); 5) Nova Fabrics — 3.333 (6 reviews). Both analysts agreed, and the database confirms this exact ordering — there is no divergence to resolve."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 1,
+  "run": 3,
+  "answer": "Top 5 businesses in Los Angeles, CA by highest average rating (descending): 1. Widows Peak Salon: 4.857142857142857, 2. City Textile: 4.5, 3. Nobel Textile Co: 4.285714285714286, 4. San Soo Dang: 4.277777777777778, 5. Nova Fabrics: 3.3333333333333335. Both analysts agreed on the ranking and values; the only difference was decimal precision (Analyst 1 rounded to 6 decimals, Analyst 2 used full precision)."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 1,
+  "run": 4,
+  "answer": "Top 5 businesses in Los Angeles, CA by average rating: 1. Widows Peak Salon: 4.857142857142857 (35 reviews); 2. City Textile: 4.5 (6 reviews); 3. Nobel Textile Co: 4.285714285714286 (7 reviews); 4. San Soo Dang: 4.277777777777778 (18 reviews); 5. Nova Fabrics: 3.3333333333333335 (6 reviews). Both analysts agreed on the top 5; Analyst 2 merely rounded to two decimals while Analyst 1 retained full precision."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 1,
+  "run": 5,
+  "answer": "Top 5 businesses in Los Angeles, CA by highest average rating (descending): 1) Widows Peak Salon: 4.86, 2) City Textile: 4.50, 3) Nobel Textile Co: 4.29, 4) San Soo Dang: 4.28, 5) Nova Fabrics: 3.33"
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 2,
+  "run": 1,
+  "answer": "Three massage therapy businesses have an average rating of at least 4.0: Elite Massage: 5.0, Angel-A Massage: 4.333333333333333, Aurora Massage: 4.178571428571429. Both analysts agreed on this answer; the re-derivation confirms identical results, so there is no divergence between them."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 2,
+  "run": 2,
+  "answer": "Three massage therapy businesses have an average rating of at least 4.0: Elite Massage (5.00), Angel-A Massage (4.33), and Aurora Massage (4.18)."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 2,
+  "run": 3,
+  "answer": "Elite Massage: 5.0; Angel-A Massage: 4.333333333333333; Aurora Massage: 4.178571428571429. Both analysts agree on these three; they only diverge if a query fails to identify the massage businesses by name (since several descriptions say 'bodywork' rather than 'massage'), which would drop one or more of them."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 2,
+  "run": 4,
+  "answer": "Elite Massage: 5.0, Angel-A Massage: 4.33, Aurora Massage: 4.18"
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 2,
+  "run": 5,
+  "answer": "Three massage therapy businesses have an average rating of at least 4.0: Elite Massage (5.0), Angel-A Massage (4.333333333333333), and Aurora Massage (4.178571428571429). Analyst 1 was wrong to include J B Oriental Inc because its description does not mention massage; it only says 'therapies and soothing body treatments', so it does not qualify as a massage therapy business under the description-based filter."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 3,
+  "run": 1,
+  "answer": "Top 5 businesses open after 6:00 PM on at least one weekday, ranked by average rating:\n\n1. Taba Rug Gallery — Avg Rating 5.00 (18 reviews). Hours: Mon–Tue 10AM–7PM, Wed 10AM–7PM, Thu 10AM–7PM, Fri 10AM–7PM, Sat 10AM–7PM, Sun 11AM–6PM.\n\n2. Beauty Divine Artistry — Avg Rating 5.00 (8 reviews). Hours: Mon–Tue 9AM–8PM, Wed 9AM–8PM, Thu 9AM–8PM, Fri 9AM–8PM, Sat 10AM–7PM, Sun 11AM–6PM.\n\n3. White Barn Candle Co — Avg Rating 5.00 (2 reviews). Hours: Mon–Sat 10AM–9PM, Sun 11AM–7PM.\n\n4. TACOS LA CABANA — Avg Rating 5.00 (2 reviews). Hours: Mon 5–11PM, Tue–Thu Closed, Fri 5–11PM, Sat 5–11PM, Sun 5–11PM.\n\n5. Paradise tattoo — Avg Rating 4.96 (378 reviews). Hours: Mon 12–10PM, Tue 12–10PM, Wed 12PM–12AM, Thu 12–10PM, Fri 12PM–12AM, Sat 12PM–12AM, Sun 12–10PM."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 3,
+  "run": 2,
+  "answer": "Top 5 businesses open past 6 PM on at least one weekday, ranked by highest average rating: 1) Taba Rug Gallery — 5.0 (18 reviews); Mon–Fri 10AM–7PM, Sat 10AM–7PM, Sun 11AM–6PM. 2) Beauty Divine Artistry — 5.0 (8 reviews); Mon–Fri 9AM–8PM, Sat 10AM–7PM, Sun 11AM–6PM. 3) White Barn Candle Co — 5.0 (2 reviews); Mon–Sat 10AM–9PM, Sun 11AM–7PM. 4) TACOS LA CABANA — 5.0 (2 reviews); Mon & Fri 5–11PM, Sat–Sun 5–11PM (Tue/Wed/Thu Closed). 5) Paradise tattoo — 4.96 (378 reviews); Mon–Thu & Sun 12–10PM, Fri–Sat 12PM–12AM."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 3,
+  "run": 3,
+  "answer": "Top 5 businesses open after 6:00 PM on at least one weekday, ranked by highest average rating:\n\n1. Taba Rug Gallery — Avg rating 5.0 (18 reviews). Hours: Mon–Thu 10AM–7PM, Fri 10AM–7PM, Sat 10AM–7PM, Sun 11AM–6PM.\n2. Beauty Divine Artistry — Avg rating 5.0 (8 reviews). Hours: Mon–Thu 9AM–8PM, Fri 9AM–8PM, Sat 10AM–7PM, Sun 11AM–6PM.\n3. TACOS LA CABANA — Avg rating 5.0 (2 reviews). Hours: Mon 5–11PM, Tue Closed, Wed Closed, Thu Closed, Fri 5–11PM, Sat 5–11PM, Sun 5–11PM.\n4. White Barn Candle Co — Avg rating 5.0 (2 reviews). Hours: Mon–Thu 10AM–9PM, Fri 10AM–9PM, Sat 10AM–9PM, Sun 11AM–7PM.\n5. Paradise tattoo — Avg rating 4.96 (378 reviews). Hours: Mon 12–10PM, Tue 12–10PM, Wed 12–10PM, Thu 12–10PM, Fri 12PM–12AM, Sat 12PM–12AM, Sun 12–10PM.\n\nAnalyst 1 was wrong because they placed TACOS LA CABANA first by arbitrary ordering; the standard tie-break (review count descending) places Taba Rug Gallery first."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 3,
+  "run": 4,
+  "answer": "The top 5 businesses that remain open after 6:00 PM on at least one weekday, ranked by highest average rating, are:\n\n1. Taba Rug Gallery — avg rating 5.00 (18 reviews) — Mon–Sat 10AM–7PM, Sun 11AM–6PM\n2. Beauty Divine Artistry — avg rating 5.00 (8 reviews) — Mon–Fri 9AM–8PM, Sat 10AM–7PM, Sun 11AM–6PM\n3. White Barn Candle Co — avg rating 5.00 (2 reviews) — Mon–Sat 10AM–9PM, Sun 11AM–7PM\n4. TACOS LA CABANA — avg rating 5.00 (2 reviews) — Mon, Fri–Sun 5–11PM; Tue–Thu Closed\n5. Paradise tattoo — avg rating 4.96 (378 reviews) — Mon–Thu & Sun 12PM–10PM, Fri–Sat 12PM–12AM\n\nBoth analysts identified the same five businesses; the only divergence was the ordering of the four businesses tied at 5.00 average rating. Analyst 1's loss stems from using an arbitrary alphabetical-like ordering, while the data-driven tiebreaker (number of reviews, since the primary ranking metric is tied) places Taba Rug Gallery first with 18 reviews."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 3,
+  "run": 5,
+  "answer": "The top 5 businesses open after 6:00 PM on at least one weekday, ranked by highest average rating:\n\n1. Taba Rug Gallery — Avg rating: 5.00 (18 reviews)\n   Hours: Mon–Wed 10AM–7PM, Thu–Fri 10AM–7PM, Sat 10AM–7PM, Sun 11AM–6PM\n\n2. Beauty Divine Artistry — Avg rating: 5.00 (8 reviews)\n   Hours: Mon–Thu 9AM–8PM, Fri 9AM–8PM, Sat 10AM–7PM, Sun 11AM–6PM\n\n3. White Barn Candle Co — Avg rating: 5.00 (2 reviews)\n   Hours: Mon–Wed 10AM–9PM, Thu–Sat 10AM–9PM, Sun 11AM–7PM\n\n4. TACOS LA CABANA — Avg rating: 5.00 (2 reviews)\n   Hours: Mon 5–11PM, Fri 5–11PM, Sat 5–11PM, Sun 5–11PM; Tue/Wed/Thu Closed\n\n5. Paradise tattoo — Avg rating: 4.96 (378 reviews)\n   Hours: Mon–Thu 12–10PM, Fri 12PM–12AM, Sat 12PM–12AM, Sun 12–10PM\n\nBoth analysts agreed on the same top 5 set and ordering."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 4,
+  "run": 1,
+  "answer": "The top 3 businesses with the most reviews rated 4.5+ during 2019 were Zuby's Brake Tires & Wheels: 12 reviews, Encino Dermatology & Laser: Alex Khadavi MD: 12 reviews, and Aurora Massage: 11 reviews. Analyst 2 was wrong because ratings are integers 1–5 so '4.5+' means rating = 5, and their counts (19, 17, 14) do not match the actual data."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 4,
+  "run": 2,
+  "answer": "During 2019, the three businesses with the highest number of reviews rated 4.5 or higher (rating >= 5, since ratings are integers) are: 1) Encino Dermatology & Laser: Alex Khadavi MD — 19 reviews; 2) The Boochyard @ Local Roots — 17 reviews; 3) Aurora Massage — 14 reviews. Analyst 1 was wrong because they miscounted (Encino has 19, not 12; Aurora has 14, not 11), replaced The Boochyard @ Local Roots with Zuby's Brake Tires & Wheels (which only has 12 high-rating reviews), and missed the correct #2 entry."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 4,
+  "run": 3,
+  "answer": "The top 3 businesses by number of reviews rated 4.5 or higher during 2019 are: 1) Encino Dermatology & Laser: Alex Khadavi MD — 19 reviews; 2) The Boochyard @ Local Roots — 17 reviews; 3) Aurora Massage — 14 reviews. (Ratings are integers 1–5, so '>=4.5' means rating=5.)"
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 4,
+  "run": 4,
+  "answer": "The top 3 businesses with the highest number of reviews rated 4.5 or higher (i.e., rating = 5) during 2019 are: 1) Encino Dermatology & Laser: Alex Khadavi MD — 19 high-rating reviews; 2) The Boochyard @ Local Roots — 17 high-rating reviews; 3) Aurora Massage — 14 high-rating reviews. Both analysts agreed on the same top 3, which is verified against the database."
+ },
+ {
+  "dataset": "googlelocal",
+  "query": 4,
+  "run": 5,
+  "answer": "The three businesses with the highest number of reviews rated 4.5 or higher in 2019 are: (1) Encino Dermatology & Laser: Alex Khadavi MD with 19 high-rating reviews, (2) The Boochyard @ Local Roots with 17 high-rating reviews, and (3) Aurora Massage with 14 high-rating reviews. Both analysts agreed, and the re-derived query confirms these exact counts; since ratings are stored as integers on a 1-5 scale, '4.5 or higher' effectively equals rating = 5, leaving no ambiguity."
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 1,
+  "run": 1,
+  "answer": "Apple Music made $601.44 USD from Beyoncé's 'Get Me Bodied' in Canada."
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 1,
+  "run": 2,
+  "answer": "Apple Music revenue in Canada from Beyoncé's 'Get Me Bodied' = $601.44 USD (564 units sold, across track_ids 4233 and 12954). Both analysts agreed on this figure; the correct entity resolution includes both duplicate track records."
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 1,
+  "run": 3,
+  "answer": "Apple Music made $601.44 USD from Beyoncé's 'Get Me Bodied' in Canada."
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 1,
+  "run": 4,
+  "answer": "Apple Music made $1059.46 USD in revenue from Beyoncé's song 'Get Me Bodied' in Canada (summing across duplicate track records 4233, 5281, and 12954: 377.62 + 458.02 + 223.82). Analyst 1's $601.44 was wrong because they only summed two of the three duplicate records (4233 and 12954), missing track 5281 whose title is rendered as 'GetMe Bodied' without a space."
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 1,
+  "run": 5,
+  "answer": "$601.44 USD"
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 2,
+  "run": 1,
+  "answer": "iTunes: 505.61"
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 2,
+  "run": 2,
+  "answer": "Amazon Music: $1108.99"
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 2,
+  "run": 3,
+  "answer": "Amazon Music: 682.23 USD"
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 2,
+  "run": 4,
+  "answer": "Amazon Music: 304.13"
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 2,
+  "run": 5,
+  "answer": "Amazon Music: $682.23"
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 3,
+  "run": 1,
+  "answer": "Groovey by Rich Matteson generated the highest total revenue at $4,128.59 USD across all stores and countries."
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 3,
+  "run": 2,
+  "answer": "Groovey by Rich Matteson generated the highest total revenue of $4128.59 USD across all stores and countries."
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 3,
+  "run": 3,
+  "answer": "Groovey by Rich Matteson: $4128.59"
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 3,
+  "run": 4,
+  "answer": "Groovey by Rich Matteson: $4128.59. The losing interpretation would be wrong because the tracks table contains 3 duplicate track_ids (8829, 16496, 17312) all representing the same real-world song; summing revenue per single track_id alone yields only $2522.82 at best, but entity resolution across duplicates gives the true total of $4128.59 across 3662 units sold in all 5 stores and countries."
+ },
+ {
+  "dataset": "music_brainz_20k",
+  "query": 3,
+  "run": 5,
+  "answer": "Groovey by Rich Matteson: $5668.50. Analyst 1's answer ($2522.82) was just one duplicate's revenue, and Analyst 2's Dil Ka Rishta ($5463.53) summed only some duplicates but missed that Groovey's duplicates across track_ids 6146, 7710, 8829, 16496, and 17312 total more."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 1,
+  "run": 1,
+  "answer": "399001.SZ (Shenzhen Stock Exchange): 0.0183"
+ },
+ {
+  "dataset": "stockindex",
+  "query": 1,
+  "run": 2,
+  "answer": "399001.SZ (Shenzhen Stock Exchange): 0.020202 average intraday volatility (High-Low)/Open since 2020, the highest among Asia-region indexes. The losing answer used the same top pick but undercounted slightly by applying a narrower date filter; the correct Asia ranking puts Shenzhen above Shanghai (0.017311), India NSEI (0.015852), Hong Kong HSI (0.013823), Taiwan TWII (0.013488), and Tokyo N225 (0.008721)."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 1,
+  "run": 3,
+  "answer": "Shenzhen Stock Exchange (399001.SZ, Shenzhen Component Index): 0.01886"
+ },
+ {
+  "dataset": "stockindex",
+  "query": 1,
+  "run": 4,
+  "answer": "Shenzhen Stock Exchange (399001.SZ): 0.01834 average intraday volatility since 2020. Analyst 2's 0.01829 was lower only because of a different date filter (122 vs 342 days), not because a different index was highest; Shenzhen remained the top Asia index under either filter."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 1,
+  "run": 5,
+  "answer": "Shenzhen Stock Exchange (Shenzhen Component Index, 399001.SZ): 0.0184"
+ },
+ {
+  "dataset": "stockindex",
+  "query": 2,
+  "run": 1,
+  "answer": "IXIC (NASDAQ) was the only North American stock index with more up days (131) than down days (120) in 2018; NYA had 125 up vs 126 down, and GSPTSE had 115 up vs 135 down. Analyst 1 miscounted IXIC/GSPTSE (their 44/31 and 44/41 figures are wrong), and Analyst 2 miscounted IXIC (87 vs 89) and GSPTSE (71 vs 94) — the correct counts from the database are 131/120 and 115/135 respectively."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 2,
+  "run": 2,
+  "answer": "Among the three North American stock indices — IXIC (NASDAQ), NYA (NYSE), and GSPTSE (Toronto Stock Exchange) — only IXIC had more up days than down days in 2018, with 131 up days versus 120 down days; NYA had 125 up vs 126 down, and GSPTSE had 115 up vs 135 down. Analyst 1 was incorrect because their date filter captured only about half of 2018's trading days (a date-format matching issue), while Analyst 2's counts match the full 251 trading sessions per index."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 2,
+  "run": 3,
+  "answer": "IXIC (NASDAQ) was the only North American index with more up days than down days in 2018: 131 up days vs 120 down days. NYA had 125 up vs 126 down, and GSPTSE had 115 up vs 135 down."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 2,
+  "run": 4,
+  "answer": "IXIC (NASDAQ Composite) — 131 up days vs 120 down days in 2018. The other North American indices had more down days than up days: GSPTSE (S&P/TSX Composite, Toronto) had 115 up vs 135 down, and NYA (NYSE Composite) had 125 up vs 126 down."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 2,
+  "run": 5,
+  "answer": "NASDAQ (IXIC) was the only North American index with more up days than down days in 2018, with 131 up days and 120 down days. The other North American indices — NYSE (NYA: 125 up, 126 down) and Toronto Stock Exchange (GSPTSE: 115 up, 135 down) — both had more down days than up days."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 3,
+  "run": 1,
+  "answer": "The 5 indices with the highest overall returns from $1 monthly investments since January 2000 are: 1) IXIC (NASDAQ) — USA, return ratio 4.83, 2) 399001.SZ (Shenzhen Component) — China, return ratio 2.35, 3) GDAXI (DAX) — Germany, return ratio 2.35, 4) TWII (Taiwan Weighted) — Taiwan, return ratio 2.30, 5) N225 (Nikkei 225) — Japan, return ratio 2.17. Countries: United States, China, Germany, Taiwan, Japan. Analyst 2 was wrong because they included NSEI (India), which only began trading in September 2007 and therefore could not have received monthly investments since 2000; when restricted to indices that existed in 2000, N225 (Japan) is the 5th-best performer and replaces NSEI."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 3,
+  "run": 2,
+  "answer": "The top 5 indices by monthly USD DCA return since 2000 are: 1) IXIC (NASDAQ) — United States — 382.69%; 2) NSEI (National Stock Exchange of India) — India — 135.84%; 3) 399001.SZ (Shenzhen Stock Exchange) — China — 134.75%; 4) GDAXI (Frankfurt Stock Exchange) — Germany — 134.70%; 5) TWII (Taiwan Stock Exchange) — Taiwan — 129.82%. Analyst 2 placed GDAXI in 2nd position; the difference is that NSEI, whose data only begins in Sep 2007 (165 monthly contributions vs 257), accumulated a slightly higher share-weighted USD price gain (135.84%) than GDAXI (134.70%) and 399001.SZ (134.75%), placing it 2nd rather than 4th."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 3,
+  "run": 3,
+  "answer": "Top 5 indices (and their countries/exchanges) producing the highest overall returns from regular $100 monthly investments since 2000 (using CloseUSD through 2020): 1) IXIC — NASDAQ, United States (~340.3% return); 2) 399001.SZ — Shenzhen Stock Exchange, China (~122.8%); 3) GDAXI — Frankfurt Stock Exchange, Germany (~105.9%); 4) N225 — Tokyo Stock Exchange, Japan (~102.5%); 5) NSEI — National Stock Exchange of India, India (~101.6%). Analyst 2 was wrong because correctly aggregating monthly first-of-month CloseUSD prices from 2000 onward places 399001.SZ, GDAXI, N225, and NSEI all above TWII, which only returned ~88.9%."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 3,
+  "run": 4,
+  "answer": "Top 5 indices by simulated $100 monthly investments since 2000 (valued at last available CloseUSD): 1) IXIC (NASDAQ, United States): 4.82x return; 2) GDAXI (Frankfurt Stock Exchange, Germany): 2.35x return; 3) NSEI (National Stock Exchange of India, India): 2.35x return; 4) 399001.SZ (Shenzhen Stock Exchange, China): 2.34x return; 5) TWII (Taiwan Stock Exchange, Taiwan): 2.30x return. Both analysts agreed on these same 5 indices; they only differed in reporting format (multiple vs percent)."
+ },
+ {
+  "dataset": "stockindex",
+  "query": 3,
+  "run": 5,
+  "answer": "Top 5 indices with highest DCA returns since 2000 (investing $1000/month, USD): 1) IXIC (NASDAQ, United States): 381.62% return; 2) NSEI (National Stock Exchange of India, India): 135.64% return; 3) GDAXI (Frankfurt Stock Exchange, Germany): 135.37% return; 4) 399001.SZ (Shenzhen Stock Exchange, China): 133.84% return; 5) TWII (Taiwan Stock Exchange, Taiwan): 124.47% return. Analyst 2's answer was wrong because they used simple price appreciation (e.g. IXIC went from ~4000 to ~13000 = ~225% not 4927%) and likely a wrong aggregation method, missing the DCA structure of the question."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 1,
+  "run": 1,
+  "answer": "The maximum adjusted closing price for The RealReal, Inc. (REAL) in 2020 was $18.44 on 2020-01-03. Both analysts agreed on $18.44 on 2020-01-03, so there is no disagreement to resolve."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 1,
+  "run": 2,
+  "answer": "18.44"
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 1,
+  "run": 3,
+  "answer": "The maximum adjusted closing price for The RealReal, Inc. (REAL) in 2020 was $18.44, occurring on January 3, 2020. Both analysts are correct and agree on this value; there is no divergence to resolve."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 1,
+  "run": 4,
+  "answer": "The maximum adjusted closing price in 2020 for The RealReal, Inc. (REAL) was $18.44, on January 3, 2020. Both analysts agreed on the value and date; Analyst 2's phrasing (with the comma before the date) was correct and Analyst 1's version ('$18.44 on 2020-01-03') was not wrong on substance, only less readable."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 1,
+  "run": 5,
+  "answer": "The RealReal, Inc. (REAL) had a maximum adjusted closing price in 2020 of $18.44."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 2,
+  "run": 1,
+  "answer": "Total: 31 ETFs on NYSE Arca had an adjusted closing price above $200 at some point in 2015.\n\nSymbols: BOIL, BZQ, COM, DUST, EDZ, ERX, FAZ, FXP, GFIN, GUSH, HYUP, JDST, JNUG, JPN, LABD, LABU, LBJ, MDY, PTIN, RTL, SDOW, SOXS, SSG, TECS, TZA, UVXY, VIXY, VPC, XES, XOP, YANG.\n\nTotal count: 31"
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 2,
+  "run": 2,
+  "answer": "31 ETFs listed on NYSE Arca reached an adjusted closing price above $200 during 2015: BOIL, BZQ, COM, DUST, EDZ, ERX, FAZ, FXP, GFIN, GUSH, HYUP, JDST, JNUG, JPN, LABD, LABU, LBJ, MDY, PTIN, RTL, SDOW, SOXS, SSG, TECS, TZA, UVXY, VIXY, VPC, XES, XOP, YANG. Total: 31. Both analysts actually agreed on the count (31) and the same set of symbols; the disagreement mentioned was illusory since both lists contain the same 31 tickers."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 2,
+  "run": 3,
+  "answer": "Total NYSE Arca-listed ETFs that reached an adjusted closing price above $200 at any point during 2015: 31. Symbols (31): BOIL, BZQ, COM, DUST, EDZ, ERX, FAZ, FXP, GFIN, GUSH, HYUP, JDST, JNUG, JPN, LABD, LABU, LBJ, MDY, PTIN, RTL, SDOW, SOXS, SSG, TECS, TZA, UVXY, VIXY, VPC, XES, XOP, YANG. Both analysts agreed on the same 31 symbols; there was no disagreement on the underlying set or count."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 2,
+  "run": 4,
+  "answer": "31 NYSE Arca ETFs reached an adjusted closing price above $200 at some point during 2015: UVXY, GUSH, COM, RTL, JDST, HYUP, SOXS, VPC, DUST, LBJ, PTIN, GFIN, ERX, LABD, VIXY, BZQ, JNUG, SDOW, BOIL, YANG, EDZ, FAZ, XES, TZA, SSG, MDY, TECS, LABU, XOP, FXP, JPN. Both analysts agreed on the same 31-ETF list and count, so there is no divergence to resolve."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 2,
+  "run": 5,
+  "answer": "31 ETFs on NYSE Arca reached an adjusted closing price above $200 during 2015: BOIL, BZQ, COM, DUST, EDZ, ERX, FAZ, FXP, GFIN, GUSH, HYUP, JDST, JNUG, JPN, LABD, LABU, LBJ, MDY, PTIN, RTL, SDOW, SOXS, SSG, TECS, TZA, UVXY, VIXY, VPC, XES, XOP, YANG. Total count: 31."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 3,
+  "run": 1,
+  "answer": "Apex Global Brands Inc.: 23781.422924901184\nBIO-key International, Inc.: 10988.142292490118\nCBAK Energy Technology, Inc.: 86223.32015810277\nChina Ceramics Co., Ltd.: 4366.798418972332\nCorrevio Pharma Corp., based in Canada,: 145247.8260869565\nCounterPath Corporation: 375.49407114624506\nDASAN Zhone Solutions, Inc.: 15578.656126482214\nFuture FinTech Group Inc.: 9.845238095238095\nFrontier Communications Corporation: 254397.62845849802\nIdeanomics, Inc.: 10.276679841897232\nOcean Power Technologies, Inc.: 254.1501976284585\nPacific Ethanol, Inc.: 10706.719367588932\nSynthesis Energy Systems, Inc.: 2390.513833992095\nSunesis Pharmaceuticals, Inc.: 781.8181818181819\nSypris Solutions, Inc.: 36836.36363636364"
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 3,
+  "run": 2,
+  "answer": "Apex Global Brands Inc.: 23781.422924901184\nBIO-key International, Inc.: 10988.142292490118\nCBAK Energy Technology, Inc.: 86223.32015810277\nChina Ceramics Co., Ltd.: 4366.798418972332\nCorrevio Pharma Corp., based in Canada.: 145247.8260869565\nCounterPath Corporation.: 375.49407114624506\nDASAN Zhone Solutions, Inc.: 15578.656126482214\nFrontier Communications Corporation.: 254397.62845849802\nIdeanomics, Inc.: 10.276679841897232\nOcean Power Technologies, Inc.: 254.1501976284585\nPacific Ethanol, Inc.: 10706.719367588932\nSynthesis Energy Systems, Inc.: 2390.513833992095\nSunesis Pharmaceuticals, Inc.: 781.8181818181819\nSypris Solutions, Inc.: 36836.36363636364\nFuture FinTech Group Inc.: 9.845238095238095"
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 3,
+  "run": 3,
+  "answer": "Apex Global Brands Inc. (APEX): 23781.422924901184\nBIO-key International, Inc. (BKYI): 10988.142292490118\nCBAK Energy Technology, Inc. (CBAT): 86223.32015810277\nChina Ceramics Co., Ltd. (CCCL): 4366.798418972332\nCorrevio Pharma Corp. (CORV): 145247.8260869565\nCounterPath Corporation (CPAH): 375.49407114624506\nDASAN Zhone Solutions, Inc. (DZSI): 15578.656126482214\nFuture FinTech Group Inc. (FTFT): 9.845238095238095\nFrontier Communications Corporation (FTR): 254397.62845849802\nIdeanomics, Inc. (IDEX): 10.276679841897232\nOcean Power Technologies, Inc. (OPTT): 254.1501976284585\nPacific Ethanol, Inc. (PEIX): 10706.719367588932\nSynthesis Energy Systems, Inc. (SES): 2390.513833992095\nSunesis Pharmaceuticals, Inc. (SNSS): 781.8181818181819\nSypris Solutions, Inc. (SYPR): 36836.36363636364"
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 3,
+  "run": 4,
+  "answer": "Apex Global Brands Inc. (APEX): 23781.4229\nBIO-key International, Inc. (BKYI): 10988.1423\nCBAK Energy Technology, Inc. (CBAT): 86223.3202\nChina Ceramics Co., Ltd. (CCCL): 4366.7984\nCorrevio Pharma Corp. (CORV): 145247.8261\nCounterPath Corporation (CPAH): 375.4941\nDASAN Zhone Solutions, Inc. (DZSI): 15578.6561\nFuture FinTech Group Inc. (FTFT): 9.8452\nFrontier Communications Corporation (FTR): 254397.6285\nIdeanomics, Inc. (IDEX): 10.2767\nOcean Power Technologies, Inc. (OPTT): 254.1502\nPacific Ethanol, Inc. (PEIX): 10706.7194\nSynthesis Energy Systems, Inc. (SES): 2390.5138\nSunesis Pharmaceuticals, Inc. (SNSS): 781.8182\nSypris Solutions, Inc. (SYPR): 36836.3636"
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 3,
+  "run": 5,
+  "answer": "There are 15 NASDAQ-listed (Listing Exchange=Q) financially troubled companies (Financial Status in D=Deficient or H=Deficient+Delinquent) that have 2008 trading volume data, with their non-null average daily trading volumes in 2008:\nApex Global Brands Inc (APEX): 23781.4229 shares/day\nBIO-key International, Inc (BKYI): 10988.1423 shares/day\nCBAK Energy Technology, Inc (CBAT): 86223.3202 shares/day\nChina Ceramics Co., Ltd (CCCL): 4366.7984 shares/day\nCorrevio Pharma Corp. (CORV): 145247.8261 shares/day\nCounterPath Corporation (CPAH): 375.4941 shares/day\nDASAN Zhone Solutions, Inc (DZSI): 15578.6561 shares/day\nFuture FinTech Group Inc (FTFT): 9.8452 shares/day\nFrontier Communications Corporation (FTR): 254397.6285 shares/day\nIdeanomics, Inc (IDEX): 10.2767 shares/day\nOcean Power Technologies, Inc (OPTT): 254.1502 shares/day\nPacific Ethanol, Inc (PEIX): 10706.7194 shares/day\nSynthesis Energy Systems, Inc (SES): 2390.5138 shares/day\nSunesis Pharmaceuticals, Inc (SNSS): 781.8182 shares/day\nSypris Solutions, Inc (SYPR): 36836.3636 shares/day\nBoth analysts agreed on the same 15 companies and identical average daily volumes; the only difference was decimal precision in formatting."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 4,
+  "run": 1,
+  "answer": "MFA Financial, Inc.; Argo Group International Holdings, Ltd.; HDFC Bank Limited; Albany International Corporation; DTE Energy Company"
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 4,
+  "run": 2,
+  "answer": "MFA Financial, Inc.; Argo Group International Holdings, Ltd.; HDFC Bank Limited; Albany International Corporation; DTE Energy Company"
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 4,
+  "run": 3,
+  "answer": "MFA Financial, Inc. (139 up vs 67 down); Argo Group International Holdings, Ltd. (133 vs 82); HDFC Bank Limited (146 vs 102); Albany International Corporation (143 vs 101); DTE Energy Company (139 vs 98)."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 4,
+  "run": 4,
+  "answer": "The top 5 NYSE non-ETF stocks with more up days than down days in 2017 are: 1. MFA Financial, Inc. (139 up, 67 down); 2. Argo Group International Holdings, Ltd. (133 up, 82 down); 3. HDFC Bank Limited (146 up, 102 down); 4. Albany International Corporation (143 up, 101 down); 5. DTE Energy Company (139 up, 98 down). Both analysts agreed on these same five names, and my independent re-derivation matches exactly."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 4,
+  "run": 5,
+  "answer": "The top 5 NYSE non-ETF stocks with more up days than down days in 2017, ranked by number of up days, are: 1) HDFC Bank Limited (146 up, 102 down), 2) Albany International Corporation (143 up, 101 down), 3) Getty Realty Corporation (143 up, 104 down), 4) Mettler-Toledo International, Inc. (143 up, 108 down), 5) Pfizer, Inc. (141 up, 105 down). Analyst 1 was wrong because their list included ARGD (only 133 up days) while omitting GTY, MTD, and PFE which all had more up days. Analyst 2 was close but chose Ameriprise Financial (141 up, 110 down) over Pfizer (141 up, 105 down); both have 141 up days, but Pfizer has fewer down days, so Pfizer ranks ahead on tie-breaking."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 5,
+  "run": 1,
+  "answer": "The 5 NASDAQ Capital Market companies with the highest number of days in 2019 where the intraday price range exceeded 20% of the low price are: 1) Synthesis Energy Systems, Inc. (SES): 51 days, 2) TD Holdings, Inc. (GLG): 42 days, 3) TMSR Holding Company Limited (TMSR): 40 days, 4) Verb Technology Company, Inc. (VERB): 38 days, 5) Sunesis Pharmaceuticals, Inc. (SNSS): 32 days."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 5,
+  "run": 2,
+  "answer": "The 5 NASDAQ Capital Market companies with the highest number of days in 2019 where the intraday price range (High-Low)/Low exceeded 20% are: 1) Synthesis Energy Systems, Inc. (SES): 51 days, 2) TD Holdings, Inc. (GLG): 42 days, 3) TMSR Holding Company Limited (TMSR): 40 days, 4) Verb Technology Company, Inc. (VERB): 38 days, 5) Sunesis Pharmaceuticals, Inc. (SNSS): 32 days."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 5,
+  "run": 3,
+  "answer": "The five NASDAQ Capital Market companies with the highest number of 2019 trading days where the intraday price range exceeded 20% of the low price were: (1) Synthesis Energy Systems, Inc. (SES) — 51 days; (2) TD Holdings, Inc. (GLG) — 42 days; (3) TMSR Holding Company Limited (TMSR) — 40 days; (4) Verb Technology Company, Inc. (VERB) — 38 days; (5) Sunesis Pharmaceuticals, Inc. (SNSS) — 32 days."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 5,
+  "run": 4,
+  "answer": "The 5 NASDAQ Capital Market companies with the highest number of 2019 days where the intraday price range (High-Low) exceeded 20% of the low price are: 1) Synthesis Energy Systems, Inc. (SES): 51 days; 2) TD Holdings, Inc. (GLG): 42 days; 3) TMSR Holding Company Limited (TMSR): 40 days; 4) Verb Technology Company, Inc. (VERB): 38 days; 5) Sunesis Pharmaceuticals, Inc. (SNSS): 32 days. Both analysts agreed on this answer."
+ },
+ {
+  "dataset": "stockmarket",
+  "query": 5,
+  "run": 5,
+  "answer": "The top 5 NASDAQ Capital Market companies with the highest number of days in 2019 where the intraday price range exceeded 20% of the low price are: 1) Synthesis Energy Systems, Inc. (SES): 51 days, 2) TD Holdings, Inc. (GLG): 42 days, 3) TMSR Holding Company Limited (TMSR): 40 days, 4) Verb Technology Company, Inc. (VERB): 38 days, 5) Sunesis Pharmaceuticals, Inc. (SNSS): 32 days."
+ },
+ {
+  "dataset": "yelp",
+  "query": 1,
+  "run": 1,
+  "answer": "3.547008547008547. Analyst 1's answer (3.55) was just a rounded version of the exact value; they were both correct, but Analyst 2 provided the unrounded precise average."
+ },
+ {
+  "dataset": "yelp",
+  "query": 1,
+  "run": 2,
+  "answer": "3.55"
+ },
+ {
+  "dataset": "yelp",
+  "query": 1,
+  "run": 3,
+  "answer": "3.55"
+ },
+ {
+  "dataset": "yelp",
+  "query": 1,
+  "run": 4,
+  "answer": "3.55"
+ },
+ {
+  "dataset": "yelp",
+  "query": 1,
+  "run": 5,
+  "answer": "3.547008547008547"
+ },
+ {
+  "dataset": "yelp",
+  "query": 2,
+  "run": 1,
+  "answer": "Pennsylvania (PA): 662 reviews, average rating 3.699395770392749 (approximately 3.70). Analyst 2's figure of 617 reviews/3.76 is wrong because they missed the business whose description reads 'This Philadelphia, PA location...' (businessid_8), which the standard ', ST,' regex does not match — that business alone contributes 45 reviews with a high average rating, raising the weighted average and increasing the total review count."
+ },
+ {
+  "dataset": "yelp",
+  "query": 2,
+  "run": 2,
+  "answer": "Pennsylvania: 617 reviews, average rating 3.7633711507293355"
+ },
+ {
+  "dataset": "yelp",
+  "query": 2,
+  "run": 3,
+  "answer": "Pennsylvania (PA) has the highest number of reviews (617), with an average rating of 3.76. The losing answer (655 reviews, 3.70) used a slightly off count; joining review.business_ref to business.business_id after stripping the 'businessref_'/'businessid_' prefix yields 617 reviews and an average rating of 3.76."
+ },
+ {
+  "dataset": "yelp",
+  "query": 2,
+  "run": 4,
+  "answer": "Pennsylvania: 3.76"
+ },
+ {
+  "dataset": "yelp",
+  "query": 2,
+  "run": 5,
+  "answer": "Pennsylvania (PA) has the highest number of reviews with 662 reviews, and the average rating of businesses in that state is 3.6993957704 (≈3.70). Analyst 2 was wrong because they apparently filtered only descriptions using ', PA,' with a comma and missed the 45 reviews belonging to PA businesses whose descriptions used ', PA.' or ' PA ' patterns, giving them 617 instead of 662 and a slightly different (3.76) average."
+ },
+ {
+  "dataset": "yelp",
+  "query": 3,
+  "run": 1,
+  "answer": "35"
+ },
+ {
+  "dataset": "yelp",
+  "query": 3,
+  "run": 2,
+  "answer": "35"
+ },
+ {
+  "dataset": "yelp",
+  "query": 3,
+  "run": 3,
+  "answer": "35"
+ },
+ {
+  "dataset": "yelp",
+  "query": 3,
+  "run": 4,
+  "answer": "41"
+ },
+ {
+  "dataset": "yelp",
+  "query": 3,
+  "run": 5,
+  "answer": "35"
+ },
+ {
+  "dataset": "yelp",
+  "query": 4,
+  "run": 1,
+  "answer": "Restaurants: 17 businesses accept credit cards, average rating 3.572. Both analysts incorrectly picked Shopping (15 businesses, avg rating 3.702); Restaurants is the largest category with credit-card acceptance, not Shopping."
+ },
+ {
+  "dataset": "yelp",
+  "query": 4,
+  "run": 2,
+  "answer": "Restaurants: 3.64"
+ },
+ {
+  "dataset": "yelp",
+  "query": 4,
+  "run": 3,
+  "answer": "Restaurants: 24 businesses, average rating 3.6657"
+ },
+ {
+  "dataset": "yelp",
+  "query": 4,
+  "run": 4,
+  "answer": "Restaurants: 14 businesses, average rating 3.4989106753812638. The Restaurants category has the largest number of businesses that accept credit card payments (14), with an average review rating of 3.4989106753812638 across 459 reviews. Analyst 1's '6 businesses' is wrong because they only counted businesses where 'Restaurants' was the first/primary category in the list, but the question asks about all businesses belonging to the Restaurants category regardless of list position. Analyst 2's 3.59 / 626 reviews does not match any defensible calculation from this database."
+ },
+ {
+  "dataset": "yelp",
+  "query": 4,
+  "run": 5,
+  "answer": "Restaurants: 3.63 (27 businesses accept credit cards). Shopping is second with 17 businesses and avg 3.53; Analyst 1 picked the wrong category (Shopping)."
+ },
+ {
+  "dataset": "yelp",
+  "query": 5,
+  "run": 1,
+  "answer": "Pennsylvania (PA): 8 businesses offering WiFi, average rating 3.48"
+ },
+ {
+  "dataset": "yelp",
+  "query": 5,
+  "run": 2,
+  "answer": "Pennsylvania: 8 businesses, average rating 3.4840 (3.48). Analyst 2 was wrong because counting 12 likely included businesses whose WiFi attribute was 'no' (not actually offered), giving a misstated count and an inflated average of 3.70."
+ },
+ {
+  "dataset": "yelp",
+  "query": 5,
+  "run": 3,
+  "answer": "Pennsylvania has the highest number of businesses offering WiFi (8 businesses), with an average rating of 3.48 (3.4839857651245554). Analyst 2 was wrong because they counted 9 businesses, likely including a business where WiFi was 'no' or miscounting state extraction."
+ },
+ {
+  "dataset": "yelp",
+  "query": 5,
+  "run": 4,
+  "answer": "Pennsylvania (PA) has the highest number of businesses that offer WiFi with 8 businesses, and the average rating for those businesses is 3.48. The losing answer was wrong only in framing; both analysts agreed on the same Pennsylvania, 8 businesses, 3.48 average rating."
+ },
+ {
+  "dataset": "yelp",
+  "query": 5,
+  "run": 5,
+  "answer": "Pennsylvania: 8 businesses, average rating 3.4839857651245554"
+ },
+ {
+  "dataset": "yelp",
+  "query": 6,
+  "run": 1,
+  "answer": "Coffee House Too Cafe had the highest average rating of 4.375 between January 1, 2016 and June 30, 2016 (16 reviews), in the Cafes category. Analyst 2's answer was wrong because the actual average rating for Orangetheory Fitness Carrollwood was 4.0 (not 4.4), making Coffee House Too Cafe the clear winner."
+ },
+ {
+  "dataset": "yelp",
+  "query": 6,
+  "run": 2,
+  "answer": "Coffee House Too Cafe had the highest average rating of 4.375 between January 1, 2016 and June 30, 2016 (with 16 reviews). It belongs to the Restaurants category."
+ },
+ {
+  "dataset": "yelp",
+  "query": 6,
+  "run": 3,
+  "answer": "Coffee House Too Cafe, with an average rating of 4.375 (16 reviews between January 1, 2016 and June 30, 2016), belongs to the categories: Restaurants, Breakfast & Brunch, American (New), Cafes. Analyst 1's answer was wrong because it listed only 'Cafes' and omitted the other three categories that the description explicitly associates with the business."
+ },
+ {
+  "dataset": "yelp",
+  "query": 6,
+  "run": 4,
+  "answer": "Coffee House Too Cafe — category: Restaurants — average rating: 4.375 (16 reviews)"
+ },
+ {
+  "dataset": "yelp",
+  "query": 6,
+  "run": 5,
+  "answer": "Coffee House Too Cafe: Restaurants, Breakfast & Brunch, American (New), Cafes (average rating 4.375, 16 reviews between January 1, 2016 and June 30, 2016)."
+ },
+ {
+  "dataset": "yelp",
+  "query": 7,
+  "run": 1,
+  "answer": "Top 5 business categories by total reviews from 2016-registered Yelp users (since 2016): Restaurants: 58, Food: 38, American (New): 24, Shopping: 20, Breakfast & Brunch: 19. Both analysts agree; the answer was reproduced after correctly parsing categories embedded in business descriptions (including quoted category lists like 'Restaurants, Chinese')."
+ },
+ {
+  "dataset": "yelp",
+  "query": 7,
+  "run": 2,
+  "answer": "Restaurants: 29, Food: 24, Shopping: 16, Local Services: 16, American (New): 12. Analyst 1 overcounted by counting each category per-review with business review_count weighting; Analyst 2 had the same flaw with a different aggregation. The correct counts come from counting each review once per business category it belongs to."
+ },
+ {
+  "dataset": "yelp",
+  "query": 7,
+  "run": 3,
+  "answer": "The 5 business categories that received the most total reviews from Yelp users who registered in 2016 (since 2016) are: 1) Restaurants: 52 reviews, 2) Food: 27 reviews, 3) American (New): 24 reviews, 4) Breakfast & Brunch: 19 reviews, 5) Local Services: 17 reviews. Both analysts' top 3 (Restaurants, Food, American (New)) are correct, but they undercounted because their category-extraction rules missed categories on businesses like Big Boys Moving And Storage (which is genuinely tagged Local Services). The losing answer included Shopping (16 reviews) instead of Local Services (17 reviews)."
+ },
+ {
+  "dataset": "yelp",
+  "query": 7,
+  "run": 4,
+  "answer": "Restaurants, Food, American (New), Shopping, Breakfast & Brunch"
+ },
+ {
+  "dataset": "yelp",
+  "query": 7,
+  "run": 5,
+  "answer": "The 5 business categories with the most total reviews from users who registered on Yelp in 2016 (review dates since 2016) are: 1) Restaurants: 55 reviews; 2) Food: 38 reviews; 3) American (New): 24 reviews; 4) Shopping: 20 reviews; 5) Breakfast & Brunch: 19 reviews."
+ }
+]
