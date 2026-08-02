@@ -129,8 +129,8 @@ python harness/summarize.py <testbed> <out>
 re-runs only what is missing, which matters because a long run will lose tasks
 to timeouts.
 
-A Fabric notebook version is in the library repo at
-[`examples/notebooks/agenticdatabench_fabric.ipynb`](https://github.com/pawarbi/fabric-rlm-core/blob/main/examples/notebooks/agenticdatabench_fabric.ipynb).
+A Fabric notebook version is being tested and will be linked here once it lands
+in the library repo.
 
 ## Files
 
