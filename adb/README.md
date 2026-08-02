@@ -137,6 +137,11 @@ in the library repo.
 - `results/*.json` — grader output per run
 - `results/full_stack_*_per_task.jsonl` — per task: score, whether the required
   files were written, turns, and token counts
+- `traces/*.jsonl.gz` — every turn of both full runs: the code the model ran,
+  its stdout, errors, token counts and whether it submitted. Slimmed from 834 MB
+  of raw trajectories to 2 MB by dropping namespace snapshots and truncating long
+  output; `harness/slim_traces.py` regenerates them. One JSON object per turn,
+  keyed by `task`
 - `harness/` — runner, grader, sharding, dataset fetcher, analysis and audit scripts
 - `PREREG_STACK.md`, `PREREG_OUTPUT_CONTRACT.md` — decision rules fixed before running
 - `EVALUATOR_AUDIT.md` — audit of the benchmark's own evaluator
