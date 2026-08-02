@@ -30,7 +30,7 @@ Results on the 246 public tasks, graded by your own comparators via
 | fabric-rlm | MiniMax M3 | 47.98% |
 | fabric-rlm | Kimi-K2.5 | 46.89% |
 
-Model spend was roughly $7 and $14 respectively.
+Model spend for those two runs was about $8 and $14 respectively, at list prices.
 
 Two things may be of interest beyond the numbers.
 
@@ -38,9 +38,10 @@ First, what moved them. A plain run scored 43.49% (M3) and 42.11% (Kimi). The
 gain came from mechanics rather than analysis: 32% of all zero-scoring tasks had
 written no output file at all. Rejecting a submission whose required file is
 missing, warning the model when its turn budget is nearly spent, and raising the
-worker timeout lifted completion from 89% to 96% of tasks. The same changes
-transferred between the two models almost unchanged (+4.5 and +4.8), which
-suggests they address a harness weakness rather than a model quirk.
+worker timeout lifted the share of tasks producing their required output from
+89% to 96% (M3) and 89% to 99% (Kimi). The same changes transferred between the
+two models almost unchanged (+4.5 and +4.8), which suggests they address a
+harness weakness rather than a model quirk.
 
 Second, two notes on the evaluation itself, offered as a contribution rather
 than a complaint. The shipped `evaluate.py` cannot run on Windows: it
