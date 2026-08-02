@@ -13,6 +13,11 @@ check the numbers or repeat the runs.
 Costs are estimated rather than observed. See [Cost estimates](#cost-estimates)
 for the method and its biases. `assets/chart.html` regenerates the figure.
 
+
+Also in this repo: [`dab/`](dab/) for DataAgentBench and [`adb/`](adb/)
+for [AgenticDataBench](https://github.com/AgenticDataBench/AgenticDataBench),
+where fabric-rlm scores 47.98% on the 246 public tasks.
+
 ---
 
 ## Results
