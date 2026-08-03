@@ -35,6 +35,33 @@ DAB = pathlib.Path(r"C:/Users/sandeeppawar/Downloads/DataAgentBench")
 HUBS = HERE / "dab_hubs"
 os.environ["OPENROUTER_API_KEY"] = (HERE / ".orkey").read_text().strip()
 
+# --- defence 3: the worker cannot reach the network, or a cached copy of it ----
+# Four agnews trials in the submitted run called datasets.load_dataset("ag_news")
+# and read its gold label column. isolate_hub() and audit_trace() are both about
+# the local benchmark tree and neither sees an outbound fetch, and fabric-rlm's
+# SecurityPolicy denylist is a static check on the model's source, so a library
+# that wraps the request (datasets, huggingface_hub, pandas.read_csv(url)) walks
+# straight through it.
+#
+# The block itself is now the library's: RLM(block_network=True) installs a
+# connect guard in the worker (loopback permitted, everything else refused).
+# This replaces the hand-rolled PYTHONPATH+sitecustomize version that proved the
+# idea; same mechanism, but shipped, tested, and verified 11/11 on Fabric.
+#
+# The cache redirect is NOT optional and is deliberately separate. Blocking the
+# network alone leaves load_dataset("ag_news") *still working* from
+# ~/.cache/huggingface, which on this machine was populated on 2026-07-30 by the
+# very run that leaked. Measured directly: guard on + real cache still returned
+# the gold labels; guard on + redirected cache refused. A rerun with only the
+# socket block would have leaked again from disk with no network traffic to
+# notice.
+_NOEG = HERE / "dab_noegress"
+_HF_EMPTY = _NOEG / "hf_empty"
+_HF_EMPTY.mkdir(parents=True, exist_ok=True)
+os.environ["HF_HOME"] = str(_HF_EMPTY)
+os.environ["HF_DATASETS_CACHE"] = str(_HF_EMPTY / "datasets")
+os.environ["HF_HUB_CACHE"] = str(_HF_EMPTY / "hub")
+
 MODE = os.environ.get("MODE", "smoke")
 RUNS = int(os.environ.get("RUNS", "1"))
 WORKERS = int(os.environ.get("WORKERS", "3"))
@@ -291,6 +318,22 @@ def build_task(ds: str, q: int, attach_sql: str, hub: pathlib.Path) -> str:
         cp = HERE / "dab_carto" / f"{ds}.txt"
         if cp.exists():
             schema += "\n\n" + cp.read_text(encoding="utf-8")
+    # NO_EXTERNAL=1: say the quiet part out loud. block_network stops the fetch
+    # from succeeding and audit_trace voids the trial if it is tried, but neither
+    # tells the model not to try - and on agnews it tries every single time,
+    # burning turns on it. Kept as its own flag so its effect is measurable
+    # rather than folded into another change.
+    if os.environ.get("NO_EXTERNAL", "0") == "1":
+        schema += (
+            "\n\nThe attached stores above are the only data you may use. Do not "
+            "download or load any external dataset, corpus, model or file - not "
+            "over the network, and not from a local cache such as "
+            "~/.cache/huggingface. Public datasets that resemble this data are "
+            "off limits even if you recognise the source. Where a value is not "
+            "stored (a category, a topic, a sentiment), derive it yourself from "
+            "the text you were given rather than looking it up. Attempting to "
+            "fetch external data invalidates the run."
+        )
     return (
         f"Question: {question}\n\n"
         "You have one DuckDB file at `db.path` holding every data store for this "
@@ -346,6 +389,19 @@ LEAK_PATTERNS = (
     ("withhint", re.compile(r"withhint", re.I)),
     ("dab tree walk", re.compile(r"(os\.walk|listdir|glob|scandir|rglob)[^\n]{0,80}(DataAgentBench|query_)", re.I)),
     ("sibling query dir", re.compile(r"query[\\/]?\d+[\\/]", re.I)),
+    # External-data fetch. The sanctioned stores are all attached locally, so any
+    # attempt to pull a public dataset is disqualifying whether or not it
+    # succeeded -- the four flagged agnews trials each read AG News's gold label
+    # column off the Hub. These fire on the attempt, which is the point: the
+    # socket block should make them impossible, and a hit here means it failed.
+    ("hf datasets", re.compile(r"load_dataset\s*\(|datasets\.load_dataset|huggingface|hf_hub|snapshot_download", re.I)),
+    ("url read", re.compile(r"(read_csv|read_json|read_parquet|read_table|urlopen|urlretrieve|requests\.(get|post))\s*\([^\n)]{0,60}https?://", re.I)),
+    # NB: the dataset's own name must NOT go in here. Validated against the 20
+    # archived agnews traces: "hf datasets" fires on exactly the four trials the
+    # maintainers flagged and nothing else, but an added \bag_?news\b matched 15
+    # of 20 because agnews is also the local table name every honest query
+    # selects from. A detector that voids clean trials is worse than none.
+    ("external corpora", re.compile(r"torchtext|tensorflow_datasets|\bkagglehub\b|sklearn\.datasets\.fetch|openml", re.I)),
 )
 
 
@@ -417,6 +473,14 @@ def one(job):
     ctx_path = HERE / "dab_ctx" / f"{ds}.json"
     use_ctx = os.environ.get("CTX", "0") == "1" and ctx_path.exists()
 
+    # Every ensemble pass, not just the winning one. `leaks` is a union across
+    # two blind solves and a reconciler, but only the final result's trace was
+    # ever written, so a flagged trial routinely persisted a *clean* trace and
+    # the evidence for the flag existed nowhere. That made "did the model
+    # actually obtain the data, or only try?" unanswerable - which is precisely
+    # the question the submission rubric turns on.
+    passes: list = []
+
     def solve(task_text):
         ins = {"db": File(str(iso_hub))}
         if use_ctx:
@@ -440,9 +504,13 @@ def one(job):
                    if "minimax" in MODEL else {})},
             skills=["data_exploration"],
             max_turns=MAX_TURNS, timeout=TIMEOUT,
+            # Sanctioned stores are all local; the worker has no reason to
+            # reach the network, and one query family answers itself if it can.
+            block_network=True,
         ).run()
         a = (r.payload or {}).get("answer", "") or ""
         lk = audit_trace(r.trajectory.turns if r.trajectory else [])
+        passes.append((len(passes) + 1, r, lk))
         return r, (a if isinstance(a, str) else str(a)), lk
 
     def answers_agree(a: str, b: str) -> bool:
@@ -536,7 +604,15 @@ Analyst 2 answered: {ans2}
                         "submitted": t.submitted, "duration_s": t.duration_s,
                         "prompt_tokens": t.prompt_tokens,
                         "completion_tokens": t.completion_tokens}
-                       for t in (res.trajectory.turns if res.trajectory else [])]},
+                       for t in (res.trajectory.turns if res.trajectory else [])],
+             "passes": [
+                 {"pass": i,
+                  "leaks": lk,
+                  "answer": str((pr.payload or {}).get("answer", ""))[:400],
+                  "turns": [{"turn": t.turn, "code": t.code, "stdout": t.stdout,
+                             "stderr": t.stderr, "error": t.error}
+                            for t in (pr.trajectory.turns if pr.trajectory else [])]}
+                 for i, pr, lk in passes]},
             ensure_ascii=False, default=str, indent=1), encoding="utf-8")
     except Exception as exc:  # noqa: BLE001
         rec.update(answer="", turns=0, tokens=0,
